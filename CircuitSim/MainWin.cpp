@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QString>
 #include <QDebug>
+#include <QPushButton>
 
 mainWin::mainWin(QWidget *parent) : QMainWindow(parent)
 {
@@ -12,6 +13,7 @@ mainWin::mainWin(QWidget *parent) : QMainWindow(parent)
     setGeometry(0,0,800,600);
 
     initializeMenu();
+    initializeToolbar();
 }
 
 void mainWin::initializeMenu(){
@@ -46,6 +48,16 @@ void mainWin::initializeMenu(){
     tutorialAct = new QAction("Tutorial",this);
     helpMenu->addAction(tutorialAct);
 }
+
+void mainWin::initializeToolbar() {
+    toolbar = new QToolBar(this);
+    toolbar->addWidget(new QPushButton("VCC"));
+    toolbar->addWidget(new QPushButton("Resistor"));
+    toolbar->setMovable(false);
+
+    addToolBar(Qt::RightToolBarArea, toolbar);
+}
+
 
 
 void mainWin::newFile(){
