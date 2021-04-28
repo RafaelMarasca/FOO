@@ -1,7 +1,12 @@
 #ifndef MAINWIN_H
 #define MAINWIN_H
 
-#include <QMainWindow>
+#include<QMainWindow>
+#include<QMenuBar>
+#include<QMenu>
+#include<QAction>
+#include <QFileDialog>
+#include <QString>
 
 class mainWin : public QMainWindow
 {
@@ -11,7 +16,23 @@ public:
 
 signals:
 
-public slots:
+private:
+    QMenuBar *mainBar;
+    QMenu *fileMenu;
+    QMenu *prefMenu;
+    QMenu *helpMenu;
+    QAction *openFileAct;
+    QAction *saveFileAct;
+    QAction *saveFileAsAct;
+    QAction *newFileAct;
+    QAction *prefAct;
+    QAction *tutorialAct;
+    void initializeMenu();
+    QString fileName;
+
+private slots:
+
+    void newFile();
     void openFile();
     void saveFile();
     void saveFileAs();

@@ -2,35 +2,68 @@
 #include<QMenuBar>
 #include<QMenu>
 #include<QAction>
-#include <QGraphicsScene>
-#include <QGraphicsView>
+#include <QFileDialog>
+#include <QString>
+#include <QDebug>
 
 mainWin::mainWin(QWidget *parent) : QMainWindow(parent)
 {
     setWindowTitle("CircuitSim - by Carvalho && Marasca");
     setGeometry(0,0,800,600);
 
-    QMenuBar *bar = new QMenuBar(this);
-    bar->setGeometry(0,0,300,30);
+    initializeMenu();
+}
 
-    QMenu *fileMenu = new QMenu("File",this);
-    bar->addMenu(fileMenu);
+void mainWin::initializeMenu(){
+    mainBar = new QMenuBar(this);
+    mainBar->setGeometry(0,0,300,30);
 
-    QAction *openAction = new QAction("Open",this);
-    fileMenu->addAction(openAction);
+    fileMenu = new QMenu("File",this);
+    mainBar->addMenu(fileMenu);
 
-    QAction *saveAction = new QAction("Save",this);
-    fileMenu->addAction(saveAction);
+    newFileAct = new QAction("New File",this);
+    fileMenu->addAction(newFileAct);
 
-    QAction *saveAsAction = new QAction("Save as",this);
-    fileMenu->addAction(saveAsAction);
+    connect(newFileAct,SIGNAL(triggered(bool)),this,SLOT(newFile()));
 
-    QMenu *prefMenu = new QMenu("Preferences",this);
-    bar->addMenu(prefMenu);
+    openFileAct = new QAction("Open",this);
+    fileMenu->addAction(openFileAct);
 
-    QMenu *helpMenu = new QMenu("Help",this);
-    bar->addMenu(helpMenu);
+    connect(openFileAct,SIGNAL(triggered(bool)),this, SLOT(openFile()));
 
-    QAction *tutorialAction = new QAction("Tutorial",this);
-    helpMenu->addAction(tutorialAction);
+    saveFileAct = new QAction("Save",this);
+    fileMenu->addAction(saveFileAct);
+
+    saveFileAsAct = new QAction("Save as",this);
+    fileMenu->addAction(saveFileAsAct);
+
+    prefMenu = new QMenu("Preferences",this);
+    mainBar->addMenu(prefMenu);
+
+    helpMenu = new QMenu("Help",this);
+    mainBar->addMenu(helpMenu);
+
+    tutorialAct = new QAction("Tutorial",this);
+    helpMenu->addAction(tutorialAct);
+}
+
+
+void mainWin::newFile(){
+    fileName = QFileDialog::getSaveFileName(this,".cct");
+}
+
+void mainWin::openFile(){
+    fileName = QFileDialog::getOpenFileName(this,"Open file",tr("*.cct"));
+}
+
+void mainWin::saveFile(){
+
+}
+
+void mainWin::saveFileAs(){
+    fileName = QFileDialog::getSaveFileName(this,".cct");
+}
+
+void mainWin::preferences(){
+
 }
