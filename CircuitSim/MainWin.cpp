@@ -1,4 +1,5 @@
 #include "MainWin.h"
+#include "Diagram.h"
 #include<QMenuBar>
 #include<QMenu>
 #include<QAction>
@@ -14,6 +15,7 @@ mainWin::mainWin(QWidget *parent) : QMainWindow(parent)
 
     initializeMenu();
     initializeToolbar();
+
 }
 
 void mainWin::initializeMenu(){
@@ -61,7 +63,8 @@ void mainWin::initializeToolbar() {
 
 
 void mainWin::newFile(){
-
+    d= new Diagram(this);
+    d->print();
 }
 
 void mainWin::openFile(){

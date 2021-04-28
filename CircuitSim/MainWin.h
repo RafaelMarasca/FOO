@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QString>
 #include <QToolBar>
+#include "Diagram.h"
 
 class mainWin : public QMainWindow
 {
@@ -18,6 +19,7 @@ public:
 signals:
 
 private:
+    Diagram* d;
     QMenuBar *mainBar;
     QMenu *fileMenu;
     QMenu *prefMenu;

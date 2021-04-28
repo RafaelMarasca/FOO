@@ -2,18 +2,18 @@
 
 Diagram::Diagram(QObject *parent) : QObject(parent)
 {
-    scene = new QGraphicsScene;
+    scene = new QGraphicsScene(0,0,300,300);
+    scene->addText("hello circuit");
+    view.setScene(scene);
 }
 
 Diagram::~Diagram()
 {
-    delete scene;
+    //delete scene;
 }
 
 
 void Diagram::print(){
-    scene->addText("hello circuit");
-    QGraphicsView view(scene);
     view.show();
 }
 

@@ -12,6 +12,7 @@ class Diagram : public QObject
 public:
     explicit Diagram(QObject *parent = nullptr);
     ~Diagram();
+    void print();
 
 signals:
 
@@ -21,9 +22,9 @@ public slots:
    // void load();
    // void save();
    // void query();
-    void print();
 
 private:
+    QGraphicsView view;
     QGraphicsScene* scene;
     CCT::Circuit circuit;
 };

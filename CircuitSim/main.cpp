@@ -1,6 +1,9 @@
 #include<QApplication>
 #include "MainWin.h"
+#include "Diagram.h"
 #include <QDebug>
+#include <QGraphicsScene>
+#include <QGraphicsView>
 
 int main(int argc, char* argv[]){
 
