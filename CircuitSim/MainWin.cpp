@@ -49,7 +49,7 @@ void mainWin::initializeMenu(){
 
 
 void mainWin::newFile(){
-    fileName = QFileDialog::getSaveFileName(this,".cct");
+
 }
 
 void mainWin::openFile(){

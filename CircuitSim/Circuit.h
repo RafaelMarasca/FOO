@@ -26,8 +26,8 @@ namespace CCT{
         Circuit(std::vector<std::vector<int>> matrix, std::vector<CMP::Component*> comp);
 		~Circuit();
 
-        void load(std::fstream& input);
-        void save(std::fstream& output);
+        void load(std::ifstream& input);
+        void save(std::ofstream& output);
 
 		void initialize();
 		void reset();

@@ -18,18 +18,68 @@ namespace CCT{
 		}
 	}
 
-    void Circuit::save(std::fstream& output){
+    void Circuit::save(std::ofstream& output){
         std::pair<unsigned int,unsigned int> vtx;
+        int32_t type;
+        uint32_t size;
+        uint32_t aux;
+        double value;
 
         for(unsigned int i = 0; i < components.size(); i++){
-            output.write(reinterpret_cast<char*>(components[i]->getType()), sizeof(CMP::type));
-            output.write(reinterpret_cast<char*>(components[i]->getLabel().size()),sizeof(std::size_t));
+            type = components[i]->getType();
+            output.write(reinterpret_cast<char*>(&type), sizeof(CMP::type));
+
+            size = components[i]->getLabel().size();
+            output.write(reinterpret_cast<char*>(&size),sizeof(uint32_t));
+
             output.write((components[i]->getLabel()).c_str(),(components[i]->getLabel()).size());
+
+            if(components[i]->getType() == CMP::RESISTOR){
+                CMP::Resistor* R = dynamic_cast<CMP::Resistor*>(components[i]);
+
+                if(R != nullptr){
+                    value = R->getResistance();
+                }else{
+                    throw std::string("Falha");
+                    return;
+                }
+            }else{
+                value = components[i]->getVoltage();
+            }
+
+            output.write(reinterpret_cast<char*>(&value),sizeof(double));
+
             vtx = components[i]->getNodes();
-            output.write(reinterpret_cast<char*>(vtx.first),sizeof(unsigned int));
-            output.write(reinterpret_cast<char*>(vtx.second),sizeof(unsigned int));
+            aux = vtx.first;
+            output.write(reinterpret_cast<char*>(&aux),sizeof(uint32_t));
+            aux = vtx.second;
+            output.write(reinterpret_cast<char*>(&vtx.second),sizeof(uint32_t));
         }
     }
+
+    void Circuit::load(std::ifstream &input){
+        int32_t type;
+        std::pair<uint32_t,uint32_t> vtx;
+        uint32_t size;
+        char byte;
+        std::string label;
+        double value;
+
+        while(input.read(reinterpret_cast<char*>(&type),sizeof(int32_t))){
+            input.read(reinterpret_cast<char*>(&size),sizeof(uint32_t));
+            for(unsigned int j = 0; j < size; j++){
+                input.read(&byte,sizeof(char));
+                label.append(&byte,1);
+            }
+
+            input.read(reinterpret_cast<char*>(&value),sizeof(double));
+            input.read(reinterpret_cast<char*>(&vtx.first),sizeof(uint32_t));
+            input.read(reinterpret_cast<char*>(&vtx.second),sizeof(uint32_t));
+
+            addComponent(CMP::type(type),label,value,vtx.first,vtx.second);
+            label.clear();
+           }
+        }
 
     void Circuit::updateComponents(std::vector<double> currents, std::vector<double> pot) {
 		std::pair<unsigned int, unsigned int> vtx;
