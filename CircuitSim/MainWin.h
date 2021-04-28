@@ -7,6 +7,7 @@
 #include<QAction>
 #include <QFileDialog>
 #include <QString>
+#include <QToolBar>
 
 class mainWin : public QMainWindow
 {
@@ -29,6 +30,9 @@ private:
     QAction *tutorialAct;
     void initializeMenu();
     QString fileName;
+    QToolBar *toolbar;
+
+    void initializeToolbar();
 
 private slots:
     void newFile();
