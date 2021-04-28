@@ -12,7 +12,10 @@ public:
 signals:
 
 public slots:
-
+    void openFile();
+    void saveFile();
+    void saveFileAs();
+    void preferences();
 };
 
 #endif // MAINWIN_H
