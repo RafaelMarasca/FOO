@@ -3,8 +3,18 @@ TARGET = CircuitSim
 QT = core gui widgets
 
 SOURCES += \
-    main.cpp \
-    mainwin.cpp
+    Circuit.cpp \
+    Component.cpp \
+    Diagram.cpp \
+    Graph.cpp \
+    MainWin.cpp \
+    Numeric.cpp \
+    main.cpp
 
 HEADERS += \
-    mainwin.h
+    Circuit.h \
+    Component.h \
+    Diagram.h \
+    Graph.h \
+    MainWin.h \
+    Numeric.h

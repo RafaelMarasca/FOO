@@ -1,4 +1,4 @@
-#include "mainwin.h"
+#include "MainWin.h"
 #include<QMenuBar>
 #include<QMenu>
 #include<QAction>
@@ -53,7 +53,7 @@ void mainWin::newFile(){
 }
 
 void mainWin::openFile(){
-    fileName = QFileDialog::getOpenFileName(this,"Open file",tr("*.cct"));
+    fileName = QFileDialog::getOpenFileName(this,"Open file",tr("*.txt"));
 }
 
 void mainWin::saveFile(){

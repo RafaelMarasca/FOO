@@ -31,7 +31,6 @@ private:
     QString fileName;
 
 private slots:
-
     void newFile();
     void openFile();
     void saveFile();
