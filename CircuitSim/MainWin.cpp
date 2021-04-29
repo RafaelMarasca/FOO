@@ -56,12 +56,12 @@ void mainWin::initializeToolbar() {
     resButton = new QPushButton(this);
     vccButton = new QPushButton(this);
 
-    QPixmap vccPixmap(QDir::currentPath() + "/images/b.jpeg");
+    QPixmap vccPixmap(QDir::currentPath() + "/images/vcc.png");
     QIcon vccButtonIcon(vccPixmap.scaled(65, 65));
     vccButton->setIcon(vccButtonIcon);
     vccButton->setIconSize(QSize(65, 65));
 
-    QPixmap resPixmap(QDir::currentPath() + "/images/a.jpeg");
+    QPixmap resPixmap(QDir::currentPath() + "/images/resistor.png");
     QIcon resButtonIcon(resPixmap.scaled(65, 65));
     resButton->setIcon(resButtonIcon);
     resButton->setIconSize(QSize(65, 65));
