@@ -125,6 +125,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../CircuitSim/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -226,6 +227,7 @@ Makefile: ../CircuitSim/CircuitSim.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -305,6 +307,7 @@ Makefile: ../CircuitSim/CircuitSim.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -387,6 +390,10 @@ moc_Diagram.cpp: ../CircuitSim/Diagram.h \
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/lucas/Área de Trabalho/Trabs/FOO/build-CircuitSim-Desktop-Profile/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/lucas/Área de Trabalho/Trabs/FOO/CircuitSim' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../CircuitSim/Diagram.h -o moc_Diagram.cpp
 
 moc_MainWin.cpp: ../CircuitSim/MainWin.h \
+		../CircuitSim/Diagram.h \
+		../CircuitSim/Circuit.h \
+		../CircuitSim/Graph.h \
+		../CircuitSim/Component.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/lucas/Área de Trabalho/Trabs/FOO/build-CircuitSim-Desktop-Profile/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/lucas/Área de Trabalho/Trabs/FOO/CircuitSim' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../CircuitSim/MainWin.h -o moc_MainWin.cpp
@@ -425,7 +432,11 @@ Diagram.o: ../CircuitSim/Diagram.cpp ../CircuitSim/Diagram.h \
 Graph.o: ../CircuitSim/Graph.cpp ../CircuitSim/Graph.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Graph.o ../CircuitSim/Graph.cpp
 
-MainWin.o: ../CircuitSim/MainWin.cpp ../CircuitSim/MainWin.h
+MainWin.o: ../CircuitSim/MainWin.cpp ../CircuitSim/MainWin.h \
+		../CircuitSim/Diagram.h \
+		../CircuitSim/Circuit.h \
+		../CircuitSim/Graph.h \
+		../CircuitSim/Component.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWin.o ../CircuitSim/MainWin.cpp
 
 Numeric.o: ../CircuitSim/Numeric.cpp ../CircuitSim/Numeric.h \
@@ -434,7 +445,11 @@ Numeric.o: ../CircuitSim/Numeric.cpp ../CircuitSim/Numeric.h \
 		../CircuitSim/Component.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Numeric.o ../CircuitSim/Numeric.cpp
 
-main.o: ../CircuitSim/main.cpp ../CircuitSim/MainWin.h
+main.o: ../CircuitSim/main.cpp ../CircuitSim/MainWin.h \
+		../CircuitSim/Diagram.h \
+		../CircuitSim/Circuit.h \
+		../CircuitSim/Graph.h \
+		../CircuitSim/Component.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CircuitSim/main.cpp
 
 moc_Diagram.o: moc_Diagram.cpp 

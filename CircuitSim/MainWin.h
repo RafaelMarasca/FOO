@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QString>
 #include <QToolBar>
+#include <QPushButton>
 #include "Diagram.h"
 
 class mainWin : public QMainWindow
@@ -34,6 +35,9 @@ private:
     QString fileName;
     QToolBar *toolbar;
 
+
+    QPushButton *resButton;
+    QPushButton *vccButton;
     void initializeToolbar();
 
 private slots:
