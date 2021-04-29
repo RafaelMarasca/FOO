@@ -9,6 +9,7 @@
 #include <QString>
 #include <QToolBar>
 #include <list>
+#include <QPushButton>
 #include "Diagram.h"
 
 class mainWin : public QMainWindow
@@ -34,6 +35,9 @@ private:
     QAction *tutorialAct;
     QToolBar *toolbar;
 
+
+    QPushButton *resButton;
+    QPushButton *vccButton;
     void initializeMenu();
     void initializeToolbar();
     void initializeTabs();
