@@ -58,7 +58,8 @@ SOURCES       = ../CircuitSim/Circuit.cpp \
 		../CircuitSim/Graph.cpp \
 		../CircuitSim/MainWin.cpp \
 		../CircuitSim/Numeric.cpp \
-		../CircuitSim/main.cpp moc_Diagram.cpp \
+		../CircuitSim/main.cpp qrc_Resources.cpp \
+		moc_Diagram.cpp \
 		moc_MainWin.cpp
 OBJECTS       = Circuit.o \
 		Component.o \
@@ -67,6 +68,7 @@ OBJECTS       = Circuit.o \
 		MainWin.o \
 		Numeric.o \
 		main.o \
+		qrc_Resources.o \
 		moc_Diagram.o \
 		moc_MainWin.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -249,7 +251,8 @@ Makefile: ../CircuitSim/CircuitSim.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../CircuitSim/CircuitSim.pro
+		../CircuitSim/CircuitSim.pro \
+		../CircuitSim/Resources.qrc
 	$(QMAKE) -o Makefile ../CircuitSim/CircuitSim.pro -spec linux-g++ CONFIG+=qml_debug CONFIG+=force_debug_info CONFIG+=separate_debug_info
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf:
@@ -330,6 +333,7 @@ Makefile: ../CircuitSim/CircuitSim.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf:
 ../CircuitSim/CircuitSim.pro:
+../CircuitSim/Resources.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../CircuitSim/CircuitSim.pro -spec linux-g++ CONFIG+=qml_debug CONFIG+=force_debug_info CONFIG+=separate_debug_info
 
@@ -344,6 +348,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents ../CircuitSim/Resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../CircuitSim/Circuit.h ../CircuitSim/Component.h ../CircuitSim/Diagram.h ../CircuitSim/Graph.h ../CircuitSim/MainWin.h ../CircuitSim/Numeric.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../CircuitSim/Circuit.cpp ../CircuitSim/Component.cpp ../CircuitSim/Diagram.cpp ../CircuitSim/Graph.cpp ../CircuitSim/MainWin.cpp ../CircuitSim/Numeric.cpp ../CircuitSim/main.cpp $(DISTDIR)/
@@ -370,8 +375,15 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_Resources.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_Resources.cpp
+qrc_Resources.cpp: ../CircuitSim/Resources.qrc \
+		/usr/lib/qt5/bin/rcc \
+		../CircuitSim/resourceFile/iconFile/vcc.png \
+		../CircuitSim/resourceFile/iconFile/resistor.png
+	/usr/lib/qt5/bin/rcc -name Resources ../CircuitSim/Resources.qrc -o qrc_Resources.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
@@ -410,7 +422,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
 
@@ -451,6 +463,9 @@ main.o: ../CircuitSim/main.cpp ../CircuitSim/MainWin.h \
 		../CircuitSim/Graph.h \
 		../CircuitSim/Component.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CircuitSim/main.cpp
+
+qrc_Resources.o: qrc_Resources.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_Resources.o qrc_Resources.cpp
 
 moc_Diagram.o: moc_Diagram.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_Diagram.o moc_Diagram.cpp

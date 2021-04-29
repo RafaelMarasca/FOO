@@ -18,3 +18,6 @@ HEADERS += \
     Graph.h \
     MainWin.h \
     Numeric.h
+
+RESOURCES += \
+    Resources.qrc
