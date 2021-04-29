@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/icons">
-        <file>resourceFile/iconFile/vcc.png</file>
-        <file>resourceFile/iconFile/resistor.png</file>
-    </qresource>
-</RCC>
