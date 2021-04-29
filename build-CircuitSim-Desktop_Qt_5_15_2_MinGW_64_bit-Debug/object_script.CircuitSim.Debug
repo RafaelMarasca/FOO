@@ -1,0 +1,12 @@
+debug/Circuit.o
+debug/Component.o
+debug/Diagram.o
+debug/DiagramView.o
+debug/Graph.o
+debug/MainWindow.o
+debug/Numeric.o
+debug/main.o
+debug/qrc_Resources.o
+debug/moc_Diagram.o
+debug/moc_DiagramView.o
+debug/moc_MainWindow.o

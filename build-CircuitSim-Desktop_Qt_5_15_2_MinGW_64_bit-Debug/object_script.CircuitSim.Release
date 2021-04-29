@@ -1,0 +1,12 @@
+release/Circuit.o
+release/Component.o
+release/Diagram.o
+release/DiagramView.o
+release/Graph.o
+release/MainWindow.o
+release/Numeric.o
+release/main.o
+release/qrc_Resources.o
+release/moc_Diagram.o
+release/moc_DiagramView.o
+release/moc_MainWindow.o
