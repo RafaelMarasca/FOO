@@ -9,6 +9,8 @@
 #include <QPushButton>
 #include <QTabWidget>
 #include <QTabBar>
+#include <QPixmap>
+#include <QIcon>
 
 mainWin::mainWin(QWidget *parent) : QMainWindow(parent)
 {
@@ -59,8 +61,22 @@ void mainWin::initializeMenu(){
 
 void mainWin::initializeToolbar() {
     toolbar = new QToolBar(this);
-    toolbar->addWidget(new QPushButton("VCC"));
-    toolbar->addWidget(new QPushButton("Resistor"));
+    resButton = new QPushButton(this);
+    vccButton = new QPushButton(this);
+
+    QPixmap vccPixmap(QDir::currentPath() + "/images/vcc.png");
+    QIcon vccButtonIcon(vccPixmap.scaled(65, 65));
+    vccButton->setIcon(vccButtonIcon);
+    vccButton->setIconSize(QSize(65, 65));
+
+    QPixmap resPixmap(QDir::currentPath() + "/images/resistor.png");
+    QIcon resButtonIcon(resPixmap.scaled(65, 65));
+    resButton->setIcon(resButtonIcon);
+    resButton->setIconSize(QSize(65, 65));
+
+    toolbar->addWidget(vccButton);
+    toolbar->addWidget(resButton);
+
     toolbar->setMovable(false);
 
     addToolBar(Qt::RightToolBarArea, toolbar);
