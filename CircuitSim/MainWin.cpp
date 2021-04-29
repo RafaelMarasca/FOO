@@ -9,6 +9,7 @@
 #include <QPushButton>
 #include <QTabWidget>
 #include <QTabBar>
+#include <QFileInfo>
 
 mainWin::mainWin(QWidget *parent) : QMainWindow(parent)
 {
@@ -42,8 +43,12 @@ void mainWin::initializeMenu(){
     saveFileAct = new QAction("Save",this);
     fileMenu->addAction(saveFileAct);
 
+    connect(saveFileAct,SIGNAL(triggered(bool)),this, SLOT(saveFile()));
+
     saveFileAsAct = new QAction("Save as",this);
     fileMenu->addAction(saveFileAsAct);
+
+     connect(saveFileAsAct,SIGNAL(triggered(bool)),this, SLOT(saveFileAs()));
 
     prefMenu = new QMenu("Preferences",this);
     mainBar->addMenu(prefMenu);
@@ -82,17 +87,57 @@ void mainWin::newFile(){
     untitled.append(QString::number(tabs->count()));
 
     tabs->addTab(D->getView(),untitled);
+
+    connect(D,SIGNAL(modified(bool)),this,SLOT(setTabStatus(bool)));
 }
 
 void mainWin::openFile(){
-    QString fileName = QFileDialog::getOpenFileName(this,"Open file",tr("*.ctt"));
-    int index = tabs->currentIndex();
-    std::list<Diagram*>::iterator it = diagrams.begin();
-    advance(it,index);
-    (*it)->setFileName(fileName);
+    QString fileName = QFileDialog::getOpenFileName(this,"Open file",tr("*.cct"));
+
+    if(fileName.isNull())
+         return;
+
+    QFileInfo info(fileName);
+    fileName = info.fileName();
+
+    Diagram* D = new Diagram(this);
+    D->setFileName(fileName);
+
+    try {
+        D->load();
+    }  catch (std::string()) {
+        delete D;
+        return;
+    }
+
+    diagrams.push_back(D);
+    tabs->addTab(D->getView(),fileName);
+}
+
+void mainWin::openFile(QString fileName){
+
+    if(fileName.isNull())
+         return;
+
+    Diagram* D = new Diagram(this);
+    D->setFileName(fileName);
+
+    try {
+        D->load();
+    }  catch (std::string()) {
+        delete D;
+        return;
+    }
+
+    diagrams.push_back(D);
+    tabs->addTab(D->getView(),fileName);
 }
 
 void mainWin::saveFile(){
+
+    if(tabs->count() == 0)
+        return;
+
     int index = tabs->currentIndex();
     std::list<Diagram*>::iterator it = diagrams.begin();
     advance(it,index);
@@ -101,20 +146,67 @@ void mainWin::saveFile(){
         saveFileAs();
         return;
     }
+
+    (*it)->save();
 }
 
 void mainWin::saveFileAs(){
-    //fileName = QFileDialog::getSaveFileName(this,".cct");
-    //tabs->setTabText(index);
+
+    if(tabs->count()==0)
+        return;
+
+    QString fileName = QFileDialog::getSaveFileName(this,"*.cct");
+
+    if(fileName.isNull())
+        return;
+
+    QFileInfo info(fileName);
+    fileName = info.fileName();
+
+    int index = tabs->currentIndex();
+    std::list<Diagram*>::iterator it = diagrams.begin();
+    advance(it,index);
+
+    if((*it)->getStatus()==OK){
+
+        openFile(fileName);
+        return;
+    }
+
+    tabs->setTabText(index,fileName);
+
+    (*it)->setFileName(fileName);
+    (*it)->save();
+    qDebug()<<"teste";
 }
 
 void mainWin::preferences(){
 
 }
 
+void mainWin::setTabStatus(bool modified){
+    int index = tabs->currentIndex();
+    QString fileName = tabs->tabText(index);
+
+    if(modified){
+        fileName.prepend('*');
+    }else{
+        fileName.remove(0,1);
+    }
+
+    qDebug()<<"teste";
+    tabs->setTabText(index, fileName);
+}
+
 void mainWin::closeFile(int index){
+
     std::list<Diagram*>::iterator it = diagrams.begin();
     std::advance(it,index);
+
+    if((*it)->getStatus() == UNSAVED or (*it)->getStatus() == MODIFIED){
+        //dialog
+    }
+
     diagrams.erase(it);
     tabs->removeTab(index);
 }

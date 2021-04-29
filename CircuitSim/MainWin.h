@@ -37,6 +37,7 @@ private:
     void initializeMenu();
     void initializeToolbar();
     void initializeTabs();
+    void openFile(QString fileName);
 
 private slots:
     void newFile();
@@ -44,6 +45,7 @@ private slots:
     void saveFile();
     void saveFileAs();
     void preferences();
+    void setTabStatus(bool modified);
     void closeFile(int index);
 };
 

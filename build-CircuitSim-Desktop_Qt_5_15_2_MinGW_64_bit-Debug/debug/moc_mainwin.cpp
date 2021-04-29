@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_mainWin_t {
-    QByteArrayData data[9];
-    char stringdata0[74];
+    QByteArrayData data[11];
+    char stringdata0[96];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,12 +39,15 @@ QT_MOC_LITERAL(3, 17, 8), // "openFile"
 QT_MOC_LITERAL(4, 26, 8), // "saveFile"
 QT_MOC_LITERAL(5, 35, 10), // "saveFileAs"
 QT_MOC_LITERAL(6, 46, 11), // "preferences"
-QT_MOC_LITERAL(7, 58, 9), // "closeFile"
-QT_MOC_LITERAL(8, 68, 5) // "index"
+QT_MOC_LITERAL(7, 58, 12), // "setTabStatus"
+QT_MOC_LITERAL(8, 71, 8), // "modified"
+QT_MOC_LITERAL(9, 80, 9), // "closeFile"
+QT_MOC_LITERAL(10, 90, 5) // "index"
 
     },
     "mainWin\0newFile\0\0openFile\0saveFile\0"
-    "saveFileAs\0preferences\0closeFile\0index"
+    "saveFileAs\0preferences\0setTabStatus\0"
+    "modified\0closeFile\0index"
 };
 #undef QT_MOC_LITERAL
 
@@ -54,7 +57,7 @@ static const uint qt_meta_data_mainWin[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -62,12 +65,13 @@ static const uint qt_meta_data_mainWin[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x08 /* Private */,
-       3,    0,   45,    2, 0x08 /* Private */,
-       4,    0,   46,    2, 0x08 /* Private */,
-       5,    0,   47,    2, 0x08 /* Private */,
-       6,    0,   48,    2, 0x08 /* Private */,
-       7,    1,   49,    2, 0x08 /* Private */,
+       1,    0,   49,    2, 0x08 /* Private */,
+       3,    0,   50,    2, 0x08 /* Private */,
+       4,    0,   51,    2, 0x08 /* Private */,
+       5,    0,   52,    2, 0x08 /* Private */,
+       6,    0,   53,    2, 0x08 /* Private */,
+       7,    1,   54,    2, 0x08 /* Private */,
+       9,    1,   57,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -75,7 +79,8 @@ static const uint qt_meta_data_mainWin[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    8,
+    QMetaType::Void, QMetaType::Bool,    8,
+    QMetaType::Void, QMetaType::Int,   10,
 
        0        // eod
 };
@@ -91,7 +96,8 @@ void mainWin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 2: _t->saveFile(); break;
         case 3: _t->saveFileAs(); break;
         case 4: _t->preferences(); break;
-        case 5: _t->closeFile((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 5: _t->setTabStatus((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 6: _t->closeFile((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -126,13 +132,13 @@ int mainWin::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

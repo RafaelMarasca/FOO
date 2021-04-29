@@ -1,0 +1,11 @@
+release/Circuit.o
+release/Component.o
+release/Diagram.o
+release/Diagram2.o
+release/Graph.o
+release/MainWin.o
+release/Numeric.o
+release/main.o
+release/moc_Diagram.o
+release/moc_Diagram2.o
+release/moc_MainWin.o
