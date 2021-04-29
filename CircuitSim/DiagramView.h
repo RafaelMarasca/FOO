@@ -2,9 +2,9 @@
 #define DIAGRAMVIEW_H
 
 #include <QGraphicsView>
-#include<QMouseEvent>
-#include<QDebug>
-#include<QPushButton>
+#include <QMouseEvent>
+#include <QDebug>
+#include <QPushButton>
 
 class DiagramView : public QGraphicsView
 {

@@ -1,6 +1,7 @@
 release/Circuit.o
 release/Component.o
 release/Diagram.o
+release/DiagramScene.o
 release/DiagramView.o
 release/Graph.o
 release/MainWindow.o

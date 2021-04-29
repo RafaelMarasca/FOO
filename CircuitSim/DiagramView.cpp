@@ -11,15 +11,6 @@ DiagramView::DiagramView(QGraphicsScene *scene, QWidget *parent) : QGraphicsView
     initializeButtons();
 }
 
-void DiagramView::upScale(){
-    this->scale(1.25,1.25);
-}
-
-void DiagramView::downScale(){
-    qDebug()<<"zoom";
-    this->scale(0.75,0.75);
-}
-
 void DiagramView::initializeButtons(){
     zoomIn = new QPushButton(this);
     zoomIn->setFixedSize(50,50);
@@ -36,6 +27,16 @@ void DiagramView::initializeButtons(){
     connect(zoomIn,SIGNAL(clicked(bool)), this, SLOT(upScale()));
     connect(zoomOut,SIGNAL(clicked(bool)), this, SLOT(downScale()));
 }
+
+void DiagramView::upScale(){
+    this->scale(1.25,1.25);
+}
+
+void DiagramView::downScale(){
+    qDebug()<<"zoom";
+    this->scale(0.75,0.75);
+}
+
 /*void DiagramView::resizeEvent(QResizeEvent* event){
 
     updateButtonsPosition();

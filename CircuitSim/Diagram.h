@@ -5,12 +5,10 @@
 #include <QObject>
 #include <QGraphicsScene>
 #include <QGraphicsView>
-//#include "Circuit.h"
-#include "DiagramView.h"
 #include <QPushButton>
-
-#define SWIDTH 6000
-#define SHEIGHT 6000
+#include "DiagramView.h"
+#include "DiagramScene.h"
+#include "Circuit.h"
 
 enum sts{UNSAVED,MODIFIED,OK,ERROR};
 
@@ -39,15 +37,14 @@ public slots:
 
 private:
     QPushButton* zoomIn;
-    QGraphicsScene* scene;
-    //CCT::Circuit circuit;
+    DiagramScene* scene;
     DiagramView* view;
     std::string fileName;
     enum sts status;
+
+    CCT::Circuit circuit;
+
     void setStatus(enum sts newStatus);
-
-    void buildSceneBackGround();
-
 };
 
 #endif // DIAGRAM_H

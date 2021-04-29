@@ -1,6 +1,7 @@
 debug/Circuit.o
 debug/Component.o
 debug/Diagram.o
+debug/DiagramScene.o
 debug/DiagramView.o
 debug/Graph.o
 debug/MainWindow.o
