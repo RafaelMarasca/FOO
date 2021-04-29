@@ -7,6 +7,8 @@
 #include <QString>
 #include <QDebug>
 #include <QPushButton>
+#include <QTabWidget>
+#include <QTabBar>
 
 mainWin::mainWin(QWidget *parent) : QMainWindow(parent)
 {
@@ -15,6 +17,8 @@ mainWin::mainWin(QWidget *parent) : QMainWindow(parent)
 
     initializeMenu();
     initializeToolbar();
+    initializeTabs();
+    setCentralWidget(tabs);
 
 }
 
@@ -49,6 +53,8 @@ void mainWin::initializeMenu(){
 
     tutorialAct = new QAction("Tutorial",this);
     helpMenu->addAction(tutorialAct);
+
+    setMenuBar(mainBar);
 }
 
 void mainWin::initializeToolbar() {
@@ -60,25 +66,55 @@ void mainWin::initializeToolbar() {
     addToolBar(Qt::RightToolBarArea, toolbar);
 }
 
-
+void mainWin::initializeTabs(){
+    tabs = new QTabWidget();
+    tabs->setTabsClosable(true);
+    connect(tabs, SIGNAL(tabCloseRequested(int)), this, SLOT(closeFile(int)));
+    tabs->show();
+}
 
 void mainWin::newFile(){
-    d= new Diagram(this);
-    d->print();
+
+    Diagram* D = new Diagram(this);
+    diagrams.push_back(D);
+
+    QString untitled = "*untitled ";
+    untitled.append(QString::number(tabs->count()));
+
+    tabs->addTab(D->getView(),untitled);
 }
 
 void mainWin::openFile(){
-    fileName = QFileDialog::getOpenFileName(this,"Open file",tr("*.txt"));
+    QString fileName = QFileDialog::getOpenFileName(this,"Open file",tr("*.ctt"));
+    int index = tabs->currentIndex();
+    std::list<Diagram*>::iterator it = diagrams.begin();
+    advance(it,index);
+    (*it)->setFileName(fileName);
 }
 
 void mainWin::saveFile(){
+    int index = tabs->currentIndex();
+    std::list<Diagram*>::iterator it = diagrams.begin();
+    advance(it,index);
 
+    if((*it)->getStatus()==UNSAVED){
+        saveFileAs();
+        return;
+    }
 }
 
 void mainWin::saveFileAs(){
-    fileName = QFileDialog::getSaveFileName(this,".cct");
+    //fileName = QFileDialog::getSaveFileName(this,".cct");
+    //tabs->setTabText(index);
 }
 
 void mainWin::preferences(){
 
+}
+
+void mainWin::closeFile(int index){
+    std::list<Diagram*>::iterator it = diagrams.begin();
+    std::advance(it,index);
+    diagrams.erase(it);
+    tabs->removeTab(index);
 }

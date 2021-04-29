@@ -23,7 +23,6 @@ namespace CCT{
 
         public:
 		Circuit();
-        Circuit(std::vector<std::vector<int>> matrix, std::vector<CMP::Component*> comp);
 		~Circuit();
 
         void load(std::ifstream& input);

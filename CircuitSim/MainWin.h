@@ -1,13 +1,14 @@
 #ifndef MAINWIN_H
 #define MAINWIN_H
 
-#include<QMainWindow>
-#include<QMenuBar>
-#include<QMenu>
-#include<QAction>
+#include <QMainWindow>
+#include <QMenuBar>
+#include <QMenu>
+#include <QAction>
 #include <QFileDialog>
 #include <QString>
 #include <QToolBar>
+#include <list>
 #include "Diagram.h"
 
 class mainWin : public QMainWindow
@@ -19,7 +20,8 @@ public:
 signals:
 
 private:
-    Diagram* d;
+    std::list<Diagram*> diagrams;
+    QTabWidget* tabs;
     QMenuBar *mainBar;
     QMenu *fileMenu;
     QMenu *prefMenu;
@@ -30,11 +32,11 @@ private:
     QAction *newFileAct;
     QAction *prefAct;
     QAction *tutorialAct;
-    void initializeMenu();
-    QString fileName;
     QToolBar *toolbar;
 
+    void initializeMenu();
     void initializeToolbar();
+    void initializeTabs();
 
 private slots:
     void newFile();
@@ -42,6 +44,7 @@ private slots:
     void saveFile();
     void saveFileAs();
     void preferences();
+    void closeFile(int index);
 };
 
 #endif // MAINWIN_H

@@ -1,20 +1,51 @@
 #include "Diagram.h"
+#include <QDebug>
+#include <iostream>
+#include <fstream>
+#include <QString>
 
-Diagram::Diagram(QObject *parent) : QObject(parent)
+Diagram::Diagram(QObject *parent) :QObject(parent)
 {
-    scene = new QGraphicsScene(0,0,300,300);
+    scene = new QGraphicsScene(this);
     scene->addText("hello circuit");
-    view.setScene(scene);
+    view = new QGraphicsView(scene);
+    status = UNSAVED;
 }
 
-Diagram::~Diagram()
-{
-    //delete scene;
+Diagram::~Diagram(){
+    delete view;
 }
 
-
-void Diagram::print(){
-    view.show();
+QWidget* Diagram::getView(){
+    return view;
 }
 
+void Diagram::setFileName(QString file){
+    fileName = file.toStdString();
+}
+
+QString Diagram::getFileName(){
+    return QString::fromStdString(fileName);
+}
+
+void Diagram::save(){
+
+    std::ofstream file;
+
+    file.open(fileName, std::ios::out|std::ios::binary);
+
+    if(!file.is_open())
+        throw std::string("Failed to open file");
+
+    try {
+        circuit.save(file);
+    }catch (std::string log) {
+        QString str;
+        qDebug()<<str;
+    }
+
+    status = OK;
+}
+
+enum sts Diagram::getStatus(){return status;}
 
