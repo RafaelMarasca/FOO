@@ -3,6 +3,8 @@
         <file>resourceFile/iconFile/appIcon.png</file>
         <file>resourceFile/iconFile/resistor.png</file>
         <file>resourceFile/iconFile/vcc.png</file>
+        <file>resourceFile/iconFile/plusIcon.png</file>
+        <file>resourceFile/iconFile/minusIcon.png</file>
     </qresource>
     <qresource prefix="/components">
         <file>resourceFile/componentFile/vcc.png</file>

@@ -13,15 +13,29 @@ DiagramView::DiagramView(QGraphicsScene *scene, QWidget *parent) : QGraphicsView
 
 void DiagramView::initializeButtons(){
     zoomIn = new QPushButton(this);
-    zoomIn->setFixedSize(50,50);
+    zoomIn->setFixedSize(51,51);
+
+    QPixmap inPixmap(":/icons/resourceFile/iconFile/plusIcon.png");
+    QIcon zoomInIcon(inPixmap.scaled(51, 51));
+
+    zoomIn->setIcon(zoomInIcon);
+    zoomIn->setIconSize(QSize(51, 51));
+
     zoomOut = new QPushButton(this);
-    zoomOut->setFixedSize(50,50);
+    zoomOut->setFixedSize(51,51);
+
+    QPixmap outPixmap(":/icons/resourceFile/iconFile/minusIcon.png");
+    QIcon zoomOutIcon(outPixmap.scaled(51, 51));
+
+    zoomOut->setIcon(zoomOutIcon);
+    zoomOut->setIconSize(QSize(51, 51));
+
 
     QVBoxLayout *vbox = new QVBoxLayout(this);
     vbox->setAlignment(Qt::AlignBottom|Qt::AlignRight);
     vbox->addWidget(zoomIn);
     vbox->addWidget(zoomOut);
-    vbox->setContentsMargins(0,0,50,50);
+    vbox->setContentsMargins(0,0,51,51);
     setLayout(vbox);
 
     connect(zoomIn,SIGNAL(clicked(bool)), this, SLOT(upScale()));

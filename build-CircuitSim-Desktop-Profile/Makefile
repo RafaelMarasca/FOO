@@ -52,16 +52,24 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../CircuitSim/Diagram.cpp \
+SOURCES       = ../CircuitSim/Circuit.cpp \
+		../CircuitSim/Component.cpp \
+		../CircuitSim/Diagram.cpp \
 		../CircuitSim/DiagramView.cpp \
+		../CircuitSim/Graph.cpp \
 		../CircuitSim/MainWindow.cpp \
+		../CircuitSim/Numeric.cpp \
 		../CircuitSim/main.cpp qrc_Resources.cpp \
 		moc_Diagram.cpp \
 		moc_DiagramView.cpp \
 		moc_MainWindow.cpp
-OBJECTS       = Diagram.o \
+OBJECTS       = Circuit.o \
+		Component.o \
+		Diagram.o \
 		DiagramView.o \
+		Graph.o \
 		MainWindow.o \
+		Numeric.o \
 		main.o \
 		qrc_Resources.o \
 		moc_Diagram.o \
@@ -145,11 +153,19 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../CircuitSim/CircuitSim.pro ../CircuitSim/Diagram.h \
+		../CircuitSim/CircuitSim.pro ../CircuitSim/Circuit.h \
+		../CircuitSim/Component.h \
+		../CircuitSim/Diagram.h \
 		../CircuitSim/DiagramView.h \
-		../CircuitSim/MainWindow.h ../CircuitSim/Diagram.cpp \
+		../CircuitSim/Graph.h \
+		../CircuitSim/MainWindow.h \
+		../CircuitSim/Numeric.h ../CircuitSim/Circuit.cpp \
+		../CircuitSim/Component.cpp \
+		../CircuitSim/Diagram.cpp \
 		../CircuitSim/DiagramView.cpp \
+		../CircuitSim/Graph.cpp \
 		../CircuitSim/MainWindow.cpp \
+		../CircuitSim/Numeric.cpp \
 		../CircuitSim/main.cpp
 QMAKE_TARGET  = CircuitSim
 DESTDIR       = 
@@ -340,8 +356,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../CircuitSim/Resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../CircuitSim/Diagram.h ../CircuitSim/DiagramView.h ../CircuitSim/MainWindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../CircuitSim/Diagram.cpp ../CircuitSim/DiagramView.cpp ../CircuitSim/MainWindow.cpp ../CircuitSim/main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../CircuitSim/Circuit.h ../CircuitSim/Component.h ../CircuitSim/Diagram.h ../CircuitSim/DiagramView.h ../CircuitSim/Graph.h ../CircuitSim/MainWindow.h ../CircuitSim/Numeric.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CircuitSim/Circuit.cpp ../CircuitSim/Component.cpp ../CircuitSim/Diagram.cpp ../CircuitSim/DiagramView.cpp ../CircuitSim/Graph.cpp ../CircuitSim/MainWindow.cpp ../CircuitSim/Numeric.cpp ../CircuitSim/main.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -373,8 +389,10 @@ qrc_Resources.cpp: ../CircuitSim/Resources.qrc \
 		../CircuitSim/resourceFile/componentFile/vcc.png \
 		../CircuitSim/resourceFile/componentFile/resistor.png \
 		../CircuitSim/resourceFile/iconFile/vcc.png \
+		../CircuitSim/resourceFile/iconFile/minusIcon.png \
 		../CircuitSim/resourceFile/iconFile/appIcon.png \
-		../CircuitSim/resourceFile/iconFile/resistor.png
+		../CircuitSim/resourceFile/iconFile/resistor.png \
+		../CircuitSim/resourceFile/iconFile/plusIcon.png
 	/usr/lib/qt5/bin/rcc -name Resources ../CircuitSim/Resources.qrc -o qrc_Resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -420,6 +438,15 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
+Circuit.o: ../CircuitSim/Circuit.cpp ../CircuitSim/Circuit.h \
+		../CircuitSim/Graph.h \
+		../CircuitSim/Component.h \
+		../CircuitSim/Numeric.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Circuit.o ../CircuitSim/Circuit.cpp
+
+Component.o: ../CircuitSim/Component.cpp ../CircuitSim/Component.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Component.o ../CircuitSim/Component.cpp
+
 Diagram.o: ../CircuitSim/Diagram.cpp ../CircuitSim/Diagram.h \
 		../CircuitSim/DiagramView.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Diagram.o ../CircuitSim/Diagram.cpp
@@ -427,10 +454,19 @@ Diagram.o: ../CircuitSim/Diagram.cpp ../CircuitSim/Diagram.h \
 DiagramView.o: ../CircuitSim/DiagramView.cpp ../CircuitSim/DiagramView.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DiagramView.o ../CircuitSim/DiagramView.cpp
 
+Graph.o: ../CircuitSim/Graph.cpp ../CircuitSim/Graph.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Graph.o ../CircuitSim/Graph.cpp
+
 MainWindow.o: ../CircuitSim/MainWindow.cpp ../CircuitSim/MainWindow.h \
 		../CircuitSim/Diagram.h \
 		../CircuitSim/DiagramView.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o ../CircuitSim/MainWindow.cpp
+
+Numeric.o: ../CircuitSim/Numeric.cpp ../CircuitSim/Numeric.h \
+		../CircuitSim/Circuit.h \
+		../CircuitSim/Graph.h \
+		../CircuitSim/Component.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Numeric.o ../CircuitSim/Numeric.cpp
 
 main.o: ../CircuitSim/main.cpp ../CircuitSim/MainWindow.h \
 		../CircuitSim/Diagram.h \
