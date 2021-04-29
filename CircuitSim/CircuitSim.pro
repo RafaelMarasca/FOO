@@ -13,4 +13,5 @@ HEADERS += \
     DiagramView.h \
     MainWindow.h
 
-RESOURCES +=
+RESOURCES += \
+    Resources.qrc

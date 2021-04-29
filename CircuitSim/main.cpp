@@ -8,6 +8,8 @@ int main(int argc, char* argv[]){
 
     MainWindow win;
 
+    win.setWindowIcon(QIcon(":/icons/resourceFile/iconFile/appIcon.png"));
+
     win.show();
 
     return app.exec();

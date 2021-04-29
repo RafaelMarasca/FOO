@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>resourceFile/iconFile/appIcon.png</file>
+        <file>resourceFile/iconFile/resistor.png</file>
+        <file>resourceFile/iconFile/vcc.png</file>
+    </qresource>
+    <qresource prefix="/components">
+        <file>resourceFile/componentFile/vcc.png</file>
+        <file>resourceFile/componentFile/resistor.png</file>
+    </qresource>
+</RCC>
