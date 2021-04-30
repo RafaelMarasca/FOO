@@ -3,6 +3,7 @@
 #include <QVBoxLayout>
 #include <QPainter>
 #include <QScrollBar>
+#include <QDebug>
 
 
 Diagram::Diagram(QWidget *parent) : QWidget(parent)
@@ -10,7 +11,9 @@ Diagram::Diagram(QWidget *parent) : QWidget(parent)
     initializeDiagram();
     status = UNSAVED;
     scale = 1;
-    object = NONE;
+    selected = NONE;
+    GraphicComponent* comp = new GraphicComponent(220,200,VERTICAL,this);
+    drawList.push_back(comp);
 }
 
 void Diagram::setFileName(QString file){
@@ -100,20 +103,11 @@ void Diagram::paintEvent(QPaintEvent* event){
     painter.setPen(penColor);
     painter.setBrush(backGroundColor);
     painter.drawRect(rect());
-    painter.scale(scale,scale);
 
-    std::list<std::pair<enum selected,QPoint>>::iterator it;
-
+    //std::list<std::pair<enum selected,QPoint>>::iterator it;
+    std::list<GraphicComponent*>::iterator it;
     for(it = drawList.begin(); it!=drawList.end(); it++){
-        switch((*it).first){
-            case VCC:
-                painter.drawEllipse((*it).second.x(),(*it).second.y(),25,25);
-            break;
-
-            case RES:
-                painter.drawRect((*it).second.x(),(*it).second.y(),25,25);
-            break;
-        }
+            (*drawList.begin())->draw(&painter);
     }
 
     for(int x = 0; x<width; x+=50){
@@ -155,23 +149,37 @@ void Diagram::initializeDiagram(){
         update();
     }
 
-    void Diagram::setSelectedObject(enum selected obj){
-        object = obj;
+    void Diagram::setSelectedObject(enum type obj){
+        selected = obj;
     }
 
 
     void Diagram::mousePressEvent(QMouseEvent* event){
-        std::pair<enum selected,QPoint> obj;
-        obj.second = event->pos();
-        obj.first = object;
-        drawList.push_back(obj);
+        //std::pair<enum selected,QPoint> obj;
+        //obj.second = event->pos();
+        //obj.first = object;
+       // GraphicComponent* comp = new GraphicComponent(event->pos());
+        //drawList.push_back(comp);
+        qreal x = event->x();
+        qreal y = event->y();
+
+        qDebug()<<x;
+        qDebug()<<y;
+
+        if((*drawList.begin())->clicked(x,y)==0){
+            qDebug()<<"clicado cima";
+        }else if((*drawList.begin())->clicked(x,y)==1){
+            qDebug()<<"clicado baixo";
+        }
 
         update();
     }
-    /*void mouseMoveEvent(QMouseEvent* event){
+    /*void Diagram::mouseMoveEvent(QMouseEvent* event){
+        qDebug()<<event->x();
+        qDebug()<<event->y();
+        event->accept();
+    }*/
 
-    }
-
-    void mouseReleasedEvent(QMouseEvent* event){
+    /*void mouseReleasedEvent(QMouseEvent* event){
 
     }*/

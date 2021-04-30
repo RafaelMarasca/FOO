@@ -7,6 +7,7 @@ SOURCES += \
     Component.cpp \
     Diagram.cpp \
     Graph.cpp \
+    GraphicComponent.cpp \
     MainWindow.cpp \
     Numeric.cpp \
     main.cpp
@@ -16,6 +17,7 @@ HEADERS += \
     Component.h \
     Diagram.h \
     Graph.h \
+    GraphicComponent.h \
     MainWindow.h \
     Numeric.h
 

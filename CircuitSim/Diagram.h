@@ -8,9 +8,10 @@
 #include "Circuit.h"
 #include <QScrollArea>
 #include <QMouseEvent>
+#include "GraphicComponent.h"
 
 enum sts{UNSAVED,MODIFIED,OK,ERROR};
-enum selected{VCC,RES,NONE};
+enum type{VCC,RES,NONE};
 
 class Diagram : public QWidget
 {
@@ -23,11 +24,11 @@ public:
     void load();
     void save();
     enum sts getStatus();
-    void setSelectedObject(enum selected);
+    void setSelectedObject(enum type);
 
     protected:
         void mousePressEvent(QMouseEvent* event) override;
-       // void mouseMoveEvent(QMouseEvent* event) override;
+        //void mouseMoveEvent(QMouseEvent* event) override;
        // void mouseReleasedEvent(QMouseEvent* event);
 
 signals:
@@ -56,9 +57,9 @@ private:
     qreal scale;
     qreal x,y;
 
-    std::list<std::pair<enum selected,QPoint>> drawList;
-
-    enum selected object;
+    //std::list<std::pair<enum selected,QPoint>> drawList;
+    std::list<GraphicComponent*> drawList;
+    enum type selected;
 };
 
 #endif // DIAGRAM_H
