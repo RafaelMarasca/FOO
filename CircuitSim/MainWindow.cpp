@@ -12,6 +12,7 @@
 #include <QFileInfo>
 #include <QPixmap>
 #include <QIcon>
+#include "ComponentBar.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -65,46 +66,10 @@ void MainWindow::initializeMenu(){
 }
 
 void MainWindow::initializeToolbar() {
-    toolbar = new QToolBar(this);
-
-    vcc90Button = new QPushButton(this);
-    vcc180Button = new QPushButton(this);
-
-    res180Button = new QPushButton(this);
-    res90Button = new QPushButton(this);
-
-    //connect(vccButton,SIGNAL(clicked(bool)),this,SLOT(drawVcc()));
-    //connect(resButton,SIGNAL(clicked(bool)),this,SLOT(drawRes()));
-
-    QPixmap vcc90Pixmap(":/icons/resourceFile/iconFile/vcc90.png");
-    QIcon vcc90ButtonIcon(vcc90Pixmap.scaled(65, 65));
-    vcc90Button->setIcon(vcc90ButtonIcon);
-    vcc90Button->setIconSize(QSize(65, 65));
-
-    QPixmap vcc180Pixmap(":/icons/resourceFile/iconFile/vcc180.png");
-    QIcon vcc180ButtonIcon(vcc180Pixmap.scaled(65, 65));
-    vcc180Button->setIcon(vcc180ButtonIcon);
-    vcc180Button->setIconSize(QSize(65, 65));
-
-    QPixmap res90Pixmap(":/icons/resourceFile/iconFile/resistor90.png");
-    QIcon res90ButtonIcon(res90Pixmap.scaled(65, 65));
-    res90Button->setIcon(res90ButtonIcon);
-    res90Button->setIconSize(QSize(65, 65));
-
-    QPixmap res180Pixmap(":/icons/resourceFile/iconFile/resistor180.png");
-    QIcon res180ButtonIcon(res180Pixmap.scaled(65, 65));
-    res180Button->setIcon(res180ButtonIcon);
-    res180Button->setIconSize(QSize(65, 65));
-
-    toolbar->addWidget(vcc90Button);
-    toolbar->addWidget(vcc180Button);
-
-    toolbar->addWidget(res180Button);
-    toolbar->addWidget(res90Button);
-
-    toolbar->setMovable(false);
-
+    toolbar = new ComponentBar(this);
     addToolBar(Qt::RightToolBarArea, toolbar);
+
+    connect(toolbar,SIGNAL(selected(int)),this,SLOT(draw(int)));
 }
 
 void MainWindow::initializeTabs(){
@@ -243,25 +208,17 @@ void MainWindow::closeFile(int index){
     tabs->removeTab(index);
 }
 
-void MainWindow::drawVcc(){
+void MainWindow::draw(int t){
     if(tabs->count() == 0)
         return;
+
+    enum type type = static_cast<enum type>(t);
 
     int index = tabs->currentIndex();
     std::list<Diagram*>::iterator it = diagrams.begin();
     advance(it,index);
+    qDebug()<<"certo";
 
-    (*it)->setSelectedObject(VCC);
-}
-
-void MainWindow::drawRes(){
-    if(tabs->count() == 0)
-        return;
-
-    int index = tabs->currentIndex();
-    std::list<Diagram*>::iterator it = diagrams.begin();
-    advance(it,index);
-
-    (*it)->setSelectedObject(RES);
+    (*it)->setSelectedObject(type);
 }
 

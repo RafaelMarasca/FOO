@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Diagram_t {
     QByteArrayData data[7];
-    char stringdata0[54];
+    char stringdata0[55];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,12 +37,12 @@ QT_MOC_LITERAL(1, 8, 8), // "modified"
 QT_MOC_LITERAL(2, 17, 0), // ""
 QT_MOC_LITERAL(3, 18, 7), // "checked"
 QT_MOC_LITERAL(4, 26, 9), // "loadError"
-QT_MOC_LITERAL(5, 36, 7), // "upScale"
-QT_MOC_LITERAL(6, 44, 9) // "downScale"
+QT_MOC_LITERAL(5, 36, 9), // "queryMode"
+QT_MOC_LITERAL(6, 46, 8) // "editMode"
 
     },
     "Diagram\0modified\0\0checked\0loadError\0"
-    "upScale\0downScale"
+    "queryMode\0editMode"
 };
 #undef QT_MOC_LITERAL
 
@@ -92,8 +92,8 @@ void Diagram::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 1: _t->modified(); break;
         case 2: _t->loadError((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 3: _t->loadError(); break;
-        case 4: _t->upScale(); break;
-        case 5: _t->downScale(); break;
+        case 4: _t->queryMode(); break;
+        case 5: _t->editMode(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

@@ -10,7 +10,7 @@
 #include <QMouseEvent>
 #include "GraphicComponent.h"
 
-enum type{VCC,RES,NONE};
+enum type{VCC90,VCC180,RES90,RES180,NONE};
 enum sts{UNSAVED,MODIFIED,OK,ERROR};
 enum mode{EDIT,QUERY};
 
@@ -42,8 +42,8 @@ signals:
 
 
 public slots:
-    void editMode();
     void queryMode();
+    void editMode();
    // void insert();
    // void remove();
    // void query();

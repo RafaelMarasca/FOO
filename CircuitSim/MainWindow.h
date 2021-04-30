@@ -11,6 +11,7 @@
 #include <list>
 #include <QPushButton>
 #include "Diagram.h"
+#include "ComponentBar.h"
 
 class MainWindow : public QMainWindow
 {
@@ -33,13 +34,7 @@ private:
     QAction *newFileAct;
     QAction *prefAct;
     QAction *tutorialAct;
-    QToolBar *toolbar;
-
-
-    QPushButton *res180Button;
-    QPushButton *res90Button;
-    QPushButton *vcc180Button;
-    QPushButton *vcc90Button;
+    ComponentBar* toolbar;
 
     void initializeMenu();
     void initializeToolbar();
@@ -54,8 +49,7 @@ private slots:
     void preferences();
     void setTabStatus(bool modified);
     void closeFile(int index);
-    void drawRes();
-    void drawVcc();
+    void draw(int type);
 };
 
 #endif // MAINWIN_H

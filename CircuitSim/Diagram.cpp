@@ -11,8 +11,7 @@ Diagram::Diagram(QWidget *parent) : QWidget(parent)
     initializeDiagram();
     status = UNSAVED;
     selected = NONE;
-    GraphicComponent* comp = new GraphicComponent(220,200,HORIZONTAL,this);
-    drawList.push_back(comp);
+    mode = EDIT;
 }
 
 void Diagram::setFileName(QString file){
@@ -103,11 +102,6 @@ void Diagram::paintEvent(QPaintEvent* event){
     painter.setBrush(backGroundColor);
     painter.drawRect(rect());
 
-    std::list<GraphicComponent*>::iterator it;
-    for(it = drawList.begin(); it!=drawList.end(); it++){
-            (*drawList.begin())->draw(&painter);
-    }
-
     for(int x = 0; x<width; x+=50){
         painter.drawLine(x,0,x,height);
     }
@@ -115,6 +109,15 @@ void Diagram::paintEvent(QPaintEvent* event){
     for(int y = 0; y<height; y+=50){
         painter.drawLine(0,y,width,y);
     }
+
+    int i = 0;
+    std::list<GraphicComponent*>::iterator it;
+    for(it = drawList.begin(); it!=drawList.end(); it++){
+            (*it)->draw(&painter);
+        qDebug()<<i;
+        i++;
+    }
+
     setSelectedObject(NONE);
 }
 
@@ -151,30 +154,57 @@ void Diagram::initializeDiagram(){
     connect(playButton,SIGNAL(clicked(bool)), this, SLOT(queryMode()));
 }
 
-    void Diagram::editMode(){
-        update();
-    }
-
-    void Diagram::queryMode(){
-        update();
-    }
-
-    void Diagram::setSelectedObject(enum type obj){
-        selected = obj;
-    }
+void Diagram::setSelectedObject(enum type obj){
+    selected = obj;
+}
 
 
 void Diagram::mousePressEvent(QMouseEvent* event){
     int x = event->x();
     int y = event->y();
 
-    if((*drawList.begin())->clicked(x,y) == 0){
-        qDebug()<<"clicado cima";
-    }else if((*drawList.begin())->clicked(x,y) == 1){
-        qDebug()<<"clicado baixo";
+    GraphicComponent* C;
+
+    switch(selected){
+
+        case VCC90:
+            C = new Vcc(x,y,VERTICAL,this);
+            break;
+
+        case VCC180:
+            C = new Vcc(x,y,HORIZONTAL,this);
+            break;
+
+        case RES90:
+            C = new Resistor(x,y,VERTICAL,this);
+            break;
+
+        case RES180:
+            C = new Resistor(x,y,HORIZONTAL,this);
+            break;
+
+        default:
+            C = new Resistor(x,y,HORIZONTAL,this);
+            break;
     }
 
+    drawList.push_back(C);
+
+    /*if((*drawList.begin())->clickedArea(x,y) == 1){
+        qDebug()<<"clicado cima";
+    }else if((*drawList.begin())->clickedArea(x,y) == 2){
+        qDebug()<<"clicado baixo";
+    }*/
+
     update();
+}
+
+void Diagram::queryMode(){
+    mode = QUERY;
+}
+
+void Diagram::editMode(){
+    mode = EDIT;
 }
     /*void Diagram::mouseMoveEvent(QMouseEvent* event){
         qDebug()<<event->x();

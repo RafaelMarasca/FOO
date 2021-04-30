@@ -9,7 +9,6 @@
 #define HEIGHT 115
 #define WIDTH 50
 
-enum type{VCC,RES,NONE};
 enum style{VERTICAL,HORIZONTAL};
 
 class GraphicComponent : public QObject

@@ -1,12 +1,16 @@
 release/Circuit.o
 release/Component.o
+release/ComponentBar.o
 release/Diagram.o
+release/EditDialog.o
 release/Graph.o
 release/GraphicComponent.o
 release/MainWindow.o
 release/Numeric.o
 release/main.o
 release/qrc_Resources.o
+release/moc_ComponentBar.o
 release/moc_Diagram.o
+release/moc_EditDialog.o
 release/moc_GraphicComponent.o
 release/moc_MainWindow.o

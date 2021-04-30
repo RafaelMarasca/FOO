@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_GraphicComponent_t {
-    QByteArrayData data[1];
-    char stringdata0[17];
+    QByteArrayData data[6];
+    char stringdata0[53];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,10 +32,16 @@ struct qt_meta_stringdata_GraphicComponent_t {
     )
 static const qt_meta_stringdata_GraphicComponent_t qt_meta_stringdata_GraphicComponent = {
     {
-QT_MOC_LITERAL(0, 0, 16) // "GraphicComponent"
+QT_MOC_LITERAL(0, 0, 16), // "GraphicComponent"
+QT_MOC_LITERAL(1, 17, 13), // "clickedVertex"
+QT_MOC_LITERAL(2, 31, 0), // ""
+QT_MOC_LITERAL(3, 32, 4), // "Area"
+QT_MOC_LITERAL(4, 37, 7), // "clicked"
+QT_MOC_LITERAL(5, 45, 7) // "checked"
 
     },
-    "GraphicComponent"
+    "GraphicComponent\0clickedVertex\0\0Area\0"
+    "clicked\0checked"
 };
 #undef QT_MOC_LITERAL
 
@@ -45,22 +51,54 @@ static const uint qt_meta_data_GraphicComponent[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       3,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    1,   29,    2, 0x06 /* Public */,
+       4,    1,   32,    2, 0x06 /* Public */,
+       4,    0,   35,    2, 0x26 /* Public | MethodCloned */,
+
+ // signals: parameters
+    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, QMetaType::Bool,    5,
+    QMetaType::Void,
 
        0        // eod
 };
 
 void GraphicComponent::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
-    Q_UNUSED(_a);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<GraphicComponent *>(_o);
+        Q_UNUSED(_t)
+        switch (_id) {
+        case 0: _t->clickedVertex((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 2: _t->clicked(); break;
+        default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (GraphicComponent::*)(int );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GraphicComponent::clickedVertex)) {
+                *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (GraphicComponent::*)(bool );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GraphicComponent::clicked)) {
+                *result = 1;
+                return;
+            }
+        }
+    }
 }
 
 QT_INIT_METAOBJECT const QMetaObject GraphicComponent::staticMetaObject = { {
@@ -89,6 +127,171 @@ void *GraphicComponent::qt_metacast(const char *_clname)
 int GraphicComponent::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 3)
+            *reinterpret_cast<int*>(_a[0]) = -1;
+        _id -= 3;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void GraphicComponent::clickedVertex(int _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void GraphicComponent::clicked(bool _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
+}
+struct qt_meta_stringdata_Resistor_t {
+    QByteArrayData data[1];
+    char stringdata0[9];
+};
+#define QT_MOC_LITERAL(idx, ofs, len) \
+    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
+    qptrdiff(offsetof(qt_meta_stringdata_Resistor_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
+    )
+static const qt_meta_stringdata_Resistor_t qt_meta_stringdata_Resistor = {
+    {
+QT_MOC_LITERAL(0, 0, 8) // "Resistor"
+
+    },
+    "Resistor"
+};
+#undef QT_MOC_LITERAL
+
+static const uint qt_meta_data_Resistor[] = {
+
+ // content:
+       8,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       0,    0, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+       0        // eod
+};
+
+void Resistor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    Q_UNUSED(_o);
+    Q_UNUSED(_id);
+    Q_UNUSED(_c);
+    Q_UNUSED(_a);
+}
+
+QT_INIT_METAOBJECT const QMetaObject Resistor::staticMetaObject = { {
+    QMetaObject::SuperData::link<GraphicComponent::staticMetaObject>(),
+    qt_meta_stringdata_Resistor.data,
+    qt_meta_data_Resistor,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
+
+
+const QMetaObject *Resistor::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *Resistor::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_Resistor.stringdata0))
+        return static_cast<void*>(this);
+    return GraphicComponent::qt_metacast(_clname);
+}
+
+int Resistor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = GraphicComponent::qt_metacall(_c, _id, _a);
+    return _id;
+}
+struct qt_meta_stringdata_Vcc_t {
+    QByteArrayData data[1];
+    char stringdata0[4];
+};
+#define QT_MOC_LITERAL(idx, ofs, len) \
+    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
+    qptrdiff(offsetof(qt_meta_stringdata_Vcc_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
+    )
+static const qt_meta_stringdata_Vcc_t qt_meta_stringdata_Vcc = {
+    {
+QT_MOC_LITERAL(0, 0, 3) // "Vcc"
+
+    },
+    "Vcc"
+};
+#undef QT_MOC_LITERAL
+
+static const uint qt_meta_data_Vcc[] = {
+
+ // content:
+       8,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       0,    0, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+       0        // eod
+};
+
+void Vcc::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    Q_UNUSED(_o);
+    Q_UNUSED(_id);
+    Q_UNUSED(_c);
+    Q_UNUSED(_a);
+}
+
+QT_INIT_METAOBJECT const QMetaObject Vcc::staticMetaObject = { {
+    QMetaObject::SuperData::link<GraphicComponent::staticMetaObject>(),
+    qt_meta_stringdata_Vcc.data,
+    qt_meta_data_Vcc,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
+
+
+const QMetaObject *Vcc::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *Vcc::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_Vcc.stringdata0))
+        return static_cast<void*>(this);
+    return GraphicComponent::qt_metacast(_clname);
+}
+
+int Vcc::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = GraphicComponent::qt_metacall(_c, _id, _a);
     return _id;
 }
 QT_WARNING_POP
