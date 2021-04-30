@@ -104,7 +104,6 @@ void Diagram::paintEvent(QPaintEvent* event){
     painter.setBrush(backGroundColor);
     painter.drawRect(rect());
 
-    //std::list<std::pair<enum selected,QPoint>>::iterator it;
     std::list<GraphicComponent*>::iterator it;
     for(it = drawList.begin(); it!=drawList.end(); it++){
             (*drawList.begin())->draw(&painter);
@@ -139,12 +138,12 @@ void Diagram::initializeDiagram(){
         connect(zoomOut,SIGNAL(clicked(bool)), this, SLOT(downScale()));
     }
 
-    void Diagram::upScale(){
+    void Diagram::editMode(){
         scale*=1.25;
         update();
     }
 
-    void Diagram::downScale(){
+    void Diagram::queryMode(){
         scale*=0.75;
         update();
     }
@@ -154,26 +153,18 @@ void Diagram::initializeDiagram(){
     }
 
 
-    void Diagram::mousePressEvent(QMouseEvent* event){
-        //std::pair<enum selected,QPoint> obj;
-        //obj.second = event->pos();
-        //obj.first = object;
-       // GraphicComponent* comp = new GraphicComponent(event->pos());
-        //drawList.push_back(comp);
-        qreal x = event->x();
-        qreal y = event->y();
+void Diagram::mousePressEvent(QMouseEvent* event){
+    int x = event->x();
+    int y = event->y();
 
-        qDebug()<<x;
-        qDebug()<<y;
-
-        if((*drawList.begin())->clicked(x,y)==0){
-            qDebug()<<"clicado cima";
-        }else if((*drawList.begin())->clicked(x,y)==1){
-            qDebug()<<"clicado baixo";
-        }
-
-        update();
+    if((*drawList.begin())->clicked(x,y) == 0){
+        qDebug()<<"clicado cima";
+    }else if((*drawList.begin())->clicked(x,y) == 1){
+        qDebug()<<"clicado baixo";
     }
+
+    update();
+}
     /*void Diagram::mouseMoveEvent(QMouseEvent* event){
         qDebug()<<event->x();
         qDebug()<<event->y();

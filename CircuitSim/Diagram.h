@@ -10,8 +10,9 @@
 #include <QMouseEvent>
 #include "GraphicComponent.h"
 
-enum sts{UNSAVED,MODIFIED,OK,ERROR};
 enum type{VCC,RES,NONE};
+enum sts{UNSAVED,MODIFIED,OK,ERROR};
+enum mode{EDIT,QUERY};
 
 class Diagram : public QWidget
 {
@@ -21,15 +22,19 @@ public:
 
     void setFileName(QString file);
     QString getFileName();
+
+
     void load();
     void save();
+
     enum sts getStatus();
+
     void setSelectedObject(enum type);
 
-    protected:
-        void mousePressEvent(QMouseEvent* event) override;
-        //void mouseMoveEvent(QMouseEvent* event) override;
-       // void mouseReleasedEvent(QMouseEvent* event);
+protected:
+    void mousePressEvent(QMouseEvent* event) override;
+    //void mouseMoveEvent(QMouseEvent* event) override;
+    // void mouseReleasedEvent(QMouseEvent* event);
 
 signals:
     void modified(bool checked = false);
@@ -37,8 +42,8 @@ signals:
 
 
 public slots:
-    void upScale();
-    void downScale();
+    void editMode();
+    void queryMode();
    // void insert();
    // void remove();
    // void query();
@@ -54,10 +59,9 @@ private:
 
     void setStatus(enum sts newStatus);
     void paintEvent(QPaintEvent* event) override;
-    qreal scale;
-    qreal x,y;
 
-    //std::list<std::pair<enum selected,QPoint>> drawList;
+    enum mode mode;
+
     std::list<GraphicComponent*> drawList;
     enum type selected;
 };

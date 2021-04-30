@@ -273,6 +273,10 @@ debug/moc_Diagram.cpp: ../CircuitSim/Diagram.h \
 		../CircuitSim/GraphicComponent.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QPoint \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.15.2/mingw81_64/bin/moc.exe
 	C:\Qt\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/rafae/Desktop/Foo/build-CircuitSim-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/Users/rafae/Desktop/Foo/CircuitSim -IC:/Qt/5.15.2/mingw81_64/include -IC:/Qt/5.15.2/mingw81_64/include/QtWidgets -IC:/Qt/5.15.2/mingw81_64/include/QtGui -IC:/Qt/5.15.2/mingw81_64/include/QtANGLE -IC:/Qt/5.15.2/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\CircuitSim\Diagram.h -o debug\moc_Diagram.cpp
@@ -336,6 +340,36 @@ debug/moc_GraphicComponent.cpp: ../CircuitSim/GraphicComponent.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qmargins.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsize.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QPoint \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtguiglobal.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtgui-config.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpixmap.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpaintdevice.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qcolor.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qrgb.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qrgba64.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qshareddata.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qhash.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qimage.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpixelformat.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtransform.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qmatrix.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpolygon.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qregion.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdatastream.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qline.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qbrush.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qfontinfo.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qfont.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qfontmetrics.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.15.2/mingw81_64/bin/moc.exe
 	C:\Qt\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/rafae/Desktop/Foo/build-CircuitSim-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/Users/rafae/Desktop/Foo/CircuitSim -IC:/Qt/5.15.2/mingw81_64/include -IC:/Qt/5.15.2/mingw81_64/include/QtWidgets -IC:/Qt/5.15.2/mingw81_64/include/QtGui -IC:/Qt/5.15.2/mingw81_64/include/QtANGLE -IC:/Qt/5.15.2/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\CircuitSim\GraphicComponent.h -o debug\moc_GraphicComponent.cpp
@@ -482,6 +516,10 @@ debug/moc_MainWindow.cpp: ../CircuitSim/MainWindow.h \
 		../CircuitSim/GraphicComponent.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QPoint \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.15.2/mingw81_64/bin/moc.exe
 	C:\Qt\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/rafae/Desktop/Foo/build-CircuitSim-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/Users/rafae/Desktop/Foo/CircuitSim -IC:/Qt/5.15.2/mingw81_64/include -IC:/Qt/5.15.2/mingw81_64/include/QtWidgets -IC:/Qt/5.15.2/mingw81_64/include/QtGui -IC:/Qt/5.15.2/mingw81_64/include/QtANGLE -IC:/Qt/5.15.2/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\CircuitSim\MainWindow.h -o debug\moc_MainWindow.cpp
@@ -636,15 +674,16 @@ debug/Diagram.o: ../CircuitSim/Diagram.cpp ../CircuitSim/Diagram.h \
 		../CircuitSim/GraphicComponent.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QPoint \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlayout.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgridlayout.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainter.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Diagram.o ..\CircuitSim\Diagram.cpp
 
 debug/Graph.o: ../CircuitSim/Graph.cpp ../CircuitSim/Graph.h
@@ -708,7 +747,46 @@ debug/GraphicComponent.o: ../CircuitSim/GraphicComponent.cpp ../CircuitSim/Graph
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qrect.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qmargins.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsize.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QPoint
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QPoint \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtguiglobal.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtgui-config.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpixmap.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpaintdevice.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qcolor.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qrgb.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qrgba64.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qshareddata.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qhash.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qimage.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpixelformat.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtransform.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qmatrix.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpolygon.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qregion.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdatastream.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qline.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qbrush.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qfontinfo.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qfont.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QtDebug \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdebug.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qmap.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qlocale.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qvariant.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qset.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPen
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\GraphicComponent.o ..\CircuitSim\GraphicComponent.cpp
 
 debug/MainWindow.o: ../CircuitSim/MainWindow.cpp ../CircuitSim/MainWindow.h \
@@ -853,6 +931,10 @@ debug/MainWindow.o: ../CircuitSim/MainWindow.cpp ../CircuitSim/MainWindow.h \
 		../CircuitSim/GraphicComponent.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QPoint \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QDebug \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QTabWidget \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QTabBar \
@@ -1016,7 +1098,11 @@ debug/main.o: ../CircuitSim/main.cpp C:/Qt/5.15.2/mingw81_64/include/QtWidgets/Q
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/QMouseEvent \
 		../CircuitSim/GraphicComponent.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QPoint
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QPoint \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\CircuitSim\main.cpp
 
 debug/qrc_Resources.o: debug/qrc_Resources.cpp 
