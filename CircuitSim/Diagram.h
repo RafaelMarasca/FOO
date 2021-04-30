@@ -8,6 +8,7 @@
 #include "Circuit.h"
 #include <QScrollArea>
 #include <QMouseEvent>
+#include <stack>
 #include "GraphicComponent.h"
 
 enum type{VCC90,VCC180,RES90,RES180,NONE};
@@ -29,7 +30,7 @@ public:
 
     enum sts getStatus();
 
-    void setSelectedObject(enum type);
+    void setSelectedButton(enum type);
 
 protected:
     void mousePressEvent(QMouseEvent* event) override;
@@ -63,7 +64,13 @@ private:
     enum mode mode;
 
     std::list<GraphicComponent*> drawList;
-    enum type selected;
+    GraphicComponent* selectedComponent;
+    enum type selectedButton;
+    void clickedControl(int,GraphicComponent*);
+
+    void freeAllocatedMemory();
+
+    std::stack<std::pair<int,GraphicComponent*>> clickedStack;
 };
 
 #endif // DIAGRAM_H

@@ -66,6 +66,9 @@ void GraphicComponent::draw(QPainter* painter){
     painter->drawPixmap(boundRect,*map);
 }
 
+int GraphicComponent::getHeight(){return boundRect.height();}
+int GraphicComponent::getWidth(){return boundRect.width();}
+
 
 Resistor::Resistor(int x, int y, enum style s,QObject *parent):GraphicComponent(x,y,s,parent){
 

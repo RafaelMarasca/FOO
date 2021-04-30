@@ -5,7 +5,6 @@ QT = core gui widgets
 SOURCES += \
     Circuit.cpp \
     Component.cpp \
-    ComponentBar.cpp \
     Diagram.cpp \
     EditDialog.cpp \
     Graph.cpp \
@@ -17,7 +16,6 @@ SOURCES += \
 HEADERS += \
     Circuit.h \
     Component.h \
-    ComponentBar.h \
     Diagram.h \
     EditDialog.h \
     Graph.h \

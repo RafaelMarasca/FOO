@@ -5,12 +5,12 @@
 #include <QScrollBar>
 #include <QDebug>
 
-
 Diagram::Diagram(QWidget *parent) : QWidget(parent)
 {
     initializeDiagram();
     status = UNSAVED;
-    selected = NONE;
+    selectedButton = NONE;
+    selectedComponent = nullptr;
     mode = EDIT;
 }
 
@@ -110,12 +110,9 @@ void Diagram::paintEvent(QPaintEvent* event){
         painter.drawLine(0,y,width,y);
     }
 
-    int i = 0;
     std::list<GraphicComponent*>::iterator it;
     for(it = drawList.begin(); it!=drawList.end(); it++){
-            (*it)->draw(&painter);
-        qDebug()<<i;
-        i++;
+        (*it)->draw(&painter);
     }
 
     setSelectedObject(NONE);
@@ -154,8 +151,8 @@ void Diagram::initializeDiagram(){
     connect(playButton,SIGNAL(clicked(bool)), this, SLOT(queryMode()));
 }
 
-void Diagram::setSelectedObject(enum type obj){
-    selected = obj;
+void Diagram::setSelectedButton(enum type button){
+    selectedButton = button;
 }
 
 
@@ -163,38 +160,53 @@ void Diagram::mousePressEvent(QMouseEvent* event){
     int x = event->x();
     int y = event->y();
 
-    GraphicComponent* C;
+    if(selectedButton != NONE){
+        std::list<GraphicComponent*>::iterator it;
+        for(it = drawList.begin();it != drawList.end();it++){
+            for(int i = x; i<x+WIDTH; i++){
+                for(int j = y; j< y+HEIGHT; j++){
+                    if((*it)->clickedArea(i,j)){
+                        qDebug()<<"não faça isso, por favor";
+                        return;
+                    }
+                }
+            }
+        }
 
-    switch(selected){
+        GraphicComponent* C;
 
-        case VCC90:
-            C = new Vcc(x,y,VERTICAL,this);
-            break;
+        switch(selectedButton){
 
-        case VCC180:
-            C = new Vcc(x,y,HORIZONTAL,this);
-            break;
+            case VCC90:
+                C = new Vcc(x,y,VERTICAL,this);
+                break;
 
-        case RES90:
-            C = new Resistor(x,y,VERTICAL,this);
-            break;
+            case VCC180:
+                C = new Vcc(x,y,HORIZONTAL,this);
+                break;
 
-        case RES180:
-            C = new Resistor(x,y,HORIZONTAL,this);
-            break;
+            case RES90:
+                C = new Resistor(x,y,VERTICAL,this);
+                break;
 
-        default:
-            C = new Resistor(x,y,HORIZONTAL,this);
-            break;
+            case RES180:
+                C = new Resistor(x,y,HORIZONTAL,this);
+                break;
+
+            default:
+                return;
+                break;
+        }
+
+        drawList.push_back(C);
+    }else{
+        std::list<GraphicComponent*>::iterator it;
+        for(it = drawList.begin();it != drawList.end();it++){
+            if((*it)->clickedArea(x,y)){
+                selectedComponent = *it;
+            }
+        }
     }
-
-    drawList.push_back(C);
-
-    /*if((*drawList.begin())->clickedArea(x,y) == 1){
-        qDebug()<<"clicado cima";
-    }else if((*drawList.begin())->clickedArea(x,y) == 2){
-        qDebug()<<"clicado baixo";
-    }*/
 
     update();
 }
@@ -206,12 +218,19 @@ void Diagram::queryMode(){
 void Diagram::editMode(){
     mode = EDIT;
 }
-    /*void Diagram::mouseMoveEvent(QMouseEvent* event){
-        qDebug()<<event->x();
-        qDebug()<<event->y();
-        event->accept();
-    }*/
 
-    /*void mouseReleasedEvent(QMouseEvent* event){
+void Diagram::freeAllocatedMemory(){
+    while(not drawList.empty()){
 
-    }*/
+    }
+}
+
+void Diagram::clickedControl(int index, GraphicComponent* C){
+
+    if(clickedStack.size()==1){
+        //makeCon
+    }else{
+        clickedStack.push(std::pair<int,GraphicComponent*>(index,C));
+    }
+
+}

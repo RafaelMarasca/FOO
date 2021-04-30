@@ -19,6 +19,8 @@ public :
     explicit GraphicComponent(QPoint p, enum style s  = VERTICAL,QObject *parent = nullptr);
     int clickedArea(int x, int y);
     void draw(QPainter* painter);
+    int getHeight();
+    int getWidth();
 
 signals:
     void clickedVertex(int Area);
