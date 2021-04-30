@@ -44,8 +44,8 @@ public slots:
    // void query();
 
 private:
-    QPushButton* zoomIn;
-    QPushButton* zoomOut;
+    QPushButton* playButton;
+    QPushButton* editButton;
     std::string fileName;
     enum sts status;
     void initializeDiagram();

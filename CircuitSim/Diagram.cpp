@@ -122,21 +122,35 @@ void Diagram::paintEvent(QPaintEvent* event){
 
 void Diagram::initializeDiagram(){
 
-        zoomIn = new QPushButton(this);
-        zoomIn->setFixedSize(50,50);
-        zoomOut = new QPushButton(this);
-        zoomOut->setFixedSize(50,50);
+        editButton = new QPushButton(this);
+        editButton->setFixedSize(51,51);
+
+        QPixmap editPixmap(":/icons/resourceFile/iconFile/pencilIcon.png");
+        QIcon editIcon(editPixmap.scaled(51, 51));
+
+        editButton->setIcon(editIcon);
+        editButton->setIconSize(QSize(51, 51));
+
+        playButton = new QPushButton(this);
+        playButton->setFixedSize(51,51);
+
+        QPixmap playPixmap(":/icons/resourceFile/iconFile/playIcon.png");
+        QIcon playIcon(playPixmap.scaled(51, 51));
+
+        playButton->setIcon(playIcon);
+        playButton->setIconSize(QSize(51, 51));
+
         this->resize(9000, this->height());
 
         QVBoxLayout *vbox = new QVBoxLayout(this);
         vbox->setAlignment(Qt::AlignBottom|Qt::AlignRight);
-        vbox->addWidget(zoomIn);
-        vbox->addWidget(zoomOut);
-        vbox->setContentsMargins(0,0,50,50);
+        vbox->addWidget(editButton);
+        vbox->addWidget(playButton);
+        vbox->setContentsMargins(0,0,51,51);
         setLayout(vbox);
 
-        connect(zoomIn,SIGNAL(clicked(bool)), this, SLOT(upScale()));
-        connect(zoomOut,SIGNAL(clicked(bool)), this, SLOT(downScale()));
+        connect(editButton,SIGNAL(clicked(bool)), this, SLOT(upScale()));
+        connect(playButton,SIGNAL(clicked(bool)), this, SLOT(downScale()));
     }
 
     void Diagram::upScale(){

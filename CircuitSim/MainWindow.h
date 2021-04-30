@@ -36,8 +36,11 @@ private:
     QToolBar *toolbar;
 
 
-    QPushButton *resButton;
-    QPushButton *vccButton;
+    QPushButton *res180Button;
+    QPushButton *res90Button;
+    QPushButton *vcc180Button;
+    QPushButton *vcc90Button;
+
     void initializeMenu();
     void initializeToolbar();
     void initializeTabs();

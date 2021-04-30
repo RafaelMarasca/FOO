@@ -18,7 +18,7 @@ GraphicComponent::GraphicComponent(qreal x_insert, qreal y_insert,
         boundRect = QRect(x,y,HEIGHT,WIDTH);
     }
 
-    map = new QPixmap(":/components/resourceFile/componentFile/vcc.png");
+    map = new QPixmap(":/components/resourceFile/componentFile/vcc180.png");
 }
 
 GraphicComponent::GraphicComponent(QPoint p, enum style s, QObject *parent) : QObject(parent)
