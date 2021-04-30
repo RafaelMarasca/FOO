@@ -4,6 +4,7 @@
 #include<QMenu>
 #include<QAction>
 #include <QFileDialog>
+#include <QMessageBox>
 #include <QString>
 #include <QDebug>
 #include <QPushButton>
@@ -141,7 +142,10 @@ void MainWindow::openFile(){
 
     try {
         D->load();
-    }  catch (std::string()) {
+    }  catch (std::string s) {
+        qDebug("%s\n", s.c_str());
+        QMessageBox::warning(this, "Warning!", "Cannot load file.");
+
         delete D;
         return;
     }
@@ -160,7 +164,10 @@ void MainWindow::openFile(QString fileName){
 
     try {
         D->load();
-    }  catch (std::string()) {
+    }  catch (std::string s) {
+        qDebug("%s\n", s.c_str());
+        QMessageBox::warning(this, "Warning!", "Cannot load file.");
+
         delete D;
         return;
     }
@@ -236,7 +243,9 @@ void MainWindow::closeFile(int index){
     std::advance(it,index);
 
     if((*it)->getStatus() == UNSAVED or (*it)->getStatus() == MODIFIED){
-        //dialog
+        QMessageBox::StandardButton b = QMessageBox::question(this, "Save Changes", "Quit without saving?");
+        if(b != QMessageBox::StandardButton::Yes)
+            return;
     }
 
     diagrams.erase(it);
