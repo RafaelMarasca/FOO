@@ -10,7 +10,6 @@ Diagram::Diagram(QWidget *parent) : QWidget(parent)
 {
     initializeDiagram();
     status = UNSAVED;
-    scale = 1;
     selected = NONE;
     GraphicComponent* comp = new GraphicComponent(220,200,HORIZONTAL,this);
     drawList.push_back(comp);
@@ -121,30 +120,42 @@ void Diagram::paintEvent(QPaintEvent* event){
 
 void Diagram::initializeDiagram(){
 
-        zoomIn = new QPushButton(this);
-        zoomIn->setFixedSize(50,50);
-        zoomOut = new QPushButton(this);
-        zoomOut->setFixedSize(50,50);
-        this->resize(9000, this->height());
+    editButton = new QPushButton(this);
+    editButton->setFixedSize(51,51);
 
-        QVBoxLayout *vbox = new QVBoxLayout(this);
-        vbox->setAlignment(Qt::AlignBottom|Qt::AlignRight);
-        vbox->addWidget(zoomIn);
-        vbox->addWidget(zoomOut);
-        vbox->setContentsMargins(0,0,50,50);
-        setLayout(vbox);
+    QPixmap editPixmap(":/icons/resourceFile/iconFile/pencilIcon.png");
+    QIcon editIcon(editPixmap.scaled(51, 51));
 
-        connect(zoomIn,SIGNAL(clicked(bool)), this, SLOT(upScale()));
-        connect(zoomOut,SIGNAL(clicked(bool)), this, SLOT(downScale()));
-    }
+    editButton->setIcon(editIcon);
+    editButton->setIconSize(QSize(51, 51));
+
+    playButton = new QPushButton(this);
+    playButton->setFixedSize(51,51);
+
+    QPixmap playPixmap(":/icons/resourceFile/iconFile/playIcon.png");
+    QIcon playIcon(playPixmap.scaled(51, 51));
+
+    playButton->setIcon(playIcon);
+    playButton->setIconSize(QSize(51, 51));
+
+
+    QVBoxLayout *vbox = new QVBoxLayout(this);
+    vbox->setAlignment(Qt::AlignBottom|Qt::AlignRight);
+    vbox->addWidget(editButton);
+    vbox->addWidget(playButton);
+    vbox->setContentsMargins(0,0,51,51);
+
+    setLayout(vbox);
+
+    connect(editButton,SIGNAL(clicked(bool)), this, SLOT(editMode()));
+    connect(playButton,SIGNAL(clicked(bool)), this, SLOT(queryMode()));
+}
 
     void Diagram::editMode(){
-        scale*=1.25;
         update();
     }
 
     void Diagram::queryMode(){
-        scale*=0.75;
         update();
     }
 
