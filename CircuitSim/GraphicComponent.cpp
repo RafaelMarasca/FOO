@@ -8,9 +8,17 @@ GraphicComponent::GraphicComponent(qreal x_insert, qreal y_insert,
     x = x_insert;
     y = y_insert;
 
-    vertexArea1 = QRect(x, y, WIDTH, HEIGHT/2);
-    vertexArea2 = QRect(x, y + HEIGHT/2, WIDTH, HEIGHT/2);
-    style = s;
+    if(s == VERTICAL){
+        vertexArea1 = QRect(x, y, WIDTH, HEIGHT/2);
+        vertexArea2 = QRect(x, y + HEIGHT/2, WIDTH, HEIGHT/2);
+        boundRect = QRect(x,y,WIDTH, HEIGHT);
+    }else{
+        vertexArea1 = QRect(x, y, HEIGHT/2,WIDTH);
+        vertexArea2 = QRect(x+HEIGHT/2, y, HEIGHT, WIDTH);
+        boundRect = QRect(x,y,HEIGHT,WIDTH);
+    }
+
+    map = new QPixmap(":/components/resourceFile/componentFile/vcc.png");
 }
 
 GraphicComponent::GraphicComponent(QPoint p, enum style s, QObject *parent) : QObject(parent)
@@ -18,8 +26,13 @@ GraphicComponent::GraphicComponent(QPoint p, enum style s, QObject *parent) : QO
     x = p.x();
     y = p.y();
 
-    vertexArea1 = QRect(x, y, WIDTH, HEIGHT/2);
-    vertexArea2 = QRect(x, y + HEIGHT/2, WIDTH, HEIGHT/2);
+    if(s == VERTICAL){
+        vertexArea1 = QRect(x, y, WIDTH, HEIGHT/2);
+        vertexArea2 = QRect(x, y + HEIGHT/2, WIDTH, HEIGHT/2);
+    }else{
+        vertexArea1 = QRect(x, y, HEIGHT/2,WIDTH);
+        vertexArea2 = QRect(x+HEIGHT/2, y, HEIGHT, WIDTH);
+    }
     style = s;
 
 }
@@ -42,12 +55,11 @@ int GraphicComponent::clicked(qreal x_check, qreal y_check){
     return -1;
 }
 
-QRect GraphicComponent::draw(QPainter* painter){
+void GraphicComponent::draw(QPainter* painter){
 
-    QPixmap resistor(":/components/resourceFile/componentFile/vcc.png");
     QPen pen= painter->pen();
     painter->setPen((QColor(Qt::green)));
-    painter->drawPixmap(QRect(x,y,WIDTH,HEIGHT),resistor);
+    painter->drawPixmap(boundRect,*map);
     painter->setPen(pen);
 }
 /*

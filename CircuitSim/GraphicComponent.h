@@ -18,7 +18,7 @@ public :
     explicit GraphicComponent(qreal x, qreal y, enum style s = VERTICAL,QObject *parent = nullptr);
     explicit GraphicComponent(QPoint p, enum style s  = VERTICAL,QObject *parent = nullptr);
     int clicked(qreal x, qreal y);
-    virtual QRect draw(QPainter* painter);
+    virtual void draw(QPainter* painter);
 
 signals:
 
@@ -28,8 +28,9 @@ protected:
 
     QRect vertexArea1;
     QRect vertexArea2;
+    QRect boundRect;
+    QPixmap* map;
     enum style style;
-
 };
 
 /*

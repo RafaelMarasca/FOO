@@ -12,7 +12,7 @@ Diagram::Diagram(QWidget *parent) : QWidget(parent)
     status = UNSAVED;
     scale = 1;
     selected = NONE;
-    GraphicComponent* comp = new GraphicComponent(220,200,VERTICAL,this);
+    GraphicComponent* comp = new GraphicComponent(220,200,HORIZONTAL,this);
     drawList.push_back(comp);
 }
 
