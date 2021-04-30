@@ -1,13 +1,19 @@
 <RCC>
     <qresource prefix="/icons">
         <file>resourceFile/iconFile/appIcon.png</file>
-        <file>resourceFile/iconFile/resistor.png</file>
-        <file>resourceFile/iconFile/vcc.png</file>
         <file>resourceFile/iconFile/plusIcon.png</file>
         <file>resourceFile/iconFile/minusIcon.png</file>
+        <file>resourceFile/iconFile/playIcon.png</file>
+        <file>resourceFile/iconFile/pencilIcon.png</file>
+        <file>resourceFile/iconFile/resistor90.png</file>
+        <file>resourceFile/iconFile/vcc180.png</file>
+        <file>resourceFile/iconFile/vcc90.png</file>
+        <file>resourceFile/iconFile/resistor180.png</file>
     </qresource>
     <qresource prefix="/components">
-        <file>resourceFile/componentFile/vcc.png</file>
-        <file>resourceFile/componentFile/resistor.png</file>
+        <file>resourceFile/componentFile/vcc180.png</file>
+        <file>resourceFile/componentFile/vcc90.png</file>
+        <file>resourceFile/componentFile/resistor180.png</file>
+        <file>resourceFile/componentFile/resistor90.png</file>
     </qresource>
 </RCC>

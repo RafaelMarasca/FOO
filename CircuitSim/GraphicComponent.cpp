@@ -18,8 +18,12 @@ GraphicComponent::GraphicComponent(int x_insert, int y_insert,
         boundRect = QRect(x,y,HEIGHT,WIDTH);
     }
 
+<<<<<<< HEAD
     vertex1 = 0;
     vertex2 = 0;
+=======
+    map = new QPixmap(":/components/resourceFile/componentFile/vcc180.png");
+>>>>>>> fc064f6c755408ab65966ed828d79b727ee2ec09
 }
 
 GraphicComponent::GraphicComponent(QPoint p, enum style s, QObject *parent) : QObject(parent)

@@ -6,6 +6,7 @@ SOURCES += \
     Circuit.cpp \
     Component.cpp \
     Diagram.cpp \
+    EditDialog.cpp \
     Graph.cpp \
     GraphicComponent.cpp \
     MainWindow.cpp \
@@ -16,6 +17,7 @@ HEADERS += \
     Circuit.h \
     Component.h \
     Diagram.h \
+    EditDialog.h \
     Graph.h \
     GraphicComponent.h \
     MainWindow.h \
