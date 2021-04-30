@@ -55,25 +55,25 @@ OBJECTS_DIR   = ./
 SOURCES       = ../CircuitSim/Circuit.cpp \
 		../CircuitSim/Component.cpp \
 		../CircuitSim/Diagram.cpp \
-		../CircuitSim/DiagramView.cpp \
+		../CircuitSim/EditDialog.cpp \
 		../CircuitSim/Graph.cpp \
 		../CircuitSim/MainWindow.cpp \
 		../CircuitSim/Numeric.cpp \
 		../CircuitSim/main.cpp qrc_Resources.cpp \
 		moc_Diagram.cpp \
-		moc_DiagramView.cpp \
+		moc_EditDialog.cpp \
 		moc_MainWindow.cpp
 OBJECTS       = Circuit.o \
 		Component.o \
 		Diagram.o \
-		DiagramView.o \
+		EditDialog.o \
 		Graph.o \
 		MainWindow.o \
 		Numeric.o \
 		main.o \
 		qrc_Resources.o \
 		moc_Diagram.o \
-		moc_DiagramView.o \
+		moc_EditDialog.o \
 		moc_MainWindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -156,13 +156,13 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../CircuitSim/CircuitSim.pro ../CircuitSim/Circuit.h \
 		../CircuitSim/Component.h \
 		../CircuitSim/Diagram.h \
-		../CircuitSim/DiagramView.h \
+		../CircuitSim/EditDialog.h \
 		../CircuitSim/Graph.h \
 		../CircuitSim/MainWindow.h \
 		../CircuitSim/Numeric.h ../CircuitSim/Circuit.cpp \
 		../CircuitSim/Component.cpp \
 		../CircuitSim/Diagram.cpp \
-		../CircuitSim/DiagramView.cpp \
+		../CircuitSim/EditDialog.cpp \
 		../CircuitSim/Graph.cpp \
 		../CircuitSim/MainWindow.cpp \
 		../CircuitSim/Numeric.cpp \
@@ -356,8 +356,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../CircuitSim/Resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../CircuitSim/Circuit.h ../CircuitSim/Component.h ../CircuitSim/Diagram.h ../CircuitSim/DiagramView.h ../CircuitSim/Graph.h ../CircuitSim/MainWindow.h ../CircuitSim/Numeric.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../CircuitSim/Circuit.cpp ../CircuitSim/Component.cpp ../CircuitSim/Diagram.cpp ../CircuitSim/DiagramView.cpp ../CircuitSim/Graph.cpp ../CircuitSim/MainWindow.cpp ../CircuitSim/Numeric.cpp ../CircuitSim/main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../CircuitSim/Circuit.h ../CircuitSim/Component.h ../CircuitSim/Diagram.h ../CircuitSim/EditDialog.h ../CircuitSim/Graph.h ../CircuitSim/MainWindow.h ../CircuitSim/Numeric.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CircuitSim/Circuit.cpp ../CircuitSim/Component.cpp ../CircuitSim/Diagram.cpp ../CircuitSim/EditDialog.cpp ../CircuitSim/Graph.cpp ../CircuitSim/MainWindow.cpp ../CircuitSim/Numeric.cpp ../CircuitSim/main.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -386,13 +386,17 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_Resources.cpp
 qrc_Resources.cpp: ../CircuitSim/Resources.qrc \
 		/usr/lib/qt5/bin/rcc \
-		../CircuitSim/resourceFile/componentFile/vcc.png \
-		../CircuitSim/resourceFile/componentFile/resistor.png \
+		../CircuitSim/resourceFile/componentFile/resistor90.png \
+		../CircuitSim/resourceFile/componentFile/vcc90.png \
+		../CircuitSim/resourceFile/componentFile/vcc180.png \
+		../CircuitSim/resourceFile/componentFile/resistor180.png \
 		../CircuitSim/resourceFile/iconFile/vcc.png \
+		../CircuitSim/resourceFile/iconFile/playIcon.png \
 		../CircuitSim/resourceFile/iconFile/minusIcon.png \
 		../CircuitSim/resourceFile/iconFile/appIcon.png \
 		../CircuitSim/resourceFile/iconFile/resistor.png \
-		../CircuitSim/resourceFile/iconFile/plusIcon.png
+		../CircuitSim/resourceFile/iconFile/plusIcon.png \
+		../CircuitSim/resourceFile/iconFile/pencilIcon.png
 	/usr/lib/qt5/bin/rcc -name Resources ../CircuitSim/Resources.qrc -o qrc_Resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -401,23 +405,27 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -g -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_Diagram.cpp moc_DiagramView.cpp moc_MainWindow.cpp
+compiler_moc_header_make_all: moc_Diagram.cpp moc_EditDialog.cpp moc_MainWindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_Diagram.cpp moc_DiagramView.cpp moc_MainWindow.cpp
+	-$(DEL_FILE) moc_Diagram.cpp moc_EditDialog.cpp moc_MainWindow.cpp
 moc_Diagram.cpp: ../CircuitSim/Diagram.h \
-		../CircuitSim/DiagramView.h \
+		../CircuitSim/Circuit.h \
+		../CircuitSim/Graph.h \
+		../CircuitSim/Component.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/lucas/Área de Trabalho/Trabs/FOO/build-CircuitSim-Desktop-Profile/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/lucas/Área de Trabalho/Trabs/FOO/CircuitSim' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../CircuitSim/Diagram.h -o moc_Diagram.cpp
 
-moc_DiagramView.cpp: ../CircuitSim/DiagramView.h \
+moc_EditDialog.cpp: ../CircuitSim/EditDialog.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/lucas/Área de Trabalho/Trabs/FOO/build-CircuitSim-Desktop-Profile/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/lucas/Área de Trabalho/Trabs/FOO/CircuitSim' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../CircuitSim/DiagramView.h -o moc_DiagramView.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/lucas/Área de Trabalho/Trabs/FOO/build-CircuitSim-Desktop-Profile/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/lucas/Área de Trabalho/Trabs/FOO/CircuitSim' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../CircuitSim/EditDialog.h -o moc_EditDialog.cpp
 
 moc_MainWindow.cpp: ../CircuitSim/MainWindow.h \
 		../CircuitSim/Diagram.h \
-		../CircuitSim/DiagramView.h \
+		../CircuitSim/Circuit.h \
+		../CircuitSim/Graph.h \
+		../CircuitSim/Component.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/lucas/Área de Trabalho/Trabs/FOO/build-CircuitSim-Desktop-Profile/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/lucas/Área de Trabalho/Trabs/FOO/CircuitSim' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../CircuitSim/MainWindow.h -o moc_MainWindow.cpp
@@ -448,18 +456,23 @@ Component.o: ../CircuitSim/Component.cpp ../CircuitSim/Component.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Component.o ../CircuitSim/Component.cpp
 
 Diagram.o: ../CircuitSim/Diagram.cpp ../CircuitSim/Diagram.h \
-		../CircuitSim/DiagramView.h
+		../CircuitSim/Circuit.h \
+		../CircuitSim/Graph.h \
+		../CircuitSim/Component.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Diagram.o ../CircuitSim/Diagram.cpp
 
-DiagramView.o: ../CircuitSim/DiagramView.cpp ../CircuitSim/DiagramView.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DiagramView.o ../CircuitSim/DiagramView.cpp
+EditDialog.o: ../CircuitSim/EditDialog.cpp ../CircuitSim/EditDialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o EditDialog.o ../CircuitSim/EditDialog.cpp
 
 Graph.o: ../CircuitSim/Graph.cpp ../CircuitSim/Graph.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Graph.o ../CircuitSim/Graph.cpp
 
 MainWindow.o: ../CircuitSim/MainWindow.cpp ../CircuitSim/MainWindow.h \
 		../CircuitSim/Diagram.h \
-		../CircuitSim/DiagramView.h
+		../CircuitSim/Circuit.h \
+		../CircuitSim/Graph.h \
+		../CircuitSim/Component.h \
+		../CircuitSim/EditDialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o ../CircuitSim/MainWindow.cpp
 
 Numeric.o: ../CircuitSim/Numeric.cpp ../CircuitSim/Numeric.h \
@@ -470,7 +483,9 @@ Numeric.o: ../CircuitSim/Numeric.cpp ../CircuitSim/Numeric.h \
 
 main.o: ../CircuitSim/main.cpp ../CircuitSim/MainWindow.h \
 		../CircuitSim/Diagram.h \
-		../CircuitSim/DiagramView.h
+		../CircuitSim/Circuit.h \
+		../CircuitSim/Graph.h \
+		../CircuitSim/Component.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CircuitSim/main.cpp
 
 qrc_Resources.o: qrc_Resources.cpp 
@@ -479,8 +494,8 @@ qrc_Resources.o: qrc_Resources.cpp
 moc_Diagram.o: moc_Diagram.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_Diagram.o moc_Diagram.cpp
 
-moc_DiagramView.o: moc_DiagramView.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_DiagramView.o moc_DiagramView.cpp
+moc_EditDialog.o: moc_EditDialog.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_EditDialog.o moc_EditDialog.cpp
 
 moc_MainWindow.o: moc_MainWindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MainWindow.o moc_MainWindow.cpp

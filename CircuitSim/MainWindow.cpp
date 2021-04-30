@@ -13,6 +13,8 @@
 #include <QPixmap>
 #include <QIcon>
 
+#include "EditDialog.h"
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     setWindowTitle("CircuitSim - by Carvalho && Marasca");
@@ -22,7 +24,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     initializeToolbar();
     initializeTabs();
     setCentralWidget(tabs);
-
 }
 
 void MainWindow::initializeMenu(){
