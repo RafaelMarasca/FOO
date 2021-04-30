@@ -34,9 +34,10 @@ private:
     QAction *prefAct;
     QAction *tutorialAct;
     QToolBar *toolbar;
+
+
     QPushButton *resButton;
     QPushButton *vccButton;
-
     void initializeMenu();
     void initializeToolbar();
     void initializeTabs();

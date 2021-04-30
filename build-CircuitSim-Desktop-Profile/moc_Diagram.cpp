@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Diagram_t {
-    QByteArrayData data[7];
-    char stringdata0[54];
+    QByteArrayData data[5];
+    char stringdata0[36];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,13 +35,10 @@ QT_MOC_LITERAL(0, 0, 7), // "Diagram"
 QT_MOC_LITERAL(1, 8, 8), // "modified"
 QT_MOC_LITERAL(2, 17, 0), // ""
 QT_MOC_LITERAL(3, 18, 7), // "checked"
-QT_MOC_LITERAL(4, 26, 9), // "loadError"
-QT_MOC_LITERAL(5, 36, 7), // "upScale"
-QT_MOC_LITERAL(6, 44, 9) // "downScale"
+QT_MOC_LITERAL(4, 26, 9) // "loadError"
 
     },
-    "Diagram\0modified\0\0checked\0loadError\0"
-    "upScale\0downScale"
+    "Diagram\0modified\0\0checked\0loadError"
 };
 #undef QT_MOC_LITERAL
 
@@ -51,7 +48,7 @@ static const uint qt_meta_data_Diagram[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -59,23 +56,15 @@ static const uint qt_meta_data_Diagram[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   44,    2, 0x06 /* Public */,
-       1,    0,   47,    2, 0x26 /* Public | MethodCloned */,
-       4,    1,   48,    2, 0x06 /* Public */,
-       4,    0,   51,    2, 0x26 /* Public | MethodCloned */,
-
- // slots: name, argc, parameters, tag, flags
-       5,    0,   52,    2, 0x0a /* Public */,
-       6,    0,   53,    2, 0x0a /* Public */,
+       1,    1,   34,    2, 0x06 /* Public */,
+       1,    0,   37,    2, 0x26 /* Public | MethodCloned */,
+       4,    1,   38,    2, 0x06 /* Public */,
+       4,    0,   41,    2, 0x26 /* Public | MethodCloned */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Bool,    3,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Bool,    3,
-    QMetaType::Void,
-
- // slots: parameters
-    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -91,8 +80,6 @@ void Diagram::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 1: _t->modified(); break;
         case 2: _t->loadError((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 3: _t->loadError(); break;
-        case 4: _t->upScale(); break;
-        case 5: _t->downScale(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -143,13 +130,13 @@ int Diagram::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 4)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 4;
     }
     return _id;
 }

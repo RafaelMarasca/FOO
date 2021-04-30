@@ -5,13 +5,9 @@
         <file>resourceFile/iconFile/vcc.png</file>
         <file>resourceFile/iconFile/plusIcon.png</file>
         <file>resourceFile/iconFile/minusIcon.png</file>
-        <file>resourceFile/iconFile/pencilIcon.png</file>
-        <file>resourceFile/iconFile/playIcon.png</file>
     </qresource>
     <qresource prefix="/components">
-        <file>resourceFile/componentFile/resistor90.png</file>
-        <file>resourceFile/componentFile/vcc180.png</file>
-        <file>resourceFile/componentFile/vcc90.png</file>
-        <file>resourceFile/componentFile/resistor180.png</file>
+        <file>resourceFile/componentFile/vcc.png</file>
+        <file>resourceFile/componentFile/resistor.png</file>
     </qresource>
 </RCC>
