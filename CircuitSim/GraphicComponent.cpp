@@ -34,36 +34,23 @@ int GraphicComponent::clickedArea(int x_check, int y_check){
         if(x_check > vertexArea1.x() and x_check< vertexArea1.x()+vertexArea1.width()){
             emit clicked(true);
             emit clickedVertex(vertex1,this);
-            return 1;
+            return vertex1;
         }
     }
 
     if(y_check > vertexArea2.y() and y_check< vertexArea2.y()+vertexArea2.height()){
         if(x_check > vertexArea2.x() and x_check< vertexArea2.x()+vertexArea2.width()){
             emit clicked(true);
-            emit clickedVertex(vertex2,this);
-            return 2;
+            emit clickedVertex(vertex2,this );
+            return vertex2;
         }
     }
 
-    return 0;
-}
-
-void  GraphicComponent::addLine(QLine line){
-    lines.push_back(line);
+    return -1;
 }
 
 void GraphicComponent::draw(QPainter* painter){
     painter->drawPixmap(boundRect,*map);
-
-    QPen p= painter->pen();
-    painter->setPen(QColor(Qt::green));
-    std::list<QLine>::iterator it;
-    for(it = lines.begin(); it != lines.end(); it++){
-        painter->drawLine((*it));
-    }
-    painter->setPen(p);
-
 }
 
 int GraphicComponent::getHeight(){return boundRect.height();}

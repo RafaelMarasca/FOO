@@ -32,12 +32,9 @@ public :
 
     enum orien orientation;
     enum orien getOrientation();
-    void addLine(QLine);
     unsigned int getVertex1();
     unsigned int getVertex2();
     std::string getLabel();
-
-    //void removeLine();
 
 signals:
     void clickedVertex(int Area,GraphicComponent*);
@@ -54,7 +51,6 @@ protected:
     QPixmap* map;
 
     unsigned int vertex1,vertex2;
-    std::list<QLine> lines;
 
     CMP::type componentType();
     QString label;

@@ -9,6 +9,7 @@
 #include <QScrollArea>
 #include <QMouseEvent>
 #include <stack>
+#include <QMessageBox>
 #include "GraphicComponent.h"
 #include "Graph.h"
 
@@ -33,23 +34,27 @@ public:
 
     void setSelectedButton(enum typeOrientation);
 
+    void insert(int x, int y);
+
 protected:
     void mousePressEvent(QMouseEvent* event) override;
-    //void mouseMoveEvent(QMouseEvent* event) override;
+    void mouseMoveEvent(QMouseEvent* event) override;
     // void mouseReleasedEvent(QMouseEvent* event);
 
 signals:
     void modified(bool checked = false);
     void loadError(bool checked = false);
 
-
 public slots:
     void queryMode();
     void editMode();
-    void clickedControl(int,GraphicComponent*);
-   // void insert();
-   // void remove();
-   // void query();
+    void rightButtonClicked(int x, int y, int cArea);
+    void leftButtonClicked(int x, int y, int cArea);
+    void showEditDialog();
+
+    void edit(double newValue);
+    void remove();
+    void query();
 
 private:
     QPushButton* playButton;
@@ -76,6 +81,14 @@ private:
     GRF::adjacencyMatrix connections;
 
     unsigned int wireCounter;
+    void rightButtonActions(int x, int y);
+    void leftButtonActions(int x, int y);
+
+    QMenu* editMenu;
+    void clickedControl(int,int,int);
+    QPoint cursorLocation;
+    QPoint selectedPrev;
+    std::pair<QRect,QPixmap>getPixMap(enum typeOrientation type);
 };
 
 #endif // DIAGRAM_H

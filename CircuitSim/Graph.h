@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <QLine>
 
 namespace GRF{
 
@@ -61,15 +62,15 @@ namespace GRF{
     class adjacencyMatrix {
         private:
             unsigned int vertexNumber;
-            std::vector<std::vector<unsigned int>> adjMatrix;
+            std::vector<std::vector<QLine*>> adjMatrix;
         public:
             adjacencyMatrix();
 
-            void insertEdge(unsigned int i, unsigned int j);
+            void insertEdge(unsigned int i, unsigned int j, QPoint p1, QPoint p2);
 
             void removeVertex(unsigned int i);
 
-            int query(unsigned int i, unsigned int j);
+            QLine* query(unsigned int i, unsigned int j);
 
             unsigned int getVertexNumber();
 

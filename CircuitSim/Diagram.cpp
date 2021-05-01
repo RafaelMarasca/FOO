@@ -4,8 +4,10 @@
 #include <QPainter>
 #include <QScrollBar>
 #include <QDebug>
-
-int c=1000;
+#include <QMenu>
+#include <QAction>
+#include <QMessageBox>
+#include <QInputDialog>
 
 Diagram::Diagram(QWidget *parent) : QWidget(parent)
 {
@@ -15,6 +17,8 @@ Diagram::Diagram(QWidget *parent) : QWidget(parent)
     selectedComponent = nullptr;
     mode = EDIT;
     wireCounter = 0;
+    selectedPrev = QPoint(0,0);
+    cursorLocation = QPoint(0,0);
 }
 
 void Diagram::setFileName(QString file){
@@ -99,7 +103,7 @@ void Diagram::paintEvent(QPaintEvent* event){
 
     QPainter painter(this);
     QColor backGroundColor(30,33,44);
-    QColor penColor(148,152,164);
+    QColor penColor(14,15,16);
 
     painter.setPen(penColor);
     painter.setBrush(backGroundColor);
@@ -118,7 +122,30 @@ void Diagram::paintEvent(QPaintEvent* event){
         (*it)->draw(&painter);
     }
 
-    setSelectedButton(NONE);
+    QPen p;
+
+    p.setWidth(3);
+    p.setColor(Qt::white);
+    painter.setPen(p);
+
+    for(unsigned int i = 0; i < connections.getVertexNumber(); i++){
+        for(unsigned int j = 0; j < connections.getVertexNumber(); j++){
+           QLine* ptr = connections.query(i,j);
+           if(ptr!=NULL)
+               painter.drawLine(*ptr);
+        }
+    }
+
+    if(clickedStack.size()){
+        painter.drawLine(selectedPrev,cursorLocation);
+    }
+
+   if(selectedButton!=NONE){
+       std::pair<QRect,QPixmap> map =  getPixMap(selectedButton);
+       QRect aux(cursorLocation.x(),cursorLocation.y(),map.first.width(),
+                 map.first.height());
+       painter.drawPixmap(aux,map.second);
+   }
 }
 
 void Diagram::initializeDiagram(){
@@ -152,6 +179,17 @@ void Diagram::initializeDiagram(){
 
     connect(editButton,SIGNAL(clicked(bool)), this, SLOT(editMode()));
     connect(playButton,SIGNAL(clicked(bool)), this, SLOT(queryMode()));
+
+    editMenu = new QMenu(this);
+    QAction* editValueAction = new QAction("Editar Valor",this);
+    QAction* removeAction = new QAction("Remover Componente",this);
+    editMenu->addAction(editValueAction);
+    editMenu->addAction(removeAction);
+
+    connect(editValueAction,SIGNAL(triggered(bool)),this,SLOT(showEditDialog()));
+    connect(removeAction,SIGNAL(triggered(bool)),this,SLOT(remove()));
+
+    QWidget::setMouseTracking(true);
 }
 
 void Diagram::setSelectedButton(enum typeOrientation button){
@@ -160,75 +198,105 @@ void Diagram::setSelectedButton(enum typeOrientation button){
 
 
 void Diagram::mousePressEvent(QMouseEvent* event){
+
     int x = event->x();
     int y = event->y();
 
-    if(selectedButton != NONE){
-        std::list<GraphicComponent*>::iterator it;
-        for(it = drawList.begin();it != drawList.end();it++){
-            int width = (*it)->getWidth();
-            int height = (*it)->getHeight();
+    std::list<GraphicComponent*>::iterator it;
+    for(it = drawList.begin();it != drawList.end();it++){
+        int width = (*it)->getWidth();
+        int height = (*it)->getHeight();
+        int cArea = 0;
 
-            for(int i = x; i<x+width; i++){
-                for(int j = y; j< y+height; j++){
-                    if((*it)->clickedArea(i,j)){
-                        qDebug()<<"não faça isso, por favor";
-                        return;
+        for(int i = x; i<x+width; i++){
+            for(int j = y; j< y+height; j++){
+                cArea = (*it)->clickedArea(i,j);
+                if(cArea!=-1){
+                    selectedComponent = *it;
+                    if(event->button()==Qt::LeftButton){
+                        leftButtonClicked(x,y,cArea);
+
+                    }else if(event->button()==Qt::RightButton){
+                        qDebug()<<"teste";
+                        rightButtonClicked(x,y,cArea);
+
                     }
+                    return;
                 }
             }
         }
+    }
+    selectedComponent = nullptr;
 
-        GraphicComponent* C;
+    while(clickedStack.size())
+        clickedStack.pop();
 
-        switch(selectedButton){
-
-            case VCC90:{
-
-                C = new Vcc(x,y,VERTICAL,this);
-                circuit.addComponent(CMP::VCC,C->getLabel(),3200,C->getVertex1(),C->getVertex2());
-            }break;
-
-            case VCC180:{
-                C = new Vcc(x,y,HORIZONTAL,this);
-                circuit.addComponent(CMP::VCC,C->getLabel(),12,C->getVertex1(),C->getVertex2());
-            }break;
-
-            case RES90:{
-                C = new Resistor(x,y,VERTICAL,this);
-                circuit.addComponent(CMP::RESISTOR,C->getLabel(),1000,C->getVertex1(),C->getVertex2());
-                break;
-            }
-            case RES180:{
-                C = new Resistor(x,y,HORIZONTAL,this);
-                circuit.addComponent(CMP::RESISTOR,C->getLabel(),1000,C->getVertex1(),C->getVertex2());
-            }break;
-
-            default:
-                return;
-                break;
-        }
-        drawList.push_back(C);
-        connect(C,SIGNAL(clickedVertex(int,GraphicComponent*)),this,SLOT(clickedControl(int,GraphicComponent*)));
-    }else{
-        std::list<GraphicComponent*>::iterator it;
-        for(it = drawList.begin();it != drawList.end();it++){
-            if((*it)->clickedArea(x,y)){
-                selectedComponent = *it;
-            }
-        }
+    if(selectedButton != NONE){
+        insert(x,y);
     }
 
+    return;
+}
+
+void Diagram::rightButtonClicked(int x,int y, int cArea){
+
+    if(mode == EDIT){
+        editMenu->popup(QPoint(x,y));
+    }
+}
+void Diagram::leftButtonClicked(int x,int y, int cArea){
+
+    if(mode == EDIT){
+        clickedControl(x,y,cArea);
+    }else{
+        query();
+    }
+}
+
+void Diagram::insert(int x, int y){
+
+    GraphicComponent* C;
+
+    switch(selectedButton){
+
+        case VCC90:{
+
+            C = new Vcc(x,y,VERTICAL,this);
+            circuit.addComponent(CMP::VCC,C->getLabel(),12,C->getVertex1(),C->getVertex2());
+        }break;
+
+        case VCC180:{
+            C = new Vcc(x,y,HORIZONTAL,this);
+            circuit.addComponent(CMP::VCC,C->getLabel(),12,C->getVertex1(),C->getVertex2());
+        }break;
+
+        case RES90:{
+            C = new Resistor(x,y,VERTICAL,this);
+            circuit.addComponent(CMP::RESISTOR,C->getLabel(),1000,C->getVertex1(),C->getVertex2());
+            break;
+        }
+        case RES180:{
+            C = new Resistor(x,y,HORIZONTAL,this);
+            circuit.addComponent(CMP::RESISTOR,C->getLabel(),1000,C->getVertex1(),C->getVertex2());
+        }break;
+
+        default:
+            return;
+            break;
+    }
+    drawList.push_back(C);
+    setSelectedButton(NONE);
     update();
 }
 
+
 void Diagram::queryMode(){
     circuit.initialize();
-    circuit.Solve();
     mode = QUERY;
 }
 
 void Diagram::editMode(){
+    circuit.reset();
     mode = EDIT;
 }
 
@@ -238,65 +306,155 @@ void Diagram::freeAllocatedMemory(){
     }
 }
 
-void Diagram::clickedControl(int index, GraphicComponent* C){
+void Diagram::clickedControl(int x, int y, int index){
 
-    if(mode == EDIT){
-        if(clickedStack.size()==1){
-            std::pair<int,GraphicComponent*> aux = clickedStack.top();
-            QPoint p1,p2;
+    if(clickedStack.size()==1){
+        std::pair<int,GraphicComponent*> aux = clickedStack.top();
+        QPoint p1,p2;
 
-            if(connections.query(aux.first,index)||connections.query(index,aux.first)||
-                                   aux.first==index||index == aux.first+1 ||aux.first == index+1){
-
-                while(clickedStack.size())
-                    clickedStack.pop();
-                qDebug()<<"conexao cancelada";
-                return;
-            }
-
-            connections.insertEdge(aux.first,index);
-            if(aux.second->getOrientation()==VERTICAL){
-                if(aux.first%2==0)
-                    p1 = aux.second->getTop();
-                else
-                    p1 = aux.second->getBottom();
-            }else{
-                if(aux.first%2==0)
-                    p1 = aux.second->getLeft();
-                else
-                    p1 = aux.second->getRight();
-            }
-
-            if(C->getOrientation()==VERTICAL){
-                if(index%2==0)
-                    p2 = C->getTop();
-                else
-                    p2 = C->getBottom();
-            }else{
-                if(index%2==0)
-                    p2 = C->getLeft();
-                else
-                    p2 = C->getRight();
-            }
-
-            QString str = "Aux" + QString::number(wireCounter);
-            circuit.addComponent(CMP::RESISTOR,str.toStdString(),0,aux.first,index);
-            wireCounter++;
-
-            aux.second->addLine(QLine(p1,p2));
+        if(connections.query(aux.first,index)||connections.query(index,aux.first)||
+            aux.second == selectedComponent){
             while(clickedStack.size())
                 clickedStack.pop();
-
-        }else{
-            clickedStack.push(std::pair<int,GraphicComponent*>(index,C));
+            return;
         }
-    }else{
 
-        std::cout<<"Corrente: "<<circuit.getCurrent(C->getLabel())<<std::endl;
-        std::cout<<"Tensao: "<<circuit.getVoltage(C->getLabel())<<std::endl;
-        std::cout<<"Potencial("<<C->getVertex1()<<") "<<circuit.getPotential(C->getVertex1())<<std::endl;
-        std::cout<<"Potencial("<<C->getVertex2()<<") "<<circuit.getPotential(C->getVertex2())<<std::endl;
-        circuit.print();
+        if(aux.second->getOrientation()==VERTICAL){
+            if(aux.first%2==0)
+                p1 = aux.second->getTop();
+            else
+                p1 = aux.second->getBottom();
+        }else{
+            if(aux.first%2==0)
+                p1 = aux.second->getLeft();
+            else
+                p1 = aux.second->getRight();
+        }
+
+        if(selectedComponent->getOrientation()==VERTICAL){
+            if(index%2==0)
+                p2 = selectedComponent->getTop();
+            else
+                p2 = selectedComponent->getBottom();
+        }else{
+            if(index%2==0)
+                p2 = selectedComponent->getLeft();
+            else
+                p2 = selectedComponent->getRight();
+        }
+
+        connections.insertEdge(aux.first,index,p1,p2);
+        QString str = "Aux" + QString::number(wireCounter);
+        circuit.addComponent(CMP::RESISTOR,str.toStdString(),0,aux.first,index);
+        wireCounter++;
+
+        while(clickedStack.size())
+            clickedStack.pop();
+
+    }else{
+        clickedStack.push(std::pair<int,GraphicComponent*>(index,selectedComponent));
+        selectedPrev = QPoint(x,y);
+    }
+}
+
+void Diagram::edit(double newValue){
+
+    if(newValue<0){
+        QMessageBox ErrorMessage;
+
+        ErrorMessage.setText("Edição inválida - O valor inserido deve ser positivo");
+        ErrorMessage.exec();
+        return;
+    }
+    circuit.editComponent(selectedComponent->getLabel(),newValue);
+}
+
+void Diagram::showEditDialog(){
+    QInputDialog editDialog(this);
+    editDialog.setInputMode(QInputDialog::DoubleInput);
+    connect(&editDialog,SIGNAL(doubleValueSelected(double)),this,SLOT(edit(double)));
+    editDialog.exec();
+}
+
+
+void Diagram::remove(){
+    try{
+        connections.removeVertex(selectedComponent->getVertex1());
+        connections.removeVertex(selectedComponent->getVertex2()-1);
+    }catch(std::string str){}
+    try{
+        circuit.removeComponent(selectedComponent->getLabel());
+    }catch(char const* str){
+        std::cout<<str;
     }
 
+    QMessageBox rmMessage;
+
+    QString str = QString::fromStdString(selectedComponent->getLabel());
+    str += " foi removido!";
+
+    rmMessage.setText(str);
+
+    drawList.remove(selectedComponent);
+    selectedComponent = nullptr;
+    rmMessage.exec();
+
+    update();
 }
+
+void Diagram::query(){
+
+    QMessageBox queryMessage;
+    queryMessage.setText("Informações do Componente");
+    QString currentStr = "Corrente: ";
+    QString voltageStr = "Voltage: ";
+
+    currentStr+= QString::number(circuit.getCurrent(selectedComponent->getLabel()));
+    voltageStr+= QString::number(circuit.getVoltage(selectedComponent->getLabel()));
+    queryMessage.setInformativeText(currentStr+"\n"+voltageStr);
+
+    queryMessage.exec();
+}
+
+void Diagram::mouseMoveEvent(QMouseEvent* event){
+    cursorLocation=event->pos();
+    update();
+}
+
+std::pair<QRect,QPixmap> Diagram::getPixMap(enum typeOrientation type){
+
+    QRect boundRect;
+    QPixmap map;
+
+    switch(type){
+        case VCC90:{
+            map = QPixmap(":/components/resourceFile/componentFile/vcc90.png");
+            boundRect.setHeight(HEIGHT);
+            boundRect.setWidth(WIDTH);
+        }break;
+
+        case VCC180:{
+            map = QPixmap(":/components/resourceFile/componentFile/vcc180.png");
+            boundRect.setHeight(WIDTH);
+            boundRect.setWidth(HEIGHT);
+        }break;
+
+        case RES90:{
+            map = QPixmap(":/components/resourceFile/componentFile/resistor90.png");
+            boundRect.setHeight(HEIGHT);
+            boundRect.setWidth(WIDTH);
+        }break;
+
+        case RES180:{
+            map = QPixmap(":/components/resourceFile/componentFile/resistor180.png");
+            boundRect.setHeight(WIDTH);
+            boundRect.setWidth(HEIGHT);
+        }break;
+
+        default:
+        break;
+    }
+    return std::pair<QRect,QPixmap>(boundRect,map);
+}
+
+

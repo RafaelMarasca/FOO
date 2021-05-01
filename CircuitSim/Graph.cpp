@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <stack>
-#include <deque>
+#include <QLine>
 
 namespace GRF{
 
@@ -235,7 +235,7 @@ namespace GRF{
 
 	unsigned int incidenceMatrix::getConNum(unsigned int vtx){
 		if(vtx>=getVertexNumber())
-			throw "Acesso invalido";
+            return 0;//throw "Acesso invalido";
 		unsigned int num = 0;
 
 		for(unsigned int i = 0; i<getEdgeNumber();i++){
@@ -261,22 +261,22 @@ namespace GRF{
         }
 
         //Insere um dado ponteiro para T na posição (i,j) da matriz
-        void adjacencyMatrix::insertEdge(unsigned int i, unsigned int j) {
+        void adjacencyMatrix::insertEdge(unsigned int i, unsigned int j,QPoint p1, QPoint p2) {
 
             while(i >= vertexNumber || j >= vertexNumber){
 
-                adjMatrix.push_back(std::vector<unsigned int>(vertexNumber,0));
+                adjMatrix.push_back(std::vector<QLine*>(vertexNumber,nullptr));
                 vertexNumber++;
             }
 
             for(unsigned int i = 0; i< vertexNumber; i++)
             {
                 while(adjMatrix[i].size()<vertexNumber){
-                    adjMatrix[i].push_back(0);
+                    adjMatrix[i].push_back(nullptr);
                 }
             }
 
-            adjMatrix[i][j] = 1;
+            adjMatrix[i][j] = new QLine(p1,p2);
         }
 
         //Deleta o ponteiro em (i,j) e faz (i,j) apontar para null (redundante?)
@@ -299,6 +299,7 @@ namespace GRF{
                 }
             }
             for(unsigned int i = 0; i < vertexNumber-1; i++){
+                delete adjMatrix[i].back();
                 adjMatrix[i].pop_back();
             }
 
@@ -308,10 +309,10 @@ namespace GRF{
         }
 
     //Getter da posição (i,j)
-    int adjacencyMatrix::query(unsigned int i, unsigned int j) {
+    QLine* adjacencyMatrix::query(unsigned int i, unsigned int j) {
 
         if(i>=vertexNumber||j>=vertexNumber)
-            return 0;
+            return nullptr;
 
         return adjMatrix[i][j];
     }

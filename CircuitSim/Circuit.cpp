@@ -18,7 +18,7 @@ namespace CCT{
 		}
 	}
 
-    void Circuit::save(std::ofstream& output){
+    /*void Circuit::save(std::ofstream& output){
         std::pair<unsigned int,unsigned int> vtx;
         int32_t type;
         uint32_t size;
@@ -55,9 +55,9 @@ namespace CCT{
             aux = vtx.second;
             output.write(reinterpret_cast<char*>(&vtx.second),sizeof(uint32_t));
         }
-    }
+    }*/
 
-    void Circuit::load(std::ifstream &input){
+    /*void Circuit::load(std::ifstream &input){
         int32_t type;
         std::pair<uint32_t,uint32_t> vtx;
         uint32_t size;
@@ -79,12 +79,12 @@ namespace CCT{
             addComponent(CMP::type(type),label,value,vtx.first,vtx.second);
             label.clear();
            }
-        }
+        }*/
 
-    void Circuit::updateComponents(std::vector<double> currents, std::vector<double> pot) {
+    void Circuit::updateComponents(std::vector<double> currents) {
 		std::pair<unsigned int, unsigned int> vtx;
 		std::vector<unsigned int> aux;
-		potential = pot;
+        //potential = pot;
 
 		for(unsigned int i = 0; i < components.size(); i++) {
 			vtx = getVertex (i); 
@@ -112,12 +112,12 @@ namespace CCT{
 		Solve();
 	}
 
-	void Circuit::reset() {
+    void Circuit::reset() {
 		while(chords.size())
 			chords.pop_back();
 		while(circuitMatrix.size())
 			circuitMatrix.pop_back();
-	}
+    }
 
     void Circuit::addComponent(CMP::type t,  std::string l,  double value,  unsigned int vtx1,  unsigned int vtx2){
         CMP::Component *C;
@@ -144,13 +144,6 @@ namespace CCT{
 		addEdge(vtx1, vtx2);
 		components.push_back(C);
 	}
-
-    void Circuit::addWire(unsigned int vtx1,  unsigned int vtx2){
-        std::vector<unsigned int> vec = getEdges(vtx2);
-        for(unsigned int j = 0; j<vec.size();j++){
-            inMatrix[vtx1][vec[j]]+=inMatrix[vtx2][vec[j]];
-        }
-    }
  
 	void Circuit::setGround(unsigned int vtx) {
 		if(vtx >= getVertexNumber())
@@ -219,8 +212,12 @@ namespace CCT{
 				if(not getConNum(aux.first))
 					removeVertex(aux.first);
 
-				if(not getConNum(aux.second))
-					removeVertex(aux.second);
+                if(not getConNum(aux.second)){
+                    if(aux.second>aux.first)
+                        removeVertex(aux.second-1);
+                    else
+                        removeVertex(aux.second);
+                }
 
 				unsigned int j = i+1;
                 CMP::Component*C = components[i];
@@ -236,15 +233,6 @@ namespace CCT{
 		throw "Componente nao encontrado";
 	}
 
-    void Circuit::removeWires(){
-
-        for(unsigned int i = 0; i<components.size();i++){
-            if(components[i]->getType() == CMP::WIRE){
-
-            }
-        }
-    }
-
 	void Circuit::Solve() {
 		NM::Matrix Z(getEdgeNumber(), getEdgeNumber());
 		NM::Matrix Vin(getEdgeNumber());
@@ -253,7 +241,7 @@ namespace CCT{
 
 		for(unsigned int i = 0; i < getEdgeNumber(); i++) {
             if(components[i]->getType() == CMP::VCC)
-                Vin[i][0] = -(components[i]->getVoltage());
+                Vin[i][0] = (components[i]->getVoltage());
             else if(components[i]->getType() == CMP::RESISTOR){
                 CMP::Resistor *R = dynamic_cast<CMP::Resistor*> (components[i]);
 		
@@ -283,7 +271,7 @@ namespace CCT{
 			I= Bt * I;
 		}
 
-        NM::Matrix V = -(Z * I);
+        /*NM::Matrix V = -(Z * I);
 		NM::Matrix Mt = M.transpose();
         V -= Vin;
 		V = M * V;
@@ -296,17 +284,17 @@ namespace CCT{
 
 		for(unsigned int i = 0; i<P.getRowNumber();i++){
 			P[i][0]-=groundPotential;
-		}
+        }*/
 
-        updateComponents(I.getCol(0),P.getCol(0));
+        updateComponents(I.getCol(0));
 	}
 
-	double Circuit::getVoltage(unsigned int vtx1,  unsigned int vtx2) {
+/*	double Circuit::getVoltage(unsigned int vtx1,  unsigned int vtx2) {
 		if(vtx1 >= getVertexNumber() or vtx2 >= getVertexNumber())
 			throw "Acesso invalido";
 
 		return potential[vtx2] - potential[vtx1];
-	}
+    }*/
 
 	double Circuit::getVoltage(std::string l) {
 		for(unsigned int i = 0; i < components.size(); i++) {
@@ -316,12 +304,12 @@ namespace CCT{
 		throw "Componente nao encontrado";
 	}
 
-	double Circuit::getPotential(unsigned int vtx) {
+    /*double Circuit::getPotential(unsigned int vtx) {
 		if(vtx >= getVertexNumber())
 			throw "Acesso invalido";
 
 		return potential[vtx];
-	}
+    }*/
 
 	double Circuit::getCurrent(std::string l) {
 		for(unsigned int i = 0; i<getEdgeNumber(); i++) {
@@ -332,13 +320,13 @@ namespace CCT{
 		throw "Componente nao encontrado";
 	}
 
-	void Circuit::printSol() {
+    void Circuit::printSol() {
 		for(unsigned int i = 0; i< components.size();i++){
 			std::cout<<components[i]->getLabel()<<" V: "<<components[i]->getVoltage()<<" I: "<<components[i]->getCurrent()<<std::endl;
 		}
 	}
 
-	void Circuit::print() {
+    /*void Circuit::print() {
 		for(unsigned int i = 0; i<getVertexNumber();i++){
 			for(unsigned int k = 0; k<getEdgeNumber();k++){
 				if(inMatrix[i][k]){
@@ -363,5 +351,5 @@ namespace CCT{
 			}
 			std::cout<<std::endl;
 		}
-	}
+    }*/
 }
