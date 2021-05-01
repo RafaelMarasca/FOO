@@ -10,8 +10,9 @@
 #include <QMouseEvent>
 #include <stack>
 #include "GraphicComponent.h"
+#include "Graph.h"
 
-enum type{VCC90,VCC180,RES90,RES180,NONE};
+enum typeOrientation{VCC90,VCC180,RES90,RES180,NONE};
 enum sts{UNSAVED,MODIFIED,OK,ERROR};
 enum mode{EDIT,QUERY};
 
@@ -30,7 +31,7 @@ public:
 
     enum sts getStatus();
 
-    void setSelectedButton(enum type);
+    void setSelectedButton(enum typeOrientation);
 
 protected:
     void mousePressEvent(QMouseEvent* event) override;
@@ -45,6 +46,7 @@ signals:
 public slots:
     void queryMode();
     void editMode();
+    void clickedControl(int,GraphicComponent*);
    // void insert();
    // void remove();
    // void query();
@@ -65,12 +67,13 @@ private:
 
     std::list<GraphicComponent*> drawList;
     GraphicComponent* selectedComponent;
-    enum type selectedButton;
-    void clickedControl(int,GraphicComponent*);
+    enum typeOrientation selectedButton;
 
     void freeAllocatedMemory();
 
     std::stack<std::pair<int,GraphicComponent*>> clickedStack;
+
+    GRF::adjacencyMatrix connections;
 };
 
 #endif // DIAGRAM_H

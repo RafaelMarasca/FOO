@@ -115,7 +115,7 @@ void Diagram::paintEvent(QPaintEvent* event){
         (*it)->draw(&painter);
     }
 
-    setSelectedObject(NONE);
+    setSelectedButton(NONE);
 }
 
 void Diagram::initializeDiagram(){
@@ -151,7 +151,7 @@ void Diagram::initializeDiagram(){
     connect(playButton,SIGNAL(clicked(bool)), this, SLOT(queryMode()));
 }
 
-void Diagram::setSelectedButton(enum type button){
+void Diagram::setSelectedButton(enum typeOrientation button){
     selectedButton = button;
 }
 
@@ -163,8 +163,11 @@ void Diagram::mousePressEvent(QMouseEvent* event){
     if(selectedButton != NONE){
         std::list<GraphicComponent*>::iterator it;
         for(it = drawList.begin();it != drawList.end();it++){
-            for(int i = x; i<x+WIDTH; i++){
-                for(int j = y; j< y+HEIGHT; j++){
+            int width = (*it)->getWidth();
+            int height = (*it)->getHeight();
+
+            for(int i = x; i<x+width; i++){
+                for(int j = y; j< y+height; j++){
                     if((*it)->clickedArea(i,j)){
                         qDebug()<<"não faça isso, por favor";
                         return;
@@ -199,6 +202,7 @@ void Diagram::mousePressEvent(QMouseEvent* event){
         }
 
         drawList.push_back(C);
+        connect(C,SIGNAL(clickedVertex(int,GraphicComponent*)),this,SLOT(clickedControl(int,GraphicComponent*)));
     }else{
         std::list<GraphicComponent*>::iterator it;
         for(it = drawList.begin();it != drawList.end();it++){
@@ -213,6 +217,15 @@ void Diagram::mousePressEvent(QMouseEvent* event){
 
 void Diagram::queryMode(){
     mode = QUERY;
+    connections.print();
+    //unsigned int edgesNum = connections.getVertexNumber()/2;
+
+    std::list<GraphicComponent*>::iterator it = drawList.begin();
+
+    for(it = drawList.begin();it!=drawList.end();it++)
+    {
+        //circuit.addComponent(,,,(*it)->getNegative(),(*it)->getPositive());
+    }
 }
 
 void Diagram::editMode(){
@@ -226,11 +239,53 @@ void Diagram::freeAllocatedMemory(){
 }
 
 void Diagram::clickedControl(int index, GraphicComponent* C){
+    qDebug()<<"emitido "<<index<<" "<<clickedStack.size();
 
     if(clickedStack.size()==1){
-        //makeCon
+        std::pair<int,GraphicComponent*> aux = clickedStack.top();
+        QPoint p1,p2;
+
+        if(connections.query(aux.first,index)||connections.query(index,aux.first)||
+                               aux.first==index||index == aux.first+1 ||aux.first == index+1){
+
+            while(clickedStack.size())
+                clickedStack.pop();
+            qDebug()<<"conexao cancelada";
+            return;
+        }
+
+        connections.insertEdge(aux.first,index);
+        if(aux.second->getOrientation()==VERTICAL){
+            if(aux.first%2==0)
+                p1 = aux.second->getTop();
+            else
+                p1 = aux.second->getBottom();
+        }else{
+            if(aux.first%2==0)
+                p1 = aux.second->getLeft();
+            else
+                p1 = aux.second->getRight();
+        }
+
+        if(C->getOrientation()==VERTICAL){
+            if(index%2==0)
+                p2 = C->getTop();
+            else
+                p2 = C->getBottom();
+        }else{
+            if(index%2==0)
+                p2 = C->getLeft();
+            else
+                p2 = C->getRight();
+        }
+
+           qDebug()<<"cheguei ate aq";
+        aux.second->addLine(QLine(p1,p2));
+
+        while(clickedStack.size())
+            clickedStack.pop();
+
     }else{
         clickedStack.push(std::pair<int,GraphicComponent*>(index,C));
     }
-
 }

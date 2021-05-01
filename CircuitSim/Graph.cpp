@@ -253,4 +253,69 @@ namespace GRF{
 			std::cout<<std::endl;
 		}
 	}
+
+    adjacencyMatrix::adjacencyMatrix() {
+            vertexNumber = 0;
+            //  Inicializa o número de vértices como V, aloca um vector de vectos preenchido com null
+            //e passa esse vector de vectors para a matriz de adjacência.
+        }
+
+        //Insere um dado ponteiro para T na posição (i,j) da matriz
+        void adjacencyMatrix::insertEdge(unsigned int i, unsigned int j) {
+
+            while(i >= vertexNumber || j >= vertexNumber){
+
+                adjMatrix.push_back(std::vector<unsigned int>(vertexNumber,0));
+                vertexNumber++;
+            }
+
+            for(unsigned int i = 0; i< vertexNumber; i++)
+            {
+                while(adjMatrix[i].size()<vertexNumber){
+                    adjMatrix[i].push_back(0);
+                }
+            }
+
+            adjMatrix[i][j] = 1;
+        }
+
+        //Deleta o ponteiro em (i,j) e faz (i,j) apontar para null (redundante?)
+
+        void adjacencyMatrix::removeVertex(unsigned int vertex) {
+
+            if(vertex >= vertexNumber)
+                throw std::string("Acesson Invalido");
+
+            for(unsigned int i = 0; i < vertexNumber; i++){
+                if(i>vertex)
+                    std::swap(adjMatrix[i-1],adjMatrix[i]);
+            }
+
+            for(unsigned int i = 0; i < vertexNumber;i++){
+                if(i > vertex){
+                    for(unsigned int j = 0; j < vertexNumber; j++){
+                        adjMatrix[j][i-1] = adjMatrix[j][i];
+                    }
+                }
+            }
+            for(unsigned int i = 0; i < vertexNumber-1; i++){
+                adjMatrix[i].pop_back();
+            }
+
+            adjMatrix.pop_back();
+            vertexNumber--;
+
+        }
+
+    //Getter da posição (i,j)
+    int adjacencyMatrix::query(unsigned int i, unsigned int j) {
+
+        if(i>=vertexNumber||j>=vertexNumber)
+            return 0;
+
+        return adjMatrix[i][j];
+    }
+
+    unsigned int adjacencyMatrix::getVertexNumber(){return vertexNumber;}
+
 }

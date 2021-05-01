@@ -58,5 +58,31 @@ namespace GRF{
 			void print();
 	};
 
+    class adjacencyMatrix {
+        private:
+            unsigned int vertexNumber;
+            std::vector<std::vector<unsigned int>> adjMatrix;
+        public:
+            adjacencyMatrix();
+
+            void insertEdge(unsigned int i, unsigned int j);
+
+            void removeVertex(unsigned int i);
+
+            int query(unsigned int i, unsigned int j);
+
+            unsigned int getVertexNumber();
+
+            void print(){
+                for(unsigned int i = 0; i< vertexNumber; i++){
+                    for(unsigned int j = 0; j<vertexNumber;j++)
+                        std::cout<<adjMatrix[i][j]<<" ";
+
+                    std::cout<<std::endl;
+                }
+            }
+    };
+
+
 }
 #endif
