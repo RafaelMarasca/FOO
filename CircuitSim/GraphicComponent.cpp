@@ -5,6 +5,8 @@
 
 
 unsigned int GraphicComponent::vertexNum = 0;
+unsigned int Vcc::vccCounter = 0;
+unsigned int Resistor::resCounter = 0;
 
 GraphicComponent::GraphicComponent(int x_ins, int y_ins, enum orien s, QObject *parent) : QObject(parent)
 {
@@ -23,8 +25,6 @@ GraphicComponent::GraphicComponent(int x_ins, int y_ins, enum orien s, QObject *
     vertex1 = vertexNum++;
     vertex2 = vertexNum++;
     orientation = s;
-    negative = -1;
-    positive = -1;
 
 }
 
@@ -111,6 +111,8 @@ Resistor::Resistor(int x, int y, enum orien s,QObject *parent):GraphicComponent(
     }else {
         map = new QPixmap(":/components/resourceFile/componentFile/resistor180.png");
     }
+    label = "R"+QString::number(resCounter);
+    resCounter++;
 }
 
 Vcc::Vcc(int x, int y, enum orien s,QObject *parent):GraphicComponent(x,y,s,parent){
@@ -120,20 +122,18 @@ Vcc::Vcc(int x, int y, enum orien s,QObject *parent):GraphicComponent(x,y,s,pare
     }else {
         map = new QPixmap(":/components/resourceFile/componentFile/vcc180.png");
     }
-}
-
-void GraphicComponent::setNegative(int vtx){
-    negative = vtx;
-}
-
-void GraphicComponent::setPositive(int vtx){
-    positive = vtx;
+    label = "V"+QString::number(vccCounter);
+    vccCounter++;
 }
 
 
-int GraphicComponent::getPositive(){
-    return positive;
+unsigned int GraphicComponent::getVertex1(){
+    return vertex1;
 }
-int GraphicComponent::getNegative(){
-    return negative;
+unsigned int GraphicComponent::getVertex2(){
+    return vertex2;
+}
+
+std::string GraphicComponent::getLabel(){
+    return label.toStdString();
 }

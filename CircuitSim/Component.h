@@ -6,7 +6,7 @@
 
 namespace CMP {
 
-    enum type {RESISTOR,VCC,GROUND};
+    enum type {RESISTOR,VCC,WIRE,GROUND};
 
     class Component {
 
@@ -59,7 +59,7 @@ namespace CMP {
             Vcc(std::string l,  double vol,  unsigned int negative,  unsigned int positive);
             ~Vcc();
 
-            enum type getType() ;
+            enum type getType();
             void setCurrent(double cur);
             void setVoltage(double vol);
     };

@@ -20,8 +20,9 @@ namespace CCT{
 		unsigned int ground;
 
         void updateComponents(std:: vector<double> currents,std:: vector<double> potentials);
+        void removeWires();
 
-        public:
+    public:
 		Circuit();
 		~Circuit();
 
@@ -31,6 +32,7 @@ namespace CCT{
 		void initialize();
 		void reset();
         void addComponent(CMP::type t,std::string l,double value, unsigned int vtx1, unsigned int vtx2);
+        void addWire(unsigned int vtx1,  unsigned int vtx2);
 		void setGround(unsigned int vtx);
         void editComponent(std::string label, double value);
         void editComponent(std::string label, std::string newLabel);

@@ -119,7 +119,7 @@ namespace CCT{
 			circuitMatrix.pop_back();
 	}
 
-    void Circuit::addComponent(CMP::type t,  std::string l,  double value,  unsigned int vtx1,  unsigned int vtx2) {
+    void Circuit::addComponent(CMP::type t,  std::string l,  double value,  unsigned int vtx1,  unsigned int vtx2){
         CMP::Component *C;
 
 		for(unsigned int i = 0; i < components.size(); i++) {
@@ -144,6 +144,13 @@ namespace CCT{
 		addEdge(vtx1, vtx2);
 		components.push_back(C);
 	}
+
+    void Circuit::addWire(unsigned int vtx1,  unsigned int vtx2){
+        std::vector<unsigned int> vec = getEdges(vtx2);
+        for(unsigned int j = 0; j<vec.size();j++){
+            inMatrix[vtx1][vec[j]]+=inMatrix[vtx2][vec[j]];
+        }
+    }
  
 	void Circuit::setGround(unsigned int vtx) {
 		if(vtx >= getVertexNumber())
@@ -229,6 +236,15 @@ namespace CCT{
 		throw "Componente nao encontrado";
 	}
 
+    void Circuit::removeWires(){
+
+        for(unsigned int i = 0; i<components.size();i++){
+            if(components[i]->getType() == CMP::WIRE){
+
+            }
+        }
+    }
+
 	void Circuit::Solve() {
 		NM::Matrix Z(getEdgeNumber(), getEdgeNumber());
 		NM::Matrix Vin(getEdgeNumber());
@@ -237,7 +253,7 @@ namespace CCT{
 
 		for(unsigned int i = 0; i < getEdgeNumber(); i++) {
             if(components[i]->getType() == CMP::VCC)
-				Vin[i][0] = (components[i]->getVoltage());
+                Vin[i][0] = -(components[i]->getVoltage());
             else if(components[i]->getType() == CMP::RESISTOR){
                 CMP::Resistor *R = dynamic_cast<CMP::Resistor*> (components[i]);
 		
@@ -267,9 +283,9 @@ namespace CCT{
 			I= Bt * I;
 		}
 
-		NM::Matrix V = -(Z * I);
+        NM::Matrix V = -(Z * I);
 		NM::Matrix Mt = M.transpose();
-		V += Vin;
+        V -= Vin;
 		V = M * V;
 		M = M * Mt;
 
@@ -326,7 +342,7 @@ namespace CCT{
 		for(unsigned int i = 0; i<getVertexNumber();i++){
 			for(unsigned int k = 0; k<getEdgeNumber();k++){
 				if(inMatrix[i][k]){
-					std::cout<<components[i]->getLabel()<<"  ";
+                    std::cout<<components[k]->getLabel()<<"  ";
 				}else{
 					std::cout<<0<<"   ";
 				}

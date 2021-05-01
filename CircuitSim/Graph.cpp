@@ -38,7 +38,7 @@ namespace GRF{
 	//Adiciona uma nova aresta no grafo
 	void incidenceMatrix::addEdge(unsigned int vtx1,  unsigned int vtx2) {
 		while(vertexNumber <= vtx1 or vertexNumber <= vtx2) {
-			inMatrix.push_back(std::vector<int>(edgeNumber, 0));
+            inMatrix.push_back(std::vector<int>(edgeNumber, 0));
 			vertexNumber++;
 		}
 

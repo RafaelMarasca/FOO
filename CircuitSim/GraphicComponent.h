@@ -24,7 +24,6 @@ public :
     void draw(QPainter* painter);
     int getHeight();
     int getWidth();
-    void makeCon(int vtx1, int vtx2, GraphicComponent* C);
     static unsigned int getVertexNum(){return vertexNum;};
     QPoint getBottom();
     QPoint getTop();
@@ -34,10 +33,9 @@ public :
     enum orien orientation;
     enum orien getOrientation();
     void addLine(QLine);
-    void setNegative(int vtx);
-    void setPositive(int vtx);
-    int getPositive();
-    int getNegative();
+    unsigned int getVertex1();
+    unsigned int getVertex2();
+    std::string getLabel();
 
     //void removeLine();
 
@@ -56,15 +54,16 @@ protected:
     QPixmap* map;
 
     unsigned int vertex1,vertex2;
-    int negative, positive;
     std::list<QLine> lines;
 
     CMP::type componentType();
+    QString label;
 };
 
 class Resistor : public GraphicComponent
 {
     Q_OBJECT
+    static unsigned int resCounter;
 public:
     explicit Resistor(int x, int y,  enum orien s = VERTICAL, QObject *parent = nullptr);
 
@@ -75,6 +74,7 @@ signals:
 class Vcc : public GraphicComponent
 {
     Q_OBJECT
+    static unsigned int vccCounter;
 public:
     explicit Vcc(int x, int y, enum orien s = VERTICAL,QObject *parent = nullptr);
 

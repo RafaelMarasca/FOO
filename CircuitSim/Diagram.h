@@ -74,6 +74,8 @@ private:
     std::stack<std::pair<int,GraphicComponent*>> clickedStack;
 
     GRF::adjacencyMatrix connections;
+
+    unsigned int wireCounter;
 };
 
 #endif // DIAGRAM_H

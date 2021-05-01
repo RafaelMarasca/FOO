@@ -5,6 +5,8 @@
 #include <QScrollBar>
 #include <QDebug>
 
+int c=1000;
+
 Diagram::Diagram(QWidget *parent) : QWidget(parent)
 {
     initializeDiagram();
@@ -12,6 +14,7 @@ Diagram::Diagram(QWidget *parent) : QWidget(parent)
     selectedButton = NONE;
     selectedComponent = nullptr;
     mode = EDIT;
+    wireCounter = 0;
 }
 
 void Diagram::setFileName(QString file){
@@ -180,27 +183,31 @@ void Diagram::mousePressEvent(QMouseEvent* event){
 
         switch(selectedButton){
 
-            case VCC90:
+            case VCC90:{
+
                 C = new Vcc(x,y,VERTICAL,this);
-                break;
+                circuit.addComponent(CMP::VCC,C->getLabel(),3200,C->getVertex1(),C->getVertex2());
+            }break;
 
-            case VCC180:
+            case VCC180:{
                 C = new Vcc(x,y,HORIZONTAL,this);
-                break;
+                circuit.addComponent(CMP::VCC,C->getLabel(),12,C->getVertex1(),C->getVertex2());
+            }break;
 
-            case RES90:
+            case RES90:{
                 C = new Resistor(x,y,VERTICAL,this);
+                circuit.addComponent(CMP::RESISTOR,C->getLabel(),1000,C->getVertex1(),C->getVertex2());
                 break;
-
-            case RES180:
+            }
+            case RES180:{
                 C = new Resistor(x,y,HORIZONTAL,this);
-                break;
+                circuit.addComponent(CMP::RESISTOR,C->getLabel(),1000,C->getVertex1(),C->getVertex2());
+            }break;
 
             default:
                 return;
                 break;
         }
-
         drawList.push_back(C);
         connect(C,SIGNAL(clickedVertex(int,GraphicComponent*)),this,SLOT(clickedControl(int,GraphicComponent*)));
     }else{
@@ -216,16 +223,9 @@ void Diagram::mousePressEvent(QMouseEvent* event){
 }
 
 void Diagram::queryMode(){
+    circuit.initialize();
+    circuit.Solve();
     mode = QUERY;
-    connections.print();
-    //unsigned int edgesNum = connections.getVertexNumber()/2;
-
-    std::list<GraphicComponent*>::iterator it = drawList.begin();
-
-    for(it = drawList.begin();it!=drawList.end();it++)
-    {
-        //circuit.addComponent(,,,(*it)->getNegative(),(*it)->getPositive());
-    }
 }
 
 void Diagram::editMode(){
@@ -239,53 +239,64 @@ void Diagram::freeAllocatedMemory(){
 }
 
 void Diagram::clickedControl(int index, GraphicComponent* C){
-    qDebug()<<"emitido "<<index<<" "<<clickedStack.size();
 
-    if(clickedStack.size()==1){
-        std::pair<int,GraphicComponent*> aux = clickedStack.top();
-        QPoint p1,p2;
+    if(mode == EDIT){
+        if(clickedStack.size()==1){
+            std::pair<int,GraphicComponent*> aux = clickedStack.top();
+            QPoint p1,p2;
 
-        if(connections.query(aux.first,index)||connections.query(index,aux.first)||
-                               aux.first==index||index == aux.first+1 ||aux.first == index+1){
+            if(connections.query(aux.first,index)||connections.query(index,aux.first)||
+                                   aux.first==index||index == aux.first+1 ||aux.first == index+1){
 
+                while(clickedStack.size())
+                    clickedStack.pop();
+                qDebug()<<"conexao cancelada";
+                return;
+            }
+
+            connections.insertEdge(aux.first,index);
+            if(aux.second->getOrientation()==VERTICAL){
+                if(aux.first%2==0)
+                    p1 = aux.second->getTop();
+                else
+                    p1 = aux.second->getBottom();
+            }else{
+                if(aux.first%2==0)
+                    p1 = aux.second->getLeft();
+                else
+                    p1 = aux.second->getRight();
+            }
+
+            if(C->getOrientation()==VERTICAL){
+                if(index%2==0)
+                    p2 = C->getTop();
+                else
+                    p2 = C->getBottom();
+            }else{
+                if(index%2==0)
+                    p2 = C->getLeft();
+                else
+                    p2 = C->getRight();
+            }
+
+            QString str = "Aux" + QString::number(wireCounter);
+            circuit.addComponent(CMP::RESISTOR,str.toStdString(),0,aux.first,index);
+            wireCounter++;
+
+            aux.second->addLine(QLine(p1,p2));
             while(clickedStack.size())
                 clickedStack.pop();
-            qDebug()<<"conexao cancelada";
-            return;
-        }
 
-        connections.insertEdge(aux.first,index);
-        if(aux.second->getOrientation()==VERTICAL){
-            if(aux.first%2==0)
-                p1 = aux.second->getTop();
-            else
-                p1 = aux.second->getBottom();
         }else{
-            if(aux.first%2==0)
-                p1 = aux.second->getLeft();
-            else
-                p1 = aux.second->getRight();
+            clickedStack.push(std::pair<int,GraphicComponent*>(index,C));
         }
-
-        if(C->getOrientation()==VERTICAL){
-            if(index%2==0)
-                p2 = C->getTop();
-            else
-                p2 = C->getBottom();
-        }else{
-            if(index%2==0)
-                p2 = C->getLeft();
-            else
-                p2 = C->getRight();
-        }
-
-           qDebug()<<"cheguei ate aq";
-        aux.second->addLine(QLine(p1,p2));
-
-        while(clickedStack.size())
-            clickedStack.pop();
-
     }else{
-        clickedStack.push(std::pair<int,GraphicComponent*>(index,C));
+
+        std::cout<<"Corrente: "<<circuit.getCurrent(C->getLabel())<<std::endl;
+        std::cout<<"Tensao: "<<circuit.getVoltage(C->getLabel())<<std::endl;
+        std::cout<<"Potencial("<<C->getVertex1()<<") "<<circuit.getPotential(C->getVertex1())<<std::endl;
+        std::cout<<"Potencial("<<C->getVertex2()<<") "<<circuit.getPotential(C->getVertex2())<<std::endl;
+        circuit.print();
     }
+
 }
