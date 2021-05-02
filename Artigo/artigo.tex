@@ -839,6 +839,96 @@ Os arcos que se incidem nos mesmos dois vértices são componentes em \textit{pa
 
 \subsection*{D. \quad Solução Computacional}
 
+\textit{Resolver} um circuito elétrico consiste em utilizar o \textit{princípio de conservação da carga elétrica} e o \textit{princípio de conservação de energia} para encontrar todas as variáveis desconhecidas dos componentes. Comumente são conhecidas apenas a tensão da fonte e as resistências dos resistores.
+
+O método utilizado neste artigo consiste em uma adaptação dos métodos expostos em \cite{krishna} e \cite{boruah}.
+
+A \textit{Lei das Tensões de Kirchhoff} é a aplicação do princípio de conservação de energia aos circuitos elétricos e diz que \cite[p. 945]{boruah}:
+
+\[
+\sum_{k=1}^{e} b_{rk}V_k = 0
+\]
+
+Onde $e$ é o número de arcos do grafo, $b_{rk}$ é a entrada na posição $rk$ da matriz $B$ dos ciclos de $G$ e $V_k$ é a tensão através de um arco. Em outras palavras, diz que a soma das tensões em um ciclo é nula.
+
+Já a \textit{Lei das Correntes de Kirchhoff} enuncia o emprego do princípio da conservação de carga elétrica aos circuitos elétricos da seguinte forma \cite[p. 945]{boruah}:
+
+\[
+\sum_{k=1}^{e} a_{rk}I_k = 0
+\]
+
+Onde $a_{rk}$ é a entrada na posição $rk$ da matriz de incidência $A$ do grafo $G$, $I_k$ é a corrente que flui pela aresta $k$ e $e$ é o número de arcos do grafo. Em outras palavras, diz que a soma das correntes em um nodo é nula.
+
+A matriz $B$ dos ciclos fundamentais é uma matriz onde cada linha representa um ciclo fundamental do grafo $G$ e cada coluna representa um arco presente no ciclo de acordo com as seguintes regras \cite[p. 948]{boruah}:
+
+\begin{itemize}
+	\item $b_{ij} = 1$ se o galho $b_j$ no ciclo fundamental e sua referência têm a mesma orientação;
+	\item $b_{ij} = -1$ se o galho $b_j$ no ciclo fundamental e sua referência têm orientações opostas;
+	\item $b_{ij} = 0$ se o galho $b_j$ não está no ciclo fundamental.
+\end{itemize}
+
+A matriz $R$ das resistências é uma matriz diagonal quadrada $e \times e$, onde $e$ é o número de arcos no grafo, cujos elementos $r_{ii}$ representam a resistência no arco $i$. Então, \cite[p. 949]{boruah} fornece a seguinte dedução:
+
+Dada uma tensão $V_{sk}$ em um galho $k$, com corrente $r_k$ e resistência $r_k$. Pela lei de Ohm:
+
+\[
+v_k = z_ki_k + V_{sk}
+\]
+
+Na forma matricial:
+
+\[
+V_b = R_bI_b + V_s
+\]
+
+Mas a lei das tensões de Kirchhoff na forma matricial é escrita como:
+
+\[
+BV_b = 0
+\]
+
+\[
+\iff 
+B(R_bI_b + V_s) = 0
+\]
+
+\[
+\iff 
+BR_bI_b = -BV_s
+\]
+
+Mas, sabemos que $I_b = B^tI_L$, onde $I_L$ é a corrente no ciclo e $B^t$ é a transposta de $B$. Então:
+
+\[
+BR_bB^tI_L = -BV_s
+\]
+
+Como $B$, $R$ e $B^t$ são conhecidos e formam uma matriz quadrada, $I_L$ é uma matriz coluna de incógnitas e $-BV_s$ é uma matriz coluna de constantes, a equação anterior é equivalente a um sistema linear na forma $Ax = b$. Logo, basta resolver o sistema e substituir em $I_b = B^tI_L$ para encontrar todas as correntes.
+
+Então, foi implementado o seguinte algoritmo para a solução computacional de circuitos elétricos, assumindo $A$ como a matriz de incidência do grafo, $R$ como a matriz de resistência, $B$ como a matriz dos ciclos fundamentais, $I$ como a matriz das correntes e $V$ como a matriz das tensões:
+
+\begingroup
+\captionof{algorithm}{Solucionador de Circuitos}\label{cs}
+\begin{algorithmic}[1]
+\Function{resolveCircuito}{$A$, $R$, $B$, $I$, $V$}
+	\State{$B \gets encontraCiclos(A)$}
+	\State{$M \gets BR_bB^t$}
+	\State{$n \gets -BV_s$}
+	\State{$x^{(0)}\gets$ vetor nulo}
+	\If{$M$ atende ao critério de Sassenfeld}
+		\State{$I_L \gets gaussSeidel(M, n, x^{(0)}, 10^{-8}, 10^3)$}
+	\Else
+		\State{$I_L \gets gaussJordan(M, n)$}
+	\EndIf
+	\State{$I_b \gets B^tI_L$}
+\EndFunction
+\end{algorithmic}
+\hrulefill
+\endgroup
+
+Ao fim do algoritmo, são conhecidas todas as correntes e tensões e, portanto, o circuito passa a ser determinado.
+
+
 \section{RESULTADOS}
 
 \section{CONCLUSÃO}
