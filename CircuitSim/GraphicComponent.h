@@ -20,6 +20,8 @@ class GraphicComponent : public QObject
     static unsigned int vertexNum;
 public :
     explicit GraphicComponent(int x, int y,enum orien s, QObject *parent = nullptr);
+    explicit GraphicComponent(QObject* parent = nullptr);
+    explicit GraphicComponent(GraphicComponent &C, QObject* paren = nullptr);
     int clickedArea(int x, int y);
     void draw(QPainter* painter);
     int getHeight();
@@ -29,9 +31,12 @@ public :
     QPoint getTop();
     QPoint getLeft();
     QPoint getRight();
+    QPixmap getMap();
 
     enum orien orientation;
     enum orien getOrientation();
+    void setVertex1(unsigned int vtx);
+    void setVertex2(unsigned int vtx);
     unsigned int getVertex1();
     unsigned int getVertex2();
     std::string getLabel();
@@ -48,7 +53,7 @@ protected:
     QRect vertexArea2;
 
     QRect boundRect;
-    QPixmap* map;
+    QPixmap map;
 
     unsigned int vertex1,vertex2;
 

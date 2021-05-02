@@ -25,7 +25,14 @@ GraphicComponent::GraphicComponent(int x_ins, int y_ins, enum orien s, QObject *
     vertex1 = vertexNum++;
     vertex2 = vertexNum++;
     orientation = s;
+}
 
+GraphicComponent::GraphicComponent(QObject* parent):QObject(parent){
+    x = 0;
+    y = 0;
+    vertex1 = 0;
+    vertex2 = 0;
+    orientation = VERTICAL;
 }
 
 int GraphicComponent::clickedArea(int x_check, int y_check){
@@ -50,7 +57,7 @@ int GraphicComponent::clickedArea(int x_check, int y_check){
 }
 
 void GraphicComponent::draw(QPainter* painter){
-    painter->drawPixmap(boundRect,*map);
+    painter->drawPixmap(boundRect,map);
 }
 
 int GraphicComponent::getHeight(){return boundRect.height();}
@@ -94,9 +101,9 @@ enum orien GraphicComponent::getOrientation(){return orientation;}
 Resistor::Resistor(int x, int y, enum orien s,QObject *parent):GraphicComponent(x,y,s,parent){
 
     if(s == VERTICAL){
-        map = new QPixmap(":/components/resourceFile/componentFile/resistor90.png");
+        map = QPixmap(":/components/resourceFile/componentFile/resistor90.png");
     }else {
-        map = new QPixmap(":/components/resourceFile/componentFile/resistor180.png");
+        map = QPixmap(":/components/resourceFile/componentFile/resistor180.png");
     }
     label = "R"+QString::number(resCounter);
     resCounter++;
@@ -105,9 +112,9 @@ Resistor::Resistor(int x, int y, enum orien s,QObject *parent):GraphicComponent(
 Vcc::Vcc(int x, int y, enum orien s,QObject *parent):GraphicComponent(x,y,s,parent){
 
     if(s == VERTICAL){
-        map = new QPixmap(":/components/resourceFile/componentFile/vcc90.png");
+        map = QPixmap(":/components/resourceFile/componentFile/vcc90.png");
     }else {
-        map = new QPixmap(":/components/resourceFile/componentFile/vcc180.png");
+        map = QPixmap(":/components/resourceFile/componentFile/vcc180.png");
     }
     label = "V"+QString::number(vccCounter);
     vccCounter++;
@@ -123,4 +130,15 @@ unsigned int GraphicComponent::getVertex2(){
 
 std::string GraphicComponent::getLabel(){
     return label.toStdString();
+}
+
+QPixmap GraphicComponent::getMap(){
+    return map;
+}
+
+void GraphicComponent::setVertex1(unsigned int vtx){
+    vertex1 = vtx;
+}
+void GraphicComponent::setVertex2(unsigned int vtx){
+    vertex2 = vtx;
 }

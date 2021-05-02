@@ -1,4 +1,5 @@
 #include "Diagram.h"
+#include <fstream>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QPainter>
@@ -31,41 +32,86 @@ QString Diagram::getFileName(){
 
 void Diagram::save(){
 
-    /*std::ofstream file;
+    std::ofstream file;
 
     file.open(fileName, std::ios::out|std::ios::binary);
 
     if(!file.is_open())
         throw std::string("Failed to open file");
-    else*/
+    else
         setStatus(OK);
 
-    /*try {
-        circuit.save(file);
-    }catch (std::string log) {
-        QString str;
-        qDebug()<<str;
-    }*/
+    unsigned int size = drawList.size();
+    file.write(reinterpret_cast<char*>(&size),sizeof(unsigned int));
+
+    std::list<GraphicComponent*>::iterator it;
+    for(it = drawList.begin(); it!=drawList.end(); it++){
+        file.write(reinterpret_cast<char*>((*it)),sizeof(GraphicComponent));
+    }
+
+    size = connections.getVertexNumber();
+
+    file.write(reinterpret_cast<char*>(&size),sizeof(unsigned int));
+
+    for(unsigned int i = 0; i<connections.getVertexNumber();i++){
+        for(unsigned int j = 0; j<connections.getVertexNumber(); j++){
+            QLine* line = connections.query(i,j);
+            unsigned int aux = 0;
+            if(line!=nullptr){
+                aux = 1;
+                file.write(reinterpret_cast<char*>(&aux), sizeof(unsigned int));
+                file.write(reinterpret_cast<char*>(line), sizeof(QLine));
+                aux = 0;
+            }else
+                file.write(reinterpret_cast<char*>(&aux), sizeof(unsigned int));
+        }
+    }
+
+    file.close();
 }
 
 void Diagram::load(){
-    /*std::ifstream file;
+    std::ifstream file;
 
     file.open(fileName, std::ios::in|std::ios::binary);
+    qDebug()<<QString::fromStdString(fileName);
 
     if(!file.is_open()){
         throw std::string("Failed to open file");
-        setStatus(ERROR)
+        setStatus(ERROR);
     }
-    else*/
+    else
         setStatus(OK);
 
-    /*try {
-        circuit.save(file);
-    }catch (std::string log) {
-        throw std::string("loadError");
-        setStatus(ERROR);
-    }*/
+    unsigned int size;
+    file.read(reinterpret_cast<char*>(&size),sizeof(unsigned int));
+    qDebug()<<size;
+
+    for(unsigned int i = 0; i < size; i++){
+       GraphicComponent* C = new GraphicComponent();
+       file.read(reinterpret_cast<char*>(C),sizeof(GraphicComponent));
+       drawList.push_back(C);
+    }
+
+    file.read(reinterpret_cast<char*>(&size),sizeof(unsigned int));
+
+    connections = GRF::adjacencyMatrix(size);
+
+    unsigned int aux =0;
+
+    for(unsigned int i = 0; i< size; i++){
+        for(unsigned int j = 0; j < size; j++){
+            file.read(reinterpret_cast<char*>(&aux),sizeof(unsigned int));
+            if(aux == 1){
+                QLine* line = new QLine();
+                file.read(reinterpret_cast<char*>(line),sizeof(QLine));
+                connections.insertEdge(i,j,line->p1(),line->p2());
+                aux = 0;
+            }
+        }
+    }
+    file.close();
+    update();
 }
 
 void Diagram::setStatus(enum sts newStatus){
@@ -395,8 +441,23 @@ void Diagram::remove(){
 
     rmMessage.setText(str);
 
-    drawList.remove(selectedComponent);
-    selectedComponent = nullptr;
+    bool flag = false;
+
+    std::list<GraphicComponent*>::iterator it;
+    for(it = drawList.begin(); it != drawList.end(); it++){
+        if(flag){
+            (*it)->setVertex1((*it)->getVertex1()-2);
+            (*it)->setVertex2((*it)->getVertex2()-2);
+        }
+
+        if((*it)==selectedComponent){
+            drawList.erase(it);
+            delete selectedComponent;
+            selectedComponent = nullptr;
+            flag = true;
+        }
+    }
+
     rmMessage.exec();
 
     update();
@@ -456,5 +517,6 @@ std::pair<QRect,QPixmap> Diagram::getPixMap(enum typeOrientation type){
     }
     return std::pair<QRect,QPixmap>(boundRect,map);
 }
+
 
 

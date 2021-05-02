@@ -134,9 +134,6 @@ void MainWindow::openFile(){
     if(fileName.isNull())
          return;
 
-    QFileInfo info(fileName);
-    fileName = info.fileName();
-
     Diagram* D = new Diagram(this);
     D->setFileName(fileName);
 
@@ -149,9 +146,10 @@ void MainWindow::openFile(){
         delete D;
         return;
     }
+    QFileInfo info(fileName);
 
     diagrams.push_back(D);
-    tabs->addTab(D,fileName);
+    tabs->addTab(D,info.fileName());
 }
 
 void MainWindow::openFile(QString fileName){
@@ -203,9 +201,6 @@ void MainWindow::saveFileAs(){
     if(fileName.isNull())
         return;
 
-    QFileInfo info(fileName);
-    fileName = info.fileName();
-
     int index = tabs->currentIndex();
     std::list<Diagram*>::iterator it = diagrams.begin();
     advance(it,index);
@@ -214,9 +209,10 @@ void MainWindow::saveFileAs(){
         openFile(fileName);
         return;
     }
+    QFileInfo info(fileName);
 
-    tabs->setTabText(index,fileName.prepend('*'));
-
+    tabs->setTabText(index,'*'+info.fileName());
+    qDebug()<<fileName;
     (*it)->setFileName(fileName);
     (*it)->save();
 }

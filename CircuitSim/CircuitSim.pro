@@ -7,6 +7,7 @@ SOURCES += \
     Component.cpp \
     Diagram.cpp \
     EditDialog.cpp \
+    File.cpp \
     Graph.cpp \
     GraphicComponent.cpp \
     MainWindow.cpp \
@@ -18,6 +19,7 @@ HEADERS += \
     Component.h \
     Diagram.h \
     EditDialog.h \
+    File.h \
     Graph.h \
     GraphicComponent.h \
     MainWindow.h \

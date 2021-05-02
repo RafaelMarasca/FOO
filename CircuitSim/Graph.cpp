@@ -259,6 +259,12 @@ namespace GRF{
             //  Inicializa o número de vértices como V, aloca um vector de vectos preenchido com null
             //e passa esse vector de vectors para a matriz de adjacência.
         }
+    adjacencyMatrix::adjacencyMatrix(unsigned int vertexNum) {
+            vertexNumber = vertexNum;
+            adjMatrix = std::vector<std::vector<QLine*>>(vertexNum,std::vector<QLine*>(vertexNum,nullptr));
+            //  Inicializa o número de vértices como V, aloca um vector de vectos preenchido com null
+            //e passa esse vector de vectors para a matriz de adjacência.
+        }
 
         //Insere um dado ponteiro para T na posição (i,j) da matriz
         void adjacencyMatrix::insertEdge(unsigned int i, unsigned int j,QPoint p1, QPoint p2) {
@@ -299,7 +305,9 @@ namespace GRF{
                 }
             }
             for(unsigned int i = 0; i < vertexNumber-1; i++){
-                delete adjMatrix[i].back();
+                if(adjMatrix[i].back()!=nullptr){
+                    delete adjMatrix[i].back();
+                }
                 adjMatrix[i].pop_back();
             }
 

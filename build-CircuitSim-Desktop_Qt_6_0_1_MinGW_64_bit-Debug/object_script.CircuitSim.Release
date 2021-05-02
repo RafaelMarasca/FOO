@@ -2,6 +2,7 @@ release/Circuit.o
 release/Component.o
 release/Diagram.o
 release/EditDialog.o
+release/File.o
 release/Graph.o
 release/GraphicComponent.o
 release/MainWindow.o

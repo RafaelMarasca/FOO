@@ -18,73 +18,9 @@ namespace CCT{
 		}
 	}
 
-    /*void Circuit::save(std::ofstream& output){
-        std::pair<unsigned int,unsigned int> vtx;
-        int32_t type;
-        uint32_t size;
-        uint32_t aux;
-        double value;
-
-        for(unsigned int i = 0; i < components.size(); i++){
-            type = components[i]->getType();
-            output.write(reinterpret_cast<char*>(&type), sizeof(CMP::type));
-
-            size = components[i]->getLabel().size();
-            output.write(reinterpret_cast<char*>(&size),sizeof(uint32_t));
-
-            output.write((components[i]->getLabel()).c_str(),(components[i]->getLabel()).size());
-
-            if(components[i]->getType() == CMP::RESISTOR){
-                CMP::Resistor* R = dynamic_cast<CMP::Resistor*>(components[i]);
-
-                if(R != nullptr){
-                    value = R->getResistance();
-                }else{
-                    throw std::string("Falha");
-                    return;
-                }
-            }else{
-                value = components[i]->getVoltage();
-            }
-
-            output.write(reinterpret_cast<char*>(&value),sizeof(double));
-
-            vtx = components[i]->getNodes();
-            aux = vtx.first;
-            output.write(reinterpret_cast<char*>(&aux),sizeof(uint32_t));
-            aux = vtx.second;
-            output.write(reinterpret_cast<char*>(&vtx.second),sizeof(uint32_t));
-        }
-    }*/
-
-    /*void Circuit::load(std::ifstream &input){
-        int32_t type;
-        std::pair<uint32_t,uint32_t> vtx;
-        uint32_t size;
-        char byte;
-        std::string label;
-        double value;
-
-        while(input.read(reinterpret_cast<char*>(&type),sizeof(int32_t))){
-            input.read(reinterpret_cast<char*>(&size),sizeof(uint32_t));
-            for(unsigned int j = 0; j < size; j++){
-                input.read(&byte,sizeof(char));
-                label.append(&byte,1);
-            }
-
-            input.read(reinterpret_cast<char*>(&value),sizeof(double));
-            input.read(reinterpret_cast<char*>(&vtx.first),sizeof(uint32_t));
-            input.read(reinterpret_cast<char*>(&vtx.second),sizeof(uint32_t));
-
-            addComponent(CMP::type(type),label,value,vtx.first,vtx.second);
-            label.clear();
-           }
-        }*/
-
     void Circuit::updateComponents(std::vector<double> currents) {
 		std::pair<unsigned int, unsigned int> vtx;
 		std::vector<unsigned int> aux;
-        //potential = pot;
 
 		for(unsigned int i = 0; i < components.size(); i++) {
 			vtx = getVertex (i); 
@@ -241,12 +177,12 @@ namespace CCT{
 
 		for(unsigned int i = 0; i < getEdgeNumber(); i++) {
             if(components[i]->getType() == CMP::VCC)
-                Vin[i][0] = (components[i]->getVoltage());
+                Vin[i][0] = -(components[i]->getVoltage());
             else if(components[i]->getType() == CMP::RESISTOR){
                 CMP::Resistor *R = dynamic_cast<CMP::Resistor*> (components[i]);
 		
 			if(R != NULL)
-				Z[i][i] = R->getResistance();
+                Z[i][i] = -R->getResistance();
 			}
 
 			for(unsigned int j = 0; j < getVertexNumber(); j++){
@@ -270,31 +206,8 @@ namespace CCT{
 			I = curSys.getSolution(5e-8, 1000);
 			I= Bt * I;
 		}
-
-        /*NM::Matrix V = -(Z * I);
-		NM::Matrix Mt = M.transpose();
-        V -= Vin;
-		V = M * V;
-		M = M * Mt;
-
-		NM::EquationSystem PSys(M, V);
-		NM::Matrix P = -PSys.getSolution(5e-8, 1000);
-
-		double groundPotential = P[ground][0];
-
-		for(unsigned int i = 0; i<P.getRowNumber();i++){
-			P[i][0]-=groundPotential;
-        }*/
-
         updateComponents(I.getCol(0));
 	}
-
-/*	double Circuit::getVoltage(unsigned int vtx1,  unsigned int vtx2) {
-		if(vtx1 >= getVertexNumber() or vtx2 >= getVertexNumber())
-			throw "Acesso invalido";
-
-		return potential[vtx2] - potential[vtx1];
-    }*/
 
 	double Circuit::getVoltage(std::string l) {
 		for(unsigned int i = 0; i < components.size(); i++) {
@@ -303,13 +216,6 @@ namespace CCT{
 			}
 		throw "Componente nao encontrado";
 	}
-
-    /*double Circuit::getPotential(unsigned int vtx) {
-		if(vtx >= getVertexNumber())
-			throw "Acesso invalido";
-
-		return potential[vtx];
-    }*/
 
 	double Circuit::getCurrent(std::string l) {
 		for(unsigned int i = 0; i<getEdgeNumber(); i++) {

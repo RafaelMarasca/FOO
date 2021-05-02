@@ -65,6 +65,7 @@ namespace GRF{
             std::vector<std::vector<QLine*>> adjMatrix;
         public:
             adjacencyMatrix();
+            adjacencyMatrix(unsigned int vertexNum);
 
             void insertEdge(unsigned int i, unsigned int j, QPoint p1, QPoint p2);
 
