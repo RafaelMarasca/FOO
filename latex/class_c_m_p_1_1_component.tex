@@ -1,0 +1,157 @@
+\hypertarget{class_c_m_p_1_1_component}{}\doxysection{Referência da Classe CMP\+::Component}
+\label{class_c_m_p_1_1_component}\index{CMP::Component@{CMP::Component}}
+
+
+{\ttfamily \#include $<$Component.\+h$>$}
+
+Diagrama de hierarquia para CMP\+::Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_m_p_1_1_component}
+\end{center}
+\end{figure}
+\doxysubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_m_p_1_1_component_a321457ba2abbecab2c8b49f67eb246d8}{Component}} (std\+::string l, unsigned int vtx1, unsigned int vtx2)
+\item 
+virtual \mbox{\hyperlink{class_c_m_p_1_1_component_aa5050eeb7cdb1680d68bdbd0ead3f5e2}{$\sim$\+Component}} ()
+\item 
+void \mbox{\hyperlink{class_c_m_p_1_1_component_a0ebf0677169fad3a704ca6fa55403ac7}{set\+Label}} (std\+::string new\+Label)
+\item 
+std\+::string \mbox{\hyperlink{class_c_m_p_1_1_component_a7b43228f539b1311781ed8e9f01cee42}{get\+Label}} ()
+\item 
+double \mbox{\hyperlink{class_c_m_p_1_1_component_a8056d0907f6bd94321d7d58989b6a2f6}{get\+Voltage}} ()
+\item 
+double \mbox{\hyperlink{class_c_m_p_1_1_component_a66828434fb585c6383d412ca6ca3205a}{get\+Current}} ()
+\item 
+std\+::pair$<$ unsigned int, unsigned int $>$ \mbox{\hyperlink{class_c_m_p_1_1_component_a79a1a9033309b06f9ebd203924461bea}{get\+Nodes}} ()
+\item 
+virtual enum \mbox{\hyperlink{namespace_c_m_p_a5f2d1fd0d049252c22e8b5498a70665f}{type}} \mbox{\hyperlink{class_c_m_p_1_1_component_a172dae611896909fa721199cc27f0072}{get\+Type}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_c_m_p_1_1_component_afd712f37ecb6bedda418bcfbbf0f99a6}{set\+Current}} (double cur)=0
+\item 
+virtual void \mbox{\hyperlink{class_c_m_p_1_1_component_a19e6ffe04afe28b2e3f876ee38b2e854}{set\+Voltage}} (double vol)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_c_m_p_1_1_component_a08a20b8f1411de04ca6444fa0958e126}{label}}
+\item 
+std\+::pair$<$ unsigned int, unsigned int $>$ \mbox{\hyperlink{class_c_m_p_1_1_component_a7b58d4d905cd05512eb1972dca7d7bf7}{vtxs}}
+\item 
+double \mbox{\hyperlink{class_c_m_p_1_1_component_a9b1dac14850b10fff14f622b8f6123fe}{voltage}}
+\item 
+double \mbox{\hyperlink{class_c_m_p_1_1_component_a033e125e2bf6de9456b6f18b4784c6fa}{current}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a321457ba2abbecab2c8b49f67eb246d8}\label{class_c_m_p_1_1_component_a321457ba2abbecab2c8b49f67eb246d8}} 
+\index{CMP::Component@{CMP::Component}!Component@{Component}}
+\index{Component@{Component}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}}
+{\footnotesize\ttfamily CMP\+::\+Component\+::\+Component (\begin{DoxyParamCaption}\item[{std\+::string}]{l,  }\item[{unsigned int}]{vtx1,  }\item[{unsigned int}]{vtx2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_m_p_1_1_component_aa5050eeb7cdb1680d68bdbd0ead3f5e2}\label{class_c_m_p_1_1_component_aa5050eeb7cdb1680d68bdbd0ead3f5e2}} 
+\index{CMP::Component@{CMP::Component}!````~Component@{$\sim$Component}}
+\index{````~Component@{$\sim$Component}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{$\sim$Component()}{~Component()}}
+{\footnotesize\ttfamily CMP\+::\+Component\+::$\sim$\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Funções membros}
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a66828434fb585c6383d412ca6ca3205a}\label{class_c_m_p_1_1_component_a66828434fb585c6383d412ca6ca3205a}} 
+\index{CMP::Component@{CMP::Component}!getCurrent@{getCurrent}}
+\index{getCurrent@{getCurrent}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{getCurrent()}{getCurrent()}}
+{\footnotesize\ttfamily double CMP\+::\+Component\+::get\+Current (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a7b43228f539b1311781ed8e9f01cee42}\label{class_c_m_p_1_1_component_a7b43228f539b1311781ed8e9f01cee42}} 
+\index{CMP::Component@{CMP::Component}!getLabel@{getLabel}}
+\index{getLabel@{getLabel}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{getLabel()}{getLabel()}}
+{\footnotesize\ttfamily std\+::string CMP\+::\+Component\+::get\+Label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a79a1a9033309b06f9ebd203924461bea}\label{class_c_m_p_1_1_component_a79a1a9033309b06f9ebd203924461bea}} 
+\index{CMP::Component@{CMP::Component}!getNodes@{getNodes}}
+\index{getNodes@{getNodes}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{getNodes()}{getNodes()}}
+{\footnotesize\ttfamily std\+::pair$<$ unsigned int, unsigned int $>$ CMP\+::\+Component\+::get\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a172dae611896909fa721199cc27f0072}\label{class_c_m_p_1_1_component_a172dae611896909fa721199cc27f0072}} 
+\index{CMP::Component@{CMP::Component}!getType@{getType}}
+\index{getType@{getType}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily virtual enum \mbox{\hyperlink{namespace_c_m_p_a5f2d1fd0d049252c22e8b5498a70665f}{type}} CMP\+::\+Component\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implementado por \mbox{\hyperlink{class_c_m_p_1_1_vcc_a1508825e7869067a9148f7dc571505f6}{CMP\+::\+Vcc}} e \mbox{\hyperlink{class_c_m_p_1_1_resistor_af434987c7ee81c36bd1c527eeeb191dd}{CMP\+::\+Resistor}}.
+
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a8056d0907f6bd94321d7d58989b6a2f6}\label{class_c_m_p_1_1_component_a8056d0907f6bd94321d7d58989b6a2f6}} 
+\index{CMP::Component@{CMP::Component}!getVoltage@{getVoltage}}
+\index{getVoltage@{getVoltage}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{getVoltage()}{getVoltage()}}
+{\footnotesize\ttfamily double CMP\+::\+Component\+::get\+Voltage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_m_p_1_1_component_afd712f37ecb6bedda418bcfbbf0f99a6}\label{class_c_m_p_1_1_component_afd712f37ecb6bedda418bcfbbf0f99a6}} 
+\index{CMP::Component@{CMP::Component}!setCurrent@{setCurrent}}
+\index{setCurrent@{setCurrent}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{setCurrent()}{setCurrent()}}
+{\footnotesize\ttfamily virtual void CMP\+::\+Component\+::set\+Current (\begin{DoxyParamCaption}\item[{double}]{cur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implementado por \mbox{\hyperlink{class_c_m_p_1_1_vcc_a7586b33c94ade61eb4b3250aa4e15642}{CMP\+::\+Vcc}} e \mbox{\hyperlink{class_c_m_p_1_1_resistor_aad64e49d3a4425d50c6684894f33e180}{CMP\+::\+Resistor}}.
+
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a0ebf0677169fad3a704ca6fa55403ac7}\label{class_c_m_p_1_1_component_a0ebf0677169fad3a704ca6fa55403ac7}} 
+\index{CMP::Component@{CMP::Component}!setLabel@{setLabel}}
+\index{setLabel@{setLabel}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{setLabel()}{setLabel()}}
+{\footnotesize\ttfamily void CMP\+::\+Component\+::set\+Label (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+Label }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a19e6ffe04afe28b2e3f876ee38b2e854}\label{class_c_m_p_1_1_component_a19e6ffe04afe28b2e3f876ee38b2e854}} 
+\index{CMP::Component@{CMP::Component}!setVoltage@{setVoltage}}
+\index{setVoltage@{setVoltage}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{setVoltage()}{setVoltage()}}
+{\footnotesize\ttfamily virtual void CMP\+::\+Component\+::set\+Voltage (\begin{DoxyParamCaption}\item[{double}]{vol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implementado por \mbox{\hyperlink{class_c_m_p_1_1_vcc_a658d011ef01f5c3003d86ad49b29aa86}{CMP\+::\+Vcc}} e \mbox{\hyperlink{class_c_m_p_1_1_resistor_a1da7ca15cbf41c90fa49fefdf36b2083}{CMP\+::\+Resistor}}.
+
+
+
+\doxysubsection{Atributos}
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a033e125e2bf6de9456b6f18b4784c6fa}\label{class_c_m_p_1_1_component_a033e125e2bf6de9456b6f18b4784c6fa}} 
+\index{CMP::Component@{CMP::Component}!current@{current}}
+\index{current@{current}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{current}{current}}
+{\footnotesize\ttfamily double CMP\+::\+Component\+::current\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a08a20b8f1411de04ca6444fa0958e126}\label{class_c_m_p_1_1_component_a08a20b8f1411de04ca6444fa0958e126}} 
+\index{CMP::Component@{CMP::Component}!label@{label}}
+\index{label@{label}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily std\+::string CMP\+::\+Component\+::label\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a9b1dac14850b10fff14f622b8f6123fe}\label{class_c_m_p_1_1_component_a9b1dac14850b10fff14f622b8f6123fe}} 
+\index{CMP::Component@{CMP::Component}!voltage@{voltage}}
+\index{voltage@{voltage}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{voltage}{voltage}}
+{\footnotesize\ttfamily double CMP\+::\+Component\+::voltage\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a7b58d4d905cd05512eb1972dca7d7bf7}\label{class_c_m_p_1_1_component_a7b58d4d905cd05512eb1972dca7d7bf7}} 
+\index{CMP::Component@{CMP::Component}!vtxs@{vtxs}}
+\index{vtxs@{vtxs}!CMP::Component@{CMP::Component}}
+\doxysubsubsection{\texorpdfstring{vtxs}{vtxs}}
+{\footnotesize\ttfamily std\+::pair$<$unsigned int, unsigned int$>$ CMP\+::\+Component\+::vtxs\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_component_8h}{Component.\+h}}\item 
+\mbox{\hyperlink{_component_8cpp}{Component.\+cpp}}\end{DoxyCompactItemize}

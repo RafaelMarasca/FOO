@@ -1,9 +1,25 @@
+/********************************************************************************************
+ * @file Graph.h
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 19 04 2021
+ * @brief Declaração das classes de grafo utilizadas no projeto.
+ * 
+ * Este arquivo contém as declarações dos métodos e membros utilizados por duas classes 
+ * de grafo distintas. 
+ * 
+ * A classe incidenceMatrix implementa um grafo que utiliza matriz 
+ * de incidência como estrutura base.
+ * 
+ * A classe adjacencyMatrix implemeta um grafo 
+ * utilizando matriz de adjacência como estrutura base.
+ *  
+ ********************************************************************************************/
+
 #ifndef GRAPH_H
 #define GRAPH_H
 
 #include <iostream>
 #include <vector>
-#include <QLine>
 
 namespace GRF{
 
@@ -62,16 +78,16 @@ namespace GRF{
     class adjacencyMatrix {
         private:
             unsigned int vertexNumber;
-            std::vector<std::vector<QLine*>> adjMatrix;
+            std::vector<std::vector<int>> adjMatrix;
         public:
             adjacencyMatrix();
             adjacencyMatrix(unsigned int vertexNum);
 
-            void insertEdge(unsigned int i, unsigned int j, QPoint p1, QPoint p2);
+            void insertEdge(unsigned int i, unsigned int j);
 
             void removeVertex(unsigned int i);
 
-            QLine* query(unsigned int i, unsigned int j);
+            int query(unsigned int i, unsigned int j);
 
             unsigned int getVertexNumber();
 

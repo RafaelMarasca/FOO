@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CircuitSim: Código-Fonte de Graph.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CircuitSim
+   </div>
+   <div id="projectbrief">Simulador de Circuitos eletrônicos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_graph_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Graph.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_graph_8h.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef GRAPH_H</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define GRAPH_H</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_g_r_f.html">GRF</a>{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_g_r_f_1_1incidence_matrix.html">   26</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_g_r_f_1_1incidence_matrix.html">incidenceMatrix</a>{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_g_r_f_1_1incidence_matrix.html#a249241d6e44d630459fdac7cc6b1f4ec">   29</a></span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a249241d6e44d630459fdac7cc6b1f4ec">vertexNumber</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_g_r_f_1_1incidence_matrix.html#a96d8e774f71f22d8558d92bdf2933fe3">   30</a></span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a96d8e774f71f22d8558d92bdf2933fe3">edgeNumber</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_g_r_f_1_1incidence_matrix.html#abdbdb83a846a6eaae76078e29c495eea">   33</a></span>&#160;            std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code" href="class_g_r_f_1_1incidence_matrix.html#abdbdb83a846a6eaae76078e29c495eea">inMatrix</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a24a514f48f5ff9a508a1839e89f1b13c">incidenceMatrix</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a24a514f48f5ff9a508a1839e89f1b13c">incidenceMatrix</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> v,  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> e);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            std::vector&lt;int&gt; &amp;<a class="code" href="class_g_r_f_1_1incidence_matrix.html#a60ae4bc6102d8ccd475e4b760b61399c">operator[]</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="comment">//Cria uma conexao entre vertices em um grafo que ja possui tamanho definido</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a655f09f3a548c88cf04a581f82c788af">makeCon</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx1,  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx2,  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> edge);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="comment">//Adiciona uma nova aresta no grafo</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#ac0aa78cd341019ca5d7aad5a74d7c5f2">addEdge</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx1,  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx2);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a899d8049bb768f761df5d834c705a2fd">removeEdge</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> edg);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a3bdf2abba34e55ab8e53e6cc63a444b5">removeVertex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a8581b26321e6c4c1fffa4d8986caea88">getVertexNumber</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#ab315d46e61d92998030639cfacd2848a">getEdgeNumber</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            std::vector&lt;int&gt; <a class="code" href="class_g_r_f_1_1incidence_matrix.html#ac743f0d0bb6484dfeadde325fec4cbb7">getLoop</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> key); </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="comment">//Retorna uma árvore geradora para o grafo.</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="class_g_r_f_1_1incidence_matrix.html">incidenceMatrix</a> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a62f1de53b082b358c9842ae977df749d">getSpanningTree</a>( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> key);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="comment">//Retorna o vértice que está ligado a vtx pela aresta edg.</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a97988096a86fbae38e94222dbec83f21">getVertexCon</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx,  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="comment">//Retorna um vector contendo todas as conexões de um vértice</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            std::vector&lt;unsigned int&gt; <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a8a7c0376392e33ae1422ca600fffae33">getEdges</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="comment">//Retorna um vector contendo todas as conexões entre dois vértices.</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            std::vector&lt;unsigned int&gt; <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a8a7c0376392e33ae1422ca600fffae33">getEdges</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx1, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx2);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="comment">//Retorna o par de vértices que está ligado pela aresta edg.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            std::pair&lt;unsigned int,unsigned int&gt; <a class="code" href="class_g_r_f_1_1incidence_matrix.html#afb811803477580405e3a971dab567c71">getVertex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> edg);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#aa881c508b4ccd857ac4f1ab13fa48585">getConNum</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx);   </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="comment">//Printa o grafo na representação de matriz de incidência.</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html#a402df9f6f73c294bd55db4d354d1a4c4">print</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    };</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_g_r_f_1_1adjacency_matrix.html">   78</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_g_r_f_1_1adjacency_matrix.html">adjacencyMatrix</a> {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_g_r_f_1_1adjacency_matrix.html#a3aaddcbf64446c7d046f49e7e0c3ab8c">   80</a></span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_g_r_f_1_1adjacency_matrix.html#a3aaddcbf64446c7d046f49e7e0c3ab8c">vertexNumber</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_g_r_f_1_1adjacency_matrix.html#a4fd0ad895316a46ef221ebd2fc9c0086">   81</a></span>&#160;            std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code" href="class_g_r_f_1_1adjacency_matrix.html#a4fd0ad895316a46ef221ebd2fc9c0086">adjMatrix</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="class_g_r_f_1_1adjacency_matrix.html#a003c969bb5239769b066612e9e35fdf8">adjacencyMatrix</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="class_g_r_f_1_1adjacency_matrix.html#a003c969bb5239769b066612e9e35fdf8">adjacencyMatrix</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vertexNum);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_g_r_f_1_1adjacency_matrix.html#a7cc6ac14f10a4e4653b4923e52c9392d">insertEdge</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_g_r_f_1_1adjacency_matrix.html#acb0a44ce36396f5e66204836bb3710c9">removeVertex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordtype">int</span> <a class="code" href="class_g_r_f_1_1adjacency_matrix.html#acdc0149a4d58bc08927716788016850b">query</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_g_r_f_1_1adjacency_matrix.html#a6ec26162aac9d16ab933a4b4087f0a3c">getVertexNumber</a>();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="class_g_r_f_1_1adjacency_matrix.html#a3e240556240f35482cd8f77334d0a07b">   94</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="class_g_r_f_1_1adjacency_matrix.html#a3e240556240f35482cd8f77334d0a07b">print</a>(){</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i&lt; <a class="code" href="class_g_r_f_1_1adjacency_matrix.html#a3aaddcbf64446c7d046f49e7e0c3ab8c">vertexNumber</a>; i++){</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j = 0; j&lt;<a class="code" href="class_g_r_f_1_1adjacency_matrix.html#a3aaddcbf64446c7d046f49e7e0c3ab8c">vertexNumber</a>;j++)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        std::cout&lt;&lt;<a class="code" href="class_g_r_f_1_1adjacency_matrix.html#a4fd0ad895316a46ef221ebd2fc9c0086">adjMatrix</a>[i][j]&lt;&lt;<span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    std::cout&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    };</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_g_r_f_1_1adjacency_matrix_html"><div class="ttname"><a href="class_g_r_f_1_1adjacency_matrix.html">GRF::adjacencyMatrix</a></div><div class="ttdef"><b>Definition:</b> Graph.h:78</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1adjacency_matrix_html_a003c969bb5239769b066612e9e35fdf8"><div class="ttname"><a href="class_g_r_f_1_1adjacency_matrix.html#a003c969bb5239769b066612e9e35fdf8">GRF::adjacencyMatrix::adjacencyMatrix</a></div><div class="ttdeci">adjacencyMatrix()</div><div class="ttdef"><b>Definition:</b> Graph.cpp:272</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1adjacency_matrix_html_a3aaddcbf64446c7d046f49e7e0c3ab8c"><div class="ttname"><a href="class_g_r_f_1_1adjacency_matrix.html#a3aaddcbf64446c7d046f49e7e0c3ab8c">GRF::adjacencyMatrix::vertexNumber</a></div><div class="ttdeci">unsigned int vertexNumber</div><div class="ttdef"><b>Definition:</b> Graph.h:80</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1adjacency_matrix_html_a3e240556240f35482cd8f77334d0a07b"><div class="ttname"><a href="class_g_r_f_1_1adjacency_matrix.html#a3e240556240f35482cd8f77334d0a07b">GRF::adjacencyMatrix::print</a></div><div class="ttdeci">void print()</div><div class="ttdef"><b>Definition:</b> Graph.h:94</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1adjacency_matrix_html_a4fd0ad895316a46ef221ebd2fc9c0086"><div class="ttname"><a href="class_g_r_f_1_1adjacency_matrix.html#a4fd0ad895316a46ef221ebd2fc9c0086">GRF::adjacencyMatrix::adjMatrix</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; adjMatrix</div><div class="ttdef"><b>Definition:</b> Graph.h:81</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1adjacency_matrix_html_a6ec26162aac9d16ab933a4b4087f0a3c"><div class="ttname"><a href="class_g_r_f_1_1adjacency_matrix.html#a6ec26162aac9d16ab933a4b4087f0a3c">GRF::adjacencyMatrix::getVertexNumber</a></div><div class="ttdeci">unsigned int getVertexNumber()</div><div class="ttdef"><b>Definition:</b> Graph.cpp:339</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1adjacency_matrix_html_a7cc6ac14f10a4e4653b4923e52c9392d"><div class="ttname"><a href="class_g_r_f_1_1adjacency_matrix.html#a7cc6ac14f10a4e4653b4923e52c9392d">GRF::adjacencyMatrix::insertEdge</a></div><div class="ttdeci">void insertEdge(unsigned int i, unsigned int j)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:285</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1adjacency_matrix_html_acb0a44ce36396f5e66204836bb3710c9"><div class="ttname"><a href="class_g_r_f_1_1adjacency_matrix.html#acb0a44ce36396f5e66204836bb3710c9">GRF::adjacencyMatrix::removeVertex</a></div><div class="ttdeci">void removeVertex(unsigned int i)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:305</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1adjacency_matrix_html_acdc0149a4d58bc08927716788016850b"><div class="ttname"><a href="class_g_r_f_1_1adjacency_matrix.html#acdc0149a4d58bc08927716788016850b">GRF::adjacencyMatrix::query</a></div><div class="ttdeci">int query(unsigned int i, unsigned int j)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:331</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html">GRF::incidenceMatrix</a></div><div class="ttdef"><b>Definition:</b> Graph.h:26</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a249241d6e44d630459fdac7cc6b1f4ec"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a249241d6e44d630459fdac7cc6b1f4ec">GRF::incidenceMatrix::vertexNumber</a></div><div class="ttdeci">unsigned int vertexNumber</div><div class="ttdef"><b>Definition:</b> Graph.h:29</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a24a514f48f5ff9a508a1839e89f1b13c"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a24a514f48f5ff9a508a1839e89f1b13c">GRF::incidenceMatrix::incidenceMatrix</a></div><div class="ttdeci">incidenceMatrix()</div><div class="ttdef"><b>Definition:</b> Graph.cpp:25</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a3bdf2abba34e55ab8e53e6cc63a444b5"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a3bdf2abba34e55ab8e53e6cc63a444b5">GRF::incidenceMatrix::removeVertex</a></div><div class="ttdeci">void removeVertex(unsigned int vtx)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:85</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a402df9f6f73c294bd55db4d354d1a4c4"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a402df9f6f73c294bd55db4d354d1a4c4">GRF::incidenceMatrix::print</a></div><div class="ttdeci">void print()</div><div class="ttdef"><b>Definition:</b> Graph.cpp:263</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a60ae4bc6102d8ccd475e4b760b61399c"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a60ae4bc6102d8ccd475e4b760b61399c">GRF::incidenceMatrix::operator[]</a></div><div class="ttdeci">std::vector&lt; int &gt; &amp; operator[](unsigned int vtx)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:38</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a62f1de53b082b358c9842ae977df749d"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a62f1de53b082b358c9842ae977df749d">GRF::incidenceMatrix::getSpanningTree</a></div><div class="ttdeci">incidenceMatrix getSpanningTree(unsigned int key)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:154</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a655f09f3a548c88cf04a581f82c788af"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a655f09f3a548c88cf04a581f82c788af">GRF::incidenceMatrix::makeCon</a></div><div class="ttdeci">void makeCon(unsigned int vtx1, unsigned int vtx2, unsigned int edge)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:46</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a8581b26321e6c4c1fffa4d8986caea88"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a8581b26321e6c4c1fffa4d8986caea88">GRF::incidenceMatrix::getVertexNumber</a></div><div class="ttdeci">unsigned int getVertexNumber()</div><div class="ttdef"><b>Definition:</b> Graph.cpp:100</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a899d8049bb768f761df5d834c705a2fd"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a899d8049bb768f761df5d834c705a2fd">GRF::incidenceMatrix::removeEdge</a></div><div class="ttdeci">void removeEdge(unsigned int edg)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:68</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a8a7c0376392e33ae1422ca600fffae33"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a8a7c0376392e33ae1422ca600fffae33">GRF::incidenceMatrix::getEdges</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; getEdges(unsigned int vtx)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:205</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a96d8e774f71f22d8558d92bdf2933fe3"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a96d8e774f71f22d8558d92bdf2933fe3">GRF::incidenceMatrix::edgeNumber</a></div><div class="ttdeci">unsigned int edgeNumber</div><div class="ttdef"><b>Definition:</b> Graph.h:30</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_a97988096a86fbae38e94222dbec83f21"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#a97988096a86fbae38e94222dbec83f21">GRF::incidenceMatrix::getVertexCon</a></div><div class="ttdeci">unsigned int getVertexCon(unsigned int vtx, unsigned int i)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:191</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_aa881c508b4ccd857ac4f1ab13fa48585"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#aa881c508b4ccd857ac4f1ab13fa48585">GRF::incidenceMatrix::getConNum</a></div><div class="ttdeci">unsigned int getConNum(unsigned int vtx)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:251</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_ab315d46e61d92998030639cfacd2848a"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#ab315d46e61d92998030639cfacd2848a">GRF::incidenceMatrix::getEdgeNumber</a></div><div class="ttdeci">unsigned int getEdgeNumber()</div><div class="ttdef"><b>Definition:</b> Graph.cpp:104</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_abdbdb83a846a6eaae76078e29c495eea"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#abdbdb83a846a6eaae76078e29c495eea">GRF::incidenceMatrix::inMatrix</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; inMatrix</div><div class="ttdef"><b>Definition:</b> Graph.h:33</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_ac0aa78cd341019ca5d7aad5a74d7c5f2"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#ac0aa78cd341019ca5d7aad5a74d7c5f2">GRF::incidenceMatrix::addEdge</a></div><div class="ttdeci">void addEdge(unsigned int vtx1, unsigned int vtx2)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:54</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_ac743f0d0bb6484dfeadde325fec4cbb7"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#ac743f0d0bb6484dfeadde325fec4cbb7">GRF::incidenceMatrix::getLoop</a></div><div class="ttdeci">std::vector&lt; int &gt; getLoop(unsigned int key)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:108</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html_afb811803477580405e3a971dab567c71"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html#afb811803477580405e3a971dab567c71">GRF::incidenceMatrix::getVertex</a></div><div class="ttdeci">std::pair&lt; unsigned int, unsigned int &gt; getVertex(unsigned int edg)</div><div class="ttdef"><b>Definition:</b> Graph.cpp:233</div></div>
+<div class="ttc" id="anamespace_g_r_f_html"><div class="ttname"><a href="namespace_g_r_f.html">GRF</a></div><div class="ttdef"><b>Definition:</b> Graph.cpp:22</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="_graph_8h.html">Graph.h</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

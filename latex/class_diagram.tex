@@ -1,0 +1,389 @@
+\hypertarget{class_diagram}{}\doxysection{Referência da Classe Diagram}
+\label{class_diagram}\index{Diagram@{Diagram}}
+
+
+{\ttfamily \#include $<$Diagram.\+h$>$}
+
+Diagrama de hierarquia para Diagram\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_diagram}
+\end{center}
+\end{figure}
+\doxysubsection*{Slots Públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_diagram_aee9d6a9d57e7ae143208fa0b1a52f40d}{query\+Mode}} ()
+\item 
+void \mbox{\hyperlink{class_diagram_a6e3ae97c93e66ea32b69eefa0e14a1ec}{edit\+Mode}} ()
+\item 
+void \mbox{\hyperlink{class_diagram_ac59d36987234ba7ab13421fb26fc0fae}{right\+Button\+Clicked}} (int x, int y, int c\+Area)
+\item 
+void \mbox{\hyperlink{class_diagram_a3879ca26b3db88a0966830b10221a4b9}{left\+Button\+Clicked}} (int x, int y, int c\+Area)
+\item 
+void \mbox{\hyperlink{class_diagram_a8b1e896bbbc82a26e0a4d2fb5d48ccdb}{show\+Edit\+Dialog}} ()
+\item 
+void \mbox{\hyperlink{class_diagram_ab28065617b07eaf924934837f48d60e6}{edit}} (double new\+Value)
+\item 
+void \mbox{\hyperlink{class_diagram_a86c1aa1a76804661251ced9fc44acd34}{remove}} ()
+\item 
+void \mbox{\hyperlink{class_diagram_a0282268ccdfa64aa3c677fb12859d900}{query}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Sinais}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_diagram_aecdea2935c5da267184196f571fd1659}{modified}} (bool checked=false)
+\item 
+void \mbox{\hyperlink{class_diagram_a47fde78917967894a5b38000003892fe}{load\+Error}} (bool checked=false)
+\end{DoxyCompactItemize}
+\doxysubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_diagram_a2c5722d38c84fae035845132febe6289}{Diagram}} (QWidget $\ast$parent=nullptr)
+\item 
+void \mbox{\hyperlink{class_diagram_a3ff9130db22ea7bee6b41e448abebc16}{set\+File\+Name}} (QString file)
+\item 
+QString \mbox{\hyperlink{class_diagram_aee71e03c8ada87a8ba7cadafdb13e1dd}{get\+File\+Name}} ()
+\item 
+void \mbox{\hyperlink{class_diagram_ab86cc0c7379ef0c306354a1404c7110a}{load}} ()
+\item 
+void \mbox{\hyperlink{class_diagram_a879698ffcc15e2741b2fea212725f4e7}{save}} ()
+\item 
+enum \mbox{\hyperlink{_diagram_8h_a692ae8b25d11627069e21633a0f8ac64}{sts}} \mbox{\hyperlink{class_diagram_aacd61a10e0b7b56d7f73fee5b7876104}{get\+Status}} ()
+\item 
+void \mbox{\hyperlink{class_diagram_a48acd37e4620145b7b1f8e8abb1b55f0}{set\+Selected\+Button}} (enum \mbox{\hyperlink{_diagram_8h_a3b5c6656f8274a28c2ec3c63588f3dc1}{type\+Orientation}})
+\item 
+void \mbox{\hyperlink{class_diagram_a1b5046f69e667ee3d88e4610f4fd1498}{insert}} (int x, int y)
+\end{DoxyCompactItemize}
+\doxysubsection*{Membros Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_diagram_a4de4b0172da7b8090008fa2f1397a982}{mouse\+Press\+Event}} (QMouse\+Event $\ast$event) override
+\item 
+void \mbox{\hyperlink{class_diagram_a4a1217c936cd2e204d7772a8946b128e}{mouse\+Move\+Event}} (QMouse\+Event $\ast$event) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Membros Privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_diagram_a6cb3ef277b1dbaae5b6cae06d255205d}{initialize\+Diagram}} ()
+\item 
+void \mbox{\hyperlink{class_diagram_adecc3079241d33686471e97a67ebf2ed}{set\+Status}} (enum \mbox{\hyperlink{_diagram_8h_a692ae8b25d11627069e21633a0f8ac64}{sts}} new\+Status)
+\item 
+void \mbox{\hyperlink{class_diagram_a7814730dff997a060c606370615bf428}{paint\+Event}} (QPaint\+Event $\ast$event) override
+\item 
+void \mbox{\hyperlink{class_diagram_a346131e1a1a3f701a5f8bfa8c4caf1c0}{free\+Allocated\+Memory}} ()
+\item 
+void \mbox{\hyperlink{class_diagram_ae7c3e02c5cea03117633cc1675bcc7a9}{right\+Button\+Actions}} (int x, int y)
+\item 
+void \mbox{\hyperlink{class_diagram_ae45bf39612a530b26bf64a630762c6e2}{left\+Button\+Actions}} (int x, int y)
+\item 
+void \mbox{\hyperlink{class_diagram_a32f104f3dd4e0183532a7b1eaed11b39}{clicked\+Control}} (int, int, int)
+\item 
+std\+::pair$<$ QRect, QPixmap $>$ \mbox{\hyperlink{class_diagram_a38cf1b5064a39f4e7308f3b615b500a9}{get\+Pix\+Map}} (enum \mbox{\hyperlink{_diagram_8h_a3b5c6656f8274a28c2ec3c63588f3dc1}{type\+Orientation}} type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+QPush\+Button $\ast$ \mbox{\hyperlink{class_diagram_a84f6e430a1658543b01536f6bd402566}{play\+Button}}
+\item 
+QPush\+Button $\ast$ \mbox{\hyperlink{class_diagram_a858e573f1fd1d290da438a59137424a3}{edit\+Button}}
+\item 
+std\+::string \mbox{\hyperlink{class_diagram_adffb279de2470afdad4a652aff39e68d}{file\+Name}}
+\item 
+enum \mbox{\hyperlink{_diagram_8h_a692ae8b25d11627069e21633a0f8ac64}{sts}} \mbox{\hyperlink{class_diagram_ab32377084ecd586d3e7ecbb531af6c10}{status}}
+\item 
+\mbox{\hyperlink{class_c_c_t_1_1_circuit}{CCT\+::\+Circuit}} \mbox{\hyperlink{class_diagram_a71a8256af689731c318feaabc46c8e0d}{circuit}}
+\item 
+enum \mbox{\hyperlink{_diagram_8h_a1a6b6fb557d8d37d59700faf4e4c9167}{mode}} \mbox{\hyperlink{class_diagram_aa95d8e4def8cee1495731879e5fd35d4}{mode}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_graphic_component}{Graphic\+Component}} $\ast$ $>$ \mbox{\hyperlink{class_diagram_adc4dd6c4aadd2329bad826406eba2bb8}{draw\+List}}
+\item 
+\mbox{\hyperlink{class_graphic_component}{Graphic\+Component}} $\ast$ \mbox{\hyperlink{class_diagram_af19b01625c19689b0f0baab4da3f8364}{selected\+Component}}
+\item 
+enum \mbox{\hyperlink{_diagram_8h_a3b5c6656f8274a28c2ec3c63588f3dc1}{type\+Orientation}} \mbox{\hyperlink{class_diagram_a740d3a53df524372898958d96af960d3}{selected\+Button}}
+\item 
+std\+::stack$<$ std\+::pair$<$ int, \mbox{\hyperlink{class_graphic_component}{Graphic\+Component}} $\ast$ $>$ $>$ \mbox{\hyperlink{class_diagram_af133242af7021a9985027ad89c538c5a}{clicked\+Stack}}
+\item 
+\mbox{\hyperlink{class_g_r_f_1_1adjacency_matrix}{GRF\+::adjacency\+Matrix}} \mbox{\hyperlink{class_diagram_a4acb6d8fd8824a3922137cd24792613a}{connections}}
+\item 
+unsigned int \mbox{\hyperlink{class_diagram_ab2d2f451f84b72aba2d9c5d26da3e577}{wire\+Counter}}
+\item 
+QMenu $\ast$ \mbox{\hyperlink{class_diagram_a4341a85c5cf94c277781dc4fcf68cdf1}{edit\+Menu}}
+\item 
+QPoint \mbox{\hyperlink{class_diagram_a27f5410148e302b96d06111c285b34ce}{cursor\+Location}}
+\item 
+QPoint \mbox{\hyperlink{class_diagram_adb6bbb6244136dad0f8d8222c572535f}{selected\+Prev}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_diagram_a2c5722d38c84fae035845132febe6289}\label{class_diagram_a2c5722d38c84fae035845132febe6289}} 
+\index{Diagram@{Diagram}!Diagram@{Diagram}}
+\index{Diagram@{Diagram}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{Diagram()}{Diagram()}}
+{\footnotesize\ttfamily Diagram\+::\+Diagram (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Funções membros}
+\mbox{\Hypertarget{class_diagram_a32f104f3dd4e0183532a7b1eaed11b39}\label{class_diagram_a32f104f3dd4e0183532a7b1eaed11b39}} 
+\index{Diagram@{Diagram}!clickedControl@{clickedControl}}
+\index{clickedControl@{clickedControl}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{clickedControl()}{clickedControl()}}
+{\footnotesize\ttfamily void Diagram\+::clicked\+Control (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_ab28065617b07eaf924934837f48d60e6}\label{class_diagram_ab28065617b07eaf924934837f48d60e6}} 
+\index{Diagram@{Diagram}!edit@{edit}}
+\index{edit@{edit}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{edit}{edit}}
+{\footnotesize\ttfamily void Diagram\+::edit (\begin{DoxyParamCaption}\item[{double}]{new\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_diagram_a6e3ae97c93e66ea32b69eefa0e14a1ec}\label{class_diagram_a6e3ae97c93e66ea32b69eefa0e14a1ec}} 
+\index{Diagram@{Diagram}!editMode@{editMode}}
+\index{editMode@{editMode}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{editMode}{editMode}}
+{\footnotesize\ttfamily void Diagram\+::edit\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_diagram_a346131e1a1a3f701a5f8bfa8c4caf1c0}\label{class_diagram_a346131e1a1a3f701a5f8bfa8c4caf1c0}} 
+\index{Diagram@{Diagram}!freeAllocatedMemory@{freeAllocatedMemory}}
+\index{freeAllocatedMemory@{freeAllocatedMemory}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{freeAllocatedMemory()}{freeAllocatedMemory()}}
+{\footnotesize\ttfamily void Diagram\+::free\+Allocated\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_aee71e03c8ada87a8ba7cadafdb13e1dd}\label{class_diagram_aee71e03c8ada87a8ba7cadafdb13e1dd}} 
+\index{Diagram@{Diagram}!getFileName@{getFileName}}
+\index{getFileName@{getFileName}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{getFileName()}{getFileName()}}
+{\footnotesize\ttfamily QString Diagram\+::get\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_diagram_a38cf1b5064a39f4e7308f3b615b500a9}\label{class_diagram_a38cf1b5064a39f4e7308f3b615b500a9}} 
+\index{Diagram@{Diagram}!getPixMap@{getPixMap}}
+\index{getPixMap@{getPixMap}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{getPixMap()}{getPixMap()}}
+{\footnotesize\ttfamily std\+::pair$<$ QRect, QPixmap $>$ Diagram\+::get\+Pix\+Map (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{_diagram_8h_a3b5c6656f8274a28c2ec3c63588f3dc1}{type\+Orientation}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_aacd61a10e0b7b56d7f73fee5b7876104}\label{class_diagram_aacd61a10e0b7b56d7f73fee5b7876104}} 
+\index{Diagram@{Diagram}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_diagram_8h_a692ae8b25d11627069e21633a0f8ac64}{sts}} Diagram\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_diagram_a6cb3ef277b1dbaae5b6cae06d255205d}\label{class_diagram_a6cb3ef277b1dbaae5b6cae06d255205d}} 
+\index{Diagram@{Diagram}!initializeDiagram@{initializeDiagram}}
+\index{initializeDiagram@{initializeDiagram}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{initializeDiagram()}{initializeDiagram()}}
+{\footnotesize\ttfamily void Diagram\+::initialize\+Diagram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_a1b5046f69e667ee3d88e4610f4fd1498}\label{class_diagram_a1b5046f69e667ee3d88e4610f4fd1498}} 
+\index{Diagram@{Diagram}!insert@{insert}}
+\index{insert@{insert}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void Diagram\+::insert (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_diagram_ae45bf39612a530b26bf64a630762c6e2}\label{class_diagram_ae45bf39612a530b26bf64a630762c6e2}} 
+\index{Diagram@{Diagram}!leftButtonActions@{leftButtonActions}}
+\index{leftButtonActions@{leftButtonActions}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{leftButtonActions()}{leftButtonActions()}}
+{\footnotesize\ttfamily void Diagram\+::left\+Button\+Actions (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_a3879ca26b3db88a0966830b10221a4b9}\label{class_diagram_a3879ca26b3db88a0966830b10221a4b9}} 
+\index{Diagram@{Diagram}!leftButtonClicked@{leftButtonClicked}}
+\index{leftButtonClicked@{leftButtonClicked}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{leftButtonClicked}{leftButtonClicked}}
+{\footnotesize\ttfamily void Diagram\+::left\+Button\+Clicked (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{c\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_diagram_ab86cc0c7379ef0c306354a1404c7110a}\label{class_diagram_ab86cc0c7379ef0c306354a1404c7110a}} 
+\index{Diagram@{Diagram}!load@{load}}
+\index{load@{load}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void Diagram\+::load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_diagram_a47fde78917967894a5b38000003892fe}\label{class_diagram_a47fde78917967894a5b38000003892fe}} 
+\index{Diagram@{Diagram}!loadError@{loadError}}
+\index{loadError@{loadError}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{loadError}{loadError}}
+{\footnotesize\ttfamily void Diagram\+::load\+Error (\begin{DoxyParamCaption}\item[{bool}]{checked = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_diagram_aecdea2935c5da267184196f571fd1659}\label{class_diagram_aecdea2935c5da267184196f571fd1659}} 
+\index{Diagram@{Diagram}!modified@{modified}}
+\index{modified@{modified}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{modified}{modified}}
+{\footnotesize\ttfamily void Diagram\+::modified (\begin{DoxyParamCaption}\item[{bool}]{checked = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_diagram_a4a1217c936cd2e204d7772a8946b128e}\label{class_diagram_a4a1217c936cd2e204d7772a8946b128e}} 
+\index{Diagram@{Diagram}!mouseMoveEvent@{mouseMoveEvent}}
+\index{mouseMoveEvent@{mouseMoveEvent}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{mouseMoveEvent()}{mouseMoveEvent()}}
+{\footnotesize\ttfamily void Diagram\+::mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_diagram_a4de4b0172da7b8090008fa2f1397a982}\label{class_diagram_a4de4b0172da7b8090008fa2f1397a982}} 
+\index{Diagram@{Diagram}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Diagram\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_diagram_a7814730dff997a060c606370615bf428}\label{class_diagram_a7814730dff997a060c606370615bf428}} 
+\index{Diagram@{Diagram}!paintEvent@{paintEvent}}
+\index{paintEvent@{paintEvent}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{paintEvent()}{paintEvent()}}
+{\footnotesize\ttfamily void Diagram\+::paint\+Event (\begin{DoxyParamCaption}\item[{QPaint\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_a0282268ccdfa64aa3c677fb12859d900}\label{class_diagram_a0282268ccdfa64aa3c677fb12859d900}} 
+\index{Diagram@{Diagram}!query@{query}}
+\index{query@{query}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{query}{query}}
+{\footnotesize\ttfamily void Diagram\+::query (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_diagram_aee9d6a9d57e7ae143208fa0b1a52f40d}\label{class_diagram_aee9d6a9d57e7ae143208fa0b1a52f40d}} 
+\index{Diagram@{Diagram}!queryMode@{queryMode}}
+\index{queryMode@{queryMode}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{queryMode}{queryMode}}
+{\footnotesize\ttfamily void Diagram\+::query\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_diagram_a86c1aa1a76804661251ced9fc44acd34}\label{class_diagram_a86c1aa1a76804661251ced9fc44acd34}} 
+\index{Diagram@{Diagram}!remove@{remove}}
+\index{remove@{remove}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{remove}{remove}}
+{\footnotesize\ttfamily void Diagram\+::remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_diagram_ae7c3e02c5cea03117633cc1675bcc7a9}\label{class_diagram_ae7c3e02c5cea03117633cc1675bcc7a9}} 
+\index{Diagram@{Diagram}!rightButtonActions@{rightButtonActions}}
+\index{rightButtonActions@{rightButtonActions}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{rightButtonActions()}{rightButtonActions()}}
+{\footnotesize\ttfamily void Diagram\+::right\+Button\+Actions (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_ac59d36987234ba7ab13421fb26fc0fae}\label{class_diagram_ac59d36987234ba7ab13421fb26fc0fae}} 
+\index{Diagram@{Diagram}!rightButtonClicked@{rightButtonClicked}}
+\index{rightButtonClicked@{rightButtonClicked}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{rightButtonClicked}{rightButtonClicked}}
+{\footnotesize\ttfamily void Diagram\+::right\+Button\+Clicked (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{c\+Area }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_diagram_a879698ffcc15e2741b2fea212725f4e7}\label{class_diagram_a879698ffcc15e2741b2fea212725f4e7}} 
+\index{Diagram@{Diagram}!save@{save}}
+\index{save@{save}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Diagram\+::save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_diagram_a3ff9130db22ea7bee6b41e448abebc16}\label{class_diagram_a3ff9130db22ea7bee6b41e448abebc16}} 
+\index{Diagram@{Diagram}!setFileName@{setFileName}}
+\index{setFileName@{setFileName}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{setFileName()}{setFileName()}}
+{\footnotesize\ttfamily void Diagram\+::set\+File\+Name (\begin{DoxyParamCaption}\item[{QString}]{file }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_diagram_a48acd37e4620145b7b1f8e8abb1b55f0}\label{class_diagram_a48acd37e4620145b7b1f8e8abb1b55f0}} 
+\index{Diagram@{Diagram}!setSelectedButton@{setSelectedButton}}
+\index{setSelectedButton@{setSelectedButton}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{setSelectedButton()}{setSelectedButton()}}
+{\footnotesize\ttfamily void Diagram\+::set\+Selected\+Button (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{_diagram_8h_a3b5c6656f8274a28c2ec3c63588f3dc1}{type\+Orientation}}}]{button }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_diagram_adecc3079241d33686471e97a67ebf2ed}\label{class_diagram_adecc3079241d33686471e97a67ebf2ed}} 
+\index{Diagram@{Diagram}!setStatus@{setStatus}}
+\index{setStatus@{setStatus}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{setStatus()}{setStatus()}}
+{\footnotesize\ttfamily void Diagram\+::set\+Status (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{_diagram_8h_a692ae8b25d11627069e21633a0f8ac64}{sts}}}]{new\+Status }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_a8b1e896bbbc82a26e0a4d2fb5d48ccdb}\label{class_diagram_a8b1e896bbbc82a26e0a4d2fb5d48ccdb}} 
+\index{Diagram@{Diagram}!showEditDialog@{showEditDialog}}
+\index{showEditDialog@{showEditDialog}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{showEditDialog}{showEditDialog}}
+{\footnotesize\ttfamily void Diagram\+::show\+Edit\+Dialog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\doxysubsection{Atributos}
+\mbox{\Hypertarget{class_diagram_a71a8256af689731c318feaabc46c8e0d}\label{class_diagram_a71a8256af689731c318feaabc46c8e0d}} 
+\index{Diagram@{Diagram}!circuit@{circuit}}
+\index{circuit@{circuit}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{circuit}{circuit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_c_t_1_1_circuit}{CCT\+::\+Circuit}} Diagram\+::circuit\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_af133242af7021a9985027ad89c538c5a}\label{class_diagram_af133242af7021a9985027ad89c538c5a}} 
+\index{Diagram@{Diagram}!clickedStack@{clickedStack}}
+\index{clickedStack@{clickedStack}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{clickedStack}{clickedStack}}
+{\footnotesize\ttfamily std\+::stack$<$std\+::pair$<$int,\mbox{\hyperlink{class_graphic_component}{Graphic\+Component}}$\ast$$>$ $>$ Diagram\+::clicked\+Stack\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_a4acb6d8fd8824a3922137cd24792613a}\label{class_diagram_a4acb6d8fd8824a3922137cd24792613a}} 
+\index{Diagram@{Diagram}!connections@{connections}}
+\index{connections@{connections}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{connections}{connections}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_r_f_1_1adjacency_matrix}{GRF\+::adjacency\+Matrix}} Diagram\+::connections\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_a27f5410148e302b96d06111c285b34ce}\label{class_diagram_a27f5410148e302b96d06111c285b34ce}} 
+\index{Diagram@{Diagram}!cursorLocation@{cursorLocation}}
+\index{cursorLocation@{cursorLocation}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{cursorLocation}{cursorLocation}}
+{\footnotesize\ttfamily QPoint Diagram\+::cursor\+Location\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_adc4dd6c4aadd2329bad826406eba2bb8}\label{class_diagram_adc4dd6c4aadd2329bad826406eba2bb8}} 
+\index{Diagram@{Diagram}!drawList@{drawList}}
+\index{drawList@{drawList}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{drawList}{drawList}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_graphic_component}{Graphic\+Component}}$\ast$$>$ Diagram\+::draw\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_a858e573f1fd1d290da438a59137424a3}\label{class_diagram_a858e573f1fd1d290da438a59137424a3}} 
+\index{Diagram@{Diagram}!editButton@{editButton}}
+\index{editButton@{editButton}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{editButton}{editButton}}
+{\footnotesize\ttfamily QPush\+Button$\ast$ Diagram\+::edit\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_a4341a85c5cf94c277781dc4fcf68cdf1}\label{class_diagram_a4341a85c5cf94c277781dc4fcf68cdf1}} 
+\index{Diagram@{Diagram}!editMenu@{editMenu}}
+\index{editMenu@{editMenu}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{editMenu}{editMenu}}
+{\footnotesize\ttfamily QMenu$\ast$ Diagram\+::edit\+Menu\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_adffb279de2470afdad4a652aff39e68d}\label{class_diagram_adffb279de2470afdad4a652aff39e68d}} 
+\index{Diagram@{Diagram}!fileName@{fileName}}
+\index{fileName@{fileName}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{fileName}{fileName}}
+{\footnotesize\ttfamily std\+::string Diagram\+::file\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_aa95d8e4def8cee1495731879e5fd35d4}\label{class_diagram_aa95d8e4def8cee1495731879e5fd35d4}} 
+\index{Diagram@{Diagram}!mode@{mode}}
+\index{mode@{mode}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_diagram_8h_a1a6b6fb557d8d37d59700faf4e4c9167}{mode}} Diagram\+::mode\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_a84f6e430a1658543b01536f6bd402566}\label{class_diagram_a84f6e430a1658543b01536f6bd402566}} 
+\index{Diagram@{Diagram}!playButton@{playButton}}
+\index{playButton@{playButton}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{playButton}{playButton}}
+{\footnotesize\ttfamily QPush\+Button$\ast$ Diagram\+::play\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_a740d3a53df524372898958d96af960d3}\label{class_diagram_a740d3a53df524372898958d96af960d3}} 
+\index{Diagram@{Diagram}!selectedButton@{selectedButton}}
+\index{selectedButton@{selectedButton}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{selectedButton}{selectedButton}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_diagram_8h_a3b5c6656f8274a28c2ec3c63588f3dc1}{type\+Orientation}} Diagram\+::selected\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_af19b01625c19689b0f0baab4da3f8364}\label{class_diagram_af19b01625c19689b0f0baab4da3f8364}} 
+\index{Diagram@{Diagram}!selectedComponent@{selectedComponent}}
+\index{selectedComponent@{selectedComponent}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{selectedComponent}{selectedComponent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graphic_component}{Graphic\+Component}}$\ast$ Diagram\+::selected\+Component\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_adb6bbb6244136dad0f8d8222c572535f}\label{class_diagram_adb6bbb6244136dad0f8d8222c572535f}} 
+\index{Diagram@{Diagram}!selectedPrev@{selectedPrev}}
+\index{selectedPrev@{selectedPrev}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{selectedPrev}{selectedPrev}}
+{\footnotesize\ttfamily QPoint Diagram\+::selected\+Prev\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_ab32377084ecd586d3e7ecbb531af6c10}\label{class_diagram_ab32377084ecd586d3e7ecbb531af6c10}} 
+\index{Diagram@{Diagram}!status@{status}}
+\index{status@{status}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_diagram_8h_a692ae8b25d11627069e21633a0f8ac64}{sts}} Diagram\+::status\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_diagram_ab2d2f451f84b72aba2d9c5d26da3e577}\label{class_diagram_ab2d2f451f84b72aba2d9c5d26da3e577}} 
+\index{Diagram@{Diagram}!wireCounter@{wireCounter}}
+\index{wireCounter@{wireCounter}!Diagram@{Diagram}}
+\doxysubsubsection{\texorpdfstring{wireCounter}{wireCounter}}
+{\footnotesize\ttfamily unsigned int Diagram\+::wire\+Counter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_diagram_8h}{Diagram.\+h}}\item 
+\mbox{\hyperlink{_diagram_8cpp}{Diagram.\+cpp}}\end{DoxyCompactItemize}

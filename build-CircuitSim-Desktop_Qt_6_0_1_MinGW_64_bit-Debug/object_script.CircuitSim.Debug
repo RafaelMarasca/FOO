@@ -1,8 +1,6 @@
 debug/Circuit.o
 debug/Component.o
 debug/Diagram.o
-debug/EditDialog.o
-debug/File.o
 debug/Graph.o
 debug/GraphicComponent.o
 debug/MainWindow.o
@@ -10,6 +8,5 @@ debug/Numeric.o
 debug/main.o
 debug/qrc_Resources.o
 debug/moc_Diagram.o
-debug/moc_EditDialog.o
 debug/moc_GraphicComponent.o
 debug/moc_MainWindow.o

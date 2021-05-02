@@ -1,0 +1,118 @@
+\hypertarget{class_n_m_1_1_equation_system}{}\doxysection{Referência da Classe NM\+::Equation\+System}
+\label{class_n_m_1_1_equation_system}\index{NM::EquationSystem@{NM::EquationSystem}}
+
+
+{\ttfamily \#include $<$Numeric.\+h$>$}
+
+\doxysubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_n_m_1_1_equation_system_a3430ff737cb5396be179f09f40bc2120}{Equation\+System}} (\mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} a, \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} b)
+\item 
+\mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_n_m_1_1_equation_system_a256d5c9336de8715416706b4c9bfcbf9}{get\+Solution}} (double tol, unsigned int max\+Iter)
+\item 
+void \mbox{\hyperlink{class_n_m_1_1_equation_system_a6d7cd566be680f8220b7da0fbb51e1c5}{print\+Solution}} ()
+\item 
+void \mbox{\hyperlink{class_n_m_1_1_equation_system_a1151d94453a00a59269fcde68470eeb2}{print}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Membros Privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_n_m_1_1_equation_system_aa749ea106c059d68f0eee0d99f1cad74}{gauss\+Seidel}} (double tol, unsigned int max\+Iter)
+\item 
+bool \mbox{\hyperlink{class_n_m_1_1_equation_system_ac28a6cdb32f4e1b6d9e0709dd4224e11}{sassenfeld\+Criteria}} ()
+\item 
+void \mbox{\hyperlink{class_n_m_1_1_equation_system_ab9015890ec28fac421aa78a4195c91b8}{find\+Pivot}} (unsigned int startI)
+\item 
+void \mbox{\hyperlink{class_n_m_1_1_equation_system_aa6175a2bea3339c9224df3aec25accd3}{gauss\+Jordan}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_n_m_1_1_equation_system_ad75845c2ed0a6f2949c8aaeac1463979}{A}}
+\item 
+\mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_n_m_1_1_equation_system_a5efd06e8510564c31ae02717a430c4c3}{B}}
+\item 
+\mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_n_m_1_1_equation_system_ae835d03d02a72a5b1152d4d03a4cc782}{x}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_n_m_1_1_equation_system_a3430ff737cb5396be179f09f40bc2120}\label{class_n_m_1_1_equation_system_a3430ff737cb5396be179f09f40bc2120}} 
+\index{NM::EquationSystem@{NM::EquationSystem}!EquationSystem@{EquationSystem}}
+\index{EquationSystem@{EquationSystem}!NM::EquationSystem@{NM::EquationSystem}}
+\doxysubsubsection{\texorpdfstring{EquationSystem()}{EquationSystem()}}
+{\footnotesize\ttfamily NM\+::\+Equation\+System\+::\+Equation\+System (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}}}]{a,  }\item[{\mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}}}]{b }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Funções membros}
+\mbox{\Hypertarget{class_n_m_1_1_equation_system_ab9015890ec28fac421aa78a4195c91b8}\label{class_n_m_1_1_equation_system_ab9015890ec28fac421aa78a4195c91b8}} 
+\index{NM::EquationSystem@{NM::EquationSystem}!findPivot@{findPivot}}
+\index{findPivot@{findPivot}!NM::EquationSystem@{NM::EquationSystem}}
+\doxysubsubsection{\texorpdfstring{findPivot()}{findPivot()}}
+{\footnotesize\ttfamily void NM\+::\+Equation\+System\+::find\+Pivot (\begin{DoxyParamCaption}\item[{unsigned int}]{startI }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_n_m_1_1_equation_system_aa6175a2bea3339c9224df3aec25accd3}\label{class_n_m_1_1_equation_system_aa6175a2bea3339c9224df3aec25accd3}} 
+\index{NM::EquationSystem@{NM::EquationSystem}!gaussJordan@{gaussJordan}}
+\index{gaussJordan@{gaussJordan}!NM::EquationSystem@{NM::EquationSystem}}
+\doxysubsubsection{\texorpdfstring{gaussJordan()}{gaussJordan()}}
+{\footnotesize\ttfamily void NM\+::\+Equation\+System\+::gauss\+Jordan (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_n_m_1_1_equation_system_aa749ea106c059d68f0eee0d99f1cad74}\label{class_n_m_1_1_equation_system_aa749ea106c059d68f0eee0d99f1cad74}} 
+\index{NM::EquationSystem@{NM::EquationSystem}!gaussSeidel@{gaussSeidel}}
+\index{gaussSeidel@{gaussSeidel}!NM::EquationSystem@{NM::EquationSystem}}
+\doxysubsubsection{\texorpdfstring{gaussSeidel()}{gaussSeidel()}}
+{\footnotesize\ttfamily void NM\+::\+Equation\+System\+::gauss\+Seidel (\begin{DoxyParamCaption}\item[{double}]{tol,  }\item[{unsigned int}]{max\+Iter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_n_m_1_1_equation_system_a256d5c9336de8715416706b4c9bfcbf9}\label{class_n_m_1_1_equation_system_a256d5c9336de8715416706b4c9bfcbf9}} 
+\index{NM::EquationSystem@{NM::EquationSystem}!getSolution@{getSolution}}
+\index{getSolution@{getSolution}!NM::EquationSystem@{NM::EquationSystem}}
+\doxysubsubsection{\texorpdfstring{getSolution()}{getSolution()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} NM\+::\+Equation\+System\+::get\+Solution (\begin{DoxyParamCaption}\item[{double}]{tol,  }\item[{unsigned int}]{max\+Iter }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_n_m_1_1_equation_system_a1151d94453a00a59269fcde68470eeb2}\label{class_n_m_1_1_equation_system_a1151d94453a00a59269fcde68470eeb2}} 
+\index{NM::EquationSystem@{NM::EquationSystem}!print@{print}}
+\index{print@{print}!NM::EquationSystem@{NM::EquationSystem}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void NM\+::\+Equation\+System\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_n_m_1_1_equation_system_a6d7cd566be680f8220b7da0fbb51e1c5}\label{class_n_m_1_1_equation_system_a6d7cd566be680f8220b7da0fbb51e1c5}} 
+\index{NM::EquationSystem@{NM::EquationSystem}!printSolution@{printSolution}}
+\index{printSolution@{printSolution}!NM::EquationSystem@{NM::EquationSystem}}
+\doxysubsubsection{\texorpdfstring{printSolution()}{printSolution()}}
+{\footnotesize\ttfamily void NM\+::\+Equation\+System\+::print\+Solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_n_m_1_1_equation_system_ac28a6cdb32f4e1b6d9e0709dd4224e11}\label{class_n_m_1_1_equation_system_ac28a6cdb32f4e1b6d9e0709dd4224e11}} 
+\index{NM::EquationSystem@{NM::EquationSystem}!sassenfeldCriteria@{sassenfeldCriteria}}
+\index{sassenfeldCriteria@{sassenfeldCriteria}!NM::EquationSystem@{NM::EquationSystem}}
+\doxysubsubsection{\texorpdfstring{sassenfeldCriteria()}{sassenfeldCriteria()}}
+{\footnotesize\ttfamily bool NM\+::\+Equation\+System\+::sassenfeld\+Criteria (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Atributos}
+\mbox{\Hypertarget{class_n_m_1_1_equation_system_ad75845c2ed0a6f2949c8aaeac1463979}\label{class_n_m_1_1_equation_system_ad75845c2ed0a6f2949c8aaeac1463979}} 
+\index{NM::EquationSystem@{NM::EquationSystem}!A@{A}}
+\index{A@{A}!NM::EquationSystem@{NM::EquationSystem}}
+\doxysubsubsection{\texorpdfstring{A}{A}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} NM\+::\+Equation\+System\+::A\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_n_m_1_1_equation_system_a5efd06e8510564c31ae02717a430c4c3}\label{class_n_m_1_1_equation_system_a5efd06e8510564c31ae02717a430c4c3}} 
+\index{NM::EquationSystem@{NM::EquationSystem}!B@{B}}
+\index{B@{B}!NM::EquationSystem@{NM::EquationSystem}}
+\doxysubsubsection{\texorpdfstring{B}{B}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} NM\+::\+Equation\+System\+::B\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_n_m_1_1_equation_system_ae835d03d02a72a5b1152d4d03a4cc782}\label{class_n_m_1_1_equation_system_ae835d03d02a72a5b1152d4d03a4cc782}} 
+\index{NM::EquationSystem@{NM::EquationSystem}!x@{x}}
+\index{x@{x}!NM::EquationSystem@{NM::EquationSystem}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} NM\+::\+Equation\+System\+::x\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_numeric_8h}{Numeric.\+h}}\item 
+\mbox{\hyperlink{_numeric_8cpp}{Numeric.\+cpp}}\end{DoxyCompactItemize}

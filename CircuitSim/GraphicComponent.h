@@ -1,12 +1,24 @@
+/********************************************************************************************
+ * @file GraphicComponent.h
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 30 04 2021
+ * @brief Declaração da classe GraphicComponent para a inserção gráfica de componentes.
+ * 
+ * Este arquivo contém as delcarações necessárias para se inserir componentes graficamente
+ * em um objeto da classe Diagram.
+ *  
+ ********************************************************************************************/
+
 #ifndef GRAPHICCOMPONENT_H
 #define GRAPHICCOMPONENT_H
+
+#include "Graph.h"
+#include "Component.h"
 
 #include <QObject>
 #include <QRect>
 #include <QPoint>
 #include <QPainter>
-#include "Graph.h"
-#include "Component.h"
 
 #define HEIGHT 115
 #define WIDTH 50
@@ -32,6 +44,7 @@ public :
     QPoint getLeft();
     QPoint getRight();
     QPixmap getMap();
+    QRect getBoundRect();
 
     enum orien orientation;
     enum orien getOrientation();
@@ -40,6 +53,11 @@ public :
     unsigned int getVertex1();
     unsigned int getVertex2();
     std::string getLabel();
+    virtual CMP::type getType() =0;
+    double getValue();
+    void setValue(double newValue);
+    QPoint getVertex1Point();
+    QPoint getVertex2Point();
 
 signals:
     void clickedVertex(int Area,GraphicComponent*);
@@ -57,8 +75,9 @@ protected:
 
     unsigned int vertex1,vertex2;
 
-    CMP::type componentType();
+    CMP::type componentType;
     QString label;
+    double value;
 };
 
 class Resistor : public GraphicComponent
@@ -67,7 +86,7 @@ class Resistor : public GraphicComponent
     static unsigned int resCounter;
 public:
     explicit Resistor(int x, int y,  enum orien s = VERTICAL, QObject *parent = nullptr);
-
+    CMP::type getType();
 signals:
 
 };
@@ -78,6 +97,7 @@ class Vcc : public GraphicComponent
     static unsigned int vccCounter;
 public:
     explicit Vcc(int x, int y, enum orien s = VERTICAL,QObject *parent = nullptr);
+    CMP::type getType();
 
 signals:
 

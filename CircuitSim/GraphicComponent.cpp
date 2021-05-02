@@ -1,3 +1,15 @@
+/********************************************************************************************
+ * @file GraphicComponent.cpp
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 30 04 2021
+ * @brief Implementação da classe GraphicComponent para a inserção gráfica de componentes.
+ * 
+ * Este arquivo contém as implementações dos métodos e membros que são utilizados para 
+ * inserir componenetes graficamente em objeto da classe Diagrama através dos métodos da 
+ * classe Diagram.
+ *  
+ ********************************************************************************************/
+
 #include "GraphicComponent.h"
 #include <QtDebug>
 #include <QPen>
@@ -37,20 +49,10 @@ GraphicComponent::GraphicComponent(QObject* parent):QObject(parent){
 
 int GraphicComponent::clickedArea(int x_check, int y_check){
 
-    if(y_check > vertexArea1.y() and y_check< (vertexArea1.y()+vertexArea1.height())){
-        if(x_check > vertexArea1.x() and x_check< vertexArea1.x()+vertexArea1.width()){
-            emit clicked(true);
-            emit clickedVertex(vertex1,this);
-            return vertex1;
-        }
-    }
-
-    if(y_check > vertexArea2.y() and y_check< vertexArea2.y()+vertexArea2.height()){
-        if(x_check > vertexArea2.x() and x_check< vertexArea2.x()+vertexArea2.width()){
-            emit clicked(true);
-            emit clickedVertex(vertex2,this );
-            return vertex2;
-        }
+    if(vertexArea1.contains(x_check,y_check)){
+        return vertex1;
+    }else if(vertexArea2.contains(x_check,y_check)){
+        return vertex2;
     }
 
     return -1;
@@ -105,8 +107,10 @@ Resistor::Resistor(int x, int y, enum orien s,QObject *parent):GraphicComponent(
     }else {
         map = QPixmap(":/components/resourceFile/componentFile/resistor180.png");
     }
+    componentType = CMP::RESISTOR;
     label = "R"+QString::number(resCounter);
     resCounter++;
+    value = 1000;
 }
 
 Vcc::Vcc(int x, int y, enum orien s,QObject *parent):GraphicComponent(x,y,s,parent){
@@ -116,14 +120,17 @@ Vcc::Vcc(int x, int y, enum orien s,QObject *parent):GraphicComponent(x,y,s,pare
     }else {
         map = QPixmap(":/components/resourceFile/componentFile/vcc180.png");
     }
+    componentType = CMP::VCC;
     label = "V"+QString::number(vccCounter);
     vccCounter++;
+    value = 12;
 }
 
 
 unsigned int GraphicComponent::getVertex1(){
     return vertex1;
 }
+
 unsigned int GraphicComponent::getVertex2(){
     return vertex2;
 }
@@ -142,3 +149,45 @@ void GraphicComponent::setVertex1(unsigned int vtx){
 void GraphicComponent::setVertex2(unsigned int vtx){
     vertex2 = vtx;
 }
+
+QRect GraphicComponent::getBoundRect(){
+    return boundRect;
+}
+CMP::type Resistor::getType(){
+    return componentType;
+}
+CMP::type Vcc::getType(){
+    return componentType;
+}
+
+void GraphicComponent::setValue(double newValue){
+    value = newValue;
+}
+
+double GraphicComponent::getValue(){
+    return value;
+}
+
+QPoint GraphicComponent::getVertex1Point(){
+    QPoint p;
+
+    if(getOrientation()==VERTICAL){
+        p = getTop();
+    }else{
+        p = getLeft();
+    }
+    return p;
+}
+
+QPoint GraphicComponent::getVertex2Point(){
+    QPoint p;
+
+    if(getOrientation()==VERTICAL){
+        p = getBottom();
+    }else{
+        p = getRight();
+    }
+    return p;
+}
+
+

@@ -1,8 +1,20 @@
+/********************************************************************************************
+ * @file Component.cpp
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 30 04 2021
+ * @brief Implementação da classe Component.
+ * 
+ * Este arquivo contém as implementações dos métodos e membros da classe Component.
+ * 
+ * A classe Component fornece os métodos e definições para se criar e alterar objetos 
+ * da classe Component. Estes objetos são necessários para se resolver o circuito.
+ *  
+ ********************************************************************************************/
+
 #include "Component.h"
+
 #include<string>
 #include<iostream>
-
-/****************************** COMPONENT ************************************/
 
 namespace CMP{
 

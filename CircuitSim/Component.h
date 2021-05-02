@@ -1,3 +1,17 @@
+/********************************************************************************************
+ * @file Component.h
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 30 04 2021
+ * @brief Declaração da classe Component.
+ * 
+ * Este arquivo contém as ideclarações dos métodos e membros da classe Component.
+ * 
+ * A classe Component fornece os métodos e definições para se criar e alterar objetos 
+ * da classe Component. Estes objetos são necessários para se resolver o circuito.
+ *  
+ ********************************************************************************************/
+
+
 #ifndef COMPONENT_H
 #define COMPONENT_H
 

@@ -1,0 +1,196 @@
+\hypertarget{class_g_r_f_1_1incidence_matrix}{}\doxysection{Referência da Classe GRF\+::incidence\+Matrix}
+\label{class_g_r_f_1_1incidence_matrix}\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+Diagrama de hierarquia para GRF\+::incidence\+Matrix\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_g_r_f_1_1incidence_matrix}
+\end{center}
+\end{figure}
+\doxysubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a24a514f48f5ff9a508a1839e89f1b13c}{incidence\+Matrix}} ()
+\item 
+\mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_acbb9e08a378b45d8d31e13f63838b711}{incidence\+Matrix}} (unsigned int v, unsigned int e)
+\item 
+std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a60ae4bc6102d8ccd475e4b760b61399c}{operator\mbox{[}$\,$\mbox{]}}} (unsigned int vtx)
+\item 
+void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a655f09f3a548c88cf04a581f82c788af}{make\+Con}} (unsigned int vtx1, unsigned int vtx2, unsigned int edge)
+\item 
+void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_ac0aa78cd341019ca5d7aad5a74d7c5f2}{add\+Edge}} (unsigned int vtx1, unsigned int vtx2)
+\item 
+void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a899d8049bb768f761df5d834c705a2fd}{remove\+Edge}} (unsigned int edg)
+\item 
+void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a3bdf2abba34e55ab8e53e6cc63a444b5}{remove\+Vertex}} (unsigned int vtx)
+\item 
+unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a8581b26321e6c4c1fffa4d8986caea88}{get\+Vertex\+Number}} ()
+\item 
+unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_ab315d46e61d92998030639cfacd2848a}{get\+Edge\+Number}} ()
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_ac743f0d0bb6484dfeadde325fec4cbb7}{get\+Loop}} (unsigned int key)
+\item 
+\mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}} \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a62f1de53b082b358c9842ae977df749d}{get\+Spanning\+Tree}} (unsigned int key)
+\item 
+unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a97988096a86fbae38e94222dbec83f21}{get\+Vertex\+Con}} (unsigned int vtx, unsigned int i)
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a8a7c0376392e33ae1422ca600fffae33}{get\+Edges}} (unsigned int vtx)
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a136b2c96657e14a7f88f26f9121665c6}{get\+Edges}} (unsigned int vtx1, unsigned int vtx2)
+\item 
+std\+::pair$<$ unsigned int, unsigned int $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_afb811803477580405e3a971dab567c71}{get\+Vertex}} (unsigned int edg)
+\item 
+unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_aa881c508b4ccd857ac4f1ab13fa48585}{get\+Con\+Num}} (unsigned int vtx)
+\item 
+void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a402df9f6f73c294bd55db4d354d1a4c4}{print}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_abdbdb83a846a6eaae76078e29c495eea}{in\+Matrix}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a249241d6e44d630459fdac7cc6b1f4ec}{vertex\+Number}}
+\item 
+unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a96d8e774f71f22d8558d92bdf2933fe3}{edge\+Number}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a24a514f48f5ff9a508a1839e89f1b13c}\label{class_g_r_f_1_1incidence_matrix_a24a514f48f5ff9a508a1839e89f1b13c}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!incidenceMatrix@{incidenceMatrix}}
+\index{incidenceMatrix@{incidenceMatrix}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{incidenceMatrix()}{incidenceMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily GRF\+::incidence\+Matrix\+::incidence\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_acbb9e08a378b45d8d31e13f63838b711}\label{class_g_r_f_1_1incidence_matrix_acbb9e08a378b45d8d31e13f63838b711}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!incidenceMatrix@{incidenceMatrix}}
+\index{incidenceMatrix@{incidenceMatrix}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{incidenceMatrix()}{incidenceMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily GRF\+::incidence\+Matrix\+::incidence\+Matrix (\begin{DoxyParamCaption}\item[{unsigned int}]{v,  }\item[{unsigned int}]{e }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Funções membros}
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_ac0aa78cd341019ca5d7aad5a74d7c5f2}\label{class_g_r_f_1_1incidence_matrix_ac0aa78cd341019ca5d7aad5a74d7c5f2}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily void GRF\+::incidence\+Matrix\+::add\+Edge (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx1,  }\item[{unsigned int}]{vtx2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_aa881c508b4ccd857ac4f1ab13fa48585}\label{class_g_r_f_1_1incidence_matrix_aa881c508b4ccd857ac4f1ab13fa48585}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getConNum@{getConNum}}
+\index{getConNum@{getConNum}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{getConNum()}{getConNum()}}
+{\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::get\+Con\+Num (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_ab315d46e61d92998030639cfacd2848a}\label{class_g_r_f_1_1incidence_matrix_ab315d46e61d92998030639cfacd2848a}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getEdgeNumber@{getEdgeNumber}}
+\index{getEdgeNumber@{getEdgeNumber}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{getEdgeNumber()}{getEdgeNumber()}}
+{\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::get\+Edge\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a8a7c0376392e33ae1422ca600fffae33}\label{class_g_r_f_1_1incidence_matrix_a8a7c0376392e33ae1422ca600fffae33}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getEdges@{getEdges}}
+\index{getEdges@{getEdges}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{getEdges()}{getEdges()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ unsigned int $>$ GRF\+::incidence\+Matrix\+::get\+Edges (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a136b2c96657e14a7f88f26f9121665c6}\label{class_g_r_f_1_1incidence_matrix_a136b2c96657e14a7f88f26f9121665c6}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getEdges@{getEdges}}
+\index{getEdges@{getEdges}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{getEdges()}{getEdges()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ unsigned int $>$ GRF\+::incidence\+Matrix\+::get\+Edges (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx1,  }\item[{unsigned int}]{vtx2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_ac743f0d0bb6484dfeadde325fec4cbb7}\label{class_g_r_f_1_1incidence_matrix_ac743f0d0bb6484dfeadde325fec4cbb7}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getLoop@{getLoop}}
+\index{getLoop@{getLoop}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{getLoop()}{getLoop()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ GRF\+::incidence\+Matrix\+::get\+Loop (\begin{DoxyParamCaption}\item[{unsigned int}]{key }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a62f1de53b082b358c9842ae977df749d}\label{class_g_r_f_1_1incidence_matrix_a62f1de53b082b358c9842ae977df749d}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getSpanningTree@{getSpanningTree}}
+\index{getSpanningTree@{getSpanningTree}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{getSpanningTree()}{getSpanningTree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}} GRF\+::incidence\+Matrix\+::get\+Spanning\+Tree (\begin{DoxyParamCaption}\item[{unsigned int}]{key }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_afb811803477580405e3a971dab567c71}\label{class_g_r_f_1_1incidence_matrix_afb811803477580405e3a971dab567c71}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getVertex@{getVertex}}
+\index{getVertex@{getVertex}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{getVertex()}{getVertex()}}
+{\footnotesize\ttfamily std\+::pair$<$ unsigned int, unsigned int $>$ GRF\+::incidence\+Matrix\+::get\+Vertex (\begin{DoxyParamCaption}\item[{unsigned int}]{edg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a97988096a86fbae38e94222dbec83f21}\label{class_g_r_f_1_1incidence_matrix_a97988096a86fbae38e94222dbec83f21}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getVertexCon@{getVertexCon}}
+\index{getVertexCon@{getVertexCon}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{getVertexCon()}{getVertexCon()}}
+{\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::get\+Vertex\+Con (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx,  }\item[{unsigned int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a8581b26321e6c4c1fffa4d8986caea88}\label{class_g_r_f_1_1incidence_matrix_a8581b26321e6c4c1fffa4d8986caea88}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getVertexNumber@{getVertexNumber}}
+\index{getVertexNumber@{getVertexNumber}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{getVertexNumber()}{getVertexNumber()}}
+{\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::get\+Vertex\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a655f09f3a548c88cf04a581f82c788af}\label{class_g_r_f_1_1incidence_matrix_a655f09f3a548c88cf04a581f82c788af}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!makeCon@{makeCon}}
+\index{makeCon@{makeCon}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{makeCon()}{makeCon()}}
+{\footnotesize\ttfamily void GRF\+::incidence\+Matrix\+::make\+Con (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx1,  }\item[{unsigned int}]{vtx2,  }\item[{unsigned int}]{edge }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a60ae4bc6102d8ccd475e4b760b61399c}\label{class_g_r_f_1_1incidence_matrix_a60ae4bc6102d8ccd475e4b760b61399c}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ \& GRF\+::incidence\+Matrix\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a402df9f6f73c294bd55db4d354d1a4c4}\label{class_g_r_f_1_1incidence_matrix_a402df9f6f73c294bd55db4d354d1a4c4}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!print@{print}}
+\index{print@{print}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void GRF\+::incidence\+Matrix\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a899d8049bb768f761df5d834c705a2fd}\label{class_g_r_f_1_1incidence_matrix_a899d8049bb768f761df5d834c705a2fd}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!removeEdge@{removeEdge}}
+\index{removeEdge@{removeEdge}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}}
+{\footnotesize\ttfamily void GRF\+::incidence\+Matrix\+::remove\+Edge (\begin{DoxyParamCaption}\item[{unsigned int}]{edg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a3bdf2abba34e55ab8e53e6cc63a444b5}\label{class_g_r_f_1_1incidence_matrix_a3bdf2abba34e55ab8e53e6cc63a444b5}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!removeVertex@{removeVertex}}
+\index{removeVertex@{removeVertex}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{removeVertex()}{removeVertex()}}
+{\footnotesize\ttfamily void GRF\+::incidence\+Matrix\+::remove\+Vertex (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Atributos}
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a96d8e774f71f22d8558d92bdf2933fe3}\label{class_g_r_f_1_1incidence_matrix_a96d8e774f71f22d8558d92bdf2933fe3}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!edgeNumber@{edgeNumber}}
+\index{edgeNumber@{edgeNumber}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{edgeNumber}{edgeNumber}}
+{\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::edge\+Number\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_abdbdb83a846a6eaae76078e29c495eea}\label{class_g_r_f_1_1incidence_matrix_abdbdb83a846a6eaae76078e29c495eea}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!inMatrix@{inMatrix}}
+\index{inMatrix@{inMatrix}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{inMatrix}{inMatrix}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$int$>$ $>$ GRF\+::incidence\+Matrix\+::in\+Matrix\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a249241d6e44d630459fdac7cc6b1f4ec}\label{class_g_r_f_1_1incidence_matrix_a249241d6e44d630459fdac7cc6b1f4ec}} 
+\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!vertexNumber@{vertexNumber}}
+\index{vertexNumber@{vertexNumber}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
+\doxysubsubsection{\texorpdfstring{vertexNumber}{vertexNumber}}
+{\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::vertex\+Number\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\item 
+\mbox{\hyperlink{_graph_8cpp}{Graph.\+cpp}}\end{DoxyCompactItemize}

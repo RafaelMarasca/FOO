@@ -1,5 +1,19 @@
+/********************************************************************************************
+ * @file MainWindow.cpp
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 28 04 2021
+ * @brief Implementação da classe MainWindow.
+ * 
+ * Este arquivo contém as implementações dos métodos e membros da classe MainWindow.
+ * 
+ * A classe MainWindow controla o fluxo de execução com base nas interações do usuário.
+ *  
+ ********************************************************************************************/
+
+
 #include "MainWindow.h"
 #include "Diagram.h"
+
 #include<QMenuBar>
 #include<QMenu>
 #include<QAction>
@@ -13,6 +27,9 @@
 #include <QFileInfo>
 #include <QPixmap>
 #include <QIcon>
+#include <QStatusBar>
+#include <QVBoxLayout>
+#include <QLabel>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -22,8 +39,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     initializeMenu();
     initializeToolbar();
     initializeTabs();
-    setCentralWidget(tabs);
-
+    initializeStatusBar();
 }
 
 void MainWindow::initializeMenu(){
@@ -108,11 +124,17 @@ void MainWindow::initializeToolbar() {
     addToolBar(Qt::RightToolBarArea, toolbar);
 }
 
+void MainWindow::initializeStatusBar(){
+    statusBar = new QStatusBar(this);
+    setStatusBar(statusBar);
+}
+
 void MainWindow::initializeTabs(){
     tabs = new QTabWidget(this);
     tabs->setTabsClosable(true);
     connect(tabs, SIGNAL(tabCloseRequested(int)), this, SLOT(closeFile(int)));
-    tabs->show();
+    setCentralWidget(tabs);
+    //tabs->show();
 }
 
 void MainWindow::newFile(){
@@ -140,38 +162,14 @@ void MainWindow::openFile(){
     try {
         D->load();
     }  catch (std::string s) {
-        qDebug("%s\n", s.c_str());
         QMessageBox::warning(this, "Warning!", "Cannot load file.");
-
-        delete D;
         return;
     }
     QFileInfo info(fileName);
 
     diagrams.push_back(D);
     tabs->addTab(D,info.fileName());
-}
-
-void MainWindow::openFile(QString fileName){
-
-    if(fileName.isNull())
-         return;
-
-    Diagram* D = new Diagram(this);
-    D->setFileName(fileName);
-
-    try {
-        D->load();
-    }  catch (std::string s) {
-        qDebug("%s\n", s.c_str());
-        QMessageBox::warning(this, "Warning!", "Cannot load file.");
-
-        delete D;
-        return;
-    }
-
-    diagrams.push_back(D);
-    tabs->addTab(D,fileName);
+    statusBar->showMessage("\""+fileName+"\" Openned With Success");
 }
 
 void MainWindow::saveFile(){
@@ -189,6 +187,7 @@ void MainWindow::saveFile(){
     }
 
     (*it)->save();
+    statusBar->showMessage("\""+(*it)->getFileName()+"\" Saved With Success");
 }
 
 void MainWindow::saveFileAs(){
@@ -196,7 +195,7 @@ void MainWindow::saveFileAs(){
     if(tabs->count()==0)
         return;
 
-    QString fileName = QFileDialog::getSaveFileName(this,"*.cct");
+    QString fileName = QFileDialog::getSaveFileName(this,tr("*.cct"));
 
     if(fileName.isNull())
         return;
@@ -205,16 +204,12 @@ void MainWindow::saveFileAs(){
     std::list<Diagram*>::iterator it = diagrams.begin();
     advance(it,index);
 
-    if((*it)->getStatus()==OK){
-        openFile(fileName);
-        return;
-    }
     QFileInfo info(fileName);
 
-    tabs->setTabText(index,'*'+info.fileName());
-    qDebug()<<fileName;
+    tabs->setTabText(index,info.fileName());
     (*it)->setFileName(fileName);
     (*it)->save();
+    statusBar->showMessage("\""+(*it)->getFileName()+"\" Saved With Success");
 }
 
 void MainWindow::preferences(){
@@ -227,7 +222,7 @@ void MainWindow::setTabStatus(bool modified){
 
     if(modified){
         fileName.prepend('*');
-    }else{
+    }else if(fileName.at(0)=='*'){
         fileName.remove(0,1);
     }
     tabs->setTabText(index, fileName);

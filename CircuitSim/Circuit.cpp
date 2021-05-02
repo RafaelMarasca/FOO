@@ -1,16 +1,37 @@
+/********************************************************************************************
+ * @file Circuit.cpp
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 20 04 2021
+ * @brief Implementação da classe Circuit.
+ * 
+ * Este arquivo contém as implementações dos métodos e membros da classe Circuit.
+ * 
+ * A classe Circuit fornece os métodos para se interligar objetos da classe Component e
+ * obter os valores relacionados a cada um destes.
+ *  
+ ********************************************************************************************/
+
 #include "Circuit.h"
 #include "Graph.h"
 #include "Numeric.h"
+
 #include <vector>
 #include <string>
 #include <stack>
 #include <fstream>
 
 namespace CCT{
+	/*************************************************************************
+	 * Implementação dod métodos da classe Circuit.
+	 * 
+	 * Representa um circuito de componentes eletrônicos através de uma 
+	 * matriz de incidência.
+	 * 
+	 *************************************************************************/
 
-/******************************* CIRCUIT ******************************/
 
-	Circuit::Circuit(){ground = 0;}
+	
+	Circuit::Circuit(){}
 
 	Circuit::~Circuit() {
 		for(unsigned int i = 0; i<components.size();i++) {
@@ -79,13 +100,6 @@ namespace CCT{
 
 		addEdge(vtx1, vtx2);
 		components.push_back(C);
-	}
- 
-	void Circuit::setGround(unsigned int vtx) {
-		if(vtx >= getVertexNumber())
-			throw "Acesso Invalido";
-
-		ground = vtx;
 	}
 
 	void Circuit::editComponent(std::string label, double value){
@@ -241,20 +255,6 @@ namespace CCT{
 					std::cout<<0<<"   ";
 				}
 			}			        
-			std::cout<<std::endl;
-		}
-	}
-
-	void Circuit::printCM() {
-		for(unsigned int i = 0; i<circuitMatrix.size();i++){ 
-			std::cout<<chords[i]<<": ";
-			for(unsigned int k = 0; k<circuitMatrix[i].size();k++){
-				if(circuitMatrix[i][k]){
-					std::cout<<(components[k]->getLabel())<<"  ";
-				}else{
-					std::cout<<0<<"   ";
-				}
-			}
 			std::cout<<std::endl;
 		}
     }*/

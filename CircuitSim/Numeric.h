@@ -1,3 +1,16 @@
+/********************************************************************************************
+ * @file Numeric.h
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 19 04 2021
+ * @brief Implementação da classe Numeric.
+ * 
+ * Este arquivo contém a implementação dos métodos e membros da classe Numeric.
+ * 
+ * A classe Numeric fornece as clsses e métodos para se criar e resolver sistemas de 
+ * equações.
+ *  
+ ********************************************************************************************/
+
 #ifndef	NUMERIC_H
 #define NUMERIC_H
 

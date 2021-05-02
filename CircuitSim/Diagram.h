@@ -1,17 +1,35 @@
+/********************************************************************************************
+ * @file Diagram.h
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 30 04 2021
+ * @brief Declaração da classe Numeric.
+ * 
+ * Este arquivo contém as delcarações dos métodos e membros da classe Diagram.
+ * 
+ * A classe Diagram fornece as facilidades para inserir objetos da classe GraphicsComponent
+ * graficamente, identificar as interações do usuário com estes objetos, bem como,
+ * interligar a implementação gráfica com a parte numérica.
+ *  
+ ********************************************************************************************/
+
+
+
 #ifndef DIAGRAM_H
 #define DIAGRAM_H
+
+#include "Circuit.h"
+#include "Graph.h"
+#include "GraphicComponent.h"
 
 #include <QWidget>
 #include <QObject>
 #include <QScrollBar>
 #include <QPushButton>
-#include "Circuit.h"
 #include <QScrollArea>
 #include <QMouseEvent>
 #include <stack>
 #include <QMessageBox>
-#include "GraphicComponent.h"
-#include "Graph.h"
+#include <QPropertyAnimation>
 
 enum typeOrientation{VCC90,VCC180,RES90,RES180,NONE};
 enum sts{UNSAVED,MODIFIED,OK,ERROR};
@@ -70,7 +88,7 @@ private:
 
     enum mode mode;
 
-    std::list<GraphicComponent*> drawList;
+    std::vector<GraphicComponent*> drawList;
     GraphicComponent* selectedComponent;
     enum typeOrientation selectedButton;
 
@@ -89,6 +107,7 @@ private:
     QPoint cursorLocation;
     QPoint selectedPrev;
     std::pair<QRect,QPixmap>getPixMap(enum typeOrientation type);
+
 };
 
 #endif // DIAGRAM_H

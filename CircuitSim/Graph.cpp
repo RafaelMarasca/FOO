@@ -1,8 +1,23 @@
-#include "Graph.h"
+/********************************************************************************************
+ * @file Graph.cpp
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 19 04 2021
+ * @brief Implementação das classes de grafo utilizadas no projeto.
+ * 
+ * Este arquivo contém as implementações dos métodos e membros utilizados por duas classes 
+ * de grafo distintas. 
+ * 
+ * A classe incidenceMatrix implementa um grafo que utiliza matriz 
+ * de incidência como estrutura base. 
+ * 
+ * A classe adjacencyMatrix implemeta um grafo 
+ * utilizando matriz de adjacência como estrutura base.
+ *  
+ ********************************************************************************************/
 
+#include "Graph.h"
 #include <vector>
 #include <stack>
-#include <QLine>
 
 namespace GRF{
 
@@ -261,28 +276,28 @@ namespace GRF{
         }
     adjacencyMatrix::adjacencyMatrix(unsigned int vertexNum) {
             vertexNumber = vertexNum;
-            adjMatrix = std::vector<std::vector<QLine*>>(vertexNum,std::vector<QLine*>(vertexNum,nullptr));
+            adjMatrix = std::vector<std::vector<int>>(vertexNum,std::vector<int>(vertexNum,0));
             //  Inicializa o número de vértices como V, aloca um vector de vectos preenchido com null
             //e passa esse vector de vectors para a matriz de adjacência.
         }
 
         //Insere um dado ponteiro para T na posição (i,j) da matriz
-        void adjacencyMatrix::insertEdge(unsigned int i, unsigned int j,QPoint p1, QPoint p2) {
+        void adjacencyMatrix::insertEdge(unsigned int i, unsigned int j){
 
             while(i >= vertexNumber || j >= vertexNumber){
 
-                adjMatrix.push_back(std::vector<QLine*>(vertexNumber,nullptr));
+                adjMatrix.push_back(std::vector<int>(vertexNumber,0));
                 vertexNumber++;
             }
 
             for(unsigned int i = 0; i< vertexNumber; i++)
             {
                 while(adjMatrix[i].size()<vertexNumber){
-                    adjMatrix[i].push_back(nullptr);
+                    adjMatrix[i].push_back(0);
                 }
             }
 
-            adjMatrix[i][j] = new QLine(p1,p2);
+            adjMatrix[i][j] = 1;
         }
 
         //Deleta o ponteiro em (i,j) e faz (i,j) apontar para null (redundante?)
@@ -305,22 +320,18 @@ namespace GRF{
                 }
             }
             for(unsigned int i = 0; i < vertexNumber-1; i++){
-                if(adjMatrix[i].back()!=nullptr){
-                    delete adjMatrix[i].back();
-                }
                 adjMatrix[i].pop_back();
             }
 
             adjMatrix.pop_back();
             vertexNumber--;
-
         }
 
     //Getter da posição (i,j)
-    QLine* adjacencyMatrix::query(unsigned int i, unsigned int j) {
+    int adjacencyMatrix::query(unsigned int i, unsigned int j) {
 
         if(i>=vertexNumber||j>=vertexNumber)
-            return nullptr;
+            return 0;
 
         return adjMatrix[i][j];
     }

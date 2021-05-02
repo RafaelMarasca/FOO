@@ -1,0 +1,44 @@
+\hypertarget{class_c_c_t_1_1_circuit}{}\doxysection{CCT\+::Circuit Class Reference}
+\label{class_c_c_t_1_1_circuit}\index{CCT::Circuit@{CCT::Circuit}}
+
+
+Inheritance diagram for CCT\+::Circuit\+:
+% FIG 0
+
+
+Collaboration diagram for CCT\+::Circuit\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_c_c_t_1_1_circuit_abdf00c1b153dd979998620aef6b609b8}\label{class_c_c_t_1_1_circuit_abdf00c1b153dd979998620aef6b609b8}} 
+void {\bfseries initialize} ()
+\item 
+\mbox{\Hypertarget{class_c_c_t_1_1_circuit_ad9ac1e653ffadd4fbdb19d6a5ddac83e}\label{class_c_c_t_1_1_circuit_ad9ac1e653ffadd4fbdb19d6a5ddac83e}} 
+void {\bfseries reset} ()
+\item 
+\mbox{\Hypertarget{class_c_c_t_1_1_circuit_a090e22537636270d6df65073b2c33111}\label{class_c_c_t_1_1_circuit_a090e22537636270d6df65073b2c33111}} 
+void {\bfseries add\+Component} (CMP\+::type t, std\+::string l, double value, unsigned int vtx1, unsigned int vtx2)
+\item 
+\mbox{\Hypertarget{class_c_c_t_1_1_circuit_a5711aebcfd8e6f73b93eba0399f09029}\label{class_c_c_t_1_1_circuit_a5711aebcfd8e6f73b93eba0399f09029}} 
+void {\bfseries edit\+Component} (std\+::string label, double value)
+\item 
+\mbox{\Hypertarget{class_c_c_t_1_1_circuit_aaae193a74a69ab422d019440c0205e5e}\label{class_c_c_t_1_1_circuit_aaae193a74a69ab422d019440c0205e5e}} 
+void {\bfseries edit\+Component} (std\+::string label, std\+::string new\+Label)
+\item 
+\mbox{\Hypertarget{class_c_c_t_1_1_circuit_a6576496694cfb05db79deabdbe71ae1c}\label{class_c_c_t_1_1_circuit_a6576496694cfb05db79deabdbe71ae1c}} 
+void {\bfseries remove\+Component} (std\+::string l)
+\item 
+\mbox{\Hypertarget{class_c_c_t_1_1_circuit_aed457cf75649fc5940f694796c423092}\label{class_c_c_t_1_1_circuit_aed457cf75649fc5940f694796c423092}} 
+double {\bfseries get\+Voltage} (std\+::string l)
+\item 
+\mbox{\Hypertarget{class_c_c_t_1_1_circuit_ad32d0df30888541fca0a371abd063c30}\label{class_c_c_t_1_1_circuit_ad32d0df30888541fca0a371abd063c30}} 
+double {\bfseries get\+Current} (std\+::string l)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Circuit.\+h\item 
+Circuit.\+cpp\end{DoxyCompactItemize}

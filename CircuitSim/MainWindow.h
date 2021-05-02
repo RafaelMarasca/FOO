@@ -1,5 +1,20 @@
+/********************************************************************************************
+ * @file MainWindow.h
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 28 04 2021
+ * @brief Declaração da classe MainWindow.
+ * 
+ * Este arquivo contém as delcarações dos métodos e membros da classe MainWindow, que 
+ * representa a janela principal do programa. 
+ * 
+ * A classe MainWindow controla o fluxo de execução com base nas interações do usuário.
+ *  
+ ********************************************************************************************/
+
 #ifndef MAINWIN_H
 #define MAINWIN_H
+
+#include "Diagram.h"
 
 #include <QMainWindow>
 #include <QMenuBar>
@@ -10,7 +25,6 @@
 #include <QToolBar>
 #include <list>
 #include <QPushButton>
-#include "Diagram.h"
 
 class MainWindow : public QMainWindow
 {
@@ -34,13 +48,17 @@ private:
     QAction *prefAct;
     QAction *tutorialAct;
     QToolBar* toolbar;
+    QStatusBar* statusBar;
+    QWidget* initialTab;
+
 
     void initializeMenu();
     void initializeToolbar();
     void initializeTabs();
     void openFile(QString fileName);
+    void initializeStatusBar();
 
-private slots:
+public slots:
     void newFile();
     void openFile();
     void saveFile();

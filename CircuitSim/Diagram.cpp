@@ -1,4 +1,19 @@
+/********************************************************************************************
+ * @file Diagram.cpp
+ * @authors: Lucas Carvalho; Rafael Marasca Martins
+ * @date: 30 04 2021
+ * @brief Declaração da classe Numeric.
+ * 
+ * Este arquivo contém as implementações dos métodos e membros da classe Diagram.
+ * 
+ * A classe Diagram fornece as facilidades para inserir objetos da classe GraphicsComponent
+ * graficamente, identificar as interações do usuário com estes objetos, bem como,
+ * interligar a implementação gráfica com a parte numérica.
+ *  
+ ********************************************************************************************/
+
 #include "Diagram.h"
+
 #include <fstream>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -44,9 +59,20 @@ void Diagram::save(){
     unsigned int size = drawList.size();
     file.write(reinterpret_cast<char*>(&size),sizeof(unsigned int));
 
-    std::list<GraphicComponent*>::iterator it;
+    unsigned int aux;
+
+    std::vector<GraphicComponent*>::iterator it;
     for(it = drawList.begin(); it!=drawList.end(); it++){
-        file.write(reinterpret_cast<char*>((*it)),sizeof(GraphicComponent));
+        aux = (*it)->getBoundRect().x();
+        file.write(reinterpret_cast<char*>(&aux),sizeof(unsigned int));
+        aux = (*it)->getBoundRect().y();
+        file.write(reinterpret_cast<char*>(&aux),sizeof(unsigned int));
+        aux = (*it)->getOrientation();
+        file.write(reinterpret_cast<char*>(&aux),sizeof(unsigned int));
+        aux = (*it)->getType();
+        file.write(reinterpret_cast<char*>(&aux),sizeof(unsigned int));
+        double value = (*it)->getValue();
+        file.write(reinterpret_cast<char*>(&value),sizeof(double));
     }
 
     size = connections.getVertexNumber();
@@ -55,12 +81,10 @@ void Diagram::save(){
 
     for(unsigned int i = 0; i<connections.getVertexNumber();i++){
         for(unsigned int j = 0; j<connections.getVertexNumber(); j++){
-            QLine* line = connections.query(i,j);
             unsigned int aux = 0;
-            if(line!=nullptr){
+            if(connections.query(i,j)){
                 aux = 1;
                 file.write(reinterpret_cast<char*>(&aux), sizeof(unsigned int));
-                file.write(reinterpret_cast<char*>(line), sizeof(QLine));
                 aux = 0;
             }else
                 file.write(reinterpret_cast<char*>(&aux), sizeof(unsigned int));
@@ -87,13 +111,28 @@ void Diagram::load(){
     file.read(reinterpret_cast<char*>(&size),sizeof(unsigned int));
     qDebug()<<size;
 
-    for(unsigned int i = 0; i < size; i++){
-       GraphicComponent* C = new GraphicComponent();
-       file.read(reinterpret_cast<char*>(C),sizeof(GraphicComponent));
+   for(unsigned int i = 0; i < size; i++){
+       unsigned int x,y,orientation,type;
+       double value;
+       file.read(reinterpret_cast<char*>(&x),sizeof(unsigned int));
+       file.read(reinterpret_cast<char*>(&y),sizeof(unsigned int));
+       file.read(reinterpret_cast<char*>(&orientation),sizeof(unsigned int));
+       file.read(reinterpret_cast<char*>(&type),sizeof(unsigned int));
+       file.read(reinterpret_cast<char*>(&value), sizeof(double));
+
+       GraphicComponent* C;
+
+       if(type==CMP::VCC){
+           C = new Vcc(x,y,orien(orientation),this);
+           circuit.addComponent(CMP::VCC,C->getLabel(),value,C->getVertex1(),C->getVertex2());
+       }else{
+           C = new Resistor(x,y,orien(orientation),this);
+           circuit.addComponent(CMP::RESISTOR,C->getLabel(),value,C->getVertex1(),C->getVertex2());
+       }
        drawList.push_back(C);
     }
 
-    file.read(reinterpret_cast<char*>(&size),sizeof(unsigned int));
+   file.read(reinterpret_cast<char*>(&size),sizeof(unsigned int));
 
     connections = GRF::adjacencyMatrix(size);
 
@@ -103,19 +142,21 @@ void Diagram::load(){
         for(unsigned int j = 0; j < size; j++){
             file.read(reinterpret_cast<char*>(&aux),sizeof(unsigned int));
             if(aux == 1){
-                QLine* line = new QLine();
-                file.read(reinterpret_cast<char*>(line),sizeof(QLine));
-                connections.insertEdge(i,j,line->p1(),line->p2());
+                connections.insertEdge(i,j);
+                QString str = "Aux" + QString::number(wireCounter);
+                circuit.addComponent(CMP::RESISTOR,str.toStdString(),0,i,j);
+                wireCounter++;
                 aux = 0;
             }
         }
     }
+    circuit.print();
     file.close();
     update();
 }
 
 void Diagram::setStatus(enum sts newStatus){
-    if(status == newStatus)
+    if(status == newStatus or (status ==UNSAVED and newStatus != OK))
         return;
 
     switch(newStatus){
@@ -155,6 +196,7 @@ void Diagram::paintEvent(QPaintEvent* event){
     painter.setBrush(backGroundColor);
     painter.drawRect(rect());
 
+    painter.setPen(penColor);
     for(int x = 0; x<width; x+=50){
         painter.drawLine(x,0,x,height);
     }
@@ -163,7 +205,7 @@ void Diagram::paintEvent(QPaintEvent* event){
         painter.drawLine(0,y,width,y);
     }
 
-    std::list<GraphicComponent*>::iterator it;
+    std::vector<GraphicComponent*>::iterator it;
     for(it = drawList.begin(); it!=drawList.end(); it++){
         (*it)->draw(&painter);
     }
@@ -176,9 +218,21 @@ void Diagram::paintEvent(QPaintEvent* event){
 
     for(unsigned int i = 0; i < connections.getVertexNumber(); i++){
         for(unsigned int j = 0; j < connections.getVertexNumber(); j++){
-           QLine* ptr = connections.query(i,j);
-           if(ptr!=NULL)
-               painter.drawLine(*ptr);
+           if(connections.query(i,j)){
+             QPoint p1,p2;
+               if(i%2 == 0){
+                   p1 = drawList[i/2]->getVertex1Point();
+               }else{
+                   p1 = drawList[i/2]->getVertex2Point();
+               }
+
+               if(j%2 == 0){
+                   p2 = drawList[j/2]->getVertex1Point();
+               }else{
+                   p2 = drawList[j/2]->getVertex2Point();
+               }
+            painter.drawLine(p1,p2);
+           }
         }
     }
 
@@ -240,6 +294,8 @@ void Diagram::initializeDiagram(){
 
 void Diagram::setSelectedButton(enum typeOrientation button){
     selectedButton = button;
+    while(clickedStack.size())
+            clickedStack.pop();
 }
 
 
@@ -248,40 +304,44 @@ void Diagram::mousePressEvent(QMouseEvent* event){
     int x = event->x();
     int y = event->y();
 
-    std::list<GraphicComponent*>::iterator it;
-    for(it = drawList.begin();it != drawList.end();it++){
-        int width = (*it)->getWidth();
-        int height = (*it)->getHeight();
-        int cArea = 0;
-
-        for(int i = x; i<x+width; i++){
-            for(int j = y; j< y+height; j++){
-                cArea = (*it)->clickedArea(i,j);
-                if(cArea!=-1){
-                    selectedComponent = *it;
-                    if(event->button()==Qt::LeftButton){
-                        leftButtonClicked(x,y,cArea);
-
-                    }else if(event->button()==Qt::RightButton){
-                        qDebug()<<"teste";
-                        rightButtonClicked(x,y,cArea);
-
-                    }
-                    return;
+    if(selectedButton == NONE){
+        std::vector<GraphicComponent*>::iterator it;
+        for(it = drawList.begin();it != drawList.end();it++){
+            int cArea = (*it)->clickedArea(x,y);
+            if(cArea!=-1){
+                qDebug()<<"clicado";
+                selectedComponent = *it;
+                if(event->button()==Qt::LeftButton){
+                    leftButtonClicked(x,y,cArea);
+                }else if(event->button()==Qt::RightButton){
+                    qDebug()<<"teste";
+                    rightButtonClicked(x,y,cArea);
                 }
+                return;
             }
         }
     }
+
     selectedComponent = nullptr;
 
     while(clickedStack.size())
         clickedStack.pop();
 
     if(selectedButton != NONE){
+        QRect rect;
+        if(selectedButton == VCC180 or selectedButton == RES180){
+            rect = QRect(x,y,HEIGHT,WIDTH);
+        }else{
+            rect = QRect(x,y,WIDTH,HEIGHT);
+        }
+        std::vector<GraphicComponent*>::iterator it;
+        for(it = drawList.begin();it != drawList.end();it++){
+            if(rect.intersects((*it)->getBoundRect())){
+                return;
+            }
+        }
         insert(x,y);
     }
-
-    return;
 }
 
 void Diagram::rightButtonClicked(int x,int y, int cArea){
@@ -308,22 +368,22 @@ void Diagram::insert(int x, int y){
         case VCC90:{
 
             C = new Vcc(x,y,VERTICAL,this);
-            circuit.addComponent(CMP::VCC,C->getLabel(),12,C->getVertex1(),C->getVertex2());
+            circuit.addComponent(CMP::VCC,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
         }break;
 
         case VCC180:{
             C = new Vcc(x,y,HORIZONTAL,this);
-            circuit.addComponent(CMP::VCC,C->getLabel(),12,C->getVertex1(),C->getVertex2());
+            circuit.addComponent(CMP::VCC,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
         }break;
 
         case RES90:{
             C = new Resistor(x,y,VERTICAL,this);
-            circuit.addComponent(CMP::RESISTOR,C->getLabel(),1000,C->getVertex1(),C->getVertex2());
+            circuit.addComponent(CMP::RESISTOR,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
             break;
         }
         case RES180:{
             C = new Resistor(x,y,HORIZONTAL,this);
-            circuit.addComponent(CMP::RESISTOR,C->getLabel(),1000,C->getVertex1(),C->getVertex2());
+            circuit.addComponent(CMP::RESISTOR,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
         }break;
 
         default:
@@ -332,6 +392,7 @@ void Diagram::insert(int x, int y){
     }
     drawList.push_back(C);
     setSelectedButton(NONE);
+    setStatus(MODIFIED);
     update();
 }
 
@@ -346,17 +407,10 @@ void Diagram::editMode(){
     mode = EDIT;
 }
 
-void Diagram::freeAllocatedMemory(){
-    while(not drawList.empty()){
-
-    }
-}
-
 void Diagram::clickedControl(int x, int y, int index){
 
     if(clickedStack.size()==1){
         std::pair<int,GraphicComponent*> aux = clickedStack.top();
-        QPoint p1,p2;
 
         if(connections.query(aux.first,index)||connections.query(index,aux.first)||
             aux.second == selectedComponent){
@@ -365,37 +419,15 @@ void Diagram::clickedControl(int x, int y, int index){
             return;
         }
 
-        if(aux.second->getOrientation()==VERTICAL){
-            if(aux.first%2==0)
-                p1 = aux.second->getTop();
-            else
-                p1 = aux.second->getBottom();
-        }else{
-            if(aux.first%2==0)
-                p1 = aux.second->getLeft();
-            else
-                p1 = aux.second->getRight();
-        }
-
-        if(selectedComponent->getOrientation()==VERTICAL){
-            if(index%2==0)
-                p2 = selectedComponent->getTop();
-            else
-                p2 = selectedComponent->getBottom();
-        }else{
-            if(index%2==0)
-                p2 = selectedComponent->getLeft();
-            else
-                p2 = selectedComponent->getRight();
-        }
-
-        connections.insertEdge(aux.first,index,p1,p2);
+        connections.insertEdge(aux.first,index);
         QString str = "Aux" + QString::number(wireCounter);
         circuit.addComponent(CMP::RESISTOR,str.toStdString(),0,aux.first,index);
         wireCounter++;
 
         while(clickedStack.size())
             clickedStack.pop();
+
+        setStatus(MODIFIED);
 
     }else{
         clickedStack.push(std::pair<int,GraphicComponent*>(index,selectedComponent));
@@ -405,18 +437,16 @@ void Diagram::clickedControl(int x, int y, int index){
 
 void Diagram::edit(double newValue){
 
-    if(newValue<0){
-        QMessageBox ErrorMessage;
-
-        ErrorMessage.setText("Edição inválida - O valor inserido deve ser positivo");
-        ErrorMessage.exec();
-        return;
-    }
     circuit.editComponent(selectedComponent->getLabel(),newValue);
+    selectedComponent->setValue(newValue);
+    setStatus(MODIFIED);
 }
 
 void Diagram::showEditDialog(){
     QInputDialog editDialog(this);
+    editDialog.setDoubleDecimals(7);
+    editDialog.setDoubleMaximum(100000);
+    editDialog.setDoubleMinimum(0);
     editDialog.setInputMode(QInputDialog::DoubleInput);
     connect(&editDialog,SIGNAL(doubleValueSelected(double)),this,SLOT(edit(double)));
     editDialog.exec();
@@ -441,22 +471,23 @@ void Diagram::remove(){
 
     rmMessage.setText(str);
 
-    bool flag = false;
+    bool flag = 0;
 
-    std::list<GraphicComponent*>::iterator it;
+    std::vector<GraphicComponent*>::iterator aux = drawList.end();
+    std::vector<GraphicComponent*>::iterator it;
     for(it = drawList.begin(); it != drawList.end(); it++){
         if(flag){
             (*it)->setVertex1((*it)->getVertex1()-2);
             (*it)->setVertex2((*it)->getVertex2()-2);
-        }
-
-        if((*it)==selectedComponent){
-            drawList.erase(it);
-            delete selectedComponent;
-            selectedComponent = nullptr;
+        }else if (selectedComponent == (*it)){
+            aux = it;
             flag = true;
         }
+
     }
+
+    drawList.erase(aux);
+    selectedComponent = nullptr;
 
     rmMessage.exec();
 
@@ -465,14 +496,11 @@ void Diagram::remove(){
 
 void Diagram::query(){
 
-    QMessageBox queryMessage;
-    queryMessage.setText("Informações do Componente");
     QString currentStr = "Corrente: ";
     QString voltageStr = "Voltage: ";
-
     currentStr+= QString::number(circuit.getCurrent(selectedComponent->getLabel()));
     voltageStr+= QString::number(circuit.getVoltage(selectedComponent->getLabel()));
-    queryMessage.setInformativeText(currentStr+"\n"+voltageStr);
+    QMessageBox queryMessage(QMessageBox::NoIcon,"Informações do Componente",currentStr+"\n"+voltageStr);
 
     queryMessage.exec();
 }
