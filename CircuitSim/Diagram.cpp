@@ -514,7 +514,7 @@ void Diagram::remove(){
 void Diagram::query(){
 
     QString currentStr = "Corrente: ";
-    QString voltageStr = "Voltage: ";
+    QString voltageStr = "Tensão: ";
     currentStr+= QString::number(circuit.getCurrent(selectedComponent->getLabel()));
     voltageStr+= QString::number(circuit.getVoltage(selectedComponent->getLabel()));
     QMessageBox queryMessage(QMessageBox::NoIcon,"Informações do Componente",currentStr+"A"+"\n"+voltageStr+"V");

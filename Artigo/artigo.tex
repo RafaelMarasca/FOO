@@ -85,7 +85,7 @@
 
 \begin{bfseries}
 \small
-\textit{Resumo} — Neste artigo apresentaremos uma revisão sobre as operações possíveis entre matrtizes e sua aplicação na resolução de sistemas lineares, além de expor o conceito de circuitos elétricos e propor uma maneira de solucioná-los computacionalmente utilizando métodos baseados na teoria dos grafos. Demonstraremos a dificuldade em resolver tais circuitos manualmente e concluiremos o artigo mostrando a solução exata obtida trivialmente pela simulação.
+\textit{Resumo} — O presente artigo apresenta uma abordagem teórico-prática na solução de circuitos elétricos resistivo, propondo uma maneira de solucioná-los computacionalmente utilizando métodos baseados na teoria dos grafos  e cálculo numérico. Além disso, a em resolver tais circuitos manualmente e o artigo mostrando a solução exata obtida trivialmente pela simulação.
 
 \bigskip
 Palavras-Chave — Circuitos, Grafos, Métodos numéricos, Simulação
@@ -93,10 +93,9 @@ Palavras-Chave — Circuitos, Grafos, Métodos numéricos, Simulação
 
 \section{INTRODUÇÃO}
 
-A análise de circuitos elétricos é um tópico de interesse das engenharias, já que todo o mundo moderno depende da eletricidade e suas aplicações. Contudo, é inegável que realizar esta análise manualmente é um processo laborioso, visto que são muitas variáveis para se considerar. A fim de aliviar tal fardo, apresentaremos neste artigo uma forma de resolver computacionalmente \textit{qualquer} circuito elétrico composto apenas por fontes de tensão e resistores, além de uma revisão bibliográfica dos conceitos necessários para isso.
+A análise de circuitos elétricos é um tópico de interesse das engenharias, uma vez que, o mundo moderno depende da eletricidade e suas aplicações. Contudo, é inegável que realizar esta análise manualmente torna-se um processo laborioso ao passo que o número de componentes aumenta, visto que são muitas variáveis a se considerar. A fim de facilitar este processo, o presente artigo apresenta um método computacional para se encontrar a solução circuitos elétricos resistivos, isto é, compostos apenas por fontes de tensão de corrente contínua e resistores. Além disso, é apresentada uma revisão bibliográfica dos conceitos necessários para isso.
 
-O trabalho é dividido em três partes: na primeira, discutiremos os fundamentos matemáticos de \textit{sistemas lineares} e algumas formas de resolução destes. Na segunda, apresentaremos o conceito de \textit{grafo} matematica e graficamente, junto com algumas de suas propriedades. Na última parte, introduziremos o conceito de \textit{circuitos elétricos} e sintetizaremos tudo o que foi mostrado anteriormente na forma de um algoritmo solucionador de circuitos resistivos.
-
+O artigo é dividido em três partes: na primeira, discuti-se os fundamentos matemáticos dos \textit{sistemas lineares} e métodos de resolução. Na segunda, é apresentado o conceito de \textit{grafo} matematica e graficamente, junto com algumas de suas propriedades. Na última parte, introduz-se o conceito de \textit{circuitos elétricos} e sintetiza-se tudo o que foi mostrado anteriormente na forma de um algoritmo solucionador de circuitos resistivos alimentados por fontes de corrente contínua.
 
 \section{MATRIZES}
 \subsection*{A. \quad Definição}
@@ -330,7 +329,7 @@ b_{m}
 \end{bmatrix}
 \]
 
-Existem diversos métodos, diretos e iterativos, que podem ser utilizado para resolver o sistema na forma matricial. Neste artigo, são abordados os métodos de Gauss-Jordan e Gauss-Seidel.
+Existem diversos métodos, diretos e iterativos, que podem ser utilizados para resolver o sistema na forma matricial. Neste artigo, são abordados os métodos de Gauss-Jordan e Gauss-Seidel.
 
 \subsection*{C. \quad Método de Gauss-Jordan}
 
@@ -1103,15 +1102,12 @@ Com o mesmo sentido de corrente assumido, são dadas as seguintes correntes nos 
 	\\ Fonte: Compilação dos autores.
 \end{figure}
 
-Note que não há diferença entre os resultados obtidos pela simulação e manualmente. Portanto, não há um erro envolvido na simulação.
-
+Note que apesar de não haver diferenças entre os resultados obtidos pela simulação e os resultados obtidos manualmente, a simulação pode gerar erros de arredondamento devido à representação numérica de ponto flutuante utilizada pelos computadores. Conforme \cite{chapra}, a fonte destes erros decorre, principalmente, da limitação de quantidades que podem representadas pelo sistema de ponto flutuante.
 \section{CONCLUSÃO}
 
-Então, concluímos que embora seja necessário o estudo de diversos tópicos para realizar a implementação, o resultado final é satisfatório, já que apresenta a solução exata do problema proposto com um esforço muito menor necessário. 
+Então, conclui-se que, embora seja necessário o estudo de diversos tópicos para realizar a implementação, o resultado final é satisfatório, já que apresenta a solução exata do problema proposto, facilitando e acelerando a obtenção destes resultados. 
 
-Vale ressaltar ainda que seria possível expandir os assuntos aqui discutidos a fim de produzir um solucionador mais geral. Contudo, nosso objetivo inicial era simular circuitos resistivos e isto foi alcançado de forma suficientemente boa.
-
-Além disso, concluimos que há uma alta generalidade nos tópicos discutidos nas partes 1 e 2 do trabalho, ou seja, seria possível ainda utilizar os conhecimentos expostos sobre sistemas lineares e teoria dos grafos em outras aplicações.
+Vale ressaltar ainda que seria possível expandir os assuntos aqui discutidos a fim de produzir um solucionador que abranja mais tipos de componentes. Contudo, o objetivo inicial de simular circuitos resistivos alimentados por fontes de corrente contínua, o que foi alcançado de forma suficientemente satisfatória.
 
 \renewcommand{\refname}{REFERÊNCIAS}
 \bibliography{bibliografia}

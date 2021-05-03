@@ -33,7 +33,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    setWindowTitle("CircuitSim - by Carvalho && Marasca");
+    setWindowTitle("Simulador de Circuitos Resistivos");
     setGeometry(0,0,800,600);
 
     initializeMenu();
