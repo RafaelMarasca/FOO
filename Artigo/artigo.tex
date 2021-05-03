@@ -75,7 +75,7 @@
 \begin{document}
 \singlespacing
 
-\title{Cálculo Numérico e Teoria dos Grafos aplicados em simulação computacional de circuitos eletrônicos}
+\title{Cálculo Numérico e Teoria dos Grafos aplicados em solução computacional de circuitos elétricos}
 \date{}
 \author{Lucas Carvalho e Rafael Marasca Martins}
 
@@ -85,15 +85,17 @@
 
 \begin{bfseries}
 \small
-%Escrever o resumo aqui. Não sei fazer isso virar seção.
-\textit{Resumo} —
+\textit{Resumo} — Neste artigo apresentaremos uma revisão sobre as operações possíveis entre matrtizes e sua aplicação na resolução de sistemas lineares, além de expor o conceito de circuitos elétricos e propor uma maneira de solucioná-los computacionalmente utilizando métodos baseados na teoria dos grafos. Demonstraremos a dificuldade em resolver tais circuitos manualmente e concluiremos o artigo mostrando a solução exata obtida trivialmente pela simulação.
 
 \bigskip
 Palavras-Chave — Circuitos, Grafos, Métodos numéricos, Simulação
 \end{bfseries}
 
-%Quad é pra dar o espacinho pica entre I. e INTRODUÇÃO
 \section{INTRODUÇÃO}
+
+A análise de circuitos elétricos é um tópico de interesse das engenharias, já que todo o mundo moderno depende da eletricidade e suas aplicações. Contudo, é inegável que realizar esta análise manualmente é um processo laborioso, visto que são muitas variáveis para se considerar. A fim de aliviar tal fardo, apresentaremos neste artigo uma forma de resolver computacionalmente \textit{qualquer} circuito elétrico composto apenas por fontes de tensão e resistores, além de uma revisão bibliográfica dos conceitos necessários para isso.
+
+O trabalho é dividido em três partes: na primeira, discutiremos os fundamentos matemáticos de \textit{sistemas lineares} e algumas formas de resolução destes. Na segunda, apresentaremos o conceito de \textit{grafo} matematica e graficamente, junto com algumas de suas propriedades. Na última parte, introduziremos o conceito de \textit{circuitos elétricos} e sintetizaremos tudo o que foi mostrado anteriormente na forma de um algoritmo solucionador de circuitos resistivos.
 
 
 \section{MATRIZES}
@@ -147,13 +149,13 @@ b_{m1} & b_{m2} & \dots & b_{mn}
 
 A soma dessas duas matrizes é dada por:
 
-\[ 
+\[\scriptsize
 A+B=
 \begin{bmatrix}
 a_{11} + b_{11} & a_{12} + b_{12} & \dots & a_{1n} + b_{1n} \\
-a_{21} + b_{21} & a_{22} + b_{22} & \dots & a_{2n} b_{2n} \\
+a_{21} + b_{21} & a_{22} + b_{22} & \dots & a_{2n} + b_{2n} \\
 \vdots & \vdots & \ddots & \vdots \\
-a_{m1} + b_{m1} & a_{m2} + b_{m2} & \dots & a_{mn} b_{mn} 
+a_{m1} + b_{m1} & a_{m2} + b_{m2} & \dots & a_{mn} + b_{mn} 
 
 \end{bmatrix}
 \]
@@ -239,7 +241,7 @@ c_{m1} & c_{m2} & c_{m3} & \dots & c_{mn}
 
 Onde \[c_{ij} = \sum_{n=1}^{r} a_{in}b_{nj}\]
 
-Vale ainda ressaltar que o produto matricial nao é comutativo, ou seja, $AB \neq -BA$.
+Vale ainda ressaltar que o produto matricial não é comutativo, ou seja, $AB \neq BA$.
 
 \subsection*{E. \quad Matriz Transposta}
 
@@ -750,10 +752,10 @@ Um grafo direcionado (ou digrafo) é um grafo no qual os vértices extremos de u
 
 Convencionando $m_{ij} = 1$ se o arco $a_j$ \textit{sai} do vértice $v_i$ e $m_{ij} = -1$ se o arco $a_j$ \textit{chega} ao vértice $v_i$, a seguinte matriz de incidência representa o digrafo anterior:
 
-\[
+\[\scriptsize
 M = 
 \begin{bmatrix}
- & e_1 & e_2 & e_3 & e_4 & e_5 & e_6 & e_7 & e_8 \\
+ & a_1 & a_2 & a_3 & a_4 & a_5 & a_6 & a_7 & a_8 \\
  & - & - & - & - & - & - & - & - \\
  v_1 |& 1 & 0 & -1 & 0 & 0 & 1 & 0 & 0\\
  v_2 |& -1 & -1 & 0 & 0 & 0 & 0 & 0 & 0\\
@@ -831,7 +833,7 @@ O sentido dos arcos representa o sentido da corrente que será assumido na simul
 M = 
 \begin{bmatrix}
  & a_1 & a_2 & a_3 & a_4 & a_5 & a_6 & a_7 \\
- & - & - & - & - & - & - & - & - \\
+ & - & - & - & - & - & - & - \\
  v_1 |& 1  & -1 & 0  & 0  & 0  & 0  & 0  \\
  v_2 |& -1 & 0  & 0  & 0  & 1  & -1 & -1 \\
  v_3 |& 0  & 1  & -1 & 1  & 0  & 0  & 0  \\
@@ -918,8 +920,198 @@ Ao fim do algoritmo, são conhecidas todas as correntes e tensões e, portanto, 
 
 \section{RESULTADOS}
 
+Considere o seguinte circuito, onde a tensão na fonte é de $5V$ e todos os resistores possuem resistência de $100 \Omega$:
+
+\begin{figure}[H]
+	\caption{Exemplo (1) de circuito} 
+	\centering
+	\includegraphics[scale=0.4]{circ2}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+É possível aplicar a lei das Tensões de Kirchhoff para cada malha, que resulta no seguinte sistema:
+
+\[
+\left\{
+\begin{aligned}
+    V_1 + V_2 &= \,0 \\ 
+  	V_{10} + V_7 + V_5 + V_2 &= \,0 \\ 
+	V_3 + V_4 + V_5 + V_6 &= \,0 \\
+	V_7 + V_8 &= \,0 \\ 
+	V_6 + V_9 &= \,0 
+\end{aligned}
+\right.
+\]
+
+As correntes do circuito podem ser desenhadas, assumindo um sentido arbitrário e o sentido anti-horário como positivo, da seguinte forma:
+
+\begin{figure}[H]
+	\caption{Correntes de (1)} 
+	\centering
+	\includegraphics[scale=0.43]{circ22}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+Então, pode-se aplicar a lei das correntes de Kirchhoff ao circuito. Tem-se, então, o seguinte sistema:
+
+\[
+\left\{
+\begin{aligned}
+    I_1 - I_2 - I_3 &= \, 0 \\
+    I_2 - I_4 - I_5 &= \, 0 \\
+    I_5 - I_6 - I_7 &= \, 0 \\
+    I_3 + I_4 + I_6 + I_{11} &= \, 0 \\
+    I_7 - I_8 - I_9 &= \, 0 \\
+    - I_1 + I_9 - I_{10} + &= \, 0 \\
+    I_8 + I_{10} - I_{11} &= \, 0 
+\end{aligned}
+\right.
+\]
+
+É possível ainda reescrever o primeiro sistema em função da Lei de Ohm:
+
+\[
+\left\{
+\begin{aligned}
+    I_9R + I_{10}R &= \,0 \\ 
+    V_{10} - I_3R + I_{10}R + I_{11}R &= \,0 \\ 
+	-I_7R - I_7R + I_6R - I_{11}R &= \,0 \\
+	- I_3R + I_2R &= \,0 \\ 
+	I_5R + I_6R &= \,0
+\end{aligned}
+\right.
+\]
+
+Que pode ser juntado com o segundo sistema:
+
+\[
+\left\{
+\begin{aligned}
+    I_9R + I_{10}R &= \,0 \\ 
+    V_{10} - I_3R + I_{10}R + I_{11}R &= \,0 \\ 
+	-I_7R - I_7R + I_6R - I_{11}R &= \,0 \\
+	- I_3R + I_2R &= \,0 \\ 
+	I_5R + I_6R &= \,0 \\
+	I_1 - I_2 - I_3 &= \, 0 \\
+    I_2 - I_4 - I_5 &= \, 0 \\
+    I_5 - I_6 - I_7 &= \, 0 \\
+    I_3 + I_4 + I_6 + I_{11} &= \, 0 \\
+    I_7 - I_8 - I_9 &= \, 0 \\
+    - I_1 + I_9 - I_{10} + &= \, 0 \\
+    I_8 + I_{10} - I_{11} &= \, 0 
+\end{aligned}
+\right.
+\]
+
+Substituindo $V_{10}$ e $R$ e resolvendo para o vetor I, notando que os sinais negativos indicam uma escolha equivocada de sentido inicial para a corrente, temos:
+
+\[
+I = 
+\begin{bmatrix}
+0,0291 \bar 6 & \\
+0,01458 \bar 3  & \\
+0,01458 \bar 3  & \\
+0,010417  & \\
+0,0041 \bar 6  & \\
+-0,0041 \bar 6  & \\
+0,008 \bar 3  & \\
+-0,00625  & \\
+0,01458\bar 3  & \\
+-0,01458\bar 3  & \\
+-0,0208\bar 3  & \\
+\end{bmatrix}
+\]
+
+Este mesmo circuito pode ser resolvido computacionalmente de forma trivial. Basta inserí-lo no programa desenvolvido para este artigo e checar os resultados, da seguinte forma:
+
+\begin{figure}[H]
+	\caption{Simulação de (1)} 
+	\centering
+	\includegraphics[scale=0.2]{circuitsim1}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+Com o mesmo sentido de corrente assumido, são dadas as seguintes correntes nos componentes:
+
+\begin{figure}[H]
+	\caption{Corrente na fonte} 
+	\centering
+	\includegraphics[scale=0.7]{iv}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Corrente em $R_1$} 
+	\centering
+	\includegraphics[scale=0.7]{ir1}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Corrente em $R_2$} 
+	\centering
+	\includegraphics[scale=0.7]{ir2}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Corrente em $R_3$} 
+	\centering
+	\includegraphics[scale=0.7]{ir3}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Corrente em $R_4$} 
+	\centering
+	\includegraphics[scale=0.7]{ir4}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Corrente em $R_5$} 
+	\centering
+	\includegraphics[scale=0.7]{ir5}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Corrente em $R_6$} 
+	\centering
+	\includegraphics[scale=0.7]{ir6}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Corrente em $R_7$} 
+	\centering
+	\includegraphics[scale=0.7]{ir7}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Corrente em $R_8$} 
+	\centering
+	\includegraphics[scale=0.7]{ir8}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Corrente em $R_9$} 
+	\centering
+	\includegraphics[scale=0.7]{ir9}
+	\\ Fonte: Compilação dos autores.
+\end{figure}
+
+Note que não há diferença entre os resultados obtidos pela simulação e manualmente. Portanto, não há um erro envolvido na simulação.
+
 \section{CONCLUSÃO}
 
+Então, concluímos que embora seja necessário o estudo de diversos tópicos para realizar a implementação, o resultado final é satisfatório, já que apresenta a solução exata do problema proposto com um esforço muito menor necessário. 
+
+Vale ressaltar ainda que seria possível expandir os assuntos aqui discutidos a fim de produzir um solucionador mais geral. Contudo, nosso objetivo inicial era simular circuitos resistivos e isto foi alcançado de forma suficientemente boa.
+
+Além disso, concluimos que há uma alta generalidade nos tópicos discutidos nas partes 1 e 2 do trabalho, ou seja, seria possível ainda utilizar os conhecimentos expostos sobre sistemas lineares e teoria dos grafos em outras aplicações.
 
 \renewcommand{\refname}{REFERÊNCIAS}
 \bibliography{bibliografia}
