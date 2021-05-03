@@ -11,16 +11,13 @@
  ********************************************************************************************/
 
 #include "GraphicComponent.h"
+
 #include <QtDebug>
 #include <QPen>
 #include <QPoint>
 
-
-unsigned int GraphicComponent::vertexNum = 0;
-unsigned int Vcc::vccCounter = 0;
-unsigned int Resistor::resCounter = 0;
-
-GraphicComponent::GraphicComponent(int x_ins, int y_ins, enum orien s, QObject *parent) : QObject(parent)
+GraphicComponent::GraphicComponent(int x_ins, int y_ins,unsigned int vtx1,
+                                   unsigned int vtx2, enum orien s,QObject* parent) : QObject(parent)
 {
     x = x_ins;
     y = y_ins;
@@ -34,17 +31,9 @@ GraphicComponent::GraphicComponent(int x_ins, int y_ins, enum orien s, QObject *
         vertexArea2 = QRect(x+HEIGHT/2, y, HEIGHT, WIDTH);
         boundRect = QRect(x,y,HEIGHT,WIDTH);
     }
-    vertex1 = vertexNum++;
-    vertex2 = vertexNum++;
+    vertex1 = vtx1;
+    vertex2 = vtx2;
     orientation = s;
-}
-
-GraphicComponent::GraphicComponent(QObject* parent):QObject(parent){
-    x = 0;
-    y = 0;
-    vertex1 = 0;
-    vertex2 = 0;
-    orientation = VERTICAL;
 }
 
 int GraphicComponent::clickedArea(int x_check, int y_check){
@@ -54,7 +43,6 @@ int GraphicComponent::clickedArea(int x_check, int y_check){
     }else if(vertexArea2.contains(x_check,y_check)){
         return vertex2;
     }
-
     return -1;
 }
 
@@ -100,7 +88,7 @@ QPoint GraphicComponent::getLeft(){
 
 enum orien GraphicComponent::getOrientation(){return orientation;}
 
-Resistor::Resistor(int x, int y, enum orien s,QObject *parent):GraphicComponent(x,y,s,parent){
+Resistor::Resistor(int x, int y,unsigned int vtx1, unsigned int vtx2, enum orien s,QObject *parent):GraphicComponent(x,y,vtx1,vtx2,s,parent){
 
     if(s == VERTICAL){
         map = QPixmap(":/components/resourceFile/componentFile/resistor90.png");
@@ -108,12 +96,11 @@ Resistor::Resistor(int x, int y, enum orien s,QObject *parent):GraphicComponent(
         map = QPixmap(":/components/resourceFile/componentFile/resistor180.png");
     }
     componentType = CMP::RESISTOR;
-    label = "R"+QString::number(resCounter);
-    resCounter++;
+    label = "R"+QString::number(vtx1);
     value = 1000;
 }
 
-Vcc::Vcc(int x, int y, enum orien s,QObject *parent):GraphicComponent(x,y,s,parent){
+Vcc::Vcc(int x, int y,  unsigned int vtx1, unsigned int vtx2, enum orien s,QObject *parent):GraphicComponent(x,y,vtx1,vtx2,s,parent){
 
     if(s == VERTICAL){
         map = QPixmap(":/components/resourceFile/componentFile/vcc90.png");
@@ -121,8 +108,7 @@ Vcc::Vcc(int x, int y, enum orien s,QObject *parent):GraphicComponent(x,y,s,pare
         map = QPixmap(":/components/resourceFile/componentFile/vcc180.png");
     }
     componentType = CMP::VCC;
-    label = "V"+QString::number(vccCounter);
-    vccCounter++;
+    label = "V"+QString::number(vtx1);
     value = 12;
 }
 
@@ -189,5 +175,3 @@ QPoint GraphicComponent::getVertex2Point(){
     }
     return p;
 }
-
-

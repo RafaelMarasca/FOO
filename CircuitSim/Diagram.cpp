@@ -35,6 +35,7 @@ Diagram::Diagram(QWidget *parent) : QWidget(parent)
     wireCounter = 0;
     selectedPrev = QPoint(0,0);
     cursorLocation = QPoint(0,0);
+    vtxCounter = 0;
 }
 
 void Diagram::setFileName(QString file){
@@ -123,10 +124,10 @@ void Diagram::load(){
        GraphicComponent* C;
 
        if(type==CMP::VCC){
-           C = new Vcc(x,y,orien(orientation),this);
+           C = new Vcc(x,y,vtxCounter,vtxCounter+1,orien(orientation),this);
            circuit.addComponent(CMP::VCC,C->getLabel(),value,C->getVertex1(),C->getVertex2());
        }else{
-           C = new Resistor(x,y,orien(orientation),this);
+           C = new Resistor(x,y,vtxCounter,vtxCounter+1,orien(orientation),this);
            circuit.addComponent(CMP::RESISTOR,C->getLabel(),value,C->getVertex1(),C->getVertex2());
        }
        drawList.push_back(C);
@@ -366,24 +367,27 @@ void Diagram::insert(int x, int y){
     switch(selectedButton){
 
         case VCC90:{
-
-            C = new Vcc(x,y,VERTICAL,this);
+            C = new Vcc(x,y,vtxCounter,vtxCounter+1,VERTICAL,this);
             circuit.addComponent(CMP::VCC,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
+            vtxCounter+=2;
         }break;
 
         case VCC180:{
-            C = new Vcc(x,y,HORIZONTAL,this);
+            C = new Vcc(x,y,vtxCounter,vtxCounter+1,HORIZONTAL,this);
             circuit.addComponent(CMP::VCC,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
+            vtxCounter+=2;
         }break;
 
         case RES90:{
-            C = new Resistor(x,y,VERTICAL,this);
+            C = new Resistor(x,y,vtxCounter,vtxCounter+1,VERTICAL,this);
             circuit.addComponent(CMP::RESISTOR,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
+            vtxCounter+=2;
             break;
         }
         case RES180:{
-            C = new Resistor(x,y,HORIZONTAL,this);
+            C = new Resistor(x,y,vtxCounter,vtxCounter+1,HORIZONTAL,this);
             circuit.addComponent(CMP::RESISTOR,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
+            vtxCounter+=2;
         }break;
 
         default:
@@ -464,6 +468,8 @@ void Diagram::remove(){
         std::cout<<str;
     }
 
+    vtxCounter-=2;
+
     QMessageBox rmMessage;
 
     QString str = QString::fromStdString(selectedComponent->getLabel());
@@ -483,11 +489,13 @@ void Diagram::remove(){
             aux = it;
             flag = true;
         }
-
     }
 
     drawList.erase(aux);
+    delete selectedComponent;
     selectedComponent = nullptr;
+    while(clickedStack.size())
+        clickedStack.pop();
 
     rmMessage.exec();
 
@@ -545,3 +553,4 @@ std::pair<QRect,QPixmap> Diagram::getPixMap(enum typeOrientation type){
     }
     return std::pair<QRect,QPixmap>(boundRect,map);
 }
+

@@ -12,8 +12,6 @@
  *  
  ********************************************************************************************/
 
-
-
 #ifndef DIAGRAM_H
 #define DIAGRAM_H
 
@@ -53,6 +51,8 @@ public:
     void setSelectedButton(enum typeOrientation);
 
     void insert(int x, int y);
+    unsigned int getComponentCounter(CMP::type t);
+    unsigned int getComponentCounter();
 
 protected:
     void mousePressEvent(QMouseEvent* event) override;
@@ -107,6 +107,7 @@ private:
     QPoint cursorLocation;
     QPoint selectedPrev;
     std::pair<QRect,QPixmap>getPixMap(enum typeOrientation type);
+    unsigned int vtxCounter;
 
 };
 
