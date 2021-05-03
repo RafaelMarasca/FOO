@@ -500,7 +500,7 @@ void Diagram::query(){
     QString voltageStr = "Voltage: ";
     currentStr+= QString::number(circuit.getCurrent(selectedComponent->getLabel()));
     voltageStr+= QString::number(circuit.getVoltage(selectedComponent->getLabel()));
-    QMessageBox queryMessage(QMessageBox::NoIcon,"Informações do Componente",currentStr+"\n"+voltageStr);
+    QMessageBox queryMessage(QMessageBox::NoIcon,"Informações do Componente",currentStr+"A"+"\n"+voltageStr+"V");
 
     queryMessage.exec();
 }
@@ -545,6 +545,3 @@ std::pair<QRect,QPixmap> Diagram::getPixMap(enum typeOrientation type){
     }
     return std::pair<QRect,QPixmap>(boundRect,map);
 }
-
-
-

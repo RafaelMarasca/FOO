@@ -67,17 +67,17 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   80,    2, 0x08,    0 /* Private */,
-       3,    0,   81,    2, 0x08,    1 /* Private */,
-       4,    0,   82,    2, 0x08,    2 /* Private */,
-       5,    0,   83,    2, 0x08,    3 /* Private */,
-       6,    0,   84,    2, 0x08,    4 /* Private */,
-       7,    1,   85,    2, 0x08,    5 /* Private */,
-       9,    1,   88,    2, 0x08,    7 /* Private */,
-      11,    0,   91,    2, 0x08,    9 /* Private */,
-      12,    0,   92,    2, 0x08,   10 /* Private */,
-      13,    0,   93,    2, 0x08,   11 /* Private */,
-      14,    0,   94,    2, 0x08,   12 /* Private */,
+       1,    0,   80,    2, 0x0a,    0 /* Public */,
+       3,    0,   81,    2, 0x0a,    1 /* Public */,
+       4,    0,   82,    2, 0x0a,    2 /* Public */,
+       5,    0,   83,    2, 0x0a,    3 /* Public */,
+       6,    0,   84,    2, 0x0a,    4 /* Public */,
+       7,    1,   85,    2, 0x0a,    5 /* Public */,
+       9,    1,   88,    2, 0x0a,    7 /* Public */,
+      11,    0,   91,    2, 0x0a,    9 /* Public */,
+      12,    0,   92,    2, 0x0a,   10 /* Public */,
+      13,    0,   93,    2, 0x0a,   11 /* Public */,
+      14,    0,   94,    2, 0x0a,   12 /* Public */,
 
  // slots: parameters
     QMetaType::Void,

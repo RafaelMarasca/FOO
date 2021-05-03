@@ -29,7 +29,6 @@ namespace CCT{
 	 * 
 	 *************************************************************************/
 
-
 	
 	Circuit::Circuit(){}
 
@@ -191,12 +190,12 @@ namespace CCT{
 
 		for(unsigned int i = 0; i < getEdgeNumber(); i++) {
             if(components[i]->getType() == CMP::VCC)
-                Vin[i][0] = -(components[i]->getVoltage());
+                Vin[i][0] = (components[i]->getVoltage());
             else if(components[i]->getType() == CMP::RESISTOR){
                 CMP::Resistor *R = dynamic_cast<CMP::Resistor*> (components[i]);
 		
 			if(R != NULL)
-                Z[i][i] = -R->getResistance();
+                Z[i][i] = R->getResistance();
 			}
 
 			for(unsigned int j = 0; j < getVertexNumber(); j++){
@@ -239,23 +238,4 @@ namespace CCT{
 		}
 		throw "Componente nao encontrado";
 	}
-
-    void Circuit::printSol() {
-		for(unsigned int i = 0; i< components.size();i++){
-			std::cout<<components[i]->getLabel()<<" V: "<<components[i]->getVoltage()<<" I: "<<components[i]->getCurrent()<<std::endl;
-		}
-	}
-
-    /*void Circuit::print() {
-		for(unsigned int i = 0; i<getVertexNumber();i++){
-			for(unsigned int k = 0; k<getEdgeNumber();k++){
-				if(inMatrix[i][k]){
-                    std::cout<<components[k]->getLabel()<<"  ";
-				}else{
-					std::cout<<0<<"   ";
-				}
-			}			        
-			std::cout<<std::endl;
-		}
-    }*/
 }

@@ -1,0 +1,790 @@
+\begin{theindex}
+
+  \item {$\sim$Circuit}
+    \subitem {CCT::Circuit}, \hyperpage{16}
+  \item {$\sim$Component}
+    \subitem {CMP::Component}, \hyperpage{22}
+  \item {$\sim$Resistor}
+    \subitem {CMP::Resistor}, \hyperpage{56}
+  \item {$\sim$Vcc}
+    \subitem {CMP::Vcc}, \hyperpage{60}
+
+  \indexspace
+
+  \item {A}
+    \subitem {NM::EquationSystem}, \hyperpage{34}
+  \item {Abs}
+    \subitem {NM::Matrix}, \hyperpage{52}
+  \item {addComponent}
+    \subitem {CCT::Circuit}, \hyperpage{17}
+  \item {addEdge}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{43}
+  \item {adjacencyMatrix}
+    \subitem {GRF::adjacencyMatrix}, \hyperpage{13}
+  \item {adjMatrix}
+    \subitem {GRF::adjacencyMatrix}, \hyperpage{14}
+
+  \indexspace
+
+  \item {B}
+    \subitem {NM::EquationSystem}, \hyperpage{34}
+  \item {boundRect}
+    \subitem {GraphicComponent}, \hyperpage{40}
+
+  \indexspace
+
+  \item {CCT}, \hyperpage{11}
+  \item {CCT::Circuit}, \hyperpage{15}
+    \subitem {$\sim$Circuit}, \hyperpage{16}
+    \subitem {addComponent}, \hyperpage{17}
+    \subitem {chords}, \hyperpage{20}
+    \subitem {Circuit}, \hyperpage{16}
+    \subitem {circuitMatrix}, \hyperpage{21}
+    \subitem {components}, \hyperpage{21}
+    \subitem {editComponent}, \hyperpage{17, 18}
+    \subitem {getCurrent}, \hyperpage{18}
+    \subitem {getVoltage}, \hyperpage{18}
+    \subitem {initialize}, \hyperpage{19}
+    \subitem {removeComponent}, \hyperpage{19}
+    \subitem {reset}, \hyperpage{20}
+    \subitem {Solve}, \hyperpage{20}
+    \subitem {updateComponents}, \hyperpage{20}
+  \item {chords}
+    \subitem {CCT::Circuit}, \hyperpage{20}
+  \item {Circuit}
+    \subitem {CCT::Circuit}, \hyperpage{16}
+  \item {circuit}
+    \subitem {Diagram}, \hyperpage{30}
+  \item {Circuit.cpp}, \hyperpage{63}
+  \item {Circuit.h}, \hyperpage{64}
+  \item {circuitMatrix}
+    \subitem {CCT::Circuit}, \hyperpage{21}
+  \item {clicked}
+    \subitem {GraphicComponent}, \hyperpage{36}
+  \item {clickedArea}
+    \subitem {GraphicComponent}, \hyperpage{36}
+  \item {clickedControl}
+    \subitem {Diagram}, \hyperpage{26}
+  \item {clickedStack}
+    \subitem {Diagram}, \hyperpage{30}
+  \item {clickedVertex}
+    \subitem {GraphicComponent}, \hyperpage{37}
+  \item {closeFile}
+    \subitem {MainWindow}, \hyperpage{47}
+  \item {CMP}, \hyperpage{11}
+    \subitem {GROUND}, \hyperpage{11}
+    \subitem {RESISTOR}, \hyperpage{11}
+    \subitem {type}, \hyperpage{11}
+    \subitem {VCC}, \hyperpage{11}
+    \subitem {WIRE}, \hyperpage{11}
+  \item {CMP::Component}, \hyperpage{21}
+    \subitem {$\sim$Component}, \hyperpage{22}
+    \subitem {Component}, \hyperpage{22}
+    \subitem {current}, \hyperpage{23}
+    \subitem {getCurrent}, \hyperpage{22}
+    \subitem {getLabel}, \hyperpage{22}
+    \subitem {getNodes}, \hyperpage{22}
+    \subitem {getType}, \hyperpage{22}
+    \subitem {getVoltage}, \hyperpage{23}
+    \subitem {label}, \hyperpage{23}
+    \subitem {setCurrent}, \hyperpage{23}
+    \subitem {setLabel}, \hyperpage{23}
+    \subitem {setVoltage}, \hyperpage{23}
+    \subitem {voltage}, \hyperpage{24}
+    \subitem {vtxs}, \hyperpage{24}
+  \item {CMP::Resistor}, \hyperpage{56}
+    \subitem {$\sim$Resistor}, \hyperpage{56}
+    \subitem {getResistance}, \hyperpage{57}
+    \subitem {getType}, \hyperpage{57}
+    \subitem {resistance}, \hyperpage{57}
+    \subitem {Resistor}, \hyperpage{56}
+    \subitem {setCurrent}, \hyperpage{57}
+    \subitem {setResistance}, \hyperpage{57}
+    \subitem {setVoltage}, \hyperpage{57}
+  \item {CMP::Vcc}, \hyperpage{59}
+    \subitem {$\sim$Vcc}, \hyperpage{60}
+    \subitem {getType}, \hyperpage{60}
+    \subitem {setCurrent}, \hyperpage{60}
+    \subitem {setVoltage}, \hyperpage{60}
+    \subitem {Vcc}, \hyperpage{60}
+  \item {colNumber}
+    \subitem {NM::Matrix}, \hyperpage{55}
+  \item {Component}
+    \subitem {CMP::Component}, \hyperpage{22}
+  \item {Component.cpp}, \hyperpage{64}
+  \item {Component.h}, \hyperpage{65}
+  \item {components}
+    \subitem {CCT::Circuit}, \hyperpage{21}
+  \item {componentType}
+    \subitem {GraphicComponent}, \hyperpage{40}
+  \item {connections}
+    \subitem {Diagram}, \hyperpage{30}
+  \item {current}
+    \subitem {CMP::Component}, \hyperpage{23}
+  \item {cursorLocation}
+    \subitem {Diagram}, \hyperpage{30}
+
+  \indexspace
+
+  \item {Diagram}, \hyperpage{24}
+    \subitem {circuit}, \hyperpage{30}
+    \subitem {clickedControl}, \hyperpage{26}
+    \subitem {clickedStack}, \hyperpage{30}
+    \subitem {connections}, \hyperpage{30}
+    \subitem {cursorLocation}, \hyperpage{30}
+    \subitem {Diagram}, \hyperpage{25}
+    \subitem {drawList}, \hyperpage{30}
+    \subitem {edit}, \hyperpage{26}
+    \subitem {editButton}, \hyperpage{30}
+    \subitem {editMenu}, \hyperpage{30}
+    \subitem {editMode}, \hyperpage{26}
+    \subitem {fileName}, \hyperpage{31}
+    \subitem {freeAllocatedMemory}, \hyperpage{26}
+    \subitem {getFileName}, \hyperpage{26}
+    \subitem {getPixMap}, \hyperpage{26}
+    \subitem {getStatus}, \hyperpage{27}
+    \subitem {initializeDiagram}, \hyperpage{27}
+    \subitem {insert}, \hyperpage{27}
+    \subitem {leftButtonActions}, \hyperpage{27}
+    \subitem {leftButtonClicked}, \hyperpage{27}
+    \subitem {load}, \hyperpage{27}
+    \subitem {loadError}, \hyperpage{27}
+    \subitem {mode}, \hyperpage{31}
+    \subitem {modified}, \hyperpage{28}
+    \subitem {mouseMoveEvent}, \hyperpage{28}
+    \subitem {mousePressEvent}, \hyperpage{28}
+    \subitem {paintEvent}, \hyperpage{28}
+    \subitem {playButton}, \hyperpage{31}
+    \subitem {query}, \hyperpage{28}
+    \subitem {queryMode}, \hyperpage{28}
+    \subitem {remove}, \hyperpage{28}
+    \subitem {rightButtonActions}, \hyperpage{29}
+    \subitem {rightButtonClicked}, \hyperpage{29}
+    \subitem {save}, \hyperpage{29}
+    \subitem {selectedButton}, \hyperpage{31}
+    \subitem {selectedComponent}, \hyperpage{31}
+    \subitem {selectedPrev}, \hyperpage{31}
+    \subitem {setFileName}, \hyperpage{29}
+    \subitem {setSelectedButton}, \hyperpage{29}
+    \subitem {setStatus}, \hyperpage{29}
+    \subitem {showEditDialog}, \hyperpage{29}
+    \subitem {status}, \hyperpage{31}
+    \subitem {wireCounter}, \hyperpage{31}
+  \item {Diagram.cpp}, \hyperpage{66}
+  \item {Diagram.h}, \hyperpage{66}
+    \subitem {EDIT}, \hyperpage{67}
+    \subitem {ERROR}, \hyperpage{68}
+    \subitem {mode}, \hyperpage{67}
+    \subitem {MODIFIED}, \hyperpage{68}
+    \subitem {NONE}, \hyperpage{68}
+    \subitem {OK}, \hyperpage{68}
+    \subitem {QUERY}, \hyperpage{67}
+    \subitem {RES180}, \hyperpage{68}
+    \subitem {RES90}, \hyperpage{68}
+    \subitem {sts}, \hyperpage{67}
+    \subitem {typeOrientation}, \hyperpage{68}
+    \subitem {UNSAVED}, \hyperpage{68}
+    \subitem {VCC180}, \hyperpage{68}
+    \subitem {VCC90}, \hyperpage{68}
+  \item {diagrams}
+    \subitem {MainWindow}, \hyperpage{49}
+  \item {draw}
+    \subitem {GraphicComponent}, \hyperpage{37}
+  \item {drawList}
+    \subitem {Diagram}, \hyperpage{30}
+  \item {drawRes180}
+    \subitem {MainWindow}, \hyperpage{47}
+  \item {drawRes90}
+    \subitem {MainWindow}, \hyperpage{47}
+  \item {drawVcc180}
+    \subitem {MainWindow}, \hyperpage{48}
+  \item {drawVcc90}
+    \subitem {MainWindow}, \hyperpage{48}
+
+  \indexspace
+
+  \item {edgeNumber}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{45}
+  \item {EDIT}
+    \subitem {Diagram.h}, \hyperpage{67}
+  \item {edit}
+    \subitem {Diagram}, \hyperpage{26}
+  \item {editButton}
+    \subitem {Diagram}, \hyperpage{30}
+  \item {editComponent}
+    \subitem {CCT::Circuit}, \hyperpage{17, 18}
+  \item {editMenu}
+    \subitem {Diagram}, \hyperpage{30}
+  \item {editMode}
+    \subitem {Diagram}, \hyperpage{26}
+  \item {EquationSystem}
+    \subitem {NM::EquationSystem}, \hyperpage{32}
+  \item {ERROR}
+    \subitem {Diagram.h}, \hyperpage{68}
+
+  \indexspace
+
+  \item {fileMenu}
+    \subitem {MainWindow}, \hyperpage{49}
+  \item {fileName}
+    \subitem {Diagram}, \hyperpage{31}
+  \item {findPivot}
+    \subitem {NM::EquationSystem}, \hyperpage{33}
+  \item {freeAllocatedMemory}
+    \subitem {Diagram}, \hyperpage{26}
+
+  \indexspace
+
+  \item {gaussJordan}
+    \subitem {NM::EquationSystem}, \hyperpage{33}
+  \item {gaussSeidel}
+    \subitem {NM::EquationSystem}, \hyperpage{33}
+  \item {getBottom}
+    \subitem {GraphicComponent}, \hyperpage{37}
+  \item {getBoundRect}
+    \subitem {GraphicComponent}, \hyperpage{37}
+  \item {getCol}
+    \subitem {NM::Matrix}, \hyperpage{53}
+  \item {getColNumber}
+    \subitem {NM::Matrix}, \hyperpage{53}
+  \item {getConNum}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{43}
+  \item {getCurrent}
+    \subitem {CCT::Circuit}, \hyperpage{18}
+    \subitem {CMP::Component}, \hyperpage{22}
+  \item {getEdgeNumber}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{43}
+  \item {getEdges}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{43}
+  \item {getFileName}
+    \subitem {Diagram}, \hyperpage{26}
+  \item {getHeight}
+    \subitem {GraphicComponent}, \hyperpage{37}
+  \item {getLabel}
+    \subitem {CMP::Component}, \hyperpage{22}
+    \subitem {GraphicComponent}, \hyperpage{37}
+  \item {getLeft}
+    \subitem {GraphicComponent}, \hyperpage{37}
+  \item {getLoop}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{44}
+  \item {getMap}
+    \subitem {GraphicComponent}, \hyperpage{38}
+  \item {getNodes}
+    \subitem {CMP::Component}, \hyperpage{22}
+  \item {getOrientation}
+    \subitem {GraphicComponent}, \hyperpage{38}
+  \item {getPixMap}
+    \subitem {Diagram}, \hyperpage{26}
+  \item {getResistance}
+    \subitem {CMP::Resistor}, \hyperpage{57}
+  \item {getRight}
+    \subitem {GraphicComponent}, \hyperpage{38}
+  \item {getRowNumber}
+    \subitem {NM::Matrix}, \hyperpage{53}
+  \item {getSolution}
+    \subitem {NM::EquationSystem}, \hyperpage{33}
+  \item {getSpanningTree}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{44}
+  \item {getStatus}
+    \subitem {Diagram}, \hyperpage{27}
+  \item {getTop}
+    \subitem {GraphicComponent}, \hyperpage{38}
+  \item {getType}
+    \subitem {CMP::Component}, \hyperpage{22}
+    \subitem {CMP::Resistor}, \hyperpage{57}
+    \subitem {CMP::Vcc}, \hyperpage{60}
+    \subitem {GraphicComponent}, \hyperpage{38}
+    \subitem {Resistor}, \hyperpage{59}
+    \subitem {Vcc}, \hyperpage{62}
+  \item {getValue}
+    \subitem {GraphicComponent}, \hyperpage{38}
+  \item {getVertex}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{44}
+  \item {getVertex1}
+    \subitem {GraphicComponent}, \hyperpage{38}
+  \item {getVertex1Point}
+    \subitem {GraphicComponent}, \hyperpage{39}
+  \item {getVertex2}
+    \subitem {GraphicComponent}, \hyperpage{39}
+  \item {getVertex2Point}
+    \subitem {GraphicComponent}, \hyperpage{39}
+  \item {getVertexCon}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{44}
+  \item {getVertexNum}
+    \subitem {GraphicComponent}, \hyperpage{39}
+  \item {getVertexNumber}
+    \subitem {GRF::adjacencyMatrix}, \hyperpage{14}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{44}
+  \item {getVoltage}
+    \subitem {CCT::Circuit}, \hyperpage{18}
+    \subitem {CMP::Component}, \hyperpage{23}
+  \item {getWidth}
+    \subitem {GraphicComponent}, \hyperpage{39}
+  \item {Graph.cpp}, \hyperpage{68}
+  \item {Graph.h}, \hyperpage{69}
+  \item {GraphicComponent}, \hyperpage{34}
+    \subitem {boundRect}, \hyperpage{40}
+    \subitem {clicked}, \hyperpage{36}
+    \subitem {clickedArea}, \hyperpage{36}
+    \subitem {clickedVertex}, \hyperpage{37}
+    \subitem {componentType}, \hyperpage{40}
+    \subitem {draw}, \hyperpage{37}
+    \subitem {getBottom}, \hyperpage{37}
+    \subitem {getBoundRect}, \hyperpage{37}
+    \subitem {getHeight}, \hyperpage{37}
+    \subitem {getLabel}, \hyperpage{37}
+    \subitem {getLeft}, \hyperpage{37}
+    \subitem {getMap}, \hyperpage{38}
+    \subitem {getOrientation}, \hyperpage{38}
+    \subitem {getRight}, \hyperpage{38}
+    \subitem {getTop}, \hyperpage{38}
+    \subitem {getType}, \hyperpage{38}
+    \subitem {getValue}, \hyperpage{38}
+    \subitem {getVertex1}, \hyperpage{38}
+    \subitem {getVertex1Point}, \hyperpage{39}
+    \subitem {getVertex2}, \hyperpage{39}
+    \subitem {getVertex2Point}, \hyperpage{39}
+    \subitem {getVertexNum}, \hyperpage{39}
+    \subitem {getWidth}, \hyperpage{39}
+    \subitem {GraphicComponent}, \hyperpage{36}
+    \subitem {label}, \hyperpage{40}
+    \subitem {map}, \hyperpage{40}
+    \subitem {orientation}, \hyperpage{40}
+    \subitem {setValue}, \hyperpage{39}
+    \subitem {setVertex1}, \hyperpage{39}
+    \subitem {setVertex2}, \hyperpage{40}
+    \subitem {value}, \hyperpage{40}
+    \subitem {vertex1}, \hyperpage{41}
+    \subitem {vertex2}, \hyperpage{41}
+    \subitem {vertexArea1}, \hyperpage{41}
+    \subitem {vertexArea2}, \hyperpage{41}
+    \subitem {vertexNum}, \hyperpage{41}
+    \subitem {x}, \hyperpage{41}
+    \subitem {y}, \hyperpage{41}
+  \item {GraphicComponent.cpp}, \hyperpage{69}
+  \item {GraphicComponent.h}, \hyperpage{70}
+    \subitem {HEIGHT}, \hyperpage{71}
+    \subitem {HORIZONTAL}, \hyperpage{71}
+    \subitem {orien}, \hyperpage{71}
+    \subitem {VERTICAL}, \hyperpage{71}
+    \subitem {WIDTH}, \hyperpage{71}
+  \item {GRF}, \hyperpage{12}
+  \item {GRF::adjacencyMatrix}, \hyperpage{13}
+    \subitem {adjacencyMatrix}, \hyperpage{13}
+    \subitem {adjMatrix}, \hyperpage{14}
+    \subitem {getVertexNumber}, \hyperpage{14}
+    \subitem {insertEdge}, \hyperpage{14}
+    \subitem {print}, \hyperpage{14}
+    \subitem {query}, \hyperpage{14}
+    \subitem {removeVertex}, \hyperpage{14}
+    \subitem {vertexNumber}, \hyperpage{15}
+  \item {GRF::incidenceMatrix}, \hyperpage{42}
+    \subitem {addEdge}, \hyperpage{43}
+    \subitem {edgeNumber}, \hyperpage{45}
+    \subitem {getConNum}, \hyperpage{43}
+    \subitem {getEdgeNumber}, \hyperpage{43}
+    \subitem {getEdges}, \hyperpage{43}
+    \subitem {getLoop}, \hyperpage{44}
+    \subitem {getSpanningTree}, \hyperpage{44}
+    \subitem {getVertex}, \hyperpage{44}
+    \subitem {getVertexCon}, \hyperpage{44}
+    \subitem {getVertexNumber}, \hyperpage{44}
+    \subitem {incidenceMatrix}, \hyperpage{43}
+    \subitem {inMatrix}, \hyperpage{45}
+    \subitem {makeCon}, \hyperpage{44}
+    \subitem {operator[]}, \hyperpage{44}
+    \subitem {print}, \hyperpage{45}
+    \subitem {removeEdge}, \hyperpage{45}
+    \subitem {removeVertex}, \hyperpage{45}
+    \subitem {vertexNumber}, \hyperpage{45}
+  \item {GROUND}
+    \subitem {CMP}, \hyperpage{11}
+
+  \indexspace
+
+  \item {HEIGHT}
+    \subitem {GraphicComponent.h}, \hyperpage{71}
+  \item {helpMenu}
+    \subitem {MainWindow}, \hyperpage{50}
+  \item {HORIZONTAL}
+    \subitem {GraphicComponent.h}, \hyperpage{71}
+
+  \indexspace
+
+  \item {incidenceMatrix}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{43}
+  \item {initialize}
+    \subitem {CCT::Circuit}, \hyperpage{19}
+  \item {initializeDiagram}
+    \subitem {Diagram}, \hyperpage{27}
+  \item {initializeMenu}
+    \subitem {MainWindow}, \hyperpage{48}
+  \item {initializeStatusBar}
+    \subitem {MainWindow}, \hyperpage{48}
+  \item {initializeTabs}
+    \subitem {MainWindow}, \hyperpage{48}
+  \item {initializeToolbar}
+    \subitem {MainWindow}, \hyperpage{48}
+  \item {initialTab}
+    \subitem {MainWindow}, \hyperpage{50}
+  \item {inMatrix}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{45}
+  \item {insert}
+    \subitem {Diagram}, \hyperpage{27}
+  \item {insertEdge}
+    \subitem {GRF::adjacencyMatrix}, \hyperpage{14}
+
+  \indexspace
+
+  \item {label}
+    \subitem {CMP::Component}, \hyperpage{23}
+    \subitem {GraphicComponent}, \hyperpage{40}
+  \item {leftButtonActions}
+    \subitem {Diagram}, \hyperpage{27}
+  \item {leftButtonClicked}
+    \subitem {Diagram}, \hyperpage{27}
+  \item {load}
+    \subitem {Diagram}, \hyperpage{27}
+  \item {loadError}
+    \subitem {Diagram}, \hyperpage{27}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{72}
+  \item {main.cpp}, \hyperpage{72}
+    \subitem {main}, \hyperpage{72}
+  \item {mainBar}
+    \subitem {MainWindow}, \hyperpage{50}
+  \item {MainWindow}, \hyperpage{46}
+    \subitem {closeFile}, \hyperpage{47}
+    \subitem {diagrams}, \hyperpage{49}
+    \subitem {drawRes180}, \hyperpage{47}
+    \subitem {drawRes90}, \hyperpage{47}
+    \subitem {drawVcc180}, \hyperpage{48}
+    \subitem {drawVcc90}, \hyperpage{48}
+    \subitem {fileMenu}, \hyperpage{49}
+    \subitem {helpMenu}, \hyperpage{50}
+    \subitem {initializeMenu}, \hyperpage{48}
+    \subitem {initializeStatusBar}, \hyperpage{48}
+    \subitem {initializeTabs}, \hyperpage{48}
+    \subitem {initializeToolbar}, \hyperpage{48}
+    \subitem {initialTab}, \hyperpage{50}
+    \subitem {mainBar}, \hyperpage{50}
+    \subitem {MainWindow}, \hyperpage{47}
+    \subitem {newFile}, \hyperpage{48}
+    \subitem {newFileAct}, \hyperpage{50}
+    \subitem {openFile}, \hyperpage{48, 49}
+    \subitem {openFileAct}, \hyperpage{50}
+    \subitem {prefAct}, \hyperpage{50}
+    \subitem {preferences}, \hyperpage{49}
+    \subitem {prefMenu}, \hyperpage{50}
+    \subitem {saveFile}, \hyperpage{49}
+    \subitem {saveFileAct}, \hyperpage{50}
+    \subitem {saveFileAs}, \hyperpage{49}
+    \subitem {saveFileAsAct}, \hyperpage{51}
+    \subitem {setTabStatus}, \hyperpage{49}
+    \subitem {statusBar}, \hyperpage{51}
+    \subitem {tabs}, \hyperpage{51}
+    \subitem {toolbar}, \hyperpage{51}
+    \subitem {tutorialAct}, \hyperpage{51}
+  \item {MainWindow.cpp}, \hyperpage{72}
+  \item {MainWindow.h}, \hyperpage{73}
+  \item {makeCon}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{44}
+  \item {map}
+    \subitem {GraphicComponent}, \hyperpage{40}
+  \item {Matrix}
+    \subitem {NM::Matrix}, \hyperpage{52}
+  \item {mode}
+    \subitem {Diagram}, \hyperpage{31}
+    \subitem {Diagram.h}, \hyperpage{67}
+  \item {MODIFIED}
+    \subitem {Diagram.h}, \hyperpage{68}
+  \item {modified}
+    \subitem {Diagram}, \hyperpage{28}
+  \item {mouseMoveEvent}
+    \subitem {Diagram}, \hyperpage{28}
+  \item {mousePressEvent}
+    \subitem {Diagram}, \hyperpage{28}
+
+  \indexspace
+
+  \item {newFile}
+    \subitem {MainWindow}, \hyperpage{48}
+  \item {newFileAct}
+    \subitem {MainWindow}, \hyperpage{50}
+  \item {NM}, \hyperpage{12}
+  \item {NM::EquationSystem}, \hyperpage{32}
+    \subitem {A}, \hyperpage{34}
+    \subitem {B}, \hyperpage{34}
+    \subitem {EquationSystem}, \hyperpage{32}
+    \subitem {findPivot}, \hyperpage{33}
+    \subitem {gaussJordan}, \hyperpage{33}
+    \subitem {gaussSeidel}, \hyperpage{33}
+    \subitem {getSolution}, \hyperpage{33}
+    \subitem {print}, \hyperpage{33}
+    \subitem {printSolution}, \hyperpage{33}
+    \subitem {sassenfeldCriteria}, \hyperpage{33}
+    \subitem {x}, \hyperpage{34}
+  \item {NM::Matrix}, \hyperpage{51}
+    \subitem {Abs}, \hyperpage{52}
+    \subitem {colNumber}, \hyperpage{55}
+    \subitem {getCol}, \hyperpage{53}
+    \subitem {getColNumber}, \hyperpage{53}
+    \subitem {getRowNumber}, \hyperpage{53}
+    \subitem {Matrix}, \hyperpage{52}
+    \subitem {operator$\ast$}, \hyperpage{53}
+    \subitem {operator$\ast$=}, \hyperpage{53}
+    \subitem {operator+}, \hyperpage{53}
+    \subitem {operator+=}, \hyperpage{53}
+    \subitem {operator-\/}, \hyperpage{54}
+    \subitem {operator-\/=}, \hyperpage{54}
+    \subitem {operator=}, \hyperpage{54}
+    \subitem {operator[]}, \hyperpage{54}
+    \subitem {print}, \hyperpage{54}
+    \subitem {realMatrix}, \hyperpage{55}
+    \subitem {rowNumber}, \hyperpage{55}
+    \subitem {swapLines}, \hyperpage{55}
+    \subitem {transpose}, \hyperpage{55}
+  \item {NONE}
+    \subitem {Diagram.h}, \hyperpage{68}
+  \item {Numeric.cpp}, \hyperpage{74}
+  \item {Numeric.h}, \hyperpage{74}
+
+  \indexspace
+
+  \item {OK}
+    \subitem {Diagram.h}, \hyperpage{68}
+  \item {openFile}
+    \subitem {MainWindow}, \hyperpage{48, 49}
+  \item {openFileAct}
+    \subitem {MainWindow}, \hyperpage{50}
+  \item {operator$\ast$}
+    \subitem {NM::Matrix}, \hyperpage{53}
+  \item {operator$\ast$=}
+    \subitem {NM::Matrix}, \hyperpage{53}
+  \item {operator+}
+    \subitem {NM::Matrix}, \hyperpage{53}
+  \item {operator+=}
+    \subitem {NM::Matrix}, \hyperpage{53}
+  \item {operator-\/}
+    \subitem {NM::Matrix}, \hyperpage{54}
+  \item {operator-\/=}
+    \subitem {NM::Matrix}, \hyperpage{54}
+  \item {operator=}
+    \subitem {NM::Matrix}, \hyperpage{54}
+  \item {operator[]}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{44}
+    \subitem {NM::Matrix}, \hyperpage{54}
+  \item {orien}
+    \subitem {GraphicComponent.h}, \hyperpage{71}
+  \item {orientation}
+    \subitem {GraphicComponent}, \hyperpage{40}
+
+  \indexspace
+
+  \item {paintEvent}
+    \subitem {Diagram}, \hyperpage{28}
+  \item {playButton}
+    \subitem {Diagram}, \hyperpage{31}
+  \item {prefAct}
+    \subitem {MainWindow}, \hyperpage{50}
+  \item {preferences}
+    \subitem {MainWindow}, \hyperpage{49}
+  \item {prefMenu}
+    \subitem {MainWindow}, \hyperpage{50}
+  \item {print}
+    \subitem {GRF::adjacencyMatrix}, \hyperpage{14}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{45}
+    \subitem {NM::EquationSystem}, \hyperpage{33}
+    \subitem {NM::Matrix}, \hyperpage{54}
+  \item {printSolution}
+    \subitem {NM::EquationSystem}, \hyperpage{33}
+
+  \indexspace
+
+  \item {QUERY}
+    \subitem {Diagram.h}, \hyperpage{67}
+  \item {query}
+    \subitem {Diagram}, \hyperpage{28}
+    \subitem {GRF::adjacencyMatrix}, \hyperpage{14}
+  \item {queryMode}
+    \subitem {Diagram}, \hyperpage{28}
+
+  \indexspace
+
+  \item {realMatrix}
+    \subitem {NM::Matrix}, \hyperpage{55}
+  \item {remove}
+    \subitem {Diagram}, \hyperpage{28}
+  \item {removeComponent}
+    \subitem {CCT::Circuit}, \hyperpage{19}
+  \item {removeEdge}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{45}
+  \item {removeVertex}
+    \subitem {GRF::adjacencyMatrix}, \hyperpage{14}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{45}
+  \item {RES180}
+    \subitem {Diagram.h}, \hyperpage{68}
+  \item {RES90}
+    \subitem {Diagram.h}, \hyperpage{68}
+  \item {resCounter}
+    \subitem {Resistor}, \hyperpage{59}
+  \item {reset}
+    \subitem {CCT::Circuit}, \hyperpage{20}
+  \item {resistance}
+    \subitem {CMP::Resistor}, \hyperpage{57}
+  \item {RESISTOR}
+    \subitem {CMP}, \hyperpage{11}
+  \item {Resistor}, \hyperpage{58}
+    \subitem {CMP::Resistor}, \hyperpage{56}
+    \subitem {getType}, \hyperpage{59}
+    \subitem {resCounter}, \hyperpage{59}
+    \subitem {Resistor}, \hyperpage{58}
+  \item {rightButtonActions}
+    \subitem {Diagram}, \hyperpage{29}
+  \item {rightButtonClicked}
+    \subitem {Diagram}, \hyperpage{29}
+  \item {rowNumber}
+    \subitem {NM::Matrix}, \hyperpage{55}
+
+  \indexspace
+
+  \item {sassenfeldCriteria}
+    \subitem {NM::EquationSystem}, \hyperpage{33}
+  \item {save}
+    \subitem {Diagram}, \hyperpage{29}
+  \item {saveFile}
+    \subitem {MainWindow}, \hyperpage{49}
+  \item {saveFileAct}
+    \subitem {MainWindow}, \hyperpage{50}
+  \item {saveFileAs}
+    \subitem {MainWindow}, \hyperpage{49}
+  \item {saveFileAsAct}
+    \subitem {MainWindow}, \hyperpage{51}
+  \item {selectedButton}
+    \subitem {Diagram}, \hyperpage{31}
+  \item {selectedComponent}
+    \subitem {Diagram}, \hyperpage{31}
+  \item {selectedPrev}
+    \subitem {Diagram}, \hyperpage{31}
+  \item {setCurrent}
+    \subitem {CMP::Component}, \hyperpage{23}
+    \subitem {CMP::Resistor}, \hyperpage{57}
+    \subitem {CMP::Vcc}, \hyperpage{60}
+  \item {setFileName}
+    \subitem {Diagram}, \hyperpage{29}
+  \item {setLabel}
+    \subitem {CMP::Component}, \hyperpage{23}
+  \item {setResistance}
+    \subitem {CMP::Resistor}, \hyperpage{57}
+  \item {setSelectedButton}
+    \subitem {Diagram}, \hyperpage{29}
+  \item {setStatus}
+    \subitem {Diagram}, \hyperpage{29}
+  \item {setTabStatus}
+    \subitem {MainWindow}, \hyperpage{49}
+  \item {setValue}
+    \subitem {GraphicComponent}, \hyperpage{39}
+  \item {setVertex1}
+    \subitem {GraphicComponent}, \hyperpage{39}
+  \item {setVertex2}
+    \subitem {GraphicComponent}, \hyperpage{40}
+  \item {setVoltage}
+    \subitem {CMP::Component}, \hyperpage{23}
+    \subitem {CMP::Resistor}, \hyperpage{57}
+    \subitem {CMP::Vcc}, \hyperpage{60}
+  \item {showEditDialog}
+    \subitem {Diagram}, \hyperpage{29}
+  \item {Solve}
+    \subitem {CCT::Circuit}, \hyperpage{20}
+  \item {status}
+    \subitem {Diagram}, \hyperpage{31}
+  \item {statusBar}
+    \subitem {MainWindow}, \hyperpage{51}
+  \item {sts}
+    \subitem {Diagram.h}, \hyperpage{67}
+  \item {swapLines}
+    \subitem {NM::Matrix}, \hyperpage{55}
+
+  \indexspace
+
+  \item {tabs}
+    \subitem {MainWindow}, \hyperpage{51}
+  \item {toolbar}
+    \subitem {MainWindow}, \hyperpage{51}
+  \item {transpose}
+    \subitem {NM::Matrix}, \hyperpage{55}
+  \item {tutorialAct}
+    \subitem {MainWindow}, \hyperpage{51}
+  \item {type}
+    \subitem {CMP}, \hyperpage{11}
+  \item {typeOrientation}
+    \subitem {Diagram.h}, \hyperpage{68}
+
+  \indexspace
+
+  \item {UNSAVED}
+    \subitem {Diagram.h}, \hyperpage{68}
+  \item {updateComponents}
+    \subitem {CCT::Circuit}, \hyperpage{20}
+
+  \indexspace
+
+  \item {value}
+    \subitem {GraphicComponent}, \hyperpage{40}
+  \item {VCC}
+    \subitem {CMP}, \hyperpage{11}
+  \item {Vcc}, \hyperpage{61}
+    \subitem {CMP::Vcc}, \hyperpage{60}
+    \subitem {getType}, \hyperpage{62}
+    \subitem {Vcc}, \hyperpage{61}
+    \subitem {vccCounter}, \hyperpage{62}
+  \item {VCC180}
+    \subitem {Diagram.h}, \hyperpage{68}
+  \item {VCC90}
+    \subitem {Diagram.h}, \hyperpage{68}
+  \item {vccCounter}
+    \subitem {Vcc}, \hyperpage{62}
+  \item {vertex1}
+    \subitem {GraphicComponent}, \hyperpage{41}
+  \item {vertex2}
+    \subitem {GraphicComponent}, \hyperpage{41}
+  \item {vertexArea1}
+    \subitem {GraphicComponent}, \hyperpage{41}
+  \item {vertexArea2}
+    \subitem {GraphicComponent}, \hyperpage{41}
+  \item {vertexNum}
+    \subitem {GraphicComponent}, \hyperpage{41}
+  \item {vertexNumber}
+    \subitem {GRF::adjacencyMatrix}, \hyperpage{15}
+    \subitem {GRF::incidenceMatrix}, \hyperpage{45}
+  \item {VERTICAL}
+    \subitem {GraphicComponent.h}, \hyperpage{71}
+  \item {voltage}
+    \subitem {CMP::Component}, \hyperpage{24}
+  \item {vtxs}
+    \subitem {CMP::Component}, \hyperpage{24}
+
+  \indexspace
+
+  \item {WIDTH}
+    \subitem {GraphicComponent.h}, \hyperpage{71}
+  \item {WIRE}
+    \subitem {CMP}, \hyperpage{11}
+  \item {wireCounter}
+    \subitem {Diagram}, \hyperpage{31}
+
+  \indexspace
+
+  \item {x}
+    \subitem {GraphicComponent}, \hyperpage{41}
+    \subitem {NM::EquationSystem}, \hyperpage{34}
+
+  \indexspace
+
+  \item {y}
+    \subitem {GraphicComponent}, \hyperpage{41}
+
+\end{theindex}
