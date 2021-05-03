@@ -29,16 +29,13 @@ class GraphicComponent : public QObject
 {
     Q_OBJECT
 
-    static unsigned int vertexNum;
 public :
-    explicit GraphicComponent(int x, int y,enum orien s, QObject *parent = nullptr);
-    explicit GraphicComponent(QObject* parent = nullptr);
-    explicit GraphicComponent(GraphicComponent &C, QObject* paren = nullptr);
+    explicit GraphicComponent(int x, int y,  unsigned int vtx1, unsigned int vtx2,
+                              enum orien s, QObject *parent = nullptr);
     int clickedArea(int x, int y);
     void draw(QPainter* painter);
     int getHeight();
     int getWidth();
-    static unsigned int getVertexNum(){return vertexNum;};
     QPoint getBottom();
     QPoint getTop();
     QPoint getLeft();
@@ -85,7 +82,8 @@ class Resistor : public GraphicComponent
     Q_OBJECT
     static unsigned int resCounter;
 public:
-    explicit Resistor(int x, int y,  enum orien s = VERTICAL, QObject *parent = nullptr);
+    explicit Resistor(int x, int y,  unsigned int vtx1, unsigned int vtx2,
+                      enum orien s = VERTICAL, QObject *parent = nullptr);
     CMP::type getType();
 signals:
 
@@ -96,7 +94,8 @@ class Vcc : public GraphicComponent
     Q_OBJECT
     static unsigned int vccCounter;
 public:
-    explicit Vcc(int x, int y, enum orien s = VERTICAL,QObject *parent = nullptr);
+    explicit Vcc(int x, int y,  unsigned int vtx1, unsigned int vtx2,
+                 enum orien s = VERTICAL,QObject *parent = nullptr);
     CMP::type getType();
 
 signals:
