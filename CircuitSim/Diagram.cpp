@@ -368,7 +368,12 @@ void Diagram::insert(int x, int y){
 
         case VCC90:{
             C = new Vcc(x,y,vtxCounter,vtxCounter+1,VERTICAL,this);
-            circuit.addComponent(CMP::VCC,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
+            try{
+                circuit.addComponent(CMP::VCC,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
+            }catch(char const* str){
+                qDebug()<<str;
+            }
+
             vtxCounter+=2;
         }break;
 
@@ -397,6 +402,7 @@ void Diagram::insert(int x, int y){
     drawList.push_back(C);
     setSelectedButton(NONE);
     setStatus(MODIFIED);
+    qDebug()<<vtxCounter;
     update();
 }
 
@@ -485,6 +491,9 @@ void Diagram::remove(){
         if(flag){
             (*it)->setVertex1((*it)->getVertex1()-2);
             (*it)->setVertex2((*it)->getVertex2()-2);
+            std::string aux = (*it)->getLabel();
+            (*it)->updateName();
+            circuit.editComponent(aux,(*it)->getLabel());
         }else if (selectedComponent == (*it)){
             aux = it;
             flag = true;

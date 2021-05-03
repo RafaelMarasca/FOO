@@ -55,6 +55,7 @@ public :
     void setValue(double newValue);
     QPoint getVertex1Point();
     QPoint getVertex2Point();
+    void updateName();
 
 signals:
     void clickedVertex(int Area,GraphicComponent*);

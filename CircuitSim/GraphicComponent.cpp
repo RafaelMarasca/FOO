@@ -175,3 +175,7 @@ QPoint GraphicComponent::getVertex2Point(){
     }
     return p;
 }
+
+void GraphicComponent::updateName(){
+    label = label[0]+QString::number(vertex1);
+}
