@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.28)  4 MAY 2021 18:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.28)  4 MAY 2021 18:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/rafae/Desktop/Foo/Artigo/artigo
+**c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex
 (c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex
 LaTeX2e <2020-10-01> patch level 2
 L3 programming layer <2020-10-05> xparse <2020-03-03> (c:/texlive/2020/texmf-dist/tex/latex/extsizes/extarticle.cls
@@ -520,8 +520,7 @@ Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \titlewidth=\dimen183
 \titlewidthlast=\dimen184
 \titlewidthfirst=\dimen185
-)
-No file artigo.aux.
+) (c:/Users/rafae/Desktop/Foo/Artigo/artigo.aux)
 \openout1 = `artigo.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
@@ -540,7 +539,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
 LaTeX Font Info:    ... okay on input line 75.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
 LaTeX Font Info:    ... okay on input line 75.
-(c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count299
 \scratchdimen=\dimen186
@@ -620,6 +619,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 75.
 LaTeX Info: Redefining \pageref on input line 75.
 LaTeX Info: Redefining \nameref on input line 75.
+ (c:/Users/rafae/Desktop/Foo/Artigo/artigo.out) (c:/Users/rafae/Desktop/Foo/Artigo/artigo.out)
 \@outlinefile=\write3
 \openout3 = `artigo.out'.
 
@@ -662,10 +662,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/texlive/2020/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-
-LaTeX Warning: Citation `antonAlgebra' on page 1 undefined on input line 103.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -676,64 +672,19 @@ LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 148.
 
 
 ]
-
-LaTeX Warning: Citation `antonAlgebra' on page 2 undefined on input line 222.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-LaTeX Warning: Citation `antonAlgebra' on page 2 undefined on input line 242.
-
-
-LaTeX Warning: Citation `antonAlgebra' on page 2 undefined on input line 273.
-
-
-Underfull \vbox (badness 1776) has occurred while \output is active []
+Underfull \vbox (badness 3439) has occurred while \output is active []
 
  [2]
-
-LaTeX Warning: Citation `antonAlgebra' on page 3 undefined on input line 295.
-
-
-LaTeX Warning: Citation `antonAlgebra' on page 3 undefined on input line 299.
-
-
-LaTeX Warning: Citation `antonAlgebra' on page 3 undefined on input line 346.
-
-
-LaTeX Warning: Citation `antonAlgebra' on page 3 undefined on input line 365.
-
-
-LaTeX Warning: Citation `ruggiero' on page 3 undefined on input line 371.
-
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 376.
 See the caption package documentation for explanation.
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 376.
-[3]
-
-LaTeX Warning: Citation `augusto' on page 4 undefined on input line 418.
-
-
-LaTeX Warning: Citation `ruggiero' on page 4 undefined on input line 420.
-
-
-LaTeX Warning: Citation `ruggiero' on page 4 undefined on input line 470.
-
-
-Underfull \vbox (badness 3029) has occurred while \output is active []
-
- [4]
+[3] [4]
 Overfull \hbox (5.96704pt too wide) detected at line 523
  \OMS/cmsy/m/n/10 ([])  \OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 L[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 I\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 R[]x[] \OT1/cmr/m/n/10 + (\OML/cmm/m/it/10 L[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 I\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 D[]b
  []
-
-
-LaTeX Warning: Citation `gene' on page 5 undefined on input line 527.
 
 
 Overfull \hbox (0.99315pt too wide) detected at line 531
@@ -741,81 +692,43 @@ Overfull \hbox (0.99315pt too wide) detected at line 531
  []
 
 
-LaTeX Warning: Citation `ruggiero' on page 5 undefined on input line 535.
-
-
-LaTeX Warning: Citation `ruggiero' on page 5 undefined on input line 545.
-
-
-LaTeX Warning: Citation `ruggiero' on page 5 undefined on input line 547.
-
-
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 552.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Citation `bondy' on page 5 undefined on input line 582.
+Underfull \hbox (badness 1983) in paragraph at lines 582--583
+\T1/ptm/m/n/10 (+20) de con-junto (n„o va-zio) de \T1/ptm/m/it/10 (+20) vÈr-ti-ces\T1/ptm/m/n/10 (+20) , $\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ) =
+ []
 
-
-LaTeX Warning: Citation `bondy' on page 5 undefined on input line 584.
-
-<./imagens//grafo1.png, id=42, 240.9pt x 240.9pt>
+[5]
+<./imagens//grafo1.png, id=118, 240.9pt x 240.9pt>
 File: ./imagens//grafo1.png Graphic file (type png)
 <use ./imagens//grafo1.png>
 Package pdftex.def Info: ./imagens//grafo1.png  used on input line 612.
 (pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
-
-Underfull \vbox (badness 1033) has occurred while \output is active []
-
- [5]
-
-LaTeX Warning: Citation `sedgewick' on page 6 undefined on input line 616.
-
-
-LaTeX Warning: Citation `sedgewick' on page 6 undefined on input line 618.
-
-
-LaTeX Warning: Citation `bondy' on page 6 undefined on input line 622.
-
-
-LaTeX Warning: Citation `sedgewick' on page 6 undefined on input line 642.
-
-<./imagens//tree1.png, id=50, 240.9pt x 240.9pt>
+<./imagens//tree1.png, id=128, 240.9pt x 240.9pt>
 File: ./imagens//tree1.png Graphic file (type png)
 <use ./imagens//tree1.png>
 Package pdftex.def Info: ./imagens//tree1.png  used on input line 647.
 (pdftex.def)             Requested size: 120.44969pt x 120.44969pt.
-
-Underfull \vbox (badness 1062) has occurred while \output is active []
-
-<./imagens//spanning1.png, id=51, 240.9pt x 240.9pt>
+<./imagens//spanning1.png, id=129, 240.9pt x 240.9pt>
 File: ./imagens//spanning1.png Graphic file (type png)
 <use ./imagens//spanning1.png>
 Package pdftex.def Info: ./imagens//spanning1.png  used on input line 656.
 (pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
-
-
-LaTeX Warning: Citation `krishna' on page 6 undefined on input line 660.
-
-<./imagens//cospanning1.png, id=52, 240.9pt x 240.9pt>
+<./imagens//cospanning1.png, id=132, 240.9pt x 240.9pt>
 File: ./imagens//cospanning1.png Graphic file (type png)
 <use ./imagens//cospanning1.png>
 Package pdftex.def Info: ./imagens//cospanning1.png  used on input line 665.
 (pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6 <./imagens//grafo1.png> <./imagens//tree1.png> <./imagens//spanning1.png>]
-
-LaTeX Warning: Citation `sedgewick' on page 7 undefined on input line 671.
-
-<./imagens//grafo2.png, id=62, 240.9pt x 240.9pt>
+ [6 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//grafo1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//tree1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//spanning1.png>]
+<./imagens//grafo2.png, id=146, 240.9pt x 240.9pt>
 File: ./imagens//grafo2.png Graphic file (type png)
 <use ./imagens//grafo2.png>
 Package pdftex.def Info: ./imagens//grafo2.png  used on input line 676.
 (pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
-<./imagens//dfs1.png, id=63, 240.9pt x 240.9pt>
+<./imagens//dfs1.png, id=147, 240.9pt x 240.9pt>
 File: ./imagens//dfs1.png Graphic file (type png)
 <use ./imagens//dfs1.png>
 Package pdftex.def Info: ./imagens//dfs1.png  used on input line 685.
@@ -823,7 +736,7 @@ Package pdftex.def Info: ./imagens//dfs1.png  used on input line 685.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<./imagens//spanning2.png, id=64, 240.9pt x 240.9pt>
+<./imagens//spanning2.png, id=148, 240.9pt x 240.9pt>
 File: ./imagens//spanning2.png Graphic file (type png)
 <use ./imagens//spanning2.png>
 Package pdftex.def Info: ./imagens//spanning2.png  used on input line 694.
@@ -835,282 +748,75 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Citation `krishna' on page 7 undefined on input line 717.
-
-
 Underfull \vbox (badness 3989) has occurred while \output is active []
 
- [7 <./imagens//cospanning1.png> <./imagens//grafo2.png> <./imagens//dfs1.png> <./imagens//spanning2.png>]
-
-LaTeX Warning: Citation `krishna' on page 8 undefined on input line 719.
-
+ [7 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//cospanning1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//grafo2.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//dfs1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//spanning2.png>]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 722.
 See the caption package documentation for explanation.
 
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:726: LaTeX Error: Command \item invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.726 		\If
-           {alguma aresta j√° foi visitada e v = v}
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:726: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.726 		\If
-           {alguma aresta j√° foi visitada e v = v}
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:726: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.726 		\If
-           {alguma aresta j√° foi visitada e v = v}
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 726.
-
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:728: LaTeX Error: Command \item invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.728 		\EndIf
-              {}
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:728: Missing $ inserted.
-<inserted text> 
-                $
-l.728 		\EndIf
-              {}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:728: Missing } inserted.
-<inserted text> 
-                }
-l.728 		\EndIf
-              {}
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-Missing character: There is no · in font cmr10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 725--728
-[] \T1/ptm/b/n/10 para \T1/ptm/m/n/10 (+20) To-das as ares-tas $\OML/cmm/m/it/10 e[]$ \T1/ptm/m/n/10 (+20) de
- []
-
-
-Overfull \hbox (4.11966pt too wide) in paragraph at lines 725--728
-\T1/ptm/m/n/10 (-20) v$ [] [] \OML/cmm/m/it/10 algumaarestajfoivisitadaev \OT1/cmr/m/n/10 =
- []
-
-
-Overfull \hbox (4.58197pt too wide) in paragraph at lines 725--728
-\OML/cmm/m/it/10 v [][][][][][]$ 
- []
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:728: Extra }, or forgotten \endgroup.
-\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
-                                                  \fi 
-l.728 		\EndIf
-              {}
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:734: Missing number, treated as zero.
-<to be read again> 
-                   \ALG@b@2@EndFunction@0 
-l.734 \EndFunction
-                  
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:735: Package algorithmicx Error: Some blocks are not closed!!!.
-
-See the algorithmicx package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.735 \end{algorithmic}
-                       
-This error message was generated by an \errmessage
-command, so I can't give any explicit help.
-Pretend that you're Hercule Poirot: Examine all clues,
-and deduce the truth by order and method.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 740.
-See the caption package documentation for explanation.
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:742: Missing \endcsname inserted.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.742 \Function
-               {encontraCiclos}{$G$}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:742: Extra \endcsname.
-\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
-                                                  \relax \def \ALG@thisblock...
-l.742 \Function
-               {encontraCiclos}{$G$}
-I'm ignoring this, since I wasn't doing a \csname.
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:750: Missing number, treated as zero.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.750 \end{algorithmic}
-                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:750: Missing = inserted for \ifnum.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.750 \end{algorithmic}
-                       
-I was expecting to see `<', `=', or `>'. Didn't.
-
-c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex:750: Missing number, treated as zero.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.750 \end{algorithmic}
-                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-
-LaTeX Warning: Citation `sedgewick' on page 8 undefined on input line 756.
-
+<./imagens//digrafo1.png, id=170, 240.9pt x 240.9pt>
+File: ./imagens//digrafo1.png Graphic file (type png)
+<use ./imagens//digrafo1.png>
+Package pdftex.def Info: ./imagens//digrafo1.png  used on input line 743.
+(pdftex.def)             Requested size: 168.62883pt x 168.62883pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<./imagens//digrafo1.png, id=79, 240.9pt x 240.9pt>
-File: ./imagens//digrafo1.png Graphic file (type png)
-<use ./imagens//digrafo1.png>
-Package pdftex.def Info: ./imagens//digrafo1.png  used on input line 761.
-(pdftex.def)             Requested size: 168.62883pt x 168.62883pt.
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 767.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 749.
 
-
-LaTeX Warning: Citation `sadiku' on page 8 undefined on input line 787.
-
-[8 <./imagens//digrafo1.png>]
-
-LaTeX Warning: Citation `sadiku' on page 9 undefined on input line 789.
-
-
-LaTeX Warning: Citation `sadiku' on page 9 undefined on input line 789.
-
-
-LaTeX Warning: Citation `sadiku' on page 9 undefined on input line 789.
-
-
-LaTeX Warning: Citation `sadiku' on page 9 undefined on input line 791.
-
-
-LaTeX Warning: Citation `sadiku' on page 9 undefined on input line 797.
-
-<./imagens//res1.png, id=89, 240.9pt x 120.45pt>
+[8 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//digrafo1.png>]
+<./imagens//res1.png, id=192, 240.9pt x 120.45pt>
 File: ./imagens//res1.png Graphic file (type png)
 <use ./imagens//res1.png>
-Package pdftex.def Info: ./imagens//res1.png  used on input line 808.
+Package pdftex.def Info: ./imagens//res1.png  used on input line 790.
 (pdftex.def)             Requested size: 168.62883pt x 84.3144pt.
-<./imagens//vcc1.png, id=90, 240.9pt x 120.45pt>
+<./imagens//vcc1.png, id=193, 240.9pt x 120.45pt>
 File: ./imagens//vcc1.png Graphic file (type png)
 <use ./imagens//vcc1.png>
-Package pdftex.def Info: ./imagens//vcc1.png  used on input line 817.
+Package pdftex.def Info: ./imagens//vcc1.png  used on input line 799.
 (pdftex.def)             Requested size: 168.62883pt x 84.3144pt.
-<./imagens//circ1.png, id=91, 481.8pt x 481.8pt>
+<./imagens//circ1.png, id=194, 481.8pt x 481.8pt>
 File: ./imagens//circ1.png Graphic file (type png)
 <use ./imagens//circ1.png>
-Package pdftex.def Info: ./imagens//circ1.png  used on input line 826.
+Package pdftex.def Info: ./imagens//circ1.png  used on input line 808.
 (pdftex.def)             Requested size: 168.63252pt x 168.63252pt.
 
-LaTeX Warning: Citation `krishna' on page 9 undefined on input line 833.
+Underfull \vbox (badness 3803) has occurred while \output is active []
 
-<./imagens//grcrc1.png, id=92, 168.63pt x 168.63pt>
+<./imagens//grcrc1.png, id=197, 168.63pt x 168.63pt>
 File: ./imagens//grcrc1.png Graphic file (type png)
 <use ./imagens//grcrc1.png>
-Package pdftex.def Info: ./imagens//grcrc1.png  used on input line 838.
+Package pdftex.def Info: ./imagens//grcrc1.png  used on input line 820.
 (pdftex.def)             Requested size: 168.62958pt x 168.62958pt.
-[9 <./imagens//res1.png> <./imagens//vcc1.png> <./imagens//circ1.png> <./imagens//grcrc1.png>]
-
-LaTeX Warning: Citation `krishna' on page 10 undefined on input line 862.
-
-
-LaTeX Warning: Citation `boruah' on page 10 undefined on input line 862.
-
-
-LaTeX Warning: Citation `boruah' on page 10 undefined on input line 864.
-
-
-LaTeX Warning: Citation `boruah' on page 10 undefined on input line 872.
-
-
-LaTeX Warning: Citation `boruah' on page 10 undefined on input line 880.
-
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 883.
-(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+ [9 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//res1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//vcc1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//circ1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//grcrc1.png>]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 865.
+ (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 912.
+(caption)                particular \caption on input line 894.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (3.92435pt too wide) in paragraph at lines 920--921
+Overfull \hbox (3.92435pt too wide) in paragraph at lines 902--903
 [] $\OML/cmm/m/it/10 I[] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 gaussSeidel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; n; x[]; \OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 10[])$ 
  []
 
 [10]
-<./imagens//circ2.png, id=110, 481.8pt x 481.8pt>
+<./imagens//circ2.png, id=229, 481.8pt x 481.8pt>
 File: ./imagens//circ2.png Graphic file (type png)
 <use ./imagens//circ2.png>
-Package pdftex.def Info: ./imagens//circ2.png  used on input line 940.
+Package pdftex.def Info: ./imagens//circ2.png  used on input line 922.
 (pdftex.def)             Requested size: 168.63252pt x 168.63252pt.
-<./imagens//circ22.png, id=111, 481.8pt x 481.8pt>
+<./imagens//circ22.png, id=230, 481.8pt x 481.8pt>
 File: ./imagens//circ22.png Graphic file (type png)
 <use ./imagens//circ22.png>
-Package pdftex.def Info: ./imagens//circ22.png  used on input line 963.
+Package pdftex.def Info: ./imagens//circ22.png  used on input line 945.
 (pdftex.def)             Requested size: 207.16995pt x 207.16995pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1118,101 +824,85 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11 <./imagens//circ2.png> <./imagens//circ22.png>]
-<./imagens//circuitsim1.png, id=121, 655.44875pt x 758.835pt>
+ [11 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//circ2.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//circ22.png>]
+<./imagens//circuitsim1.png, id=239, 655.44875pt x 758.835pt>
 File: ./imagens//circuitsim1.png Graphic file (type png)
 <use ./imagens//circuitsim1.png>
-Package pdftex.def Info: ./imagens//circuitsim1.png  used on input line 1042.
+Package pdftex.def Info: ./imagens//circuitsim1.png  used on input line 1024.
 (pdftex.def)             Requested size: 131.08742pt x 151.76431pt.
-<./imagens//iv.png, id=122, 238.8925pt x 125.46875pt>
+<./imagens//iv.png, id=240, 238.8925pt x 125.46875pt>
 File: ./imagens//iv.png Graphic file (type png)
 <use ./imagens//iv.png>
-Package pdftex.def Info: ./imagens//iv.png  used on input line 1051.
+Package pdftex.def Info: ./imagens//iv.png  used on input line 1033.
 (pdftex.def)             Requested size: 167.2236pt x 87.82751pt.
-<./imagens//ir1.png, id=123, 245.91875pt x 127.47626pt>
+<./imagens//ir1.png, id=241, 245.91875pt x 127.47626pt>
 File: ./imagens//ir1.png Graphic file (type png)
 <use ./imagens//ir1.png>
-Package pdftex.def Info: ./imagens//ir1.png  used on input line 1058.
+Package pdftex.def Info: ./imagens//ir1.png  used on input line 1040.
 (pdftex.def)             Requested size: 172.14194pt x 89.23276pt.
-<./imagens//ir2.png, id=124, 241.90375pt x 131.49126pt>
+<./imagens//ir2.png, id=242, 241.90375pt x 131.49126pt>
 File: ./imagens//ir2.png Graphic file (type png)
 <use ./imagens//ir2.png>
-Package pdftex.def Info: ./imagens//ir2.png  used on input line 1065.
+Package pdftex.def Info: ./imagens//ir2.png  used on input line 1047.
 (pdftex.def)             Requested size: 169.33147pt x 92.04324pt.
-<./imagens//ir3.png, id=125, 241.90375pt x 126.4725pt>
+<./imagens//ir3.png, id=243, 241.90375pt x 126.4725pt>
 File: ./imagens//ir3.png Graphic file (type png)
 <use ./imagens//ir3.png>
-Package pdftex.def Info: ./imagens//ir3.png  used on input line 1072.
+Package pdftex.def Info: ./imagens//ir3.png  used on input line 1054.
 (pdftex.def)             Requested size: 169.33147pt x 88.53014pt.
-<./imagens//ir4.png, id=126, 240.9pt x 126.4725pt>
+<./imagens//ir4.png, id=244, 240.9pt x 126.4725pt>
 File: ./imagens//ir4.png Graphic file (type png)
 <use ./imagens//ir4.png>
-Package pdftex.def Info: ./imagens//ir4.png  used on input line 1079.
+Package pdftex.def Info: ./imagens//ir4.png  used on input line 1061.
 (pdftex.def)             Requested size: 168.62883pt x 88.53014pt.
- [12 <./imagens//circuitsim1.png> <./imagens//iv.png> <./imagens//ir1.png> <./imagens//ir2.png> <./imagens//ir3.png>]
-<./imagens//ir5.png, id=141, 242.9075pt x 124.465pt>
+ [12 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//circuitsim1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//iv.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir2.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir3.png>]
+<./imagens//ir5.png, id=259, 242.9075pt x 124.465pt>
 File: ./imagens//ir5.png Graphic file (type png)
 <use ./imagens//ir5.png>
-Package pdftex.def Info: ./imagens//ir5.png  used on input line 1086.
+Package pdftex.def Info: ./imagens//ir5.png  used on input line 1068.
 (pdftex.def)             Requested size: 170.03407pt x 87.1249pt.
-<./imagens//ir6.png, id=142, 245.91875pt x 126.4725pt>
+<./imagens//ir6.png, id=260, 245.91875pt x 126.4725pt>
 File: ./imagens//ir6.png Graphic file (type png)
 <use ./imagens//ir6.png>
-Package pdftex.def Info: ./imagens//ir6.png  used on input line 1093.
+Package pdftex.def Info: ./imagens//ir6.png  used on input line 1075.
 (pdftex.def)             Requested size: 172.14194pt x 88.53014pt.
-<./imagens//ir7.png, id=143, 243.91125pt x 125.46875pt>
+<./imagens//ir7.png, id=261, 243.91125pt x 125.46875pt>
 File: ./imagens//ir7.png Graphic file (type png)
 <use ./imagens//ir7.png>
-Package pdftex.def Info: ./imagens//ir7.png  used on input line 1100.
+Package pdftex.def Info: ./imagens//ir7.png  used on input line 1082.
 (pdftex.def)             Requested size: 170.7367pt x 87.82751pt.
-<./imagens//ir8.png, id=144, 245.91875pt x 128.48pt>
+<./imagens//ir8.png, id=262, 245.91875pt x 128.48pt>
 File: ./imagens//ir8.png Graphic file (type png)
 <use ./imagens//ir8.png>
-Package pdftex.def Info: ./imagens//ir8.png  used on input line 1107.
+Package pdftex.def Info: ./imagens//ir8.png  used on input line 1089.
 (pdftex.def)             Requested size: 172.14194pt x 89.93538pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<./imagens//ir9.png, id=145, 242.9075pt x 131.49126pt>
+<./imagens//ir9.png, id=263, 242.9075pt x 131.49126pt>
 File: ./imagens//ir9.png Graphic file (type png)
 <use ./imagens//ir9.png>
-Package pdftex.def Info: ./imagens//ir9.png  used on input line 1114.
+Package pdftex.def Info: ./imagens//ir9.png  used on input line 1096.
 (pdftex.def)             Requested size: 170.03407pt x 92.04324pt.
+ [13 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir4.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir5.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir6.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir7.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir8.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir9.png>] (c:/Users/rafae/Desktop/Foo/Artigo/artigo.bbl) [14
 
-
-LaTeX Warning: Citation `chapra' on page 13 undefined on input line 1118.
-
-[13 <./imagens//ir4.png> <./imagens//ir5.png> <./imagens//ir6.png> <./imagens//ir7.png> <./imagens//ir8.png> <./imagens//ir9.png>]
-No file artigo.bbl.
-(./artigo.aux)
-
-Package rerunfilecheck Warning: File `artigo.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `artigo.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  8CDADA5792E894D3BFDDCED155472B34;365.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+] (c:/Users/rafae/Desktop/Foo/Artigo/artigo.aux)
+Package rerunfilecheck Info: File `artigo.out' has not changed.
+(rerunfilecheck)             Checksum: 8CDADA5792E894D3BFDDCED155472B34;365.
  ) 
 Here is how much of TeX's memory you used:
- 14376 strings out of 479918
- 229198 string characters out of 5886688
- 740391 words of memory out of 5000000
- 30404 multiletter control sequences out of 15000+600000
- 587471 words of font info for 196 fonts, out of 8000000 for 9000
+ 14423 strings out of 479918
+ 230057 string characters out of 5886688
+ 743433 words of memory out of 5000000
+ 30424 multiletter control sequences out of 15000+600000
+ 583110 words of font info for 199 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,9n,115p,721b,661s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 108i,9n,115p,725b,660s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo.pdf (13 pages, 981375 bytes).
+Output written on c:/Users/rafae/Desktop/Foo/Artigo/artigo.pdf (14 pages, 988723 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
- 55 named destinations out of 1000 (max. 500000)
- 26750 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 351 PDF objects out of 1000 (max. 8388607)
+ 269 compressed objects within 3 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 25270 words of extra memory for PDF output out of 29859 (max. 10000000)
 
