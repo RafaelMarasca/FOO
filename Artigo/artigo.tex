@@ -85,7 +85,7 @@
 
 \begin{bfseries}
 \small
-\textit{Resumo} — O presente artigo apresenta uma abordagem teórico-prática na solução de circuitos elétricos resistivo, propondo uma maneira de solucioná-los computacionalmente utilizando métodos baseados na teoria dos grafos  e cálculo numérico. Além disso, a em resolver tais circuitos manualmente e o artigo mostrando a solução exata obtida trivialmente pela simulação.
+\textit{Resumo} — O presente artigo apresenta uma abordagem teórico-prática na solução de circuitos elétricos resistivo, propondo uma maneira de solucioná-los computacionalmente utilizando métodos baseados na teoria dos grafos  e cálculo numérico. Além disso, demonstra-se a dificuldade em resolver tais circuitos manualmente e conclui-se que a solução exata pode ser obtida trivialmente pela simulação.
 
 \bigskip
 Palavras-Chave — Circuitos, Grafos, Métodos numéricos, Simulação
@@ -95,13 +95,12 @@ Palavras-Chave — Circuitos, Grafos, Métodos numéricos, Simulação
 
 A análise de circuitos elétricos é um tópico de interesse das engenharias, uma vez que, o mundo moderno depende da eletricidade e suas aplicações. Contudo, é inegável que realizar esta análise manualmente torna-se um processo laborioso ao passo que o número de componentes aumenta, visto que são muitas variáveis a se considerar. A fim de facilitar este processo, o presente artigo apresenta um método computacional para se encontrar a solução circuitos elétricos resistivos, isto é, compostos apenas por fontes de tensão de corrente contínua e resistores. Além disso, é apresentada uma revisão bibliográfica dos conceitos necessários para isso.
 
-O artigo é dividido em três partes: na primeira, discuti-se os fundamentos matemáticos dos \textit{sistemas lineares} e métodos de resolução. Na segunda, é apresentado o conceito de \textit{grafo} matematica e graficamente, junto com algumas de suas propriedades. Na última parte, introduz-se o conceito de \textit{circuitos elétricos} e sintetiza-se tudo o que foi mostrado anteriormente na forma de um algoritmo solucionador de circuitos resistivos alimentados por fontes de corrente contínua.
+O artigo é dividido em três partes: na primeira, discutem-se os fundamentos matemáticos dos \textit{sistemas lineares} e métodos de resolução. Na segunda, é apresentado o conceito de \textit{grafos}, matematica e graficamente, junto com algumas de suas propriedades. Na última parte, introduz-se o conceito de \textit{circuitos elétricos} e sintetiza-se tudo o que foi mostrado anteriormente na forma de um algoritmo solucionador de circuitos resistivos alimentados por fontes de corrente contínua.
 
 \section{MATRIZES}
 \subsection*{A. \quad Definição}
 
 De acordo com \cite[p. 26]{antonAlgebra}, uma \textit{matriz} é um agrupamento retangular de números com tamanho definido por \textit{linhas} e \textit{colunas}, sendo estas, respectivamente, o número de fileiras horizontais e verticais.
-
 Uma matriz A com m linhas e n colunas ($m \times n$) é representada da seguinte forma:
 
 \[ 
@@ -132,8 +131,6 @@ a_{m1} & a_{m2} & \dots & a_{mn}
 
 \end{bmatrix}
 \]
-
-e
 
 \[ 
 B = 
@@ -210,8 +207,6 @@ a_{m1} & a_{m2} & \dots & a_{mr}
 
 \end{bmatrix}
 \]
-
-e
 
 \[ 
 B = 
@@ -551,7 +546,7 @@ O critério de Sassenfeld diz que o método convergirá se $\beta = max_{1 \leq 
 
 Além disso, dada uma tolerância $\varepsilon$, as iterações do método de Gauss-Seidel devem ser interrompidas se $max_{1 \leq i \leq n} |x^{(k)}_i-x^{(k+1)}_i| < \varepsilon$, ou seja se a maior distância entre os elementos do vetor solução aproximada nos passos $k$ e $k+1$ for menor do que a tolerância \cite[p. 155]{ruggiero}.
 
-Assumindo um sistema com número igual de incógnitas e equações que cumpe o critério de Sassenfeld, tem-se o seguinte algoritmo para solução computacional:
+Assumindo um sistema com número igual de incógnitas e equações que cumpe o critério de Sassenfeld, tem-se o seguinte algoritmo para solução automática:
 
 \begingroup
 \captionof{algorithm}{Gauss-Seidel}\label{gs}
@@ -614,7 +609,7 @@ $G$ pode facilmente ser representado graficamente pelo seguinte diagrama, onde c
 \begin{figure}[H]
 	\caption{Exemplo (1) de um grafo} 
 	\centering
-	\includegraphics[scale=0.7]{grafo1}
+	\includegraphics[scale=0.6]{grafo1}
 	\\ Fonte: Compilação dos autores.
 \end{figure}
 
@@ -649,7 +644,7 @@ Por definição, uma \textit{árvore} é um grafo conexo acíclico \cite[p. 520]
 \begin{figure}[H]
 	\caption{Exemplo de árvore} 
 	\centering
-	\includegraphics[scale=0.7]{tree1}
+	\includegraphics[scale=0.5]{tree1}
 	\\ Fonte: Compilação dos autores.
 \end{figure}
 
@@ -658,7 +653,7 @@ Uma \textit{árvore geradora} de um grafo conexo $G$ é um subgrafo que contém 
 \begin{figure}[H]
 	\caption{Árvore geradora de (1)} 
 	\centering
-	\includegraphics[scale=0.7]{spanning1}
+	\includegraphics[scale=0.6]{spanning1}
 	\\ Fonte: Compilação dos autores.
 \end{figure}
 
@@ -667,7 +662,7 @@ Uma \textit{árvore co-geradora} de um grafo conexo $G$ é uma árvore formada p
 \begin{figure}[H]
 	\caption{Árvore co-geradora de (1)} 
 	\centering
-	\includegraphics[scale=0.7]{cospanning1}
+	\includegraphics[scale=0.6]{cospanning1}
 	\\ Fonte: Compilação dos autores.
 \end{figure}
 
@@ -678,7 +673,7 @@ A busca em profundidade (ou DFS) consiste em dois passos simples: visitar um vé
 \begin{figure}[H]
 	\caption{Exemplo (2) de um grafo} 
 	\centering
-	\includegraphics[scale=0.7]{grafo2}
+	\includegraphics[scale=0.6]{grafo2}
 	\\ Fonte: compilação dos autores.
 \end{figure}
 
@@ -687,7 +682,7 @@ A seguinte figura mostra o percurso da DFS partindo de $v_1$, onde cada cor repr
 \begin{figure}[H]
 	\caption{DFS sobre (2)} 
 	\centering
-	\includegraphics[scale=0.7]{dfs1}
+	\includegraphics[scale=0.6]{dfs1}
 	\\ Fonte: Compilação dos autores.
 \end{figure}
 
@@ -696,7 +691,7 @@ A seguinte figura mostra o percurso da DFS partindo de $v_1$, onde cada cor repr
 \begin{figure}[H]
 	\caption{Arvore Gerada pela DFS} 
 	\centering
-	\includegraphics[scale=0.7]{spanning2}
+	\includegraphics[scale=0.6]{spanning2}
 	\\ Fonte: Compilação dos autores.
 \end{figure}
 
@@ -924,7 +919,7 @@ Considere o seguinte circuito, onde a tensão na fonte é de $5V$ e todos os res
 \begin{figure}[H]
 	\caption{Exemplo (1) de circuito} 
 	\centering
-	\includegraphics[scale=0.4]{circ2}
+	\includegraphics[scale=0.35]{circ2}
 	\\ Fonte: Compilação dos autores.
 \end{figure}
 
@@ -1108,6 +1103,8 @@ Note que apesar de não haver diferenças entre os resultados obtidos pela simul
 Então, conclui-se que, embora seja necessário o estudo de diversos tópicos para realizar a implementação, o resultado final é satisfatório, já que apresenta a solução exata do problema proposto, facilitando e acelerando a obtenção destes resultados. 
 
 Vale ressaltar ainda que seria possível expandir os assuntos aqui discutidos a fim de produzir um solucionador que abranja mais tipos de componentes. Contudo, o objetivo inicial de simular circuitos resistivos alimentados por fontes de corrente contínua, o que foi alcançado de forma suficientemente satisfatória.
+
+\newpage
 
 \renewcommand{\refname}{REFERÊNCIAS}
 \bibliography{bibliografia}
