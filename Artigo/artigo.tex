@@ -716,7 +716,25 @@ O seguinte algoritmo representa uma implementação computacional do tópico dis
 
 Assim como descrito por \cite{krishna}, ao adicionar um dos arcordes à árvore geradora de um grafo, obtém-se um grafo com exatamente um ciclo. Ao conjunto das arestas que formam este ciclo, dá-se o nome de ciclo fundamental. O conjunto dos ciclos obtidos ao se adicionar, separadamente, cada acorde à árvore geradora é denotado por conjunto fundamental de ciclos. 
 
-A seguir, é apresentado um algoritmo para a obtenção do conjunto de ciclos fundamentais de um grafo, com base nas ideias apresentadas por \cite{krishna}. A ideia geral é encontrar uma árvore geradora $T$ do grafo $G$ e a cada passo inserir um \textit{acorde} $e_i \in (E(G)-E(T))$ em $T$, encontrar o ciclo gerado pela adição de $e_i$ através de um processo de busca em profundidade modificado, isto é, de forma a se tratar as arestas como visitadas e não os vértices e, então, remover $e_i$ de $T$, até que todos os \textit{acordes} tenham passado pelo processo.
+A seguir, é apresentado um algoritmo para a obtenção do conjunto de ciclos fundamentais de um grafo, com base nas ideias apresentadas por \cite{krishna}. A ideia geral é encontrar uma árvore geradora $T$ do grafo $G$ e a cada passo inserir um \textit{acorde} $e_i \in (E(G)-E(T))$ em $T$, encontrar o ciclo gerado pela adição de $e_i$ através de um processo de busca em profundidade modificado (apresentado abaixo), então, remover $e_i$ de $T$, até que todos os \textit{acordes} tenham passado pelo processo.
+
+\begingroup
+\captionof{algorithm}{DFS Modificada}\label{Dmod}
+\begin{algorithmic}[1]
+\Function{DFS}{$G$, $v$}
+	\For{Todas as arestas $e_i$ de v$}
+		\If{alguma aresta já foi visitada e v = v}
+			\Return{arestas pertencentes ao ciclo}
+		\EndIf{}
+		\State{marque a arestas como visitada}
+		\State{marque a aresta como pertencente ao ciclo}
+		\State{visite o vértice que está conectado a v pela aresta $e_i$}
+		\State{marque a aresta como não pertencente ao ciclo}
+	\EndFor
+\EndFunction
+\end{algorithmic}
+\hrulefill
+\endgroup
 
 \begingroup
 \captionof{algorithm}{Encontra Ciclos}\label{lp}
