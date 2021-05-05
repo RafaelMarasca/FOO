@@ -11,7 +11,7 @@
  *  
  ********************************************************************************************/
 
-#ifndef	NUMERIC_H
+#ifndef NUMERIC_H
 #define NUMERIC_H
 
 #include "Circuit.h"
