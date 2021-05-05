@@ -20,86 +20,271 @@
 #include <iostream>
 
 namespace NM {
-	
+	/*************************************************************************
+    	* Declaração da classe Matrix.
+    	*
+    	* Representa uma matriz matemática e implementa suas operações.
+    	*************************************************************************/
 	class Matrix {
 	private:
-		//  Vector que é syntatic-sugareado para o funcionamento da classe matrix.
-		std::vector<std::vector<double>> realMatrix;
-		//  Número de linhas.
-		unsigned int rowNumber;
-		//  Número de colunas.
-		unsigned int colNumber;
+		std::vector<std::vector<double>> realMatrix; /**< Implementação concreta da matriz.*/
+		unsigned int rowNumber; /**< Número de linhas da matriz.*/
+		unsigned int colNumber; /**< Número de colunas da matriz.*/
 	
 	public:
-
+		/*************************************************************************
+    		* Construtor da classe Matrix.
+    		*
+    		* Constrói uma matriz com um número escolhido linhas, preenchida com zeros.
+    		* 
+    		* @param r número de linhas.
+    		*************************************************************************/
 		Matrix(unsigned int r);
-	
+		
+		/*************************************************************************
+    		* Construtor da classe Matrix.
+    		*
+    		* Constrói uma matriz com um número escolhido de linhas e colunas, 
+    		* preenchida com zeros.
+    		*
+    		* @param r número de linhas.
+    		* @param c número de colunas.
+    		* @overload
+    		*************************************************************************/
 		Matrix(unsigned int r, unsigned int c);
 
-		//  Sobrecarga dos operadores para operações básicas & acesso "direto".
+		/*************************************************************************
+    		* Sobrecarga do operador * da classe Matrix.
+    		*
+    		* Multiplica duas matrizes e retorna o resultado.
+    		*
+    		* @param &m1 referência à matriz que à direita.
+    		* @return Matriz à esquerda.
+    		* @overload
+    		*************************************************************************/
 		Matrix operator* (Matrix &m1);
+		
+		/*************************************************************************
+    		* Sobrecarga do operador *= da classe Matrix.
+    		*
+    		* Multiplica duas matrizes e insere o resultado na matriz à esquerda.
+    		*
+    		* @param &m1 referência à matriz à direita.
+    		* @overload
+    		*************************************************************************/
 		void operator*= (Matrix &m1);	
-
+		
+		/*************************************************************************
+    		* Sobrecarga do operador + da classe Matrix.
+    		*
+    		* Soma duas matrizes e retorna o resultado.
+    		*
+    		* @param &m1 referência à matriz à direita.
+    		* @return Matriz à esquerda.
+    		* @overload
+    		*************************************************************************/
 		Matrix operator+ (Matrix &m1);
+		
+		/*************************************************************************
+    		* Sobrecarga do operador += da classe Matrix.
+    		*
+    		* Soma as entradas de duas matrizes e insere o resultado na primeira.
+    		*
+    		* @param &m1 referência à matriz que à direita.
+    		* @overload
+    		*************************************************************************/
 		void operator+= (Matrix &m1);
-
+		
+		/*************************************************************************
+    		* Sobrecarga do operador - da classe Matrix.
+    		*
+    		* Subtrai as entradas da matriz à direita da matriz à esquerda e retorna 
+    		* o resultado.
+    		* @param &m1 referência à matriz à direita.
+    		* @return Matriz à esquerda.
+    		* @overload
+    		*************************************************************************/
 		Matrix operator- (Matrix &m1);
+		
+		/*************************************************************************
+    		* Sobrecarga do operador -= da classe Matrix.
+    		*
+    		* Subtrai as entradas matriz à direita da matriz à esquerda e insere o 
+    		* resultado na matriz à esquerda.
+    		*
+    		* @param &m1 referência à matriz à direita.
+    		* @overload
+    		*************************************************************************/
 		void operator-= (Matrix &m1);
 
+		/*************************************************************************
+    		* Sobrecarga do operador = da classe Matrix.
+    		*
+    		* Substitui as entradas da matriz à esquerda pelas entradas da matriz à direita.
+    		*
+    		* @param &m1 referência à matriz que à direita.
+    		* @overload
+    		*************************************************************************/
 		void operator= (const Matrix &m1);
+		
+		/*************************************************************************
+    		* Sobrecarga do operador [] da classe Matrix.
+    		*
+    		* Permite acesso direto aos valores presentes na matriz.
+    		*
+    		* @param index número da linha que será considerada.
+    		* @return Linha do índice index.
+    		* @overload
+    		*************************************************************************/
 		std::vector<double> &operator[] (unsigned int index);
 		
+		/*************************************************************************
+    		* Sobrecarga do operador - da classe Matrix.
+    		*
+    		* Multiplica todas as entradas da matriz à esquerda por -1 e retorna o 
+    		* resultado.
+    		*
+    		* @return Matriz com sinais invertidos.
+    		* @overload
+    		*************************************************************************/
 		Matrix operator-();
 
+		/*************************************************************************
+    		* Transpõe uma matriz.
+    		*
+    		* Encontra a matriz transposta e retorna o resultado.
+    		*
+    		* @return Matriz transposta.
+    		* @overload
+    		*************************************************************************/
 		Matrix transpose();
 
+		/*************************************************************************
+    		* Pega o "valor absoluto" de uma matriz.
+    		*
+    		* Faz com que todas as entradas da matriz se tornem positivas e retorna a
+    		* matriz resultante.
+    		*
+    		* @return Matriz em termos absolutos.
+    		* @overload
+    		*************************************************************************/
 		Matrix Abs();
 
+		/*************************************************************************
+    		* Getter para uma coluna.
+    		*
+    		* Retorna um vector contendo as entradas de uma coluna da matriz.
+    		*
+    		* @param col índice da coluna.
+    		* @return Vector representando a coluna.
+    		* @overload
+    		*************************************************************************/
 		std::vector<double> getCol(unsigned int col);
 
-		//  Getters de linha/coluna.
+		/*************************************************************************
+    		* Getter para a quantidade de colunas da matriz.
+    		*
+    		* Retorna a quantidade de colunas da matriz.
+    		*
+    		* @return Número de colunas.
+    		* @overload
+    		*************************************************************************/
 		unsigned int getColNumber() const;
-		unsigned int getRowNumber() const;
-
-		void swapLines(double l1,double l2);
 		
-		//  TODO: apagar essa merda aqui.
-		void print();
-
-        void print(std::vector<CMP::Component*> C) ;
+		/*************************************************************************
+    		* Getter para a quantidade de linhas da matriz.
+    		*
+    		* Retorna a quantidade de linhas da matriz.
+    		*
+    		* @return Número de cinhas.
+    		* @overload
+    		*************************************************************************/
+		unsigned int getRowNumber() const;
+		
+		/*************************************************************************
+    		* Troca duas linhas.
+    		*
+    		* Dadas dois índices representando duas linhas, troca as entradas dessas
+    		* duas linhas.
+    		* @param l1 linha 1.
+    		* @param l2 linha 2.
+    		* @return Void.
+    		* @overload
+    		*************************************************************************/
+		void swapLines(double l1,double l2);
 	};	
-
+	
+	/*************************************************************************
+    	* Declaração da EquationSystem
+    	*
+    	* Representa um sistema de equações e formas de solucioná-lo.
+    	*************************************************************************/
 	class EquationSystem {
 	private:
-		//  Matriz dos coeficientes
-		Matrix A;
-		//  Vetor do igual(?)
-		Matrix B;	
-		//  Vetor solução
-		Matrix x;
-		//  Método que resolve o sistema utilizando o método de Gauß-Seidel.
-		//TODO? implementar mais métodos?
+		Matrix A;/**< Matriz dos coeficientes do sistema.*/
+		Matrix B;/**< Matriz (vetor) das constantes do sistema.*/
+		Matrix x;/**< Matriz (vetor) solução do sistema.*/
+		
+		/*************************************************************************
+    		* Resolve o sistema pelo método de Gauss-Seidel.
+    		*
+    		* Encontra a solução aproximada iterativamente pelo método de Gauss-Seidel
+    		* assumindo uma tolerância e um número máximo de iterações.
+    		*
+    		* @param tol tolerância.
+    		* @param maxIter número máximo de iterações.
+    		* @return Void.
+    		* @overload
+    		*************************************************************************/
 		void gaussSeidel(double tol, unsigned int maxIter);
 
-		//  Critério de Sassenfeld, que checa a convergência do método de Gauß-Seidel.
+		/*************************************************************************
+    		* Checa se o sistema obedece ao critério de Sassenfeld.
+    		*
+    		* Aplica o critério de Sassenfeld ao sistema. Retorna verdadeiro se o
+    		* método de Gauss-Seidel converge para uma solução e falso caso contrário.  
+    		*
+    		* @return Se o sistema converge ou não.
+    		* @overload
+    		*************************************************************************/
 		bool sassenfeldCriteria();		
 	
-		//  Função que troca as linhas para garantir que o pivô seja o maior número e
-		//que não haja divisão por zero.
-		void findPivot(unsigned int startI);			
-		//  Resolve o sistema por Gauß-Jordan.
+		/*************************************************************************
+    		* Realiza o pivoteamento parcial do sistema.
+    		*
+    		* Procura o maior dentre os elementos da coluna, começando por um índice
+    		* inicial. Se existir, são trocadas as linhas do índice inicial e do 
+    		* índice cujo elemento é o maior. 
+    		*
+    		* @param startI índice inicial.
+    		* @return Void.
+    		* @overload
+    		*************************************************************************/
+		void findPivot(unsigned int startI);	
+				
+		/*************************************************************************
+    		* Resolve o sistema pelo método de Gauss-Jordan.
+    		*
+    		* Encontra a solução exata do sistema através do método de Gauss-Jordan.
+    		*
+    		* @return Void.
+    		* @overload
+    		*************************************************************************/
 		void gaussJordan();
 	public:
-		//  Constrói o sistema de equações lineares com base na matriz dos coef.
-		//e no vetor do igual(?)
+		/*************************************************************************
+    		* Construtor da classe EquationSystem.
+    		*
+    		* Constrói um sistema de equações baseado numa matriz de coeficientes e 
+    		* outra de constantes.
+    		*
+    		* @param a matriz dos coeficientes.
+    		* @param b matriz das constantes.
+    		*************************************************************************/
 		EquationSystem(Matrix a, Matrix b);
 
 		//  Resolve e retorna o sistema para o usuário.
 		Matrix getSolution(double tol, unsigned int maxIter);
-
-		//  Temp. Apagar após os testes.
-		void printSolution();
-		void print();
 	};
 }
 
