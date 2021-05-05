@@ -160,25 +160,7 @@ namespace NM{
 		(*this)[l2] = aux;
 	}
 
-
-	//  Não quero ter que usar isso nunca mais. Fé que algum dia eu acabo o namespace.
-	void Matrix::print() {
-		for(unsigned int i = 0; i < this->getRowNumber(); i++) {
-			for(unsigned int j = 0; j < this->getColNumber(); j++)
-				std::cout << (*this)[i][j] << " ";
-			std::cout << std::endl; 
-		}
-		std::cout << std::endl;
-	}
-
-    void Matrix::print(std::vector<CMP::Component*>C) {
-		for(unsigned int i = 0; i < this->getRowNumber(); i++) {
-			for(unsigned int j = 0; j < this->getColNumber(); j++)
-				std::cout << C[i]->getLabel() << ": " << (*this)[i][j] << " ";
-			std::cout << std::endl; 
-		}
-		std::cout << std::endl;
-	}
+   
 	//  Construtor inicializa A e B com a e b, respectivamente. Além de fazer o vetor x receber o vetor
 	//nulo como chute inicial (acho que é uma escolha sensata).
 	EquationSystem::EquationSystem(Matrix a, Matrix b) : A(a), B(b), x(Matrix(b.getRowNumber())){
@@ -311,13 +293,5 @@ namespace NM{
 		
 		return x;
 	}
-
-	void EquationSystem::print(){
-		A.print();
-		std::cout<<std::endl;
-		B.print();
-	}
-	//  TODO: tirar essa merda
-	void EquationSystem::printSolution() { x.print(); }
 }
 
