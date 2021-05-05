@@ -23,7 +23,7 @@
 namespace CCT{
 
 	/*************************************************************************
-	 * Implementação da classe Circuit.
+     * Declaração da classe Circuit.
 	 * 
 	 * Representa um circuito de componentes eletrônicos através de uma 
 	 * matriz de incidência.
@@ -37,38 +37,45 @@ namespace CCT{
 		std::vector<unsigned int> chords; /**< Armazena as arestas que não estão na árvore geradora do grafo.*/
 
 	   /******************************************************************************************
-		* Atualiza os valores dos componentes.
+        * Atualiza os valores dos componentes contidos em um objeto da classe Circuit.
 		* 
-	 	* @param currents um vector contendo os novos valores para as correntes dos componentes
-	 	* @return void
+        * Atualiza as correntes e tensões dos componentes contidos no circuito com base nos
+        * dados passados por parâmetro.
+        *
+        * @param currents um vector contendo os novos valores para as correntes dos componentes.
+        * @return void.
 	 	******************************************************************************************/
         void updateComponents(std:: vector<double> currents);
 		
-		/******************************************************************************************
-		* Obtém os valores das correntes em cada componente e atualiza cada componente.
+       /******************************************************************************************
+        * Resolve o circuito.
+        *
+        * Obtém os valores das correntes em cada componente e atualiza cada componente.
 		*
-	 	* @return void
+        * @return void.
 	 	******************************************************************************************/
 		void Solve();
 
     public:
 
 	   /******************************************************************************************
-		* Construtor para a classe Circuito.
+        * Construtor para a classe Circuit.
 		*
 	 	* Constroi um elemento da Classe Circuit.
 	 	******************************************************************************************/
 		Circuit();
 
 		/******************************************************************************************
-		* Desconstrutor para a classe Circuito.
+        * Desconstrutor para a classe Circuit.
 		*
 	 	* Destrói um elemento da Classe Circuit.
 	 	******************************************************************************************/
 		~Circuit();
 
 		/******************************************************************************************
-		* Obtém os circuitos fundamentais do grafo de circuito e armazena em circuitMAtrix, bem 
+        * Inicializa um objeto da classe Circuit.
+        *
+        * Obtém os circuitos fundamentais do grafo de circuito e armazena em circuitMAtrix, bem
 		* como, atualiza o vector chords contendo as arestas que não estão contidas na árvore 
 		* geradora do grafo e após isso, resolve o circuito e atualiza os valores de cada 
 		* componente.
@@ -78,10 +85,11 @@ namespace CCT{
 		void initialize();
 
 	   /******************************************************************************************
-		* Reseta a matriz de circuitos fundamentais contidas no vector cicuitMatrix e o vector
-		* chords de arestas que não estão contidas na árvore geradora.
+        * Reseta a matriz de circuitos fundamentais.
+        *
+        * Remove todos os elementos contidss do vector cicuitMatrix e do vector chords.
 		*
-	 	* @return void
+        * @return Void.
 	 	******************************************************************************************/
 		void reset();
 
@@ -92,38 +100,39 @@ namespace CCT{
 		* aadicionados, isto é, se dois componentes estão conectados, então, estes componentes
 		* possuem um vértice em comum.
 		* 
-		* @param t tipo do componente a ser adicionado no circuito.
-		* @param l etiqueta do componente a ser adicionado.
-		* @param value valor associado ao componente a ser adicionado (resistência/tensão).
-		* @param vtx1 número do primeiro vértice do componente.
-		* @param vtx2 número do segundo vértice do componente.
+        * @param t Tipo do componente a ser adicionado no circuito.
+        * @param l Etiqueta do componente a ser adicionado.
+        * @param value Valor associado ao componente a ser adicionado (resistência/tensão).
+        * @param vtx1 Número do primeiro vértice do componente.
+        * @param vtx2 Número do segundo vértice do componente.
 		*
-	 	* @return void
+        * @return Void.
 	 	******************************************************************************************/
-        void addComponent(CMP::type t,std::string l,double value, unsigned int vtx1, unsigned int vtx2);
+        void addComponent(CMP::type t, std::string l, double value, unsigned int vtx1, unsigned int vtx2);
 		
        /******************************************************************************************
 		* Edita o valor de um objeto da classe Component pertencente ao circuito.
 		*
 		* Caso o componente esteja no circuito, altera o valor relacionado ao componente 
-		* (resistência/tensão) cuja etiqueta é label.
+        * (resistência/tensão) cujo nome de identificação é l.
 		* 
-		* @param value novo valor do componente a ser editado.
-		* @param label etiqueta do componente a ser editado.
+        * @param value Novo valor do componente a ser editado.
+        * @param label Nome de identificação do componente a ser editado.
 		*
-	 	* @return void
+        * @return Void.
 	 	******************************************************************************************/
         void editComponent(std::string label, double value);
 
 	   /******************************************************************************************
 		* Edita a etiqueta de um objeto da classe Component pertencente ao circuito.
 		*
-		* Caso o componente esteja no circuito, altera a etiqueta do componente a ser editado.
+        * Caso o componente esteja no circuito, altera o nome de identificação do componente a
+        * ser editado.
 		* 
-		* @param label etiqueta do componente a ser editado.
-		* @param newLabel nova etiqueta do componente a ser editado.
+        * @param label Nome de identificação do componente a ser editado.
+        * @param newLabel Novo nome de identificação do componente a ser editado.
 		*
-	 	* @return void
+        * @return Void.
 		* 
 		* @overload
 	 	******************************************************************************************/
@@ -135,9 +144,9 @@ namespace CCT{
 		* Caso o componente exista no circuito, remove do circuito o componente com a etiqueta 
 		* fornecida.
 		* 
-		* @param l etiqueta do componente a ser removido.
+        * @param l Etiqueta do componente a ser removido.
 		*
-	 	* @return void
+        * @return Void.
 	 	******************************************************************************************/
 		void removeComponent(std::string l);
 
@@ -147,9 +156,9 @@ namespace CCT{
 		* Caso o componente exista no circuito, retorna o valor da tensão do componente com a 
 		* etiqueta fornecida.
 		* 
-		* @param l etiqueta do componente consultado.
+        * @param l Etiqueta do componente consultado.
 		*
-	 	* @return valor da tensão através do componente consultado.
+        * @return Valor da tensão através do componente consultado.
 	 	******************************************************************************************/
 		double getVoltage(std::string l);
 
@@ -159,12 +168,11 @@ namespace CCT{
 		* Caso o componente exista no circuito, retorna o valor da corrente através do componente 
 		* com a etiqueta fornecida.
 		* 
-		* @param l etiqueta do componente consultado.
+        * @param l Etiqueta do componente consultado.
 		*
-	 	* @return valor da corrente através do componente consultado.
+        * @return Valor da corrente através do componente consultado.
 	 	******************************************************************************************/
 		double getCurrent(std::string l);
-
 	};
 }
 

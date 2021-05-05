@@ -31,6 +31,16 @@
 #include <QVBoxLayout>
 #include <QLabel>
 
+
+MainWindow* MainWindow::instance = nullptr;
+
+MainWindow* MainWindow::getMainWindow(){
+    if(instance == nullptr){
+        instance = new MainWindow;
+    }
+    return instance;
+}
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     setWindowTitle("Simulador de Circuitos Resistivos");

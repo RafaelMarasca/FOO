@@ -14,15 +14,26 @@
 
 #include<QApplication>
 
+
+/*************************************************************************
+ * Implementação da função main.
+ *
+ * Controla o fluxo inicial e final do programa.
+ *
+ *************************************************************************/
 int main(int argc, char* argv[]){
 
     QApplication app(argc,argv);
 
-    MainWindow win;
+    //Obtenção da MainWindow
+    MainWindow* win = MainWindow::getMainWindow();
 
-    win.setWindowIcon(QIcon(":/icons/resourceFile/iconFile/appIcon.png"));
+    //Altera o ícone do programa.
+    win->setWindowIcon(QIcon(":/icons/resourceFile/iconFile/appIcon.png"));
 
-    win.show();
+    //Mostra a janela principal do programa
+    win->show();
+
 
     return app.exec();
 }

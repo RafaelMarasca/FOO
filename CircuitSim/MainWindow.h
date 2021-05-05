@@ -29,12 +29,12 @@
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-public:
-    explicit MainWindow(QWidget *parent = nullptr);
-
-signals:
-
 private:
+    explicit MainWindow(QWidget *parent = nullptr);
+    MainWindow(const MainWindow&);
+    MainWindow operator=(MainWindow&);
+    static MainWindow* instance;
+
     std::list<Diagram*> diagrams;
     QTabWidget* tabs;
     QMenuBar *mainBar;
@@ -56,7 +56,10 @@ private:
     void initializeToolbar();
     void initializeTabs();
     void openFile(QString fileName);
-    void initializeStatusBar();
+    void initializeStatusBar();   
+
+public:
+    static MainWindow* getMainWindow();
 
 public slots:
     void newFile();
@@ -70,6 +73,7 @@ public slots:
     void drawRes180();
     void drawVcc90();
     void drawVcc180();
+    //static void freeInstance();
 };
 
 #endif // MAINWIN_H

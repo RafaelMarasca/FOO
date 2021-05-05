@@ -68,7 +68,8 @@
 \titlespacing*{\section}{0pt}{1.1\baselineskip}{\baselineskip}
 \titlespacing*{\subsection}{0pt}{1.1\baselineskip}{\baselineskip}
 
-
+\titlespacing\subsubsection{0pt}{1.0ex plus -1ex minus -.2ex}{-\parskip}
+%\titlespacing\section{0pt}{1.0ex plus -1ex minus -.2ex}{-\parskip}
 \titleformat{\subsection}
   {\normalfont\fontsize{10}{12}\itshape\bfseries}{\thesubsection}{1em}{}
 
@@ -86,20 +87,17 @@
 \begin{bfseries}
 \small
 \textit{Resumo} — O presente artigo apresenta uma abordagem teórico-prática na solução de circuitos elétricos resistivo, propondo uma maneira de solucioná-los computacionalmente utilizando métodos baseados na teoria dos grafos  e cálculo numérico. Além disso, demonstra-se a dificuldade em resolver tais circuitos manualmente e conclui-se que a solução exata pode ser obtida trivialmente pela simulação.
-
-\bigskip
+\\~\\~\\
 Palavras-Chave — Circuitos, Grafos, Métodos numéricos, Simulação
 \end{bfseries}
 
 \section{INTRODUÇÃO}
-
 A análise de circuitos elétricos é um tópico de interesse das engenharias, uma vez que, o mundo moderno depende da eletricidade e suas aplicações. Contudo, é inegável que realizar esta análise manualmente torna-se um processo laborioso ao passo que o número de componentes aumenta, visto que são muitas variáveis a se considerar. A fim de facilitar este processo, o presente artigo apresenta um método computacional para se encontrar a solução circuitos elétricos resistivos, isto é, compostos apenas por fontes de tensão de corrente contínua e resistores. Além disso, é apresentada uma revisão bibliográfica dos conceitos necessários para isso.
 
 O artigo é dividido em três partes: na primeira, discutem-se os fundamentos matemáticos dos \textit{sistemas lineares} e métodos de resolução. Na segunda, é apresentado o conceito de \textit{grafos}, matematica e graficamente, junto com algumas de suas propriedades. Na última parte, introduz-se o conceito de \textit{circuitos elétricos} e sintetiza-se tudo o que foi mostrado anteriormente na forma de um algoritmo solucionador de circuitos resistivos alimentados por fontes de corrente contínua.
 
 \section{MATRIZES}
 \subsection*{A. \quad Definição}
-
 De acordo com \cite[p. 26]{antonAlgebra}, uma \textit{matriz} é um agrupamento retangular de números com tamanho definido por \textit{linhas} e \textit{colunas}, sendo estas, respectivamente, o número de fileiras horizontais e verticais.
 Uma matriz A com m linhas e n colunas ($m \times n$) é representada da seguinte forma:
 
@@ -138,22 +136,22 @@ B =
 b_{11} & b_{12} & \dots & b_{1n} \\
 b_{21} & b_{22} & \dots & b_{2n} \\
 \vdots & \vdots & \ddots & \vdots \\
-b_{m1} & b_{m2} & \dots & b_{mn} 
-
+b_{m1} & b_{m2} & \dots & b_{mn}\\
 \end{bmatrix}
 \]
 
 A soma dessas duas matrizes é dada por:
 
-\[\scriptsize
+\[
 A+B=
-\begin{bmatrix}
+\left[
+\begin{smallmatrix}
 a_{11} + b_{11} & a_{12} + b_{12} & \dots & a_{1n} + b_{1n} \\
 a_{21} + b_{21} & a_{22} + b_{22} & \dots & a_{2n} + b_{2n} \\
 \vdots & \vdots & \ddots & \vdots \\
-a_{m1} + b_{m1} & a_{m2} + b_{m2} & \dots & a_{mn} + b_{mn} 
-
-\end{bmatrix}
+a_{m1} + b_{m1} & a_{m2} + b_{m2} & \dots & a_{mn} + b_{mn}\\
+ &  &  &
+\end{smallmatrix}\right]
 \]
 
 \subsection*{C. \quad Igualdade de Matrizes}
@@ -491,7 +489,7 @@ R_1 =
 0 & 0 & \dots & 0 \\
 \frac{a_{21}}{a_{22}} & 0 & \dots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
-\frac{a_{n1}}{a_{nn}} & \frac{a_{n2}}{a_{nn}} & \dots & 0  
+\frac{a_{n1}}{a_{nn}} & \frac{a_{n2}}{a_{nn}} & \dots & 0
 \end{bmatrix}
 \]
 e
@@ -713,7 +711,6 @@ O seguinte algoritmo representa uma implementação computacional do tópico dis
 \endgroup
 
 \subsection*{D. \quad Encontrando o Conjunto de Ciclos Fundamentais de um Grafo}
-
 Assim como descrito por \cite{krishna}, ao adicionar um dos arcordes à árvore geradora de um grafo, obtém-se um grafo com exatamente um ciclo. Ao conjunto das arestas que formam este ciclo, dá-se o nome de ciclo fundamental. O conjunto dos ciclos obtidos ao se adicionar, separadamente, cada acorde à árvore geradora é denotado por conjunto fundamental de ciclos. 
 
 A seguir, é apresentado um algoritmo para a obtenção do conjunto de ciclos fundamentais de um grafo, com base nas ideias apresentadas por \cite{krishna}. A ideia geral é encontrar uma árvore geradora $T$ do grafo $G$ e a cada passo inserir um \textit{acorde} $e_i \in (E(G)-E(T))$ em $T$, encontrar o ciclo gerado pela adição de $e_i$ (este processo pode ser facilmente implementado através de pequenas modificações no algoritmo de busca em profundidade), então, remover $e_i$ de $T$, até que todos os \textit{acordes} tenham passado pelo processo.
@@ -746,9 +743,10 @@ Um grafo direcionado (ou digrafo) é um grafo no qual os vértices extremos de u
 
 Convencionando $m_{ij} = 1$ se o arco $a_j$ \textit{sai} do vértice $v_i$ e $m_{ij} = -1$ se o arco $a_j$ \textit{chega} ao vértice $v_i$, a seguinte matriz de incidência representa o digrafo anterior:
 
-\[\scriptsize
+\[
 M = 
-\begin{bmatrix}
+\left[
+\begin{smallmatrix}
  & a_1 & a_2 & a_3 & a_4 & a_5 & a_6 & a_7 & a_8 \\
  & - & - & - & - & - & - & - & - \\
  v_1 |& 1 & 0 & -1 & 0 & 0 & 1 & 0 & 0\\
@@ -756,8 +754,9 @@ M =
  v_3 |& 0 & 0 & 0 & -1 & -1 & 0 & 1 & 1\\
  v_4 |& 0 & 0 & 0 & 0 & 1 & -1 & -1 & 0\\
  v_5 |& 0 & 1 & 1 & 1 & 0 & 0 & 0 & 0\\
- v_6 |& 0 & 0 & 0 & 0 & 0 & 0 & 0 & -1
-\end{bmatrix}
+ v_6 |& 0 & 0 & 0 & 0 & 0 & 0 & 0 & -1\\
+  &  &  &  &  &  & &  & 
+\end{smallmatrix}\right]
 \]
 
 Note que há mais de um arco entre $v_3$ e $v_4$. A um grafo que permite esse tipo de comportamento se dá o nome de \textit{multigrafo}. 
@@ -1019,7 +1018,7 @@ I =
 Este mesmo circuito pode ser resolvido computacionalmente de forma trivial. Basta inserí-lo no programa desenvolvido para este artigo e checar os resultados, da seguinte forma:
 
 \begin{figure}[H]
-	\caption{Simulação de (1)} 
+	\caption{Simulação de (1) feita no programa desenvolvido pelos autores} 
 	\centering
 	\includegraphics[scale=0.2]{circuitsim1}
 	\\ Fonte: Compilação dos autores.
@@ -1096,6 +1095,8 @@ Com o mesmo sentido de corrente assumido, são dadas as seguintes correntes nos 
 	\includegraphics[scale=0.7]{ir9}
 	\\ Fonte: Compilação dos autores.
 \end{figure}
+
+As correntes negativas se devem ao fato de o sentido assumido para cada componente durante a resolução (ou montagem do circuito no simulador) ser contrário ao sentido real da corrente no circuito.
 
 Note que apesar de não haver diferenças entre os resultados obtidos pela simulação e os resultados obtidos manualmente, a simulação pode gerar erros de arredondamento devido à representação numérica de ponto flutuante utilizada pelos computadores. Conforme \cite{chapra}, a fonte destes erros decorre, principalmente, da limitação de quantidades que podem representadas pelo sistema de ponto flutuante.
 \section{CONCLUSÃO}

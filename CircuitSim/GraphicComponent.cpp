@@ -23,8 +23,8 @@ GraphicComponent::GraphicComponent(int x_ins, int y_ins,unsigned int vtx1,
     y = y_ins;
 
     if(s == VERTICAL){
-        vertexArea1 = QRect(x, y, WIDTH, HEIGHT/2);
-        vertexArea2 = QRect(x, y + HEIGHT/2, WIDTH, HEIGHT/2);
+        vertexArea2 = QRect(x, y, WIDTH, HEIGHT/2);
+        vertexArea1 = QRect(x, y + HEIGHT/2, WIDTH, HEIGHT/2);
         boundRect = QRect(x,y,WIDTH, HEIGHT);
     }else{
         vertexArea1 = QRect(x, y, HEIGHT/2,WIDTH);
@@ -158,7 +158,7 @@ QPoint GraphicComponent::getVertex1Point(){
     QPoint p;
 
     if(getOrientation()==VERTICAL){
-        p = getTop();
+        p = getBottom();
     }else{
         p = getLeft();
     }
@@ -169,7 +169,7 @@ QPoint GraphicComponent::getVertex2Point(){
     QPoint p;
 
     if(getOrientation()==VERTICAL){
-        p = getBottom();
+        p = getTop();
     }else{
         p = getRight();
     }
