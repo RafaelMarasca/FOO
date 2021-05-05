@@ -1,0 +1,439 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+namespace GRF {
+	class incidenceMatrix {
+		- vertexNumber : unsigned int
+		- edgeNumber : unsigned int
+		
+		# inMatrix : vector<vector<int>>	
+
+		+ incidenceMatrix()
+		+ incidenceMatrix(v : unsigned int, e : unsigned int)
+	
+		+ operator[](vtx : unsigned int) : vector<unsigned int>&
+	
+		+ makeCon(vtx1 : unsigned int, vtx2 : unsigned int, edge : unsigned int) : void			
+
+		+ addEdge(vtx1 : unsigned int, vtx2 : unsigned int) : void
+
+		+ removeEdge(unsigned int edg)
+		+ removeVertex(unsigned int vtx)
+
+		+ getVertexNumber() : unsigned int
+		+ getEdgeNumber() : unsigned int
+		+ getLoop(key : unsigned int) : vector<int>
+		+ getSpanningTree(key : unsigned int) : incidenceMatrix
+		+ getVertexCon(vtx : unsigned int, i : unsigned int) : unsigned int	
+		+ getEdges(vtx : unsigned int) : vector<unsigned int>
+		+ getEdges(vtx1 : unsigned int, vtx2 : unsigned int) : vector<unsigned int>
+		+ getVertex(edg : unsigned int) : pair<unsigned int, unsigned int>
+		+ getConNum(vtx : unsigned int) : unsigned int
+	
+	}
+	class adjacencyMatrix {
+		- vertexNumber : unsigned int;
+		- adjMatrix : vector<vector<int>>
+
+		+ adjacencyMatrix()
+		+ adjacencyMatrix(vertexNum : unsigned int)
+
+		+ insertEdge(i : unsigned int, j : unsigned int)
+		+ removeVertex(i : unsigned int)
+		+ query(i : unsigned int, j : unsigned int) : int
+
+		+ getVertexNumber() : unsigned int
+	}
+}
+
+namespace CMP {
+	enum type {
+		RESISTOR
+		VCC
+	}
+
+	abstract class Component {
+		# label : string
+		# vtxs : pair
+		# voltage : double
+		# current : double
+	
+		+ Component(l : string, vtx1 : unsigned int, vtx2 : unsigned int)
+		+ {abstract} ~Component()
+
+		+ getLabel() : string
+		+ setLabel(newLabel : string) : void	
+
+		+ getVoltage() : double
+		+ {abstract} setVoltage(v : double) : void
+
+		+ getCurrent() : double
+		+ {abstract} setCurrent(i : double) : void
+
+		+ getNodes() : pair<unsigned int, unsigned int>
+	
+		+ {abstract} getType() : enum type		
+		
+	} 
+
+	class Resistor implements Component {
+		- resistance : double
+
+		+ Resistor(l : string, res : double, vtx1 : unsigned int, vtx2 : unsigned int) 
+		+ ~Resistor()
+
+		+ setCurrent(i : double) : void	
+		+ setVoltage(v : double) : void
+
+		+ getResistance() : double	
+		+ setResistance(r : double) : void
+	
+		+ getType() : enum type
+
+	}
+	
+	class Vcc implements Component {
+		+ Vcc(l : string, vol : double, negative : unsigned int, positive : unsigned int)
+		+ ~Vcc()
+
+		+ getType() : enum type
+
+		+ setCurrent(i : double) : void
+		+ setVoltage(v : double) : void
+	}
+
+	Component "1" *-- "1" type
+}
+
+namespace CCT {
+
+	
+	class Circuit extends GRF.incidenceMatrix {
+		- components : vector<Component*>
+		- circuitMatrix : vector<vector<int>>
+		- chords : vector<unsigned int>
+		
+		- updateComponents(currents : vector<double>, voltages : vector<double>, potentials : vector<double>)
+
+		- Solve() : void
+
+		+ Circuit()
+		+ ~Circuit()
+		
+		+ initialize() : void
+		+ reset() : void
+
+		+ addComponent(t : enum type, l : string, value : double, vtx1 : unsigned int, vtx2 : unsigned int) : void
+
+		+ editComponent(label : string, value : double) : void
+
+		+ editComponent(label : string, newLabel : string) : void
+	
+		+ removeComponent(l : string) : void	
+
+		+ getVoltage(l : string) : double
+		+ getCurrent(l : string) : double 
+
+	}
+
+}
+
+
+CCT.Circuit "1" o-- "0..*" CMP.Component
+	
+namespace NM {
+
+	Class Matrix {
+		- realMatrix : vector<vector<double>>
+		- rowNumber : int
+		- colNumber : int
+	
+		+ Matrix(r : unsigned int)
+		+ Matrix(r : unsigned int, c : unsigned int)
+
+		+ operator* (m1 : Matrix&) : Matrix
+		+ operator*= (m1 : Matrix&) : void
+		
+		+ operator+ (m1 : Matrix&) : Matrix
+		+ operator+= (m1 Matrix&) : void
+
+		+ operator- (m1 : Matrix&) : Matrix
+		+ operator-= (m1 Matrix&) : void
+
+		+ operator= (m1 : const Matrix&)
+
+		+ operator[] (index : unsigned int) : vector<double>&
+
+		+ operator- () : Matrix
+
+		+ transpose() : Matrix
+
+		+ Abs() : Matrix
+
+		+ getCol(col : unsigned int) : vector<double>
+		+ getColNumber() : unsigned int
+		+ getRowNumber() : unsigned int
+
+		+ swapLines() : void
+	}
+
+	class EquationSystem{
+		- A : Matrix
+		- B : Matrix 	
+		- x : Matrix
+
+		+ EquationSystem(a : Matrix, b : Matrix)
+	
+		- gaussSeidel(tol : double, maxIter : int) : void
+		- sassenfeldCriteria() : void
+	
+		- findPivot(startI : unsigned int) : void
+		- gaussJordan() : void
+
+		+ getSolution(tol : double, maxIter : int) : Matrix
+		
+	}
+	Matrix "*" --* "1" EquationSystem
+}
+
+NM.EquationSystem "1" --* "1" CCT.Circuit
+
+enum orien {
+	VERTICAL
+	HORIZONTAL
+}
+
+abstract class GraphicComponent extends QObject {
+	# orientation : enum orien 
+
+	# x : int
+	# y : int
+
+	# vertexArea1 : QRect
+	# vertexArea2 : QRect
+
+	# boundRect : QRect
+	# map QPixmap
+
+	# vertex1 : unsigned int
+	# vertex2 : unsigned int
+
+	# componentType : type
+	# QString label : QString
+	# value : double
+
+	+ explicit GraphicComponent(x : int, y : int, vtx1 : unsigned int, vtx2 : unsigned int, s : enum orien, parent : QObject* = nullptr)
+	
+	+ clickedArea(x : int, y : int) : int
+
+	+ draw(painter : QPainter*) : void
+	+ getHeight() : int
+	+ getWidth() : int
+	+ getBottom() : QPoint
+	+ getTop() : QPoint
+	+ getLeft() : QPoint
+	+ getRight() : QPoint
+	+ getMap() : QPixmap
+	+ getBoundRect() : QRect
+
+	+ getOrientation() : enum orien 
+
+	+ void setVertex1(unsigned int vtx);
+	+ void setVertex2(unsigned int vtx);
+
+	+ getVertex1() : unsigned int
+	+ getVertex2() : unsigned int
+	+ getLabel() : string
+
+	+ {abstract} getType() : type
+	+ getValue() : double
+	+ setValue(double newValue) : void
+
+	+ getVertex1Point() : QPoint 
+	+ getVertex2Point() : QPoint
+
+	+ void updateName() : void
+
+	+ clickedVertex(Area : int, GraphicComponent*) : void
+	+ clicked(checked : bool = false) : void	
+}
+
+orien "1" --* "1" GraphicComponent
+
+class Resistor implements GraphicComponent {
+	- {static} resCounter : unsigned int 
+
+	+ explicit Resistor(x : int, y : int, vtx1 : unsigned int, vtx2 : unsigned int, s : enum orien = VERTICAL, parent : QObject* = nullptr)
+	+ getType() : type
+}
+
+class Vcc implements GraphicComponent {
+	- {static} vccCounter : unsigned int 
+
+	+ explicit Vcc(x : int, y : int, vtx1 : unsigned int, vtx2 : unsigned int, s : enum orien = VERTICAL, parent : QObject* = nullptr)
+	+ getType() : type
+}
+
+
+enum typeOrientation {
+	VCC90
+	VCC180
+	RES90
+	RES180
+	NONE
+}
+enum sts {
+	UNSAVED
+	MODIFIED
+	OK
+	ERROR
+}
+enum mode {
+	EDIT
+	QUERY
+}
+
+class Diagram extends QWidget {
+	- playButton : QPushButton*
+	- editButton : QPushButton*
+
+	- fileName : string 
+
+	- status : enum sts 
+
+	- circuit : Circuit
+
+	- mode : enum mode
+
+	- drawList : vector<GraphicComponent*>  
+
+	- selectedComponent : GraphicComponent*
+ 
+	- selectedButton : enum typeOrientation 
+
+	- clickedStack : stack<pair<int,GraphicComponent*>> 
+
+	- connections : adjacencyMatrix 
+
+	- wireCounter : unsigned int 
+
+	- editMenu : QMenu*
+
+	- cursorLocation : QPoint 
+
+	- selectedPrev : QPoint 
+
+	- vtxCounter : unsigned int 
+
+	- initializeDiagram() : void 
+
+	- setStatus(newStatus : enum sts) : void
+
+	- paintEvent(QPaintEvent* event) : void 
+ 
+	- freeAllocatedMemory() : void
+
+	- clickedControl(int,int,int) : void;
+
+	- rightButtonActions(x : int, y : int) : void
+
+	- leftButtonActions(x : int, y : int) : void
+
+	- getPixMap(type : enum typeOrientation) : pair<QRect,QPixmap>
+
+	# mousePressEvent(event : QMouseEvent*) : void
+	# mouseMoveEvent(event : QMouseEvent*) : void
+	# mouseReleasedEvent(event : QMouseEvent*) : void
+
+	+ explicit Diagram(parent : QWidget* = nullptr);
+
+	+ setFileName(QString file) : void
+	+ getFileName() : QString 
+
+	+ load() : void
+	+ save() : void
+
+	+ getStatus() : enum sts 
+
+	+ setSelectedButton(button : enum typeOrientation) : void 
+
+	+ insert(x : int, y : int) : void
+
+	+ getComponentCounter(t : CMP::type) : unsigned int 
+	+ getComponentCounter() : unsigned int 
+
+	+ modified(checked : bool = false) : void
+
+	+ loadError(checked : bool = false) : void
+
+	+ queryMode() : void
+	+ editMode() : void
+
+	+ rightButtonClicked(x : int, y : int, cArea : int) : void
+	+ leftButtonClicked(x : int, y : int, cArea : int) : void
+	
+	+ showEditDialog() : void
+
+	+ edit(newValue : double) : void
+	+ remove() : void
+	+ query() : void
+}
+
+mode "1" --* "1" Diagram
+typeOrientation "1" --* "1" Diagram
+sts "1" --* "1" Diagram
+
+GRF.adjacencyMatrix "1" --* "1" Diagram
+CCT.Circuit "1" --* "1" Diagram
+
+GraphicComponent "0..*" --o "1" Diagram
+
+class MainWindow extends QMainWindow {
+	- explicit MainWindow(parent QWidget* = nullptr);
+
+	- MainWindow(const MainWindow&);
+
+	- MainWindow operator=(MainWindow&);
+
+	- {static} instance : MainWindow* 
+
+	- diagrams : list<Diagram*> 
+	- tabs : QTabWidget* 
+	- mainBar : QMenuBar*
+	- fileMenu : QMenu*
+	- prefMenu : QMenu*
+	- helpMenu : QMenu*
+	- openFileAct : QAction*
+	- saveFileAct : QAction*
+	- saveFileAsAct : QAction*
+	- newFileAct : QAction*
+	- prefAct : QAction*
+	- tutorialAct : QAction* 
+	- toolbar : QToolBar*
+	- statusBar : QStatusBar* 
+	- initialTab : QWidget* 
+
+	- initializeMenu() : void
+	- initializeToolbar() : void
+	- initializeTabs() : void
+	- openFile(fileName : QString) : void
+	- initializeStatusBar() : void
+
+	+ {static} getMainWindow() : MainWindow* 
+
+	+ newFile() : void
+	+ openFile() : void
+	+ saveFile() : void
+	+ saveFileAs() : void
+	+ preferences() : void
+	+ setTabStatus(bool modified) : void
+	+ closeFile(int index) : void
+	+ drawRes90() : void
+	+ drawRes180() : void
+	+ drawVcc90() : void
+	+ drawVcc180() : void
+}
+
+Diagram "0..*" --o "1" MainWindow
+
+@enduml
