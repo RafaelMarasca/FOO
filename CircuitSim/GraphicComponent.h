@@ -33,7 +33,7 @@ public :
     explicit GraphicComponent(int x, int y,  unsigned int vtx1, unsigned int vtx2,
                               enum orien s, QObject *parent = nullptr);
     int clickedArea(int x, int y);
-    void draw(QPainter* painter);
+    void draw(QPainter* painter,QColor color= QColor());
     int getHeight();
     int getWidth();
     QPoint getBottom();
@@ -59,8 +59,8 @@ public :
 
 signals:
     void clickedVertex(int Area,GraphicComponent*);
-    void clicked(bool checked = false);
 
+public slots:
 
 protected:
     int x,y;

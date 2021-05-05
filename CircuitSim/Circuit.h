@@ -22,13 +22,12 @@
 
 namespace CCT{
 
-	/*************************************************************************
-     * Declaração da classe Circuit.
-	 * 
-	 * Representa um circuito de componentes eletrônicos através de uma 
-	 * matriz de incidência.
-	 * 
-	 *************************************************************************/
+   /*************************************************************************
+    * Declaração da classe Circuit.
+    *
+    * Representa um circuito de componentes eletrônicos através de uma
+    * matriz de incidência. Esta classe herda da classe incidenceMatrix.
+    *************************************************************************/
 	class Circuit:public GRF::incidenceMatrix{
 
 	private:
@@ -47,6 +46,7 @@ namespace CCT{
 	 	******************************************************************************************/
         void updateComponents(std:: vector<double> currents);
 		
+
        /******************************************************************************************
         * Resolve o circuito.
         *
@@ -61,18 +61,20 @@ namespace CCT{
 	   /******************************************************************************************
         * Construtor para a classe Circuit.
 		*
-	 	* Constroi um elemento da Classe Circuit.
+        * Constroi um objeto da Classe Circuit.
 	 	******************************************************************************************/
 		Circuit();
 
-		/******************************************************************************************
+
+       /******************************************************************************************
         * Desconstrutor para a classe Circuit.
 		*
-	 	* Destrói um elemento da Classe Circuit.
+        * Destrói um objeto da Classe Circuit.
 	 	******************************************************************************************/
 		~Circuit();
 
-		/******************************************************************************************
+
+       /******************************************************************************************
         * Inicializa um objeto da classe Circuit.
         *
         * Obtém os circuitos fundamentais do grafo de circuito e armazena em circuitMAtrix, bem
@@ -84,6 +86,7 @@ namespace CCT{
 	 	******************************************************************************************/
 		void initialize();
 
+
 	   /******************************************************************************************
         * Reseta a matriz de circuitos fundamentais.
         *
@@ -93,7 +96,8 @@ namespace CCT{
 	 	******************************************************************************************/
 		void reset();
 
-	   /******************************************************************************************
+
+       /******************************************************************************************
 		* Adiciona um objeto da classe Component no circuito.
 		*
 		* Os vértices do componente representam nós com que outros componetes podem ser 
@@ -101,7 +105,7 @@ namespace CCT{
 		* possuem um vértice em comum.
 		* 
         * @param t Tipo do componente a ser adicionado no circuito.
-        * @param l Etiqueta do componente a ser adicionado.
+        * @param l Nome de identificação do componente a ser adicionado.
         * @param value Valor associado ao componente a ser adicionado (resistência/tensão).
         * @param vtx1 Número do primeiro vértice do componente.
         * @param vtx2 Número do segundo vértice do componente.
@@ -109,7 +113,8 @@ namespace CCT{
         * @return Void.
 	 	******************************************************************************************/
         void addComponent(CMP::type t, std::string l, double value, unsigned int vtx1, unsigned int vtx2);
-		
+
+
        /******************************************************************************************
 		* Edita o valor de um objeto da classe Component pertencente ao circuito.
 		*
@@ -123,8 +128,9 @@ namespace CCT{
 	 	******************************************************************************************/
         void editComponent(std::string label, double value);
 
+
 	   /******************************************************************************************
-		* Edita a etiqueta de um objeto da classe Component pertencente ao circuito.
+        * Edita a nome de identificação de um objeto da classe Component pertencente ao circuito.
 		*
         * Caso o componente esteja no circuito, altera o nome de identificação do componente a
         * ser editado.
@@ -138,37 +144,64 @@ namespace CCT{
 	 	******************************************************************************************/
         void editComponent(std::string label, std::string newLabel);
 
-	   /******************************************************************************************
+
+       /*********************************************************************************************
 		* Remove um objeto da classe Component pertencente ao circuito.
 		*
-		* Caso o componente exista no circuito, remove do circuito o componente com a etiqueta 
-		* fornecida.
+        * Caso o componente com o nome de identificação fornecido exista, remove este do circuito.
 		* 
-        * @param l Etiqueta do componente a ser removido.
+        * @param l Nome de identificação do componente a ser removido.
 		*
         * @return Void.
-	 	******************************************************************************************/
+        *********************************************************************************************/
 		void removeComponent(std::string l);
 
+
+       /******************************************************************************************
+        * Remove um objeto da classe Component pertencente ao circuito.
+        *
+        * Caso o componente exista no circuito, remove este remove.
+        *
+        * @param edge Aresta do componente a ser removido.
+        *
+        * @return Void.
+        ******************************************************************************************/
+        void removeComponent(unsigned int edge);
+
+
+       /******************************************************************************************
+        * Getter para o nome de identificação de um componente pertencente ao circuito.
+        *
+        * Caso o componente exista no circuito, retorna o nome de identificação do componente
+        * identificado pela aresta edge.
+        *
+        * @param edge Aresta do componente consultado.
+        *
+        * @return Nome de identificação do componente consultado.
+        ******************************************************************************************/
+        std::string getComponentLabel(unsigned int edge);
+
+
 	   /******************************************************************************************
-		* Retorna a tensão através de um componente.
+        * Getter para a tensão através de um componente.
 		*
 		* Caso o componente exista no circuito, retorna o valor da tensão do componente com a 
-		* etiqueta fornecida.
+        * Nome de identificação fornecida.
 		* 
-        * @param l Etiqueta do componente consultado.
+        * @param l Nome de identificação do componente consultado.
 		*
         * @return Valor da tensão através do componente consultado.
 	 	******************************************************************************************/
 		double getVoltage(std::string l);
 
+
 	   /******************************************************************************************
-		* Retorna a corrente através de um componente.
+        * Getter para a corrente através de um componente.
 		*
 		* Caso o componente exista no circuito, retorna o valor da corrente através do componente 
-		* com a etiqueta fornecida.
+        * com a Nome de identificação fornecida.
 		* 
-        * @param l Etiqueta do componente consultado.
+        * @param l Nome de identificação do componente consultado.
 		*
         * @return Valor da corrente através do componente consultado.
 	 	******************************************************************************************/

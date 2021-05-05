@@ -29,6 +29,12 @@
 #include <QMessageBox>
 #include <QPropertyAnimation>
 
+
+#define DEFAULT_BGC "#272947"
+#define DEFAULT_LC "#141516"
+#define DEFAULT_CC "#FFFFFF"
+#define DEFAULT_SC "#0AA206"
+
 enum typeOrientation{VCC90,VCC180,RES90,RES180,NONE};
 enum sts{UNSAVED,MODIFIED,OK,ERROR};
 enum mode{EDIT,QUERY};
@@ -54,6 +60,15 @@ public:
     unsigned int getComponentCounter(CMP::type t);
     unsigned int getComponentCounter();
 
+    static void setBGColor(QColor color);
+    static void setLinesColor(QColor color);
+    static void setComponentColor(QColor color);
+    static void setSelectedColor(QColor color);
+    static QColor backgroundColor;
+    static QColor lineColor;
+    static QColor selectedColor;
+    static QColor componentColor;
+
 protected:
     void mousePressEvent(QMouseEvent* event) override;
     void mouseMoveEvent(QMouseEvent* event) override;
@@ -62,6 +77,7 @@ protected:
 signals:
     void modified(bool checked = false);
     void loadError(bool checked = false);
+    void statusBarText(QString str);
 
 public slots:
     void queryMode();

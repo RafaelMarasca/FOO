@@ -21,14 +21,6 @@
 #include <fstream>
 
 namespace CCT{
-	/*************************************************************************
-	 * Implementação dod métodos da classe Circuit.
-	 * 
-	 * Representa um circuito de componentes eletrônicos através de uma 
-	 * matriz de incidência.
-	 * 
-	 *************************************************************************/
-
 	
 	Circuit::Circuit(){}
 
@@ -52,6 +44,8 @@ namespace CCT{
 	}
 
 	void Circuit::initialize() {
+        if(getVertexNumber() == 0)
+            return;
 		incidenceMatrix temp,sTree = getSpanningTree(0);
 		std::pair<unsigned int, unsigned int> edg;
 
@@ -157,12 +151,16 @@ namespace CCT{
 			if(components[i]->getLabel() == l){
 				aux = getVertex(i);
 				removeEdge(i);
+                bool removedFirst = false;
 
 				if(not getConNum(aux.first))
-					removeVertex(aux.first);
+                {
+                    removeVertex(aux.first);
+                    removedFirst = true;
+                }
 
                 if(not getConNum(aux.second)){
-                    if(aux.second>aux.first)
+                    if(aux.second>aux.first and removedFirst)
                         removeVertex(aux.second-1);
                     else
                         removeVertex(aux.second);
@@ -181,6 +179,15 @@ namespace CCT{
 		}
 		throw "Componente nao encontrado";
 	}
+
+
+    std::string Circuit::getComponentLabel(unsigned int edge){
+        if(edge >= getEdgeNumber())
+            throw std::string("Componente não existente");
+
+        return components[edge]->getLabel();
+    }
+
 
 	void Circuit::Solve() {
 		NM::Matrix Z(getEdgeNumber(), getEdgeNumber());

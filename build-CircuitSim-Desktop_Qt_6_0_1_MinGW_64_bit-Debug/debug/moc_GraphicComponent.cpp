@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_GraphicComponent_t {
-    const uint offsetsAndSize[14];
-    char stringdata0[71];
+    const uint offsetsAndSize[10];
+    char stringdata0[55];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_GraphicComponent_t, stringdata0) + ofs), len 
@@ -33,13 +33,11 @@ QT_MOC_LITERAL(0, 16), // "GraphicComponent"
 QT_MOC_LITERAL(17, 13), // "clickedVertex"
 QT_MOC_LITERAL(31, 0), // ""
 QT_MOC_LITERAL(32, 4), // "Area"
-QT_MOC_LITERAL(37, 17), // "GraphicComponent*"
-QT_MOC_LITERAL(55, 7), // "clicked"
-QT_MOC_LITERAL(63, 7) // "checked"
+QT_MOC_LITERAL(37, 17) // "GraphicComponent*"
 
     },
     "GraphicComponent\0clickedVertex\0\0Area\0"
-    "GraphicComponent*\0clicked\0checked"
+    "GraphicComponent*"
 };
 #undef QT_MOC_LITERAL
 
@@ -49,22 +47,18 @@ static const uint qt_meta_data_GraphicComponent[] = {
        9,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       1,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,   32,    2, 0x06,    0 /* Public */,
-       5,    1,   37,    2, 0x06,    3 /* Public */,
-       5,    0,   40,    2, 0x26,    5 /* Public | MethodCloned */,
+       1,    2,   20,    2, 0x06,    0 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int, 0x80000000 | 4,    3,    2,
-    QMetaType::Void, QMetaType::Bool,    6,
-    QMetaType::Void,
 
        0        // eod
 };
@@ -76,8 +70,6 @@ void GraphicComponent::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         (void)_t;
         switch (_id) {
         case 0: _t->clickedVertex((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< GraphicComponent*(*)>(_a[2]))); break;
-        case 1: _t->clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 2: _t->clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -100,13 +92,6 @@ void GraphicComponent::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
                 return;
             }
         }
-        {
-            using _t = void (GraphicComponent::*)(bool );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GraphicComponent::clicked)) {
-                *result = 1;
-                return;
-            }
-        }
     }
 }
 
@@ -117,7 +102,7 @@ const QMetaObject GraphicComponent::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_GraphicComponent_t
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<GraphicComponent *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<GraphicComponent *, std::false_type>
 
 
 
@@ -145,13 +130,13 @@ int GraphicComponent::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 1)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 1;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 1)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 1;
     }
     return _id;
 }
@@ -161,13 +146,6 @@ void GraphicComponent::clickedVertex(int _t1, GraphicComponent * _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
-}
-
-// SIGNAL 1
-void GraphicComponent::clicked(bool _t1)
-{
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 struct qt_meta_stringdata_Resistor_t {
     const uint offsetsAndSize[2];

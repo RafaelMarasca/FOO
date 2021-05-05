@@ -25,6 +25,25 @@
 #include <QMessageBox>
 #include <QInputDialog>
 
+QColor Diagram::backgroundColor = QColor(DEFAULT_BGC);
+QColor Diagram::lineColor = QColor(DEFAULT_LC);
+QColor Diagram::componentColor = QColor(DEFAULT_CC);
+QColor Diagram::selectedColor = QColor(DEFAULT_SC);
+
+void Diagram::setBGColor(QColor color){
+    backgroundColor = color;
+}
+
+void Diagram::setLinesColor(QColor color){
+    lineColor = color;
+}
+void Diagram::setComponentColor(QColor color){
+    componentColor = color;
+}
+void Diagram::setSelectedColor(QColor color){
+    selectedColor = color;
+}
+
 Diagram::Diagram(QWidget *parent) : QWidget(parent)
 {
     initializeDiagram();
@@ -99,7 +118,6 @@ void Diagram::load(){
     std::ifstream file;
 
     file.open(fileName, std::ios::in|std::ios::binary);
-    qDebug()<<QString::fromStdString(fileName);
 
     if(!file.is_open()){
         throw std::string("Failed to open file");
@@ -151,7 +169,6 @@ void Diagram::load(){
             }
         }
     }
-    circuit.print();
     file.close();
     update();
 }
@@ -190,14 +207,12 @@ void Diagram::paintEvent(QPaintEvent* event){
     int height = 60000;
 
     QPainter painter(this);
-    QColor backGroundColor(30,33,44);
-    QColor penColor(14,15,16);
 
-    painter.setPen(penColor);
-    painter.setBrush(backGroundColor);
+    painter.setPen(Diagram::lineColor);
+    painter.setBrush(Diagram::backgroundColor);
     painter.drawRect(rect());
 
-    painter.setPen(penColor);
+    painter.setPen(lineColor);
     for(int x = 0; x<width; x+=50){
         painter.drawLine(x,0,x,height);
     }
@@ -208,13 +223,15 @@ void Diagram::paintEvent(QPaintEvent* event){
 
     std::vector<GraphicComponent*>::iterator it;
     for(it = drawList.begin(); it!=drawList.end(); it++){
-        (*it)->draw(&painter);
+        if(*it == selectedComponent){
+            (*it)->draw(&painter,selectedColor);
+        }else
+            (*it)->draw(&painter,componentColor);
     }
 
     QPen p;
-
     p.setWidth(3);
-    p.setColor(Qt::white);
+    p.setColor(componentColor);
     painter.setPen(p);
 
     for(unsigned int i = 0; i < connections.getVertexNumber(); i++){
@@ -237,16 +254,19 @@ void Diagram::paintEvent(QPaintEvent* event){
         }
     }
 
+    p.setColor(selectedColor);
+    painter.setPen(p);
+
+    if(selectedButton!=NONE){
+        std::pair<QRect,QPixmap> map =  getPixMap(selectedButton);
+        QRect aux(cursorLocation.x(),cursorLocation.y(),map.first.width(),
+                  map.first.height());
+        painter.drawPixmap(aux,map.second);
+    }
+
     if(clickedStack.size()){
         painter.drawLine(selectedPrev,cursorLocation);
     }
-
-   if(selectedButton!=NONE){
-       std::pair<QRect,QPixmap> map =  getPixMap(selectedButton);
-       QRect aux(cursorLocation.x(),cursorLocation.y(),map.first.width(),
-                 map.first.height());
-       painter.drawPixmap(aux,map.second);
-   }
 }
 
 void Diagram::initializeDiagram(){
@@ -281,6 +301,8 @@ void Diagram::initializeDiagram(){
     connect(editButton,SIGNAL(clicked(bool)), this, SLOT(editMode()));
     connect(playButton,SIGNAL(clicked(bool)), this, SLOT(queryMode()));
 
+    editButton->setEnabled(false);
+
     editMenu = new QMenu(this);
     QAction* editValueAction = new QAction("Editar Valor",this);
     QAction* removeAction = new QAction("Remover Componente",this);
@@ -310,12 +332,10 @@ void Diagram::mousePressEvent(QMouseEvent* event){
         for(it = drawList.begin();it != drawList.end();it++){
             int cArea = (*it)->clickedArea(x,y);
             if(cArea!=-1){
-                qDebug()<<"clicado";
                 selectedComponent = *it;
                 if(event->button()==Qt::LeftButton){
                     leftButtonClicked(x,y,cArea);
                 }else if(event->button()==Qt::RightButton){
-                    qDebug()<<"teste";
                     rightButtonClicked(x,y,cArea);
                 }
                 return;
@@ -409,11 +429,18 @@ void Diagram::insert(int x, int y){
 
 void Diagram::queryMode(){
     circuit.initialize();
+    playButton->setEnabled(false);
+    editButton->setEnabled(true);
+    emit statusBarText("Modo de Consulta");
+
     mode = QUERY;
 }
 
 void Diagram::editMode(){
     circuit.reset();
+    playButton->setEnabled(true);
+    editButton->setEnabled(false);
+    emit statusBarText("Modo de Edição");
     mode = EDIT;
 }
 
@@ -426,6 +453,7 @@ void Diagram::clickedControl(int x, int y, int index){
             aux.second == selectedComponent){
             while(clickedStack.size())
                 clickedStack.pop();
+            selectedComponent = nullptr;
             return;
         }
 
@@ -438,6 +466,7 @@ void Diagram::clickedControl(int x, int y, int index){
             clickedStack.pop();
 
         setStatus(MODIFIED);
+        selectedComponent = nullptr;
 
     }else{
         clickedStack.push(std::pair<int,GraphicComponent*>(index,selectedComponent));
@@ -460,6 +489,7 @@ void Diagram::showEditDialog(){
     editDialog.setInputMode(QInputDialog::DoubleInput);
     connect(&editDialog,SIGNAL(doubleValueSelected(double)),this,SLOT(edit(double)));
     editDialog.exec();
+    selectedComponent = nullptr;
 }
 
 
@@ -469,7 +499,42 @@ void Diagram::remove(){
         connections.removeVertex(selectedComponent->getVertex2()-1);
     }catch(std::string str){}
     try{
+        std::vector<std::string>aux;
+        std::vector<unsigned int> vtx1 = circuit.getEdges(selectedComponent->getVertex1());
+        std::vector<unsigned int> vtx2 = circuit.getEdges(selectedComponent->getVertex2());
+        circuit.print();
+        qDebug()<<"-------------";
+        aux.push_back(selectedComponent->getLabel());
+
+        for(unsigned int i =0; i<vtx1.size();i++){
+
+            //qDebug()<<vtx1[i];
+            aux.push_back(circuit.getComponentLabel(vtx1[i]));
+        }
+
+        for(unsigned int i =0; i<vtx2.size();i++){
+           //qDebug()<<vtx2[i];
+            aux.push_back(circuit.getComponentLabel(vtx2[i]));
+        }
         circuit.removeComponent(selectedComponent->getLabel());
+        circuit.print();
+        qDebug()<<"-------------";
+
+        //circuit.print();
+
+        for(unsigned i = 1; i< aux.size(); i++){
+            qDebug()<<QString::fromStdString(aux[i]);
+            try{
+                if(aux[i]!=aux[0])
+                {    circuit.removeComponent(aux[i]);
+                    circuit.print();
+                    qDebug()<<"-------------";
+                }
+            }catch(std::string str){
+
+            }
+        }
+
     }catch(char const* str){
         std::cout<<str;
     }
@@ -503,8 +568,10 @@ void Diagram::remove(){
     drawList.erase(aux);
     delete selectedComponent;
     selectedComponent = nullptr;
-    while(clickedStack.size())
+    while(clickedStack.size()){
+
         clickedStack.pop();
+    }
 
     rmMessage.exec();
 
@@ -520,6 +587,7 @@ void Diagram::query(){
     QMessageBox queryMessage(QMessageBox::NoIcon,"Informações do Componente",currentStr+"A"+"\n"+voltageStr+"V");
 
     queryMessage.exec();
+    selectedComponent = nullptr;
 }
 
 void Diagram::mouseMoveEvent(QMouseEvent* event){

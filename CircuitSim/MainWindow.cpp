@@ -14,9 +14,11 @@
 #include "MainWindow.h"
 #include "Diagram.h"
 
-#include<QMenuBar>
-#include<QMenu>
-#include<QAction>
+#include <iostream>
+#include <fstream>
+#include <QMenuBar>
+#include <QMenu>
+#include <QAction>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QString>
@@ -30,7 +32,8 @@
 #include <QStatusBar>
 #include <QVBoxLayout>
 #include <QLabel>
-
+#include <QWindow>
+#include <QColorDialog>
 
 MainWindow* MainWindow::instance = nullptr;
 
@@ -45,6 +48,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     setWindowTitle("Simulador de Circuitos Resistivos");
     setGeometry(0,0,800,600);
+    loadConfig();
 
     initializeMenu();
     initializeToolbar();
@@ -81,6 +85,31 @@ void MainWindow::initializeMenu(){
 
     prefMenu = new QMenu("Preferences",this);
     mainBar->addMenu(prefMenu);
+
+    setBGColorAct = new QAction("Mudar Plano de Fundo");
+    prefMenu->addAction(setBGColorAct);
+
+    connect(setBGColorAct, SIGNAL(triggered(bool)),this,SLOT(setBGColor()));
+
+    setLinesColorAct = new QAction("Mudar Cor da Grade");
+    prefMenu->addAction(setLinesColorAct);
+
+    connect(setLinesColorAct, SIGNAL(triggered(bool)),this,SLOT(setLinesColor()));
+
+    setComponentColorAct = new QAction("Mudar Cor dos Componentes");
+    prefMenu->addAction(setComponentColorAct);
+
+    connect(setComponentColorAct, SIGNAL(triggered(bool)),this,SLOT(setComponentColor()));
+
+    setSelectedColorAct = new QAction("Mudar Cor da Seleção");
+    prefMenu->addAction(setSelectedColorAct);
+
+    connect(setSelectedColorAct, SIGNAL(triggered(bool)),this,SLOT(setSelectedColor()));
+
+    resetConfigAct = new QAction("Restaurar Configurações Padrão");
+    prefMenu->addAction(resetConfigAct);
+
+    connect(resetConfigAct, SIGNAL(triggered(bool)),this,SLOT(resetConfig()));
 
     helpMenu = new QMenu("Help",this);
     mainBar->addMenu(helpMenu);
@@ -158,6 +187,7 @@ void MainWindow::newFile(){
     tabs->addTab(D,untitled);
 
     connect(D,SIGNAL(modified(bool)),this,SLOT(setTabStatus(bool)));
+    connect(D,SIGNAL(statusBarText(QString)),statusBar,SLOT(showMessage(QString)));
 }
 
 void MainWindow::openFile(){
@@ -180,6 +210,8 @@ void MainWindow::openFile(){
     diagrams.push_back(D);
     tabs->addTab(D,info.fileName());
     statusBar->showMessage("\""+fileName+"\" Openned With Success");
+    connect(D,SIGNAL(statusBarText(QString)),this,SLOT(statusBar->showMessage(QString)));
+    connect(D,SIGNAL(modified(bool)),this,SLOT(setTabStatus(bool)));
 }
 
 void MainWindow::saveFile(){
@@ -222,10 +254,6 @@ void MainWindow::saveFileAs(){
     statusBar->showMessage("\""+(*it)->getFileName()+"\" Saved With Success");
 }
 
-void MainWindow::preferences(){
-
-}
-
 void MainWindow::setTabStatus(bool modified){
     int index = tabs->currentIndex();
     QString fileName = tabs->tabText(index);
@@ -250,6 +278,7 @@ void MainWindow::closeFile(int index){
     }
 
     diagrams.erase(it);
+    delete (*it);
     tabs->removeTab(index);
 }
 
@@ -297,3 +326,117 @@ void MainWindow::drawRes180(){
 
     (*it)->setSelectedButton(RES180);
 }
+
+
+void MainWindow::loadConfig(){
+    std::ifstream config;
+    config.open("config.txt",std::ios::in);
+
+    if(not config.is_open()){
+        saveConfig();
+        return;
+    }
+
+    std::string hexCode;
+
+    getline(config,hexCode);
+    Diagram::setBGColor(QColor(hexCode.c_str()));
+
+    getline(config,hexCode);
+    Diagram::setLinesColor(QColor(hexCode.c_str()));
+
+    getline(config,hexCode);
+    Diagram::setComponentColor(QColor(hexCode.c_str()));
+
+    getline(config,hexCode);
+    Diagram::setSelectedColor(QColor(hexCode.c_str()));
+
+    config.close();
+}
+
+void MainWindow::saveConfig(){
+    std::ofstream config;
+    config.open("config.txt",std::ios::out);
+
+    if(not config.is_open()){
+        return;
+    }
+
+    QString hexCode;
+
+    hexCode = Diagram::backgroundColor.name();
+    config<<hexCode.toStdString();
+    config<<std::endl;
+
+    hexCode = Diagram::lineColor.name();
+    config<<hexCode.toStdString();
+    config<<std::endl;
+
+    hexCode = Diagram::componentColor.name();
+    config<<hexCode.toStdString();
+    config<<std::endl;
+
+    hexCode = Diagram::selectedColor.name();
+    config<<hexCode.toStdString();
+    config<<std::endl;
+
+    config.close();
+}
+
+
+void MainWindow::setBGColor(){
+    QColor color =QColorDialog::getColor(QColor(DEFAULT_BGC),this,"Selecione a cor para o plano de fundo");
+    try{
+        Diagram::setBGColor(color);
+        saveConfig();
+    }catch(std::string){
+
+    }
+}
+
+void MainWindow::setLinesColor(){
+    QColor color =QColorDialog::getColor(QColor(DEFAULT_LC),this,"Selecione a cor para a grade");
+    try{
+        Diagram::setLinesColor(color);
+        saveConfig();
+    }catch(std::string){
+
+    }
+
+}
+void MainWindow::setComponentColor(){
+
+    QColor color =QColorDialog::getColor(QColor(DEFAULT_CC),this,"Selecione a cor para os componentes");
+    try{
+        Diagram::setComponentColor(color);
+        saveConfig();
+    }catch(std::string){
+
+    }
+
+}
+
+void MainWindow::setSelectedColor(){
+
+    QColor color =QColorDialog::getColor(QColor(DEFAULT_SC),this,"Selecione a cor para a seleção");
+    try{
+        Diagram::setSelectedColor(color);
+        saveConfig();
+    }catch(std::string){
+
+    }
+}
+
+void MainWindow::resetConfig(){
+
+    try{
+        Diagram::setSelectedColor(DEFAULT_SC);
+        Diagram::setComponentColor(DEFAULT_CC);
+        Diagram::setLinesColor(DEFAULT_LC);
+        Diagram::setBGColor(DEFAULT_BGC);
+        saveConfig();
+    }catch(std::string){
+
+    }
+}
+

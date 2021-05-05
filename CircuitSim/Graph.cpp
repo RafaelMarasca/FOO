@@ -35,13 +35,6 @@ namespace GRF{
 		edgeNumber = e;
 	}
 	
-	std::vector<int> &incidenceMatrix::operator[](unsigned int vtx) {
-		if(vtx >= vertexNumber)
-			throw "Acesso invalido";
-		
-		return inMatrix[vtx];
-	}
-	
 	//Cria uma conexao entre vertices em um grafo que ja possui tamanho definido
 	void incidenceMatrix::makeCon(unsigned int vtx1,  unsigned int vtx2,  unsigned int edg) {
 		if(vtx1 >= vertexNumber or vtx2 >= vertexNumber or edg >= edgeNumber)

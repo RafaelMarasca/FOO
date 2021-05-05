@@ -32,13 +32,13 @@ namespace CMP {
         VCC /**< Fonte de Tensão de corrente contínua*/
     };
 
-    /***************************************************************************
-     * Declaração da classe abstrata Component.
-     *
-     * Representa um componente genérico, especificando os atributos em comum
-     * de qualquer componente presente no circuito. Esta classe é desenvolvida
-     * para a utilização conjunta com a classe Circuit.
-     ***************************************************************************/
+   /***************************************************************************
+    * Declaração da classe abstrata Component.
+    *
+    * Representa um componente genérico, especificando os atributos em comum
+    * de qualquer componente presente no circuito. Esta classe é desenvolvida
+    * para a utilização conjunta com a classe Circuit.
+    ***************************************************************************/
     class Component {
 
         protected:

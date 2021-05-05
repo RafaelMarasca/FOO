@@ -15,6 +15,8 @@
 #include <QtDebug>
 #include <QPen>
 #include <QPoint>
+#include <QPixmap>
+#include <QBitmap>
 
 GraphicComponent::GraphicComponent(int x_ins, int y_ins,unsigned int vtx1,
                                    unsigned int vtx2, enum orien s,QObject* parent) : QObject(parent)
@@ -46,8 +48,16 @@ int GraphicComponent::clickedArea(int x_check, int y_check){
     return -1;
 }
 
-void GraphicComponent::draw(QPainter* painter){
-    painter->drawPixmap(boundRect,map);
+void GraphicComponent::draw(QPainter* painter,QColor color){
+
+    if(color.isValid()){
+        QPixmap mapColored(map);
+        mapColored.fill(color);
+        mapColored.setMask(map.createMaskFromColor(Qt::transparent));
+        painter->drawPixmap(boundRect,mapColored);
+    }else{
+        painter->drawPixmap(boundRect,map);
+    }
 }
 
 int GraphicComponent::getHeight(){return boundRect.height();}
@@ -95,6 +105,7 @@ Resistor::Resistor(int x, int y,unsigned int vtx1, unsigned int vtx2, enum orien
     }else {
         map = QPixmap(":/components/resourceFile/componentFile/resistor180.png");
     }
+
     componentType = CMP::RESISTOR;
     label = "R"+QString::number(vtx1);
     value = 1000;
