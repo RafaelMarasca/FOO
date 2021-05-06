@@ -59,30 +59,30 @@ void MainWindow::initializeMenu(){
     mainBar = new QMenuBar(this);
     mainBar->setGeometry(0,0,300,30);
 
-    fileMenu = new QMenu("File",this);
+    fileMenu = new QMenu("Arquivo",this);
     mainBar->addMenu(fileMenu);
 
-    newFileAct = new QAction("New File",this);
+    newFileAct = new QAction("Novo Arquivo",this);
     fileMenu->addAction(newFileAct);
 
     connect(newFileAct,SIGNAL(triggered(bool)),this,SLOT(newFile()));
 
-    openFileAct = new QAction("Open",this);
+    openFileAct = new QAction("Abrir",this);
     fileMenu->addAction(openFileAct);
 
     connect(openFileAct,SIGNAL(triggered(bool)),this, SLOT(openFile()));
 
-    saveFileAct = new QAction("Save",this);
+    saveFileAct = new QAction("Salvar",this);
     fileMenu->addAction(saveFileAct);
 
     connect(saveFileAct,SIGNAL(triggered(bool)),this, SLOT(saveFile()));
 
-    saveFileAsAct = new QAction("Save as",this);
+    saveFileAsAct = new QAction("Salvar como",this);
     fileMenu->addAction(saveFileAsAct);
 
      connect(saveFileAsAct,SIGNAL(triggered(bool)),this, SLOT(saveFileAs()));
 
-    prefMenu = new QMenu("Preferences",this);
+    prefMenu = new QMenu("Preferências",this);
     mainBar->addMenu(prefMenu);
 
     setBGColorAct = new QAction("Mudar Plano de Fundo");
@@ -110,7 +110,7 @@ void MainWindow::initializeMenu(){
 
     connect(resetConfigAct, SIGNAL(triggered(bool)),this,SLOT(resetConfig()));
 
-    helpMenu = new QMenu("Help",this);
+    helpMenu = new QMenu("Ajuda",this);
     mainBar->addMenu(helpMenu);
 
     tutorialAct = new QAction("Tutorial",this);
@@ -189,7 +189,7 @@ void MainWindow::newFile(){
 }
 
 void MainWindow::openFile(){
-    QString fileName = QFileDialog::getOpenFileName(this,"Open file",tr("*.cct"));
+    QString fileName = QFileDialog::getOpenFileName(this,"Abrir arquivo", "*.cct");
 
     if(fileName.isNull())
          return;
@@ -200,14 +200,14 @@ void MainWindow::openFile(){
     try {
         D->load();
     }  catch (std::string s) {
-        QMessageBox::warning(this, "Warning!", "Cannot load file.");
+        QMessageBox::warning(this, "CUIDADO", "Não foi possível abrir o arquivo.");
         return;
     }
     QFileInfo info(fileName);
 
     diagrams.push_back(D);
     tabs->addTab(D,info.fileName());
-    statusBar->showMessage("\""+fileName+"\" Openned With Success");
+    statusBar->showMessage("\""+fileName+"\" Aberto com sucesso!");
     connect(D,SIGNAL(statusBarText(QString)),statusBar,SLOT(showMessage(QString)));
     connect(D,SIGNAL(modified(bool)),this,SLOT(setTabStatus(bool)));
 }
@@ -227,7 +227,7 @@ void MainWindow::saveFile(){
     }
 
     (*it)->save();
-    statusBar->showMessage("\""+(*it)->getFileName()+"\" Saved With Success");
+    statusBar->showMessage("\""+(*it)->getFileName()+"\" Salvo com sucesso!");
 }
 
 void MainWindow::saveFileAs(){
@@ -235,7 +235,7 @@ void MainWindow::saveFileAs(){
     if(tabs->count()==0)
         return;
 
-    QString fileName = QFileDialog::getSaveFileName(this,tr("*.cct"));
+    QString fileName = QFileDialog::getSaveFileName(this, "*.cct");
 
     if(fileName.isNull())
         return;
@@ -249,7 +249,7 @@ void MainWindow::saveFileAs(){
     tabs->setTabText(index,info.fileName());
     (*it)->setFileName(fileName);
     (*it)->save();
-    statusBar->showMessage("\""+(*it)->getFileName()+"\" Saved With Success");
+    statusBar->showMessage("\""+(*it)->getFileName()+"\" Salvo com sucesso!");
 }
 
 void MainWindow::setTabStatus(bool modified){
@@ -270,7 +270,7 @@ void MainWindow::closeFile(int index){
     std::advance(it,index);
 
     if((*it)->getStatus() == UNSAVED or (*it)->getStatus() == MODIFIED){
-        QMessageBox::StandardButton b = QMessageBox::question(this, "Save Changes", "Quit without saving?");
+        QMessageBox::StandardButton b = QMessageBox::question(this, "CUIDADO", "Sair sem salvar?");
         if(b != QMessageBox::StandardButton::Yes)
             return;
     }
