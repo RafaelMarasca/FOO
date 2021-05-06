@@ -86,7 +86,7 @@
 
 \begin{bfseries}
 \small
-\textit{Resumo} — O presente artigo apresenta uma abordagem teórico-prática na solução de circuitos elétricos resistivo, propondo uma maneira de solucioná-los computacionalmente, utilizando métodos baseados na teoria dos grafos  e cálculo numérico. Além disso, demonstra-se a dificuldade em resolver tais circuitos manualmente e conclui-se que a solução exata pode ser obtida trivialmente pela simulação.
+\textit{Resumo} — O presente artigo apresenta uma abordagem teórico-prática na solução de circuitos elétricos resistivos, propondo uma maneira de solucioná-los computacionalmente, utilizando métodos baseados na teoria dos grafos  e cálculo numérico. Além disso, demonstra-se a dificuldade em resolver tais circuitos manualmente e conclui-se que a solução exata pode ser obtida trivialmente pela simulação.
 \\~\\~\\
 Palavras-Chave — Circuitos, Grafos, Métodos numéricos, Simulação
 \end{bfseries}
@@ -429,7 +429,7 @@ Então, dado um ``chute'' inicial $x^{(0)}$, define-se $x^{(k+1)}$ como a funç�
 
 Com $k = 0, 1, 2, \dots, n; n \in \mathbb{N} $.
 
-Existem diversos meios de encontrar as matrizes $C$ e $g$. Um deles é o método de Gauss-Seidel, que consiste em separar a matriz $A$ em três matrizes: $L$ (triangular inferior), $D$ (diagonal) e $R$ (triangular inferior), ou seja:
+Existem diversos meios de encontrar as matrizes $C$ e $g$. Um deles é o método de Gauss-Seidel, que consiste em separar a matriz $A$ em três matrizes: $L$ (triangular superior), $D$ (diagonal) e $R$ (triangular inferior), ou seja:
 
 \[A = L + D + R \iff\]
 
@@ -605,7 +605,7 @@ E(G) = {e_1, e_2, e_3, e_4, e_5}
 \psi(e_5) = v_1v_3
 \]
 
-$G$ pode facilmente ser representado graficamente pelo seguinte diagrama, onde cada vértice representa um ponto e cada aresta representa uma linha:
+$G$ pode facilmente ser representado graficamente pelo seguinte diagrama, onde cada ponto representa um vértice e cada linha representa uma aresta:
 
 \begin{figure}[H]
 	\caption{Exemplo (1) de um grafo} 
@@ -620,7 +620,7 @@ Um grafo é \textit{conexo} se existir pelo menos um caminho de qualquer vértic
 
 \subsection*{B. \quad Matriz de Incidência}
 
-Uma forma conveniente de representar um grafo é pela chamada \textit{matriz de incidência}. Seja $G$ um grafo com $v$ vértices e $e$ arestas. $G$ pode ser escrito em termos de uma matriz $v \times e$, isto é, $M(G) = [m_{ij}]$, onde $m_{ij}$ (a entrada da matriz na i-ésima linha e na j-ésima coluna) representa quantas vezes (entre 0 e 2) $v_i$ e $e_j$ são \textit{incidentes}, ou seja, quantas vezes a aresta $e_j$ se ``encontra'' com o vértice $v_i$ \cite[p. 7]{bondy}. Dois vértices $v_a$ e $v_a$ possuem uma aresta $e_c$ entre si se e somente se $m_{ac} = m_{bc} \neq 0$.
+Uma forma conveniente de representar um grafo é pela chamada \textit{matriz de incidência}. Seja $G$ um grafo com $v$ vértices e $e$ arestas. $G$ pode ser escrito em termos de uma matriz $v \times e$, isto é, $M(G) = [m_{ij}]$, onde $m_{ij}$ (a entrada da matriz na i-ésima linha e na j-ésima coluna) representa quantas vezes (entre 0 e 2) $v_i$ e $e_j$ são \textit{incidentes}, ou seja, quantas vezes a aresta $e_j$ se ``encontra'' com o vértice $v_i$ \cite[p. 7]{bondy}. Dois vértices $v_a$ e $v_b$ possuem uma aresta $e_c$ entre si se e somente se $m_{ac} = m_{bc} \neq 0$.
 
 A matriz de incidência que representa o grafo do exemplo anterior é, nesse caso:
 
@@ -837,7 +837,7 @@ M =
 \end{bmatrix}
 \]
 
-Os arcos que se incidem nos mesmos dois vértices são componentes em \textit{paralelo}. Dois arcos que formam um caminho $v_i - v_j$, $v_j - v_k$, sendo os únicos arcos incidentes entre $v_i$, $v_j$ e $v_j$, $v_k$, são dois componentes em \textit{série}.
+Os arcos que se incidem nos mesmos dois vértices são componentes em \textit{paralelo}. Dois arcos que formam um caminho $v_i \to v_j$, $v_j \to v_k$, sendo os únicos arcos incidentes entre $v_i$, $v_j$ e $v_j$, $v_k$, são dois componentes em \textit{série}.
 
 \subsection*{D. \quad Solução Computacional}
 
@@ -871,7 +871,7 @@ A matriz $B$ dos ciclos fundamentais é uma matriz onde cada linha representa um
 
 A matriz $R$ das resistências é uma matriz diagonal quadrada $e \times e$, onde $e$ é o número de arcos no grafo, cujos elementos $r_{ii}$ representam a resistência no arco $i$.
 
-Seja $V$ a matriz coluna que representa as tensões das fontes de tensão de corrente contínua do circuito, $R$ a matriz das resistências e $I_b$ a matriz coluna que representa as correntes em cada um dos galhos (arestas) do circuito, tem-se, pela lei das tensões de kirchoff:
+Seja $V$ a matriz coluna que representa as tensões das fontes de tensão de corrente contínua do circuito, $R$ a matriz das resistências e $I_b$ a matriz coluna que representa as correntes em cada um dos galhos (arestas) do circuito, tem-se, pela lei das tensões de Kirchhoff:
 
 \[
 B(V -RI_b) = 0
@@ -897,8 +897,8 @@ Desta forma, neste artigo, utilizou-se o seguinte algoritmo para a solução com
 \begin{algorithmic}[1]
 \Function{resolveCircuito}{$A$, $R$, $B$, $I$, $V$}
 	\State{$B \gets encontraCiclos(A)$}
-	\State{$M \gets BR_bB^t$}
-	\State{$n \gets BV_s$}
+	\State{$M \gets BRB^t$}
+	\State{$n \gets BV$}
 	\State{$x^{(0)}\gets$ vetor nulo}
 	\If{$M$ atende ao critério de Sassenfeld}
 		\State{$I_L \gets gaussSeidel(M, n, x^{(0)}, 10^{-8}, 10^3)$}
