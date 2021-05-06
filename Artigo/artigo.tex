@@ -86,15 +86,15 @@
 
 \begin{bfseries}
 \small
-\textit{Resumo} — O presente artigo apresenta uma abordagem teórico-prática na solução de circuitos elétricos resistivo, propondo uma maneira de solucioná-los computacionalmente utilizando métodos baseados na teoria dos grafos  e cálculo numérico. Além disso, demonstra-se a dificuldade em resolver tais circuitos manualmente e conclui-se que a solução exata pode ser obtida trivialmente pela simulação.
+\textit{Resumo} — O presente artigo apresenta uma abordagem teórico-prática na solução de circuitos elétricos resistivo, propondo uma maneira de solucioná-los computacionalmente, utilizando métodos baseados na teoria dos grafos  e cálculo numérico. Além disso, demonstra-se a dificuldade em resolver tais circuitos manualmente e conclui-se que a solução exata pode ser obtida trivialmente pela simulação.
 \\~\\~\\
 Palavras-Chave — Circuitos, Grafos, Métodos numéricos, Simulação
 \end{bfseries}
 
 \section{INTRODUÇÃO}
-A análise de circuitos elétricos é um tópico de interesse das engenharias, uma vez que, o mundo moderno depende da eletricidade e suas aplicações. Contudo, é inegável que realizar esta análise manualmente torna-se um processo laborioso ao passo que o número de componentes aumenta, visto que são muitas variáveis a se considerar. A fim de facilitar este processo, o presente artigo apresenta um método computacional para se encontrar a solução circuitos elétricos resistivos, isto é, compostos apenas por fontes de tensão de corrente contínua e resistores. Além disso, é apresentada uma revisão bibliográfica dos conceitos necessários para isso.
+A análise de circuitos elétricos é um tópico de interesse das engenharias, uma vez que, o mundo moderno depende da eletricidade e suas aplicações. Contudo, é inegável que realizar esta análise manualmente torna-se um processo laborioso ao passo que o número de componentes aumenta, visto que são muitas variáveis a se considerar. A fim de facilitar este processo, o presente artigo apresenta um método computacional para se encontrar a solução de circuitos elétricos resistivos, isto é, compostos apenas por fontes de tensão de corrente contínua e resistores. Além disso, é apresentada uma revisão bibliográfica dos conceitos necessários.
 
-O artigo é dividido em três partes: na primeira, discutem-se os fundamentos matemáticos dos \textit{sistemas lineares} e métodos de resolução. Na segunda, é apresentado o conceito de \textit{grafos}, matematica e graficamente, junto com algumas de suas propriedades. Na última parte, introduz-se o conceito de \textit{circuitos elétricos} e sintetiza-se tudo o que foi mostrado anteriormente na forma de um algoritmo solucionador de circuitos resistivos alimentados por fontes de corrente contínua.
+O artigo é dividido em três partes: na primeira, discutem-se os fundamentos matemáticos dos \textit{sistemas lineares} e métodos de resolução. Na segunda, é apresentado o conceito de \textit{grafos}, matematica e graficamente, junto com algumas de suas propriedades. Na última parte, introduz-se o conceito de \textit{circuitos elétricos} e sintetiza-se tudo o que foi mostrado anteriormente na forma de um algoritmo solucionador de circuitos resistivos alimentados por fontes de tensão de corrente contínua.
 
 \section{MATRIZES}
 \subsection*{A. \quad Definição}
@@ -574,6 +574,9 @@ Assumindo um sistema com número igual de incógnitas e equações que cumpe o c
 \hrulefill
 \endgroup
 
+Assim com discutido por \cite{chapra}, a grande vantagem da utilização do método de Gauss-Seidel está na economia de memória do método, se comparado aos métodos diretos. A economia de recursos computacionais é extremamente importante para que se tenha eficiência na computação dos resultados. 
+
+
 \section{TEORIA DOS GRAFOS}
 \subsection*{A. \quad Definição}
 
@@ -868,7 +871,7 @@ A matriz $B$ dos ciclos fundamentais é uma matriz onde cada linha representa um
 
 A matriz $R$ das resistências é uma matriz diagonal quadrada $e \times e$, onde $e$ é o número de arcos no grafo, cujos elementos $r_{ii}$ representam a resistência no arco $i$.
 
-Seja $V$ a matriz coluna que representa as tensões das fontes de corrente contínua do circuito, $R$ a matriz das resistências e $I_b$ a matriz coluna que representa as correntes em cada um dos galhos (arestas) do circuito, tem-se, pela lei das tensões de kirchoff:
+Seja $V$ a matriz coluna que representa as tensões das fontes de tensão de corrente contínua do circuito, $R$ a matriz das resistências e $I_b$ a matriz coluna que representa as correntes em cada um dos galhos (arestas) do circuito, tem-se, pela lei das tensões de kirchoff:
 
 \[
 B(V -RI_b) = 0
@@ -1101,9 +1104,11 @@ As correntes negativas se devem ao fato de o sentido assumido para cada componen
 Note que apesar de não haver diferenças entre os resultados obtidos pela simulação e os resultados obtidos manualmente, a simulação pode gerar erros de arredondamento devido à representação numérica de ponto flutuante utilizada pelos computadores. Conforme \cite{chapra}, a fonte destes erros decorre, principalmente, da limitação de quantidades que podem representadas pelo sistema de ponto flutuante.
 \section{CONCLUSÃO}
 
-Então, conclui-se que, embora seja necessário o estudo de diversos tópicos para realizar a implementação, o resultado final é satisfatório, já que apresenta a solução exata do problema proposto, facilitando e acelerando a obtenção destes resultados. 
+Então, conclui-se que, a abordagem gera um resultado final satisfatório, já que apresenta a solução aproximadamente exata do problema proposto, facilitando e acelerando a obtenção dos resultados desejados. 
 
-Vale ressaltar ainda que seria possível expandir os assuntos aqui discutidos a fim de produzir um solucionador que abranja mais tipos de componentes. Contudo, o objetivo inicial de simular circuitos resistivos alimentados por fontes de corrente contínua, o que foi alcançado de forma suficientemente satisfatória.
+Ademais, verifica-se que a utilização de métodos numéricos é de extrema importância na resolução de circuitos eletrônicos por meios computacionais, uma vez que estes podem, muitas vezes, convergir  para o resultado de forma mais rápida que os métodos diretos, deste modo, diminuindo os custos computacionais envolvidos na resolução de sistemas lineares que, por sua vez, são cruciais para a obtenção dos resultados.
+
+Vale ressaltar ainda que seria possível expandir os assuntos aqui discutidos a fim de produzir um solucionador que abranja mais tipos de componentes.
 
 \newpage
 

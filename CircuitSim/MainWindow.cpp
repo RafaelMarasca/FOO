@@ -172,7 +172,6 @@ void MainWindow::initializeTabs(){
     tabs->setTabsClosable(true);
     connect(tabs, SIGNAL(tabCloseRequested(int)), this, SLOT(closeFile(int)));
     setCentralWidget(tabs);
-    //tabs->show();
 }
 
 void MainWindow::newFile(){

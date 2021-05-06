@@ -74,7 +74,7 @@ namespace CCT{
 
 		for(unsigned int i = 0; i < components.size(); i++) {
 			if(components[i]->getLabel() == l)
-				throw " Nome invalido";
+                throw std::string("Nome invalido");
 		}
 
 		switch(t){
@@ -87,7 +87,7 @@ namespace CCT{
 			break;
 
 		default:
-			throw "Insercao invalida";
+            throw std::string("Insercao invalida");
 			break;
 		}
 
@@ -177,7 +177,7 @@ namespace CCT{
 				return;
 			}
 		}
-		throw "Componente nao encontrado";
+        throw std::string("Componente nao encontrado");
 	}
 
 
@@ -234,7 +234,7 @@ namespace CCT{
 			if(components[i]->getLabel() == l)
 				return components[i]->getVoltage();
 			}
-		throw "Componente nao encontrado";
+        throw std::string("Componente nao encontrado");
 	}
 
 	double Circuit::getCurrent(std::string l) {
@@ -243,6 +243,6 @@ namespace CCT{
 				return components[i]->getCurrent();
 			}
 		}
-		throw "Componente nao encontrado";
+        throw std::string("Componente nao encontrado");
 	}
 }

@@ -31,16 +31,30 @@ QColor Diagram::componentColor = QColor(DEFAULT_CC);
 QColor Diagram::selectedColor = QColor(DEFAULT_SC);
 
 void Diagram::setBGColor(QColor color){
+    if(not color.isValid())
+        throw std::string("Cor inválida");
+
     backgroundColor = color;
 }
 
 void Diagram::setGridColor(QColor color){
+    if(not color.isValid())
+        throw std::string("Cor inválida");
+
     gridColor = color;
 }
+
 void Diagram::setComponentColor(QColor color){
+    if(not color.isValid())
+        throw std::string("Cor inválida");
+
     componentColor = color;
 }
+
 void Diagram::setSelectedColor(QColor color){
+    if(not color.isValid())
+        throw std::string("Cor inválida");
+
     selectedColor = color;
 }
 
@@ -137,7 +151,7 @@ void Diagram::load(){
     file.open(fileName, std::ios::in|std::ios::binary);
 
     if(!file.is_open()){
-        throw std::string("Failed to open file");
+        throw std::string("Falha ao abrir arquivo");
         setStatus(ERROR);
     }
     else
@@ -381,6 +395,9 @@ void Diagram::mousePressEvent(QMouseEvent* event){
         std::vector<GraphicComponent*>::iterator it;
         for(it = drawList.begin();it != drawList.end();it++){
             if(rect.intersects((*it)->getBoundRect())){
+                QMessageBox insertionFail;
+                insertionFail.setText("Não é permitido inserir um componente sobre o outro");
+                insertionFail.exec();
                 return;
             }
         }
@@ -411,11 +428,7 @@ void Diagram::insert(int x, int y){
 
         case VCC90:{
             C = new Vcc(x,y,vtxCounter,vtxCounter+1,VERTICAL,this);
-            try{
-                circuit.addComponent(CMP::VCC,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
-            }catch(char const* str){
-                qDebug()<<str;
-            }
+            circuit.addComponent(CMP::VCC,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
         }break;
 
         case VCC180:{
@@ -438,12 +451,16 @@ void Diagram::insert(int x, int y){
             return;
             break;
     }
+
     connections.insertVertex(vtxCounter);
     connections.insertVertex(vtxCounter+1);
     vtxCounter+=2;
+
     drawList.push_back(C);
+
     setSelectedButton(NONE);
     setStatus(MODIFIED);
+
     update();
 }
 
@@ -514,29 +531,25 @@ void Diagram::showEditDialog(){
 
 
 void Diagram::remove(){
-    try{
         connections.removeVertex(selectedComponent->getVertex1());
         connections.removeVertex(selectedComponent->getVertex2()-1);
-    }catch(std::string str){}
-    try{
+
+
         std::vector<std::string>aux;
         std::vector<unsigned int> vtx1 = circuit.getEdges(selectedComponent->getVertex1());
         std::vector<unsigned int> vtx2 = circuit.getEdges(selectedComponent->getVertex2());
         aux.push_back(selectedComponent->getLabel());
 
         for(unsigned int i =0; i<vtx1.size();i++){
-
-            //qDebug()<<vtx1[i];
             aux.push_back(circuit.getComponentLabel(vtx1[i]));
         }
 
         for(unsigned int i =0; i<vtx2.size();i++){
-           //qDebug()<<vtx2[i];
             aux.push_back(circuit.getComponentLabel(vtx2[i]));
         }
+
         circuit.removeComponent(selectedComponent->getLabel());
 
-        //circuit.print();
 
         for(unsigned i = 1; i< aux.size(); i++){
             qDebug()<<QString::fromStdString(aux[i]);
@@ -549,22 +562,15 @@ void Diagram::remove(){
             }
         }
 
-    }catch(char const* str){
-        std::cout<<str;
-    }
-
     vtxCounter-=2;
 
     QMessageBox rmMessage;
 
-    QString str = QString::fromStdString(selectedComponent->getLabel());
-    str += " foi removido!";
-
-    rmMessage.setText(str);
+    rmMessage.setText("O componente foi removido");
 
     bool flag = 0;
 
-    std::vector<GraphicComponent*>::iterator aux = drawList.end();
+    std::vector<GraphicComponent*>::iterator auxIt = drawList.end();
     std::vector<GraphicComponent*>::iterator it;
     for(it = drawList.begin(); it != drawList.end(); it++){
         if(flag){
@@ -574,18 +580,19 @@ void Diagram::remove(){
             (*it)->updateName();
             circuit.editComponent(aux,(*it)->getLabel());
         }else if (selectedComponent == (*it)){
-            aux = it;
+            auxIt = it;
             flag = true;
         }
     }
 
-    drawList.erase(aux);
+    drawList.erase(auxIt);
+
     delete selectedComponent;
     selectedComponent = nullptr;
-    while(clickedStack.size()){
 
+
+    while(clickedStack.size())
         clickedStack.pop();
-    }
 
     rmMessage.exec();
 

@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex artigo"] 1620171983 "artigo.aux" "artigo.bbl" "artigo" 1620172609
-  "artigo.aux" 1620172607 8679 8816d2bf053e4030af3dd1f90b2abb4a "pdflatex"
+["bibtex artigo"] 1620300330 "artigo.aux" "artigo.bbl" "artigo" 1620300521
+  "artigo.aux" 1620300518 8698 eabb0b017bbec044c79444c46ef5330b "pdflatex"
   "bibliografia.bib" 1620080139 3186 34cc5723cd0731844ed854e10603d336 ""
   "c:/texlive/2020/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1603917612 5396 4eb260dac60f150ae608d45252853090 ""
   "c:/texlive/2020/texmf-dist/bibtex/bst/abntex2/abntex2-alf.bst" 1603917612 60064 0819ac8568f9a482510a46e3a8a6f605 ""
   (generated)
-  "artigo.bbl"
   "artigo.blg"
-["pdflatex"] 1620172602 "c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex" "c:/Users/rafae/Desktop/Foo/Artigo/artigo.pdf" "artigo" 1620172609
+  "artigo.bbl"
+["pdflatex"] 1620300507 "c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex" "c:/Users/rafae/Desktop/Foo/Artigo/artigo.pdf" "artigo" 1620300521
   "./imagens//circ1.png" 1619992062 136493 5789e802dffff93ea244f857c86b0123 ""
   "./imagens//circ2.png" 1620077118 219714 9e6e8d5fb2cca13f65bee02dfb067564 ""
   "./imagens//circ22.png" 1620077118 226093 863caec6341b7a782f55cdd8d7c80a14 ""
@@ -33,12 +33,12 @@
   "./imagens//spanning2.png" 1619992062 68839 2c757d5e77017eb7f682aa0edce2edf4 ""
   "./imagens//tree1.png" 1619992062 32567 6b4b219b8a64ea60f70b8eb533f27f12 ""
   "./imagens//vcc1.png" 1619992062 9730 931c210ff56e81cf71a4e7406837d58a ""
-  "artigo.aux" 1620172607 8679 8816d2bf053e4030af3dd1f90b2abb4a "pdflatex"
-  "artigo.bbl" 1620171983 2739 a44ed19a3468163bf368cb49968565d9 "bibtex artigo"
-  "artigo.out" 1620172607 365 8cdada5792e894d3bfddced155472b34 "pdflatex"
-  "artigo.tex" 1620172599 42610 4f3b7709f2c647c7d3e66b233c351173 ""
-  "c:/Users/rafae/Desktop/Foo/Artigo/artigo.aux" 1620172607 8679 8816d2bf053e4030af3dd1f90b2abb4a ""
-  "c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex" 1620172599 42610 4f3b7709f2c647c7d3e66b233c351173 ""
+  "artigo.aux" 1620300518 8698 eabb0b017bbec044c79444c46ef5330b "pdflatex"
+  "artigo.bbl" 1620300332 2739 a44ed19a3468163bf368cb49968565d9 "bibtex artigo"
+  "artigo.out" 1620300518 365 8cdada5792e894d3bfddced155472b34 "pdflatex"
+  "artigo.tex" 1620300505 43155 cc3d269382f8dc31393a029a4b750752 ""
+  "c:/Users/rafae/Desktop/Foo/Artigo/artigo.aux" 1620300518 8698 eabb0b017bbec044c79444c46ef5330b ""
+  "c:/Users/rafae/Desktop/Foo/Artigo/artigo.tex" 1620300505 43155 cc3d269382f8dc31393a029a4b750752 ""
   "c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc" 1603920998 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1603921791 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm" 1603926741 4524 6bce29db5bc272ba5f332261583fee9c ""
@@ -226,9 +226,9 @@
   "imagens//tree1.png" 1619992062 32567 6b4b219b8a64ea60f70b8eb533f27f12 ""
   "imagens//vcc1.png" 1619992062 9730 931c210ff56e81cf71a4e7406837d58a ""
   (generated)
-  "artigo.pdf"
+  "artigo.aux"
   "artigo.log"
   "artigo.out"
-  "c:/Users/rafae/Desktop/Foo/Artigo/artigo.pdf"
+  "artigo.pdf"
   "c:/Users/rafae/Desktop/Foo/Artigo/artigo.log"
-  "artigo.aux"
+  "c:/Users/rafae/Desktop/Foo/Artigo/artigo.pdf"

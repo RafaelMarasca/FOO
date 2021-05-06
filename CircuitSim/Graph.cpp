@@ -143,7 +143,7 @@ namespace GRF{
 
 		return vEdg;;
 	}
-	//Retorna uma arvore geradora para o grafo
+
 	incidenceMatrix incidenceMatrix::getSpanningTree(unsigned int key){
 		
 		if(key>=vertexNumber)

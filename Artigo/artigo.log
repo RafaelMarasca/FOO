@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.28)  4 MAY 2021 20:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.10.28)  6 MAY 2021 08:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -662,8 +662,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/texlive/2020/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-Underfull \hbox (badness 4001) in paragraph at lines 89--93
-\T1/ptm/b/n/9 abor-da-gem teórico-prática na so-lu-ção de cir-cui-tos
+Underfull \hbox (badness 10000) in paragraph at lines 89--93
+\T1/ptm/b/n/9 com-pu-ta-ci-o-nal-mente, uti-li-zando mé-to-dos ba-se-a-dos
  []
 
 
@@ -713,212 +713,215 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 1983) in paragraph at lines 580--581
+Underfull \hbox (badness 1983) in paragraph at lines 583--584
 \T1/ptm/m/n/10 (+20) de con-junto (não va-zio) de \T1/ptm/m/it/10 (+20) vér-ti-ces\T1/ptm/m/n/10 (+20) , $\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ) =
  []
 
 [5]
-<./imagens//grafo1.png, id=118, 240.9pt x 240.9pt>
+<./imagens//grafo1.png, id=122, 240.9pt x 240.9pt>
 File: ./imagens//grafo1.png Graphic file (type png)
 <use ./imagens//grafo1.png>
-Package pdftex.def Info: ./imagens//grafo1.png  used on input line 610.
+Package pdftex.def Info: ./imagens//grafo1.png  used on input line 613.
 (pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
-<./imagens//tree1.png, id=128, 240.9pt x 240.9pt>
+<./imagens//tree1.png, id=132, 240.9pt x 240.9pt>
 File: ./imagens//tree1.png Graphic file (type png)
 <use ./imagens//tree1.png>
-Package pdftex.def Info: ./imagens//tree1.png  used on input line 645.
+Package pdftex.def Info: ./imagens//tree1.png  used on input line 648.
 (pdftex.def)             Requested size: 120.44969pt x 120.44969pt.
-<./imagens//spanning1.png, id=129, 240.9pt x 240.9pt>
+<./imagens//spanning1.png, id=133, 240.9pt x 240.9pt>
 File: ./imagens//spanning1.png Graphic file (type png)
 <use ./imagens//spanning1.png>
-Package pdftex.def Info: ./imagens//spanning1.png  used on input line 654.
-(pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
-<./imagens//cospanning1.png, id=132, 240.9pt x 240.9pt>
-File: ./imagens//cospanning1.png Graphic file (type png)
-<use ./imagens//cospanning1.png>
-Package pdftex.def Info: ./imagens//cospanning1.png  used on input line 663.
-(pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
- [6 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//grafo1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//tree1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//spanning1.png>]
-<./imagens//grafo2.png, id=146, 240.9pt x 240.9pt>
-File: ./imagens//grafo2.png Graphic file (type png)
-<use ./imagens//grafo2.png>
-Package pdftex.def Info: ./imagens//grafo2.png  used on input line 674.
-(pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
-<./imagens//dfs1.png, id=147, 240.9pt x 240.9pt>
-File: ./imagens//dfs1.png Graphic file (type png)
-<use ./imagens//dfs1.png>
-Package pdftex.def Info: ./imagens//dfs1.png  used on input line 683.
+Package pdftex.def Info: ./imagens//spanning1.png  used on input line 657.
 (pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<./imagens//spanning2.png, id=148, 240.9pt x 240.9pt>
-File: ./imagens//spanning2.png Graphic file (type png)
-<use ./imagens//spanning2.png>
-Package pdftex.def Info: ./imagens//spanning2.png  used on input line 692.
+ [6 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//grafo1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//tree1.png>]
+<./imagens//cospanning1.png, id=144, 240.9pt x 240.9pt>
+File: ./imagens//cospanning1.png Graphic file (type png)
+<use ./imagens//cospanning1.png>
+Package pdftex.def Info: ./imagens//cospanning1.png  used on input line 666.
+(pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
+<./imagens//grafo2.png, id=147, 240.9pt x 240.9pt>
+File: ./imagens//grafo2.png Graphic file (type png)
+<use ./imagens//grafo2.png>
+Package pdftex.def Info: ./imagens//grafo2.png  used on input line 677.
 (pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<./imagens//dfs1.png, id=148, 240.9pt x 240.9pt>
+File: ./imagens//dfs1.png Graphic file (type png)
+<use ./imagens//dfs1.png>
+Package pdftex.def Info: ./imagens//dfs1.png  used on input line 686.
+(pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
+<./imagens//spanning2.png, id=149, 240.9pt x 240.9pt>
+File: ./imagens//spanning2.png Graphic file (type png)
+<use ./imagens//spanning2.png>
+Package pdftex.def Info: ./imagens//spanning2.png  used on input line 695.
+(pdftex.def)             Requested size: 144.5411pt x 144.5411pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//spanning1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//cospanning1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//grafo2.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//dfs1.png>]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 699.
+(caption)                particular \caption on input line 702.
 See the caption package documentation for explanation.
 
 
-Underfull \vbox (badness 3989) has occurred while \output is active []
-
- [7 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//cospanning1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//grafo2.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//dfs1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//spanning2.png>]
-
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 719.
+(caption)                particular \caption on input line 722.
 See the caption package documentation for explanation.
 
-<./imagens//digrafo1.png, id=170, 240.9pt x 240.9pt>
+<./imagens//digrafo1.png, id=171, 240.9pt x 240.9pt>
 File: ./imagens//digrafo1.png Graphic file (type png)
 <use ./imagens//digrafo1.png>
-Package pdftex.def Info: ./imagens//digrafo1.png  used on input line 740.
+Package pdftex.def Info: ./imagens//digrafo1.png  used on input line 743.
 (pdftex.def)             Requested size: 168.62883pt x 168.62883pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//digrafo1.png>]
-<./imagens//res1.png, id=192, 240.9pt x 120.45pt>
+ [8 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//spanning2.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//digrafo1.png>]
+<./imagens//res1.png, id=195, 240.9pt x 120.45pt>
 File: ./imagens//res1.png Graphic file (type png)
 <use ./imagens//res1.png>
-Package pdftex.def Info: ./imagens//res1.png  used on input line 789.
+Package pdftex.def Info: ./imagens//res1.png  used on input line 792.
 (pdftex.def)             Requested size: 168.62883pt x 84.3144pt.
-<./imagens//vcc1.png, id=193, 240.9pt x 120.45pt>
+
+Underfull \vbox (badness 2393) has occurred while \output is active []
+
+<./imagens//vcc1.png, id=196, 240.9pt x 120.45pt>
 File: ./imagens//vcc1.png Graphic file (type png)
 <use ./imagens//vcc1.png>
-Package pdftex.def Info: ./imagens//vcc1.png  used on input line 798.
+Package pdftex.def Info: ./imagens//vcc1.png  used on input line 801.
 (pdftex.def)             Requested size: 168.62883pt x 84.3144pt.
-<./imagens//circ1.png, id=194, 481.8pt x 481.8pt>
+<./imagens//circ1.png, id=197, 481.8pt x 481.8pt>
 File: ./imagens//circ1.png Graphic file (type png)
 <use ./imagens//circ1.png>
-Package pdftex.def Info: ./imagens//circ1.png  used on input line 807.
+Package pdftex.def Info: ./imagens//circ1.png  used on input line 810.
 (pdftex.def)             Requested size: 168.63252pt x 168.63252pt.
-
-Underfull \vbox (badness 3803) has occurred while \output is active []
-
-<./imagens//grcrc1.png, id=197, 168.63pt x 168.63pt>
+ [9 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//res1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//vcc1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//circ1.png>]
+<./imagens//grcrc1.png, id=211, 168.63pt x 168.63pt>
 File: ./imagens//grcrc1.png Graphic file (type png)
 <use ./imagens//grcrc1.png>
-Package pdftex.def Info: ./imagens//grcrc1.png  used on input line 819.
+Package pdftex.def Info: ./imagens//grcrc1.png  used on input line 822.
 (pdftex.def)             Requested size: 168.62958pt x 168.62958pt.
- [9 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//res1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//vcc1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//circ1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//grcrc1.png>]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 864.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 867.
  (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
+) [10 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//grcrc1.png>]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 893.
+(caption)                particular \caption on input line 896.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (3.92435pt too wide) in paragraph at lines 901--902
+Overfull \hbox (3.92435pt too wide) in paragraph at lines 904--905
 [] $\OML/cmm/m/it/10 I[] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 gaussSeidel\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M; n; x[]; \OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 10[])$ 
  []
 
-[10]
-<./imagens//circ2.png, id=229, 481.8pt x 481.8pt>
+<./imagens//circ2.png, id=232, 481.8pt x 481.8pt>
 File: ./imagens//circ2.png Graphic file (type png)
 <use ./imagens//circ2.png>
-Package pdftex.def Info: ./imagens//circ2.png  used on input line 921.
+Package pdftex.def Info: ./imagens//circ2.png  used on input line 924.
 (pdftex.def)             Requested size: 168.63252pt x 168.63252pt.
-<./imagens//circ22.png, id=230, 481.8pt x 481.8pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<./imagens//circ22.png, id=233, 481.8pt x 481.8pt>
 File: ./imagens//circ22.png Graphic file (type png)
 <use ./imagens//circ22.png>
-Package pdftex.def Info: ./imagens//circ22.png  used on input line 944.
+Package pdftex.def Info: ./imagens//circ22.png  used on input line 947.
 (pdftex.def)             Requested size: 207.16995pt x 207.16995pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1281) has occurred while \output is active []
 
  [11 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//circ2.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//circ22.png>]
-<./imagens//circuitsim1.png, id=239, 655.44875pt x 758.835pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<./imagens//circuitsim1.png, id=243, 655.44875pt x 758.835pt>
 File: ./imagens//circuitsim1.png Graphic file (type png)
 <use ./imagens//circuitsim1.png>
-Package pdftex.def Info: ./imagens//circuitsim1.png  used on input line 1023.
+Package pdftex.def Info: ./imagens//circuitsim1.png  used on input line 1026.
 (pdftex.def)             Requested size: 131.08742pt x 151.76431pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-<./imagens//iv.png, id=240, 238.8925pt x 125.46875pt>
+<./imagens//iv.png, id=244, 238.8925pt x 125.46875pt>
 File: ./imagens//iv.png Graphic file (type png)
 <use ./imagens//iv.png>
-Package pdftex.def Info: ./imagens//iv.png  used on input line 1032.
+Package pdftex.def Info: ./imagens//iv.png  used on input line 1035.
 (pdftex.def)             Requested size: 167.2236pt x 87.82751pt.
-<./imagens//ir1.png, id=241, 245.91875pt x 127.47626pt>
+<./imagens//ir1.png, id=245, 245.91875pt x 127.47626pt>
 File: ./imagens//ir1.png Graphic file (type png)
 <use ./imagens//ir1.png>
-Package pdftex.def Info: ./imagens//ir1.png  used on input line 1039.
+Package pdftex.def Info: ./imagens//ir1.png  used on input line 1042.
 (pdftex.def)             Requested size: 172.14194pt x 89.23276pt.
-<./imagens//ir2.png, id=242, 241.90375pt x 131.49126pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//circuitsim1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//iv.png>]
+<./imagens//ir2.png, id=254, 241.90375pt x 131.49126pt>
 File: ./imagens//ir2.png Graphic file (type png)
 <use ./imagens//ir2.png>
-Package pdftex.def Info: ./imagens//ir2.png  used on input line 1046.
+Package pdftex.def Info: ./imagens//ir2.png  used on input line 1049.
 (pdftex.def)             Requested size: 169.33147pt x 92.04324pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//circuitsim1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//iv.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir1.png>]
-<./imagens//ir3.png, id=253, 241.90375pt x 126.4725pt>
+<./imagens//ir3.png, id=255, 241.90375pt x 126.4725pt>
 File: ./imagens//ir3.png Graphic file (type png)
 <use ./imagens//ir3.png>
-Package pdftex.def Info: ./imagens//ir3.png  used on input line 1053.
+Package pdftex.def Info: ./imagens//ir3.png  used on input line 1056.
 (pdftex.def)             Requested size: 169.33147pt x 88.53014pt.
-<./imagens//ir4.png, id=254, 240.9pt x 126.4725pt>
+<./imagens//ir4.png, id=256, 240.9pt x 126.4725pt>
 File: ./imagens//ir4.png Graphic file (type png)
 <use ./imagens//ir4.png>
-Package pdftex.def Info: ./imagens//ir4.png  used on input line 1060.
+Package pdftex.def Info: ./imagens//ir4.png  used on input line 1063.
 (pdftex.def)             Requested size: 168.62883pt x 88.53014pt.
-<./imagens//ir5.png, id=255, 242.9075pt x 124.465pt>
+<./imagens//ir5.png, id=257, 242.9075pt x 124.465pt>
 File: ./imagens//ir5.png Graphic file (type png)
 <use ./imagens//ir5.png>
-Package pdftex.def Info: ./imagens//ir5.png  used on input line 1067.
+Package pdftex.def Info: ./imagens//ir5.png  used on input line 1070.
 (pdftex.def)             Requested size: 170.03407pt x 87.1249pt.
-<./imagens//ir6.png, id=256, 245.91875pt x 126.4725pt>
-File: ./imagens//ir6.png Graphic file (type png)
-<use ./imagens//ir6.png>
-Package pdftex.def Info: ./imagens//ir6.png  used on input line 1074.
-(pdftex.def)             Requested size: 172.14194pt x 88.53014pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<./imagens//ir7.png, id=257, 243.91125pt x 125.46875pt>
+<./imagens//ir6.png, id=258, 245.91875pt x 126.4725pt>
+File: ./imagens//ir6.png Graphic file (type png)
+<use ./imagens//ir6.png>
+Package pdftex.def Info: ./imagens//ir6.png  used on input line 1077.
+(pdftex.def)             Requested size: 172.14194pt x 88.53014pt.
+<./imagens//ir7.png, id=259, 243.91125pt x 125.46875pt>
 File: ./imagens//ir7.png Graphic file (type png)
 <use ./imagens//ir7.png>
-Package pdftex.def Info: ./imagens//ir7.png  used on input line 1081.
+Package pdftex.def Info: ./imagens//ir7.png  used on input line 1084.
 (pdftex.def)             Requested size: 170.7367pt x 87.82751pt.
-<./imagens//ir8.png, id=258, 245.91875pt x 128.48pt>
+<./imagens//ir8.png, id=260, 245.91875pt x 128.48pt>
 File: ./imagens//ir8.png Graphic file (type png)
 <use ./imagens//ir8.png>
-Package pdftex.def Info: ./imagens//ir8.png  used on input line 1088.
+Package pdftex.def Info: ./imagens//ir8.png  used on input line 1091.
 (pdftex.def)             Requested size: 172.14194pt x 89.93538pt.
-<./imagens//ir9.png, id=259, 242.9075pt x 131.49126pt>
+<./imagens//ir9.png, id=261, 242.9075pt x 131.49126pt>
 File: ./imagens//ir9.png Graphic file (type png)
 <use ./imagens//ir9.png>
-Package pdftex.def Info: ./imagens//ir9.png  used on input line 1095.
+Package pdftex.def Info: ./imagens//ir9.png  used on input line 1098.
 (pdftex.def)             Requested size: 170.03407pt x 92.04324pt.
- [13 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir2.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir3.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir4.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir5.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir6.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir7.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir8.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir9.png>] (c:/Users/rafae/Desktop/Foo/Artigo/artigo.bbl) [14] (c:/Users/rafae/Desktop/Foo/Artigo/artigo.aux)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir1.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir2.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir3.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir4.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir5.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir6.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir7.png> <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir8.png>] (c:/Users/rafae/Desktop/Foo/Artigo/artigo.bbl) [14 <c:/Users/rafae/Desktop/Foo/Artigo/./imagens//ir9.png>] (c:/Users/rafae/Desktop/Foo/Artigo/artigo.aux)
 Package rerunfilecheck Info: File `artigo.out' has not changed.
 (rerunfilecheck)             Checksum: 8CDADA5792E894D3BFDDCED155472B34;365.
  ) 
 Here is how much of TeX's memory you used:
  14420 strings out of 479918
- 230018 string characters out of 5886688
+ 230021 string characters out of 5886688
  742399 words of memory out of 5000000
  30422 multiletter control sequences out of 15000+600000
  580388 words of font info for 197 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,9n,115p,725b,660s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 108i,9n,115p,718b,660s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users/rafae/Desktop/Foo/Artigo/artigo.pdf (14 pages, 988904 bytes).
+Output written on c:/Users/rafae/Desktop/Foo/Artigo/artigo.pdf (14 pages, 989298 bytes).
 PDF statistics:
- 351 PDF objects out of 1000 (max. 8388607)
- 269 compressed objects within 3 object streams
+ 354 PDF objects out of 1000 (max. 8388607)
+ 272 compressed objects within 3 object streams
  65 named destinations out of 1000 (max. 500000)
  24758 words of extra memory for PDF output out of 24883 (max. 10000000)
 
