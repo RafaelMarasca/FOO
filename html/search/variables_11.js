@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['wirecounter_455',['wireCounter',['../class_diagram.html#ab2d2f451f84b72aba2d9c5d26da3e577',1,'Diagram']]]
+  ['tabs_481',['tabs',['../class_main_window.html#a7d5ec7879af0d224a6173a5565ea1ffd',1,'MainWindow']]],
+  ['toolbar_482',['toolbar',['../class_main_window.html#a8d655c3a80e21698adee32b4712349cc',1,'MainWindow']]],
+  ['tutorialact_483',['tutorialAct',['../class_main_window.html#a2523c30aa87fa27450c7e7ea1a13dbfe',1,'MainWindow']]]
 ];

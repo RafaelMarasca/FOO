@@ -2,6 +2,11 @@
 \label{class_c_m_p_1_1_component}\index{CMP::Component@{CMP::Component}}
 
 
+Declaração da classe abstrata \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}.  
+
+
+
+
 {\ttfamily \#include $<$Component.\+h$>$}
 
 Diagrama de hierarquia para CMP\+::Component\+:\begin{figure}[H]
@@ -14,37 +19,42 @@ Diagrama de hierarquia para CMP\+::Component\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_c_m_p_1_1_component_a321457ba2abbecab2c8b49f67eb246d8}{Component}} (std\+::string l, unsigned int vtx1, unsigned int vtx2)
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor para a classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{class_c_m_p_1_1_component_aa5050eeb7cdb1680d68bdbd0ead3f5e2}{$\sim$\+Component}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Desconstrutor virtual da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_m_p_1_1_component_a0ebf0677169fad3a704ca6fa55403ac7}{set\+Label}} (std\+::string new\+Label)
-\item 
+\begin{DoxyCompactList}\small\item\em Setter para o nome de identificação de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_c_m_p_1_1_component_a7b43228f539b1311781ed8e9f01cee42}{get\+Label}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Getter para o nome de identificação de um objeto da calsse \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_c_m_p_1_1_component_a8056d0907f6bd94321d7d58989b6a2f6}{get\+Voltage}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Getter para a tensão de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_c_m_p_1_1_component_a66828434fb585c6383d412ca6ca3205a}{get\+Current}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Getter para a corrente de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. \end{DoxyCompactList}\item 
 std\+::pair$<$ unsigned int, unsigned int $>$ \mbox{\hyperlink{class_c_m_p_1_1_component_a79a1a9033309b06f9ebd203924461bea}{get\+Nodes}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Getter para os vértices (terminais) de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. \end{DoxyCompactList}\item 
 virtual enum \mbox{\hyperlink{namespace_c_m_p_a5f2d1fd0d049252c22e8b5498a70665f}{type}} \mbox{\hyperlink{class_c_m_p_1_1_component_a172dae611896909fa721199cc27f0072}{get\+Type}} ()=0
-\item 
-virtual void \mbox{\hyperlink{class_c_m_p_1_1_component_afd712f37ecb6bedda418bcfbbf0f99a6}{set\+Current}} (double cur)=0
-\item 
-virtual void \mbox{\hyperlink{class_c_m_p_1_1_component_a19e6ffe04afe28b2e3f876ee38b2e854}{set\+Voltage}} (double vol)=0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Getter para o tipo de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_m_p_1_1_component_a394ff0c3d5d71f420c628ef7b86aa3d9}{set\+Voltage}} (double value)=0
+\begin{DoxyCompactList}\small\item\em Setter para a tensão de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_m_p_1_1_component_a31c62b93b4e674cc894e2477e3b23344}{set\+Current}} (double value)=0
+\begin{DoxyCompactList}\small\item\em Setter para a corrente de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Atributos Protegidos}
 \begin{DoxyCompactItemize}
 \item 
 std\+::string \mbox{\hyperlink{class_c_m_p_1_1_component_a08a20b8f1411de04ca6444fa0958e126}{label}}
-\item 
+\begin{DoxyCompactList}\small\item\em Armazena o nome de identificação do componente. \end{DoxyCompactList}\item 
 std\+::pair$<$ unsigned int, unsigned int $>$ \mbox{\hyperlink{class_c_m_p_1_1_component_a7b58d4d905cd05512eb1972dca7d7bf7}{vtxs}}
-\item 
+\begin{DoxyCompactList}\small\item\em Armazena um par de inteiros utilizados para identificar os veértices do componente. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_c_m_p_1_1_component_a9b1dac14850b10fff14f622b8f6123fe}{voltage}}
-\item 
+\begin{DoxyCompactList}\small\item\em Armazena a tensão através dos terminais do componente. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_c_m_p_1_1_component_a033e125e2bf6de9456b6f18b4784c6fa}{current}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Armazena a corrente através dos terminais do componente. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Descrição detalhada}
+Declaração da classe abstrata \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
+Representa um componente genérico, especificando os atributos em comum de qualquer componente presente no circuito. Esta classe é desenvolvida para a utilização conjunta com a classe Circuit. 
 
 \doxysubsection{Construtores e Destrutores}
 \mbox{\Hypertarget{class_c_m_p_1_1_component_a321457ba2abbecab2c8b49f67eb246d8}\label{class_c_m_p_1_1_component_a321457ba2abbecab2c8b49f67eb246d8}} 
@@ -53,6 +63,21 @@ double \mbox{\hyperlink{class_c_m_p_1_1_component_a033e125e2bf6de9456b6f18b4784c
 \doxysubsubsection{\texorpdfstring{Component()}{Component()}}
 {\footnotesize\ttfamily CMP\+::\+Component\+::\+Component (\begin{DoxyParamCaption}\item[{std\+::string}]{l,  }\item[{unsigned int}]{vtx1,  }\item[{unsigned int}]{vtx2 }\end{DoxyParamCaption})}
 
+
+
+Construtor para a classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
+Constroi um objeto da Classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}} com os parâmetros específicados.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em l} & Nome para a identificação do componente. \\
+\hline
+{\em vtx1} & Identificação do terminal 1 do componente. \\
+\hline
+{\em vtx2} & Identificação do terminal 2 do componente. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_c_m_p_1_1_component_aa5050eeb7cdb1680d68bdbd0ead3f5e2}\label{class_c_m_p_1_1_component_aa5050eeb7cdb1680d68bdbd0ead3f5e2}} 
 \index{CMP::Component@{CMP::Component}!````~Component@{$\sim$Component}}
 \index{````~Component@{$\sim$Component}!CMP::Component@{CMP::Component}}
@@ -61,6 +86,10 @@ double \mbox{\hyperlink{class_c_m_p_1_1_component_a033e125e2bf6de9456b6f18b4784c
 
 
 
+Desconstrutor virtual da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
+Destrói um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
 \doxysubsection{Funções membros}
 \mbox{\Hypertarget{class_c_m_p_1_1_component_a66828434fb585c6383d412ca6ca3205a}\label{class_c_m_p_1_1_component_a66828434fb585c6383d412ca6ca3205a}} 
 \index{CMP::Component@{CMP::Component}!getCurrent@{getCurrent}}
@@ -68,24 +97,60 @@ double \mbox{\hyperlink{class_c_m_p_1_1_component_a033e125e2bf6de9456b6f18b4784c
 \doxysubsubsection{\texorpdfstring{getCurrent()}{getCurrent()}}
 {\footnotesize\ttfamily double CMP\+::\+Component\+::get\+Current (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Getter para a corrente de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
+Retorna a corrente através dos terminais do componente representado pelo objeto.
+
+\begin{DoxyReturn}{Retorna}
+Corrente do componente. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_c_m_p_1_1_component_a7b43228f539b1311781ed8e9f01cee42}\label{class_c_m_p_1_1_component_a7b43228f539b1311781ed8e9f01cee42}} 
 \index{CMP::Component@{CMP::Component}!getLabel@{getLabel}}
 \index{getLabel@{getLabel}!CMP::Component@{CMP::Component}}
 \doxysubsubsection{\texorpdfstring{getLabel()}{getLabel()}}
 {\footnotesize\ttfamily std\+::string CMP\+::\+Component\+::get\+Label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Getter para o nome de identificação de um objeto da calsse \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
+Retona o nome de identificação do objeto em formato no formato std\+::string.
+
+\begin{DoxyReturn}{Retorna}
+Nome de identificação do componente. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_c_m_p_1_1_component_a79a1a9033309b06f9ebd203924461bea}\label{class_c_m_p_1_1_component_a79a1a9033309b06f9ebd203924461bea}} 
 \index{CMP::Component@{CMP::Component}!getNodes@{getNodes}}
 \index{getNodes@{getNodes}!CMP::Component@{CMP::Component}}
 \doxysubsubsection{\texorpdfstring{getNodes()}{getNodes()}}
 {\footnotesize\ttfamily std\+::pair$<$ unsigned int, unsigned int $>$ CMP\+::\+Component\+::get\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Getter para os vértices (terminais) de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
+Retorna um std\+::pair constendo os vértices que representam os terminais do componente. O primeiro elemento do pair representa o vértice 1 e o segundo elemento representa o vértice 2.
+
+\begin{DoxyReturn}{Retorna}
+Vértices do componente. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_c_m_p_1_1_component_a172dae611896909fa721199cc27f0072}\label{class_c_m_p_1_1_component_a172dae611896909fa721199cc27f0072}} 
 \index{CMP::Component@{CMP::Component}!getType@{getType}}
 \index{getType@{getType}!CMP::Component@{CMP::Component}}
 \doxysubsubsection{\texorpdfstring{getType()}{getType()}}
 {\footnotesize\ttfamily virtual enum \mbox{\hyperlink{namespace_c_m_p_a5f2d1fd0d049252c22e8b5498a70665f}{type}} CMP\+::\+Component\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+
+
+Getter para o tipo de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
+Método virtual puro que retorna o tipo do objeto. Este método deve ser sobrescrito pelas classes derivadas, pois cada componente tem seu tipo.
+
+\begin{DoxyReturn}{Retorna}
+Tipo do objeto. 
+\end{DoxyReturn}
 
 
 Implementado por \mbox{\hyperlink{class_c_m_p_1_1_vcc_a1508825e7869067a9148f7dc571505f6}{CMP\+::\+Vcc}} e \mbox{\hyperlink{class_c_m_p_1_1_resistor_af434987c7ee81c36bd1c527eeeb191dd}{CMP\+::\+Resistor}}.
@@ -96,15 +161,38 @@ Implementado por \mbox{\hyperlink{class_c_m_p_1_1_vcc_a1508825e7869067a9148f7dc5
 \doxysubsubsection{\texorpdfstring{getVoltage()}{getVoltage()}}
 {\footnotesize\ttfamily double CMP\+::\+Component\+::get\+Voltage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_c_m_p_1_1_component_afd712f37ecb6bedda418bcfbbf0f99a6}\label{class_c_m_p_1_1_component_afd712f37ecb6bedda418bcfbbf0f99a6}} 
+
+
+Getter para a tensão de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
+Retorna a tensão através dos terminais do componente representado pelo objeto.
+
+\begin{DoxyReturn}{Retorna}
+Tensão do componente. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_c_m_p_1_1_component_a31c62b93b4e674cc894e2477e3b23344}\label{class_c_m_p_1_1_component_a31c62b93b4e674cc894e2477e3b23344}} 
 \index{CMP::Component@{CMP::Component}!setCurrent@{setCurrent}}
 \index{setCurrent@{setCurrent}!CMP::Component@{CMP::Component}}
 \doxysubsubsection{\texorpdfstring{setCurrent()}{setCurrent()}}
-{\footnotesize\ttfamily virtual void CMP\+::\+Component\+::set\+Current (\begin{DoxyParamCaption}\item[{double}]{cur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void CMP\+::\+Component\+::set\+Current (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Implementado por \mbox{\hyperlink{class_c_m_p_1_1_vcc_a7586b33c94ade61eb4b3250aa4e15642}{CMP\+::\+Vcc}} e \mbox{\hyperlink{class_c_m_p_1_1_resistor_aad64e49d3a4425d50c6684894f33e180}{CMP\+::\+Resistor}}.
+Setter para a corrente de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
+Método virtual puro que altera a corrente do componente.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em value} & Valor para o parâmetro utilizado para alterar a corrente de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. Este método deve ser sobrescrito pelas classes derivadas, uma vez que, cada componente possui uma forma específica de se atribuir a corrente. Apesar de neste projeto ambos os componentes possuírem a mesma forma de se atribuir a corrente, o método é virtual puro pois, em futuras atualizações, outros tipos de componentes podem ser adicionados.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Void. 
+\end{DoxyReturn}
+
+
+Implementado por \mbox{\hyperlink{class_c_m_p_1_1_resistor_abb9933d3e627eaecefd2deff5e3c6829}{CMP\+::\+Resistor}} e \mbox{\hyperlink{class_c_m_p_1_1_vcc_a7586b33c94ade61eb4b3250aa4e15642}{CMP\+::\+Vcc}}.
 
 \mbox{\Hypertarget{class_c_m_p_1_1_component_a0ebf0677169fad3a704ca6fa55403ac7}\label{class_c_m_p_1_1_component_a0ebf0677169fad3a704ca6fa55403ac7}} 
 \index{CMP::Component@{CMP::Component}!setLabel@{setLabel}}
@@ -112,15 +200,40 @@ Implementado por \mbox{\hyperlink{class_c_m_p_1_1_vcc_a7586b33c94ade61eb4b3250aa
 \doxysubsubsection{\texorpdfstring{setLabel()}{setLabel()}}
 {\footnotesize\ttfamily void CMP\+::\+Component\+::set\+Label (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+Label }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_c_m_p_1_1_component_a19e6ffe04afe28b2e3f876ee38b2e854}\label{class_c_m_p_1_1_component_a19e6ffe04afe28b2e3f876ee38b2e854}} 
+
+
+Setter para o nome de identificação de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
+Aletera o nome do objeto para new\+Label.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em new\+Label} & Novo nome de identificação do componente.\\
+\hline
+\end{DoxyParams}
+return Void. \mbox{\Hypertarget{class_c_m_p_1_1_component_a394ff0c3d5d71f420c628ef7b86aa3d9}\label{class_c_m_p_1_1_component_a394ff0c3d5d71f420c628ef7b86aa3d9}} 
 \index{CMP::Component@{CMP::Component}!setVoltage@{setVoltage}}
 \index{setVoltage@{setVoltage}!CMP::Component@{CMP::Component}}
 \doxysubsubsection{\texorpdfstring{setVoltage()}{setVoltage()}}
-{\footnotesize\ttfamily virtual void CMP\+::\+Component\+::set\+Voltage (\begin{DoxyParamCaption}\item[{double}]{vol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void CMP\+::\+Component\+::set\+Voltage (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Implementado por \mbox{\hyperlink{class_c_m_p_1_1_vcc_a658d011ef01f5c3003d86ad49b29aa86}{CMP\+::\+Vcc}} e \mbox{\hyperlink{class_c_m_p_1_1_resistor_a1da7ca15cbf41c90fa49fefdf36b2083}{CMP\+::\+Resistor}}.
+Setter para a tensão de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. 
+
+Método virtual puro que altera a tensão do componente.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em value} & Valor para o parâmetro utilizado para alterar a corrente de um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. Este método deve ser sobrescrito pelas classes derivadas, uma vez que, cada componente possui uma forma específica de se atribuir a tensão.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Void. 
+\end{DoxyReturn}
+
+
+Implementado por \mbox{\hyperlink{class_c_m_p_1_1_vcc_a658d011ef01f5c3003d86ad49b29aa86}{CMP\+::\+Vcc}} e \mbox{\hyperlink{class_c_m_p_1_1_resistor_ad7fb3d5c427f092754626b23aaedf378}{CMP\+::\+Resistor}}.
 
 
 
@@ -131,17 +244,29 @@ Implementado por \mbox{\hyperlink{class_c_m_p_1_1_vcc_a658d011ef01f5c3003d86ad49
 \doxysubsubsection{\texorpdfstring{current}{current}}
 {\footnotesize\ttfamily double CMP\+::\+Component\+::current\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Armazena a corrente através dos terminais do componente. 
+
 \mbox{\Hypertarget{class_c_m_p_1_1_component_a08a20b8f1411de04ca6444fa0958e126}\label{class_c_m_p_1_1_component_a08a20b8f1411de04ca6444fa0958e126}} 
 \index{CMP::Component@{CMP::Component}!label@{label}}
 \index{label@{label}!CMP::Component@{CMP::Component}}
 \doxysubsubsection{\texorpdfstring{label}{label}}
 {\footnotesize\ttfamily std\+::string CMP\+::\+Component\+::label\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Armazena o nome de identificação do componente. 
+
 \mbox{\Hypertarget{class_c_m_p_1_1_component_a9b1dac14850b10fff14f622b8f6123fe}\label{class_c_m_p_1_1_component_a9b1dac14850b10fff14f622b8f6123fe}} 
 \index{CMP::Component@{CMP::Component}!voltage@{voltage}}
 \index{voltage@{voltage}!CMP::Component@{CMP::Component}}
 \doxysubsubsection{\texorpdfstring{voltage}{voltage}}
 {\footnotesize\ttfamily double CMP\+::\+Component\+::voltage\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Armazena a tensão através dos terminais do componente. 
 
 \mbox{\Hypertarget{class_c_m_p_1_1_component_a7b58d4d905cd05512eb1972dca7d7bf7}\label{class_c_m_p_1_1_component_a7b58d4d905cd05512eb1972dca7d7bf7}} 
 \index{CMP::Component@{CMP::Component}!vtxs@{vtxs}}
@@ -151,7 +276,11 @@ Implementado por \mbox{\hyperlink{class_c_m_p_1_1_vcc_a658d011ef01f5c3003d86ad49
 
 
 
+Armazena um par de inteiros utilizados para identificar os veértices do componente. 
+
+
+
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_component_8h}{Component.\+h}}\item 
-\mbox{\hyperlink{_component_8cpp}{Component.\+cpp}}\end{DoxyCompactItemize}
+Circuit\+Sim/\mbox{\hyperlink{_component_8h}{Component.\+h}}\item 
+Circuit\+Sim/\mbox{\hyperlink{_component_8cpp}{Component.\+cpp}}\end{DoxyCompactItemize}

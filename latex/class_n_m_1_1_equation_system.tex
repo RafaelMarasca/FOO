@@ -2,40 +2,46 @@
 \label{class_n_m_1_1_equation_system}\index{NM::EquationSystem@{NM::EquationSystem}}
 
 
+Declaração da classe \mbox{\hyperlink{class_n_m_1_1_equation_system}{Equation\+System}}.  
+
+
+
+
 {\ttfamily \#include $<$Numeric.\+h$>$}
 
 \doxysubsection*{Membros Públicos}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_n_m_1_1_equation_system_a3430ff737cb5396be179f09f40bc2120}{Equation\+System}} (\mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} a, \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} b)
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{class_n_m_1_1_equation_system}{Equation\+System}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_n_m_1_1_equation_system_a256d5c9336de8715416706b4c9bfcbf9}{get\+Solution}} (double tol, unsigned int max\+Iter)
-\item 
-void \mbox{\hyperlink{class_n_m_1_1_equation_system_a6d7cd566be680f8220b7da0fbb51e1c5}{print\+Solution}} ()
-\item 
-void \mbox{\hyperlink{class_n_m_1_1_equation_system_a1151d94453a00a59269fcde68470eeb2}{print}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Getter para a solução da classe \mbox{\hyperlink{class_n_m_1_1_equation_system}{Equation\+System}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Membros Privados}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_n_m_1_1_equation_system_aa749ea106c059d68f0eee0d99f1cad74}{gauss\+Seidel}} (double tol, unsigned int max\+Iter)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolve o sistema pelo método de Gauss-\/\+Seidel. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_n_m_1_1_equation_system_ac28a6cdb32f4e1b6d9e0709dd4224e11}{sassenfeld\+Criteria}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Checa se o sistema obedece ao critério de Sassenfeld. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_n_m_1_1_equation_system_ab9015890ec28fac421aa78a4195c91b8}{find\+Pivot}} (unsigned int startI)
-\item 
+\begin{DoxyCompactList}\small\item\em Realiza o pivoteamento parcial do sistema. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_n_m_1_1_equation_system_aa6175a2bea3339c9224df3aec25accd3}{gauss\+Jordan}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Resolve o sistema pelo método de Gauss-\/\+Jordan. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Atributos Privados}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_n_m_1_1_equation_system_ad75845c2ed0a6f2949c8aaeac1463979}{A}}
-\item 
+\begin{DoxyCompactList}\small\item\em Matriz dos coeficientes do sistema. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_n_m_1_1_equation_system_a5efd06e8510564c31ae02717a430c4c3}{B}}
-\item 
+\begin{DoxyCompactList}\small\item\em Matriz (vetor) das constantes do sistema. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_n_m_1_1_equation_system_ae835d03d02a72a5b1152d4d03a4cc782}{x}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Matriz (vetor) solução do sistema. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Descrição detalhada}
+Declaração da classe \mbox{\hyperlink{class_n_m_1_1_equation_system}{Equation\+System}}. 
+
+Representa um sistema de equações e formas de solucioná-\/lo. 
 
 \doxysubsection{Construtores e Destrutores}
 \mbox{\Hypertarget{class_n_m_1_1_equation_system_a3430ff737cb5396be179f09f40bc2120}\label{class_n_m_1_1_equation_system_a3430ff737cb5396be179f09f40bc2120}} 
@@ -46,6 +52,19 @@ void \mbox{\hyperlink{class_n_m_1_1_equation_system_aa6175a2bea3339c9224df3aec25
 
 
 
+Construtor da classe \mbox{\hyperlink{class_n_m_1_1_equation_system}{Equation\+System}}. 
+
+Constrói um sistema de equações baseado numa matriz de coeficientes e outra de constantes.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em a} & Matriz dos coeficientes. \\
+\hline
+{\em b} & Matriz das constantes. \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Funções membros}
 \mbox{\Hypertarget{class_n_m_1_1_equation_system_ab9015890ec28fac421aa78a4195c91b8}\label{class_n_m_1_1_equation_system_ab9015890ec28fac421aa78a4195c91b8}} 
 \index{NM::EquationSystem@{NM::EquationSystem}!findPivot@{findPivot}}
@@ -53,36 +72,76 @@ void \mbox{\hyperlink{class_n_m_1_1_equation_system_aa6175a2bea3339c9224df3aec25
 \doxysubsubsection{\texorpdfstring{findPivot()}{findPivot()}}
 {\footnotesize\ttfamily void NM\+::\+Equation\+System\+::find\+Pivot (\begin{DoxyParamCaption}\item[{unsigned int}]{startI }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Realiza o pivoteamento parcial do sistema. 
+
+Procura o maior dentre os elementos da coluna, começando por um índice inicial. Se existir, são trocadas as linhas do índice inicial e do índice cujo elemento é o maior.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em startI} & Índice inicial.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Void. Esse é um método provido por conveniência. Ele difere do método acima apenas na lista de argumentos que devem ser utilizados. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_n_m_1_1_equation_system_aa6175a2bea3339c9224df3aec25accd3}\label{class_n_m_1_1_equation_system_aa6175a2bea3339c9224df3aec25accd3}} 
 \index{NM::EquationSystem@{NM::EquationSystem}!gaussJordan@{gaussJordan}}
 \index{gaussJordan@{gaussJordan}!NM::EquationSystem@{NM::EquationSystem}}
 \doxysubsubsection{\texorpdfstring{gaussJordan()}{gaussJordan()}}
 {\footnotesize\ttfamily void NM\+::\+Equation\+System\+::gauss\+Jordan (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{class_n_m_1_1_equation_system_aa749ea106c059d68f0eee0d99f1cad74}\label{class_n_m_1_1_equation_system_aa749ea106c059d68f0eee0d99f1cad74}} 
+
+
+Resolve o sistema pelo método de Gauss-\/\+Jordan. 
+
+Encontra a solução exata do sistema através do método de Gauss-\/\+Jordan.
+
+\begin{DoxyReturn}{Retorna}
+Void.
+\end{DoxyReturn}
+Esse é um método provido por conveniência. Ele difere do método acima apenas na lista de argumentos que devem ser utilizados. \mbox{\Hypertarget{class_n_m_1_1_equation_system_aa749ea106c059d68f0eee0d99f1cad74}\label{class_n_m_1_1_equation_system_aa749ea106c059d68f0eee0d99f1cad74}} 
 \index{NM::EquationSystem@{NM::EquationSystem}!gaussSeidel@{gaussSeidel}}
 \index{gaussSeidel@{gaussSeidel}!NM::EquationSystem@{NM::EquationSystem}}
 \doxysubsubsection{\texorpdfstring{gaussSeidel()}{gaussSeidel()}}
 {\footnotesize\ttfamily void NM\+::\+Equation\+System\+::gauss\+Seidel (\begin{DoxyParamCaption}\item[{double}]{tol,  }\item[{unsigned int}]{max\+Iter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Resolve o sistema pelo método de Gauss-\/\+Seidel. 
+
+Encontra a solução aproximada iterativamente pelo método de Gauss-\/\+Seidel assumindo uma tolerância e um número máximo de iterações.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em tol} & Tolerância. \\
+\hline
+{\em max\+Iter} & Número máximo de iterações.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Void. Esse é um método provido por conveniência. Ele difere do método acima apenas na lista de argumentos que devem ser utilizados. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_n_m_1_1_equation_system_a256d5c9336de8715416706b4c9bfcbf9}\label{class_n_m_1_1_equation_system_a256d5c9336de8715416706b4c9bfcbf9}} 
 \index{NM::EquationSystem@{NM::EquationSystem}!getSolution@{getSolution}}
 \index{getSolution@{getSolution}!NM::EquationSystem@{NM::EquationSystem}}
 \doxysubsubsection{\texorpdfstring{getSolution()}{getSolution()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} NM\+::\+Equation\+System\+::get\+Solution (\begin{DoxyParamCaption}\item[{double}]{tol,  }\item[{unsigned int}]{max\+Iter }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_n_m_1_1_equation_system_a1151d94453a00a59269fcde68470eeb2}\label{class_n_m_1_1_equation_system_a1151d94453a00a59269fcde68470eeb2}} 
-\index{NM::EquationSystem@{NM::EquationSystem}!print@{print}}
-\index{print@{print}!NM::EquationSystem@{NM::EquationSystem}}
-\doxysubsubsection{\texorpdfstring{print()}{print()}}
-{\footnotesize\ttfamily void NM\+::\+Equation\+System\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_n_m_1_1_equation_system_a6d7cd566be680f8220b7da0fbb51e1c5}\label{class_n_m_1_1_equation_system_a6d7cd566be680f8220b7da0fbb51e1c5}} 
-\index{NM::EquationSystem@{NM::EquationSystem}!printSolution@{printSolution}}
-\index{printSolution@{printSolution}!NM::EquationSystem@{NM::EquationSystem}}
-\doxysubsubsection{\texorpdfstring{printSolution()}{printSolution()}}
-{\footnotesize\ttfamily void NM\+::\+Equation\+System\+::print\+Solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Getter para a solução da classe \mbox{\hyperlink{class_n_m_1_1_equation_system}{Equation\+System}}. 
+
+Resolve o sistema representado pela classe \mbox{\hyperlink{class_n_m_1_1_equation_system}{Equation\+System}} e retorna uma matriz contendo a solução.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em tol} & Tolerância para o erro aproximado. \\
+\hline
+{\em max\+Iter} & Número máximo de iterações. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_n_m_1_1_equation_system_ac28a6cdb32f4e1b6d9e0709dd4224e11}\label{class_n_m_1_1_equation_system_ac28a6cdb32f4e1b6d9e0709dd4224e11}} 
 \index{NM::EquationSystem@{NM::EquationSystem}!sassenfeldCriteria@{sassenfeldCriteria}}
 \index{sassenfeldCriteria@{sassenfeldCriteria}!NM::EquationSystem@{NM::EquationSystem}}
@@ -91,6 +150,16 @@ void \mbox{\hyperlink{class_n_m_1_1_equation_system_aa6175a2bea3339c9224df3aec25
 
 
 
+Checa se o sistema obedece ao critério de Sassenfeld. 
+
+Aplica o critério de Sassenfeld ao sistema. Retorna verdadeiro se o método de Gauss-\/\+Seidel converge para uma solução e falso caso contrário. ~\newline
+
+
+\begin{DoxyReturn}{Retorna}
+Se o sistema satisfaz o crítério de Sassenfield retorna 1, caso contrário, retorna 0.
+\end{DoxyReturn}
+Esse é um método provido por conveniência. Ele difere do método acima apenas na lista de argumentos que devem ser utilizados. 
+
 \doxysubsection{Atributos}
 \mbox{\Hypertarget{class_n_m_1_1_equation_system_ad75845c2ed0a6f2949c8aaeac1463979}\label{class_n_m_1_1_equation_system_ad75845c2ed0a6f2949c8aaeac1463979}} 
 \index{NM::EquationSystem@{NM::EquationSystem}!A@{A}}
@@ -98,11 +167,19 @@ void \mbox{\hyperlink{class_n_m_1_1_equation_system_aa6175a2bea3339c9224df3aec25
 \doxysubsubsection{\texorpdfstring{A}{A}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} NM\+::\+Equation\+System\+::A\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Matriz dos coeficientes do sistema. 
+
 \mbox{\Hypertarget{class_n_m_1_1_equation_system_a5efd06e8510564c31ae02717a430c4c3}\label{class_n_m_1_1_equation_system_a5efd06e8510564c31ae02717a430c4c3}} 
 \index{NM::EquationSystem@{NM::EquationSystem}!B@{B}}
 \index{B@{B}!NM::EquationSystem@{NM::EquationSystem}}
 \doxysubsubsection{\texorpdfstring{B}{B}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_n_m_1_1_matrix}{Matrix}} NM\+::\+Equation\+System\+::B\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Matriz (vetor) das constantes do sistema. 
 
 \mbox{\Hypertarget{class_n_m_1_1_equation_system_ae835d03d02a72a5b1152d4d03a4cc782}\label{class_n_m_1_1_equation_system_ae835d03d02a72a5b1152d4d03a4cc782}} 
 \index{NM::EquationSystem@{NM::EquationSystem}!x@{x}}
@@ -112,7 +189,11 @@ void \mbox{\hyperlink{class_n_m_1_1_equation_system_aa6175a2bea3339c9224df3aec25
 
 
 
+Matriz (vetor) solução do sistema. 
+
+
+
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_numeric_8h}{Numeric.\+h}}\item 
-\mbox{\hyperlink{_numeric_8cpp}{Numeric.\+cpp}}\end{DoxyCompactItemize}
+Circuit\+Sim/\mbox{\hyperlink{_numeric_8h}{Numeric.\+h}}\item 
+Circuit\+Sim/\mbox{\hyperlink{_numeric_8cpp}{Numeric.\+cpp}}\end{DoxyCompactItemize}

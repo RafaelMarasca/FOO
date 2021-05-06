@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['tabs_442',['tabs',['../class_main_window.html#a7d5ec7879af0d224a6173a5565ea1ffd',1,'MainWindow']]],
-  ['toolbar_443',['toolbar',['../class_main_window.html#a8d655c3a80e21698adee32b4712349cc',1,'MainWindow']]],
-  ['tutorialact_444',['tutorialAct',['../class_main_window.html#a2523c30aa87fa27450c7e7ea1a13dbfe',1,'MainWindow']]]
+  ['realmatrix_464',['realMatrix',['../class_n_m_1_1_matrix.html#ac4006e51a4dfb752e90f96f9db7b2620',1,'NM::Matrix']]],
+  ['rescounter_465',['resCounter',['../class_resistor.html#a02c62cc3894b14b920a2e56fcb2b609a',1,'Resistor']]],
+  ['resetconfigact_466',['resetConfigAct',['../class_main_window.html#a677893e85fdc78c1a241de13e6a23729',1,'MainWindow']]],
+  ['resistance_467',['resistance',['../class_c_m_p_1_1_resistor.html#a15e276035abd2880493c62d3edf375b8',1,'CMP::Resistor']]],
+  ['rownumber_468',['rowNumber',['../class_n_m_1_1_matrix.html#a948a33cc3b14bd57277dad8b8516af3b',1,'NM::Matrix']]]
 ];

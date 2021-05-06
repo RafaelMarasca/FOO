@@ -14,21 +14,15 @@ Diagrama de hierarquia para Graphic\+Component\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_graphic_component_aa674c5f5ea14e9413ba74ce565f6f7d5}{clicked\+Vertex}} (int Area, \mbox{\hyperlink{class_graphic_component}{Graphic\+Component}} $\ast$)
-\item 
-void \mbox{\hyperlink{class_graphic_component_a003ffab144ddb924b116e2fc11903ff4}{clicked}} (bool checked=false)
 \end{DoxyCompactItemize}
 \doxysubsection*{Membros Públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_graphic_component_ac0315d9deb2eac5222d401918d771263}{Graphic\+Component}} (int \mbox{\hyperlink{class_graphic_component_aebc4831a6f1c48f29a201624f9f542e2}{x}}, int \mbox{\hyperlink{class_graphic_component_af06dadfe20e69d1084b5f2295ceefcc3}{y}}, enum \mbox{\hyperlink{_graphic_component_8h_aad99e3741fba608066d9ac1b7b0ac32b}{orien}} s, QObject $\ast$parent=nullptr)
-\item 
-\mbox{\hyperlink{class_graphic_component_a64c4f958ce0648aec4d9d1a6f396af06}{Graphic\+Component}} (QObject $\ast$parent=nullptr)
-\item 
-\mbox{\hyperlink{class_graphic_component_a1b41e0eb7f7837e5bc0b51bf2bc48447}{Graphic\+Component}} (\mbox{\hyperlink{class_graphic_component}{Graphic\+Component}} \&C, QObject $\ast$paren=nullptr)
+\mbox{\hyperlink{class_graphic_component_ac99cd2386ebf02675f239b91d73c2571}{Graphic\+Component}} (int \mbox{\hyperlink{class_graphic_component_aebc4831a6f1c48f29a201624f9f542e2}{x}}, int \mbox{\hyperlink{class_graphic_component_af06dadfe20e69d1084b5f2295ceefcc3}{y}}, unsigned int vtx1, unsigned int vtx2, enum \mbox{\hyperlink{_graphic_component_8h_aad99e3741fba608066d9ac1b7b0ac32b}{orien}} s, QObject $\ast$parent=nullptr)
 \item 
 int \mbox{\hyperlink{class_graphic_component_ab97364d0b6dea415fcc453d5f195f513}{clicked\+Area}} (int \mbox{\hyperlink{class_graphic_component_aebc4831a6f1c48f29a201624f9f542e2}{x}}, int \mbox{\hyperlink{class_graphic_component_af06dadfe20e69d1084b5f2295ceefcc3}{y}})
 \item 
-void \mbox{\hyperlink{class_graphic_component_a259f82318e3429a817ce3e7a90bc83f1}{draw}} (QPainter $\ast$painter)
+void \mbox{\hyperlink{class_graphic_component_abfe8e182ea294441563ceb6d5b61751d}{draw}} (QPainter $\ast$painter, QColor color=QColor())
 \item 
 int \mbox{\hyperlink{class_graphic_component_a5700c7c163548821d0901d04322347a8}{get\+Height}} ()
 \item 
@@ -67,11 +61,8 @@ void \mbox{\hyperlink{class_graphic_component_af7f9ea93fd46925b8d788e63d3edee6c}
 QPoint \mbox{\hyperlink{class_graphic_component_a65fa1ffc133a73952d858d23390d91c2}{get\+Vertex1\+Point}} ()
 \item 
 QPoint \mbox{\hyperlink{class_graphic_component_a8d3c0d9d98b295f4a461d0e370d5252a}{get\+Vertex2\+Point}} ()
-\end{DoxyCompactItemize}
-\doxysubsection*{Membros Públicos Estáticos}
-\begin{DoxyCompactItemize}
 \item 
-static unsigned int \mbox{\hyperlink{class_graphic_component_a31dfd0a772334df1032149425b7937a7}{get\+Vertex\+Num}} ()
+void \mbox{\hyperlink{class_graphic_component_a2f60f3767cd9cf7090df92f1b20b9051}{update\+Name}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Atributos Públicos}
 \begin{DoxyCompactItemize}
@@ -103,41 +94,18 @@ QString \mbox{\hyperlink{class_graphic_component_a92f7242e80e6bca961e4d4f76ff937
 \item 
 double \mbox{\hyperlink{class_graphic_component_a88da3ffad0b9bfa6df9ca4df77c1a5e6}{value}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Atributos Privados Estáticos}
-\begin{DoxyCompactItemize}
-\item 
-static unsigned int \mbox{\hyperlink{class_graphic_component_ab98afbc1f2b984296cee0833be71c081}{vertex\+Num}} = 0
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Construtores e Destrutores}
-\mbox{\Hypertarget{class_graphic_component_ac0315d9deb2eac5222d401918d771263}\label{class_graphic_component_ac0315d9deb2eac5222d401918d771263}} 
+\mbox{\Hypertarget{class_graphic_component_ac99cd2386ebf02675f239b91d73c2571}\label{class_graphic_component_ac99cd2386ebf02675f239b91d73c2571}} 
 \index{GraphicComponent@{GraphicComponent}!GraphicComponent@{GraphicComponent}}
 \index{GraphicComponent@{GraphicComponent}!GraphicComponent@{GraphicComponent}}
-\doxysubsubsection{\texorpdfstring{GraphicComponent()}{GraphicComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily Graphic\+Component\+::\+Graphic\+Component (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{enum \mbox{\hyperlink{_graphic_component_8h_aad99e3741fba608066d9ac1b7b0ac32b}{orien}}}]{s,  }\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
-
-\mbox{\Hypertarget{class_graphic_component_a64c4f958ce0648aec4d9d1a6f396af06}\label{class_graphic_component_a64c4f958ce0648aec4d9d1a6f396af06}} 
-\index{GraphicComponent@{GraphicComponent}!GraphicComponent@{GraphicComponent}}
-\index{GraphicComponent@{GraphicComponent}!GraphicComponent@{GraphicComponent}}
-\doxysubsubsection{\texorpdfstring{GraphicComponent()}{GraphicComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily Graphic\+Component\+::\+Graphic\+Component (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
-
-\mbox{\Hypertarget{class_graphic_component_a1b41e0eb7f7837e5bc0b51bf2bc48447}\label{class_graphic_component_a1b41e0eb7f7837e5bc0b51bf2bc48447}} 
-\index{GraphicComponent@{GraphicComponent}!GraphicComponent@{GraphicComponent}}
-\index{GraphicComponent@{GraphicComponent}!GraphicComponent@{GraphicComponent}}
-\doxysubsubsection{\texorpdfstring{GraphicComponent()}{GraphicComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily Graphic\+Component\+::\+Graphic\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graphic_component}{Graphic\+Component}} \&}]{C,  }\item[{QObject $\ast$}]{paren = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+\doxysubsubsection{\texorpdfstring{GraphicComponent()}{GraphicComponent()}}
+{\footnotesize\ttfamily Graphic\+Component\+::\+Graphic\+Component (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{unsigned int}]{vtx1,  }\item[{unsigned int}]{vtx2,  }\item[{enum \mbox{\hyperlink{_graphic_component_8h_aad99e3741fba608066d9ac1b7b0ac32b}{orien}}}]{s,  }\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
 \doxysubsection{Funções membros}
-\mbox{\Hypertarget{class_graphic_component_a003ffab144ddb924b116e2fc11903ff4}\label{class_graphic_component_a003ffab144ddb924b116e2fc11903ff4}} 
-\index{GraphicComponent@{GraphicComponent}!clicked@{clicked}}
-\index{clicked@{clicked}!GraphicComponent@{GraphicComponent}}
-\doxysubsubsection{\texorpdfstring{clicked}{clicked}}
-{\footnotesize\ttfamily void Graphic\+Component\+::clicked (\begin{DoxyParamCaption}\item[{bool}]{checked = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
-
 \mbox{\Hypertarget{class_graphic_component_ab97364d0b6dea415fcc453d5f195f513}\label{class_graphic_component_ab97364d0b6dea415fcc453d5f195f513}} 
 \index{GraphicComponent@{GraphicComponent}!clickedArea@{clickedArea}}
 \index{clickedArea@{clickedArea}!GraphicComponent@{GraphicComponent}}
@@ -150,11 +118,11 @@ static unsigned int \mbox{\hyperlink{class_graphic_component_ab98afbc1f2b984296c
 \doxysubsubsection{\texorpdfstring{clickedVertex}{clickedVertex}}
 {\footnotesize\ttfamily void Graphic\+Component\+::clicked\+Vertex (\begin{DoxyParamCaption}\item[{int}]{Area,  }\item[{\mbox{\hyperlink{class_graphic_component}{Graphic\+Component}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
 
-\mbox{\Hypertarget{class_graphic_component_a259f82318e3429a817ce3e7a90bc83f1}\label{class_graphic_component_a259f82318e3429a817ce3e7a90bc83f1}} 
+\mbox{\Hypertarget{class_graphic_component_abfe8e182ea294441563ceb6d5b61751d}\label{class_graphic_component_abfe8e182ea294441563ceb6d5b61751d}} 
 \index{GraphicComponent@{GraphicComponent}!draw@{draw}}
 \index{draw@{draw}!GraphicComponent@{GraphicComponent}}
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
-{\footnotesize\ttfamily void Graphic\+Component\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Graphic\+Component\+::draw (\begin{DoxyParamCaption}\item[{QPainter $\ast$}]{painter,  }\item[{QColor}]{color = {\ttfamily QColor()} }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_graphic_component_aa8fe6bb5aaae3edf97643c54a7b58189}\label{class_graphic_component_aa8fe6bb5aaae3edf97643c54a7b58189}} 
 \index{GraphicComponent@{GraphicComponent}!getBottom@{getBottom}}
@@ -250,12 +218,6 @@ Implementado por \mbox{\hyperlink{class_vcc_acae0b6e4c296870b8de189955bfa1a60}{V
 \doxysubsubsection{\texorpdfstring{getVertex2Point()}{getVertex2Point()}}
 {\footnotesize\ttfamily QPoint Graphic\+Component\+::get\+Vertex2\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_graphic_component_a31dfd0a772334df1032149425b7937a7}\label{class_graphic_component_a31dfd0a772334df1032149425b7937a7}} 
-\index{GraphicComponent@{GraphicComponent}!getVertexNum@{getVertexNum}}
-\index{getVertexNum@{getVertexNum}!GraphicComponent@{GraphicComponent}}
-\doxysubsubsection{\texorpdfstring{getVertexNum()}{getVertexNum()}}
-{\footnotesize\ttfamily static unsigned int Graphic\+Component\+::get\+Vertex\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
 \mbox{\Hypertarget{class_graphic_component_a2cd9599e130ff037861901e54a975e0e}\label{class_graphic_component_a2cd9599e130ff037861901e54a975e0e}} 
 \index{GraphicComponent@{GraphicComponent}!getWidth@{getWidth}}
 \index{getWidth@{getWidth}!GraphicComponent@{GraphicComponent}}
@@ -279,6 +241,12 @@ Implementado por \mbox{\hyperlink{class_vcc_acae0b6e4c296870b8de189955bfa1a60}{V
 \index{setVertex2@{setVertex2}!GraphicComponent@{GraphicComponent}}
 \doxysubsubsection{\texorpdfstring{setVertex2()}{setVertex2()}}
 {\footnotesize\ttfamily void Graphic\+Component\+::set\+Vertex2 (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_graphic_component_a2f60f3767cd9cf7090df92f1b20b9051}\label{class_graphic_component_a2f60f3767cd9cf7090df92f1b20b9051}} 
+\index{GraphicComponent@{GraphicComponent}!updateName@{updateName}}
+\index{updateName@{updateName}!GraphicComponent@{GraphicComponent}}
+\doxysubsubsection{\texorpdfstring{updateName()}{updateName()}}
+{\footnotesize\ttfamily void Graphic\+Component\+::update\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -343,12 +311,6 @@ Implementado por \mbox{\hyperlink{class_vcc_acae0b6e4c296870b8de189955bfa1a60}{V
 \doxysubsubsection{\texorpdfstring{vertexArea2}{vertexArea2}}
 {\footnotesize\ttfamily QRect Graphic\+Component\+::vertex\+Area2\hspace{0.3cm}{\ttfamily [protected]}}
 
-\mbox{\Hypertarget{class_graphic_component_ab98afbc1f2b984296cee0833be71c081}\label{class_graphic_component_ab98afbc1f2b984296cee0833be71c081}} 
-\index{GraphicComponent@{GraphicComponent}!vertexNum@{vertexNum}}
-\index{vertexNum@{vertexNum}!GraphicComponent@{GraphicComponent}}
-\doxysubsubsection{\texorpdfstring{vertexNum}{vertexNum}}
-{\footnotesize\ttfamily unsigned int Graphic\+Component\+::vertex\+Num = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
 \mbox{\Hypertarget{class_graphic_component_aebc4831a6f1c48f29a201624f9f542e2}\label{class_graphic_component_aebc4831a6f1c48f29a201624f9f542e2}} 
 \index{GraphicComponent@{GraphicComponent}!x@{x}}
 \index{x@{x}!GraphicComponent@{GraphicComponent}}
@@ -365,5 +327,5 @@ Implementado por \mbox{\hyperlink{class_vcc_acae0b6e4c296870b8de189955bfa1a60}{V
 
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_graphic_component_8h}{Graphic\+Component.\+h}}\item 
-\mbox{\hyperlink{_graphic_component_8cpp}{Graphic\+Component.\+cpp}}\end{DoxyCompactItemize}
+Circuit\+Sim/\mbox{\hyperlink{_graphic_component_8h}{Graphic\+Component.\+h}}\item 
+Circuit\+Sim/\mbox{\hyperlink{_graphic_component_8cpp}{Graphic\+Component.\+cpp}}\end{DoxyCompactItemize}

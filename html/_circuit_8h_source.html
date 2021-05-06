@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CircuitSim: Código-Fonte de Circuit.h</title>
+<title>CircuitSim: Código-Fonte de CircuitSim/Circuit.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,80 +99,99 @@ $(document).ready(function(){initNavTree('_circuit_8h_source.html',''); initResi
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_c_c_t.html">CCT</a>{</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_c_c_t_1_1_circuit.html">   32</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_c_c_t_1_1_circuit.html">Circuit</a>:<span class="keyword">public</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html">GRF::incidenceMatrix</a>{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_c_c_t_1_1_circuit.html#a8d925191c6f1519b0eb5c4f2c8b01b29">   35</a></span>&#160;        std::vector&lt;CMP::Component*&gt; <a class="code" href="class_c_c_t_1_1_circuit.html#a8d925191c6f1519b0eb5c4f2c8b01b29">components</a>;  </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_c_c_t_1_1_circuit.html#a51a96410e08d6c69ed8032914307b696">   36</a></span>&#160;        std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code" href="class_c_c_t_1_1_circuit.html#a51a96410e08d6c69ed8032914307b696">circuitMatrix</a>; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_c_c_t_1_1_circuit.html#af1cc19598b0da8c3c79595940cb46136">   37</a></span>&#160;        std::vector&lt;unsigned int&gt; <a class="code" href="class_c_c_t_1_1_circuit.html#af1cc19598b0da8c3c79595940cb46136">chords</a>; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a898e07dd0dc1924dc5bd91d191626d7b">updateComponents</a>(std:: vector&lt;double&gt; currents);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a3b4483562533df5bf02234a2a674f2cf">Solve</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="class_c_c_t_1_1_circuit.html#a12797ff2ff007d290cf010cd489723c9">Circuit</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="class_c_c_t_1_1_circuit.html#a2ea1a1de7f5d190ab9de7ffc31f84a01">~Circuit</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_c_c_t_1_1_circuit.html">   31</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_c_c_t_1_1_circuit.html">Circuit</a>:<span class="keyword">public</span> <a class="code" href="class_g_r_f_1_1incidence_matrix.html">GRF::incidenceMatrix</a>{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_c_c_t_1_1_circuit.html#a8d925191c6f1519b0eb5c4f2c8b01b29">   34</a></span>&#160;        std::vector&lt;CMP::Component*&gt; <a class="code" href="class_c_c_t_1_1_circuit.html#a8d925191c6f1519b0eb5c4f2c8b01b29">components</a>;  </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_c_c_t_1_1_circuit.html#a51a96410e08d6c69ed8032914307b696">   35</a></span>&#160;        std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code" href="class_c_c_t_1_1_circuit.html#a51a96410e08d6c69ed8032914307b696">circuitMatrix</a>; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_c_c_t_1_1_circuit.html#af1cc19598b0da8c3c79595940cb46136">   36</a></span>&#160;        std::vector&lt;unsigned int&gt; <a class="code" href="class_c_c_t_1_1_circuit.html#af1cc19598b0da8c3c79595940cb46136">chords</a>; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a898e07dd0dc1924dc5bd91d191626d7b">updateComponents</a>(std:: vector&lt;double&gt; currents);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a3b4483562533df5bf02234a2a674f2cf">Solve</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="class_c_c_t_1_1_circuit.html#a12797ff2ff007d290cf010cd489723c9">Circuit</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#abdf00c1b153dd979998620aef6b609b8">initialize</a>();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#ad9ac1e653ffadd4fbdb19d6a5ddac83e">reset</a>();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="class_c_c_t_1_1_circuit.html#a2ea1a1de7f5d190ab9de7ffc31f84a01">~Circuit</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#abdf00c1b153dd979998620aef6b609b8">initialize</a>();</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a090e22537636270d6df65073b2c33111">addComponent</a>(<a class="code" href="namespace_c_m_p.html#a5f2d1fd0d049252c22e8b5498a70665f">CMP::type</a> t,std::string l,<span class="keywordtype">double</span> value, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx1, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx2);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a5711aebcfd8e6f73b93eba0399f09029">editComponent</a>(std::string label, <span class="keywordtype">double</span> value);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#ad9ac1e653ffadd4fbdb19d6a5ddac83e">reset</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a090e22537636270d6df65073b2c33111">addComponent</a>(<a class="code" href="namespace_c_m_p.html#a5f2d1fd0d049252c22e8b5498a70665f">CMP::type</a> t, std::string l, <span class="keywordtype">double</span> value, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx1, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vtx2);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a5711aebcfd8e6f73b93eba0399f09029">editComponent</a>(std::string label, std::string newLabel);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a5711aebcfd8e6f73b93eba0399f09029">editComponent</a>(std::string label, <span class="keywordtype">double</span> value);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a6576496694cfb05db79deabdbe71ae1c">removeComponent</a>(std::string l);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_c_c_t_1_1_circuit.html#aed457cf75649fc5940f694796c423092">getVoltage</a>(std::string l);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_c_c_t_1_1_circuit.html#ad32d0df30888541fca0a371abd063c30">getCurrent</a>(std::string l);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    };</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a5711aebcfd8e6f73b93eba0399f09029">editComponent</a>(std::string label, std::string newLabel);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#a6576496694cfb05db79deabdbe71ae1c">removeComponent</a>(std::string l);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="class_c_c_t_1_1_circuit.html#aa1283326502ed790bea9df66a45cbceb">  169</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_c_c_t_1_1_circuit.html#aa1283326502ed790bea9df66a45cbceb">removeComponent</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> edge);</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        std::string <a class="code" href="class_c_c_t_1_1_circuit.html#aab0b57198bd8ebc9e5047f18549fc817">getComponentLabel</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> edge);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_c_c_t_1_1_circuit.html#aed457cf75649fc5940f694796c423092">getVoltage</a>(std::string l);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_c_c_t_1_1_circuit.html#ad32d0df30888541fca0a371abd063c30">getCurrent</a>(std::string l);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    };</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;}</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_component_8h_html"><div class="ttname"><a href="_component_8h.html">Component.h</a></div><div class="ttdoc">Declaração da classe Component.</div></div>
 <div class="ttc" id="a_graph_8h_html"><div class="ttname"><a href="_graph_8h.html">Graph.h</a></div><div class="ttdoc">Declaração das classes de grafo utilizadas no projeto.</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html">CCT::Circuit</a></div><div class="ttdoc">Implementação da classe Circuit.</div><div class="ttdef"><b>Definition:</b> Circuit.h:32</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a090e22537636270d6df65073b2c33111"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a090e22537636270d6df65073b2c33111">CCT::Circuit::addComponent</a></div><div class="ttdeci">void addComponent(CMP::type t, std::string l, double value, unsigned int vtx1, unsigned int vtx2)</div><div class="ttdoc">Adiciona um objeto da classe Component no circuito.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:79</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a12797ff2ff007d290cf010cd489723c9"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a12797ff2ff007d290cf010cd489723c9">CCT::Circuit::Circuit</a></div><div class="ttdeci">Circuit()</div><div class="ttdoc">Construtor para a classe Circuito.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:34</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a2ea1a1de7f5d190ab9de7ffc31f84a01"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a2ea1a1de7f5d190ab9de7ffc31f84a01">CCT::Circuit::~Circuit</a></div><div class="ttdeci">~Circuit()</div><div class="ttdoc">Desconstrutor para a classe Circuito.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:36</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a3b4483562533df5bf02234a2a674f2cf"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a3b4483562533df5bf02234a2a674f2cf">CCT::Circuit::Solve</a></div><div class="ttdeci">void Solve()</div><div class="ttdoc">Obtém os valores das correntes em cada componente e atualiza cada componente.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:186</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a51a96410e08d6c69ed8032914307b696"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a51a96410e08d6c69ed8032914307b696">CCT::Circuit::circuitMatrix</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; circuitMatrix</div><div class="ttdoc">Armazena os circuitos fundamentais do grafo.</div><div class="ttdef"><b>Definition:</b> Circuit.h:36</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a5711aebcfd8e6f73b93eba0399f09029"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a5711aebcfd8e6f73b93eba0399f09029">CCT::Circuit::editComponent</a></div><div class="ttdeci">void editComponent(std::string label, double value)</div><div class="ttdoc">Edita o valor de um objeto da classe Component pertencente ao circuito.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:105</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a6576496694cfb05db79deabdbe71ae1c"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a6576496694cfb05db79deabdbe71ae1c">CCT::Circuit::removeComponent</a></div><div class="ttdeci">void removeComponent(std::string l)</div><div class="ttdoc">Remove um objeto da classe Component pertencente ao circuito.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:155</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a898e07dd0dc1924dc5bd91d191626d7b"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a898e07dd0dc1924dc5bd91d191626d7b">CCT::Circuit::updateComponents</a></div><div class="ttdeci">void updateComponents(std::vector&lt; double &gt; currents)</div><div class="ttdoc">Atualiza os valores dos componentes.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:42</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a8d925191c6f1519b0eb5c4f2c8b01b29"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a8d925191c6f1519b0eb5c4f2c8b01b29">CCT::Circuit::components</a></div><div class="ttdeci">std::vector&lt; CMP::Component * &gt; components</div><div class="ttdoc">Armazena os componentes inseridos.</div><div class="ttdef"><b>Definition:</b> Circuit.h:35</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_abdf00c1b153dd979998620aef6b609b8"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#abdf00c1b153dd979998620aef6b609b8">CCT::Circuit::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Obtém os circuitos fundamentais do grafo de circuito e armazena em circuitMAtrix, bem como,...</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:55</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_ad32d0df30888541fca0a371abd063c30"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#ad32d0df30888541fca0a371abd063c30">CCT::Circuit::getCurrent</a></div><div class="ttdeci">double getCurrent(std::string l)</div><div class="ttdoc">Retorna a corrente através de um componente.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:234</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_ad9ac1e653ffadd4fbdb19d6a5ddac83e"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#ad9ac1e653ffadd4fbdb19d6a5ddac83e">CCT::Circuit::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reseta a matriz de circuitos fundamentais contidas no vector cicuitMatrix e o vector chords de aresta...</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:72</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_aed457cf75649fc5940f694796c423092"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#aed457cf75649fc5940f694796c423092">CCT::Circuit::getVoltage</a></div><div class="ttdeci">double getVoltage(std::string l)</div><div class="ttdoc">Retorna a tensão através de um componente.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:226</div></div>
-<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_af1cc19598b0da8c3c79595940cb46136"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#af1cc19598b0da8c3c79595940cb46136">CCT::Circuit::chords</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; chords</div><div class="ttdoc">Armazena as arestas que não estão na árvore geradora do grafo.</div><div class="ttdef"><b>Definition:</b> Circuit.h:37</div></div>
-<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html">GRF::incidenceMatrix</a></div><div class="ttdef"><b>Definition:</b> Graph.h:26</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html">CCT::Circuit</a></div><div class="ttdoc">Declaração da classe Circuit.</div><div class="ttdef"><b>Definition:</b> Circuit.h:31</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a090e22537636270d6df65073b2c33111"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a090e22537636270d6df65073b2c33111">CCT::Circuit::addComponent</a></div><div class="ttdeci">void addComponent(CMP::type t, std::string l, double value, unsigned int vtx1, unsigned int vtx2)</div><div class="ttdoc">Adiciona um objeto da classe Component no circuito.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:72</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a12797ff2ff007d290cf010cd489723c9"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a12797ff2ff007d290cf010cd489723c9">CCT::Circuit::Circuit</a></div><div class="ttdeci">Circuit()</div><div class="ttdoc">Construtor para a classe Circuit.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:25</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a2ea1a1de7f5d190ab9de7ffc31f84a01"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a2ea1a1de7f5d190ab9de7ffc31f84a01">CCT::Circuit::~Circuit</a></div><div class="ttdeci">~Circuit()</div><div class="ttdoc">Desconstrutor para a classe Circuit.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:27</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a3b4483562533df5bf02234a2a674f2cf"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a3b4483562533df5bf02234a2a674f2cf">CCT::Circuit::Solve</a></div><div class="ttdeci">void Solve()</div><div class="ttdoc">Resolve o circuito.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:192</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a51a96410e08d6c69ed8032914307b696"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a51a96410e08d6c69ed8032914307b696">CCT::Circuit::circuitMatrix</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; circuitMatrix</div><div class="ttdoc">Armazena os circuitos fundamentais do grafo.</div><div class="ttdef"><b>Definition:</b> Circuit.h:35</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a5711aebcfd8e6f73b93eba0399f09029"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a5711aebcfd8e6f73b93eba0399f09029">CCT::Circuit::editComponent</a></div><div class="ttdeci">void editComponent(std::string label, double value)</div><div class="ttdoc">Edita o valor de um objeto da classe Component pertencente ao circuito.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:98</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a6576496694cfb05db79deabdbe71ae1c"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a6576496694cfb05db79deabdbe71ae1c">CCT::Circuit::removeComponent</a></div><div class="ttdeci">void removeComponent(std::string l)</div><div class="ttdoc">Remove um objeto da classe Component pertencente ao circuito.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:148</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a898e07dd0dc1924dc5bd91d191626d7b"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a898e07dd0dc1924dc5bd91d191626d7b">CCT::Circuit::updateComponents</a></div><div class="ttdeci">void updateComponents(std::vector&lt; double &gt; currents)</div><div class="ttdoc">Atualiza os valores dos componentes contidos em um objeto da classe Circuit.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:33</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_a8d925191c6f1519b0eb5c4f2c8b01b29"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#a8d925191c6f1519b0eb5c4f2c8b01b29">CCT::Circuit::components</a></div><div class="ttdeci">std::vector&lt; CMP::Component * &gt; components</div><div class="ttdoc">Armazena os componentes inseridos.</div><div class="ttdef"><b>Definition:</b> Circuit.h:34</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_aa1283326502ed790bea9df66a45cbceb"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#aa1283326502ed790bea9df66a45cbceb">CCT::Circuit::removeComponent</a></div><div class="ttdeci">void removeComponent(unsigned int edge)</div><div class="ttdoc">Remove um objeto da classe Component pertencente ao circuito.</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_aab0b57198bd8ebc9e5047f18549fc817"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#aab0b57198bd8ebc9e5047f18549fc817">CCT::Circuit::getComponentLabel</a></div><div class="ttdeci">std::string getComponentLabel(unsigned int edge)</div><div class="ttdoc">Getter para o nome de identificação de um componente pertencente ao circuito.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:184</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_abdf00c1b153dd979998620aef6b609b8"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#abdf00c1b153dd979998620aef6b609b8">CCT::Circuit::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Inicializa um objeto da classe Circuit.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:46</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_ad32d0df30888541fca0a371abd063c30"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#ad32d0df30888541fca0a371abd063c30">CCT::Circuit::getCurrent</a></div><div class="ttdeci">double getCurrent(std::string l)</div><div class="ttdoc">Getter para a corrente através de um componente.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:240</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_ad9ac1e653ffadd4fbdb19d6a5ddac83e"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#ad9ac1e653ffadd4fbdb19d6a5ddac83e">CCT::Circuit::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reseta a matriz de circuitos fundamentais.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:65</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_aed457cf75649fc5940f694796c423092"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#aed457cf75649fc5940f694796c423092">CCT::Circuit::getVoltage</a></div><div class="ttdeci">double getVoltage(std::string l)</div><div class="ttdoc">Getter para a tensão através de um componente.</div><div class="ttdef"><b>Definition:</b> Circuit.cpp:232</div></div>
+<div class="ttc" id="aclass_c_c_t_1_1_circuit_html_af1cc19598b0da8c3c79595940cb46136"><div class="ttname"><a href="class_c_c_t_1_1_circuit.html#af1cc19598b0da8c3c79595940cb46136">CCT::Circuit::chords</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; chords</div><div class="ttdoc">Armazena as arestas que não estão na árvore geradora do grafo.</div><div class="ttdef"><b>Definition:</b> Circuit.h:36</div></div>
+<div class="ttc" id="aclass_g_r_f_1_1incidence_matrix_html"><div class="ttname"><a href="class_g_r_f_1_1incidence_matrix.html">GRF::incidenceMatrix</a></div><div class="ttdoc">Declaração da classe incidenceMatrix.</div><div class="ttdef"><b>Definition:</b> Graph.h:35</div></div>
 <div class="ttc" id="anamespace_c_c_t_html"><div class="ttname"><a href="namespace_c_c_t.html">CCT</a></div><div class="ttdef"><b>Definition:</b> Circuit.cpp:23</div></div>
-<div class="ttc" id="anamespace_c_m_p_html_a5f2d1fd0d049252c22e8b5498a70665f"><div class="ttname"><a href="namespace_c_m_p.html#a5f2d1fd0d049252c22e8b5498a70665f">CMP::type</a></div><div class="ttdeci">type</div><div class="ttdef"><b>Definition:</b> Component.h:23</div></div>
+<div class="ttc" id="anamespace_c_m_p_html_a5f2d1fd0d049252c22e8b5498a70665f"><div class="ttname"><a href="namespace_c_m_p.html#a5f2d1fd0d049252c22e8b5498a70665f">CMP::type</a></div><div class="ttdeci">type</div><div class="ttdoc">Fornece uma identificação para os tipos de componentes disponíveis no programa.</div><div class="ttdef"><b>Definition:</b> Component.h:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="_circuit_8h.html">Circuit.h</a></li>
+    <li class="navelem"><a class="el" href="dir_668dfb7abd780d125723bc7979148f19.html">CircuitSim</a></li><li class="navelem"><a class="el" href="_circuit_8h.html">Circuit.h</a></li>
     <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

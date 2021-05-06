@@ -21,7 +21,15 @@ void \mbox{\hyperlink{class_main_window_a464aaa4d378e7b2d814756a73d6e1ed6}{save\
 \item 
 void \mbox{\hyperlink{class_main_window_a1725a0bf1d276bb1fbc57ef669d73208}{save\+File\+As}} ()
 \item 
-void \mbox{\hyperlink{class_main_window_ace4923667dd042d1d8befd28057b0cfa}{preferences}} ()
+void \mbox{\hyperlink{class_main_window_af95ff42b93c453fd2a8edaa67bc50d20}{set\+BGColor}} ()
+\item 
+void \mbox{\hyperlink{class_main_window_adf343ca7151f53422f3638551ceca1cc}{set\+Grid\+Color}} ()
+\item 
+void \mbox{\hyperlink{class_main_window_a8cfdf88d276597a500eab1bd83a8f08e}{set\+Component\+Color}} ()
+\item 
+void \mbox{\hyperlink{class_main_window_a94c3ec3bd0591cdad20d927a8fc798fd}{set\+Selected\+Color}} ()
+\item 
+void \mbox{\hyperlink{class_main_window_adc9542fd14cf67914bfa256aaacc1a64}{reset\+Config}} ()
 \item 
 void \mbox{\hyperlink{class_main_window_a69b9bf0caa9ad5f16dcaeb3d92cc7e85}{set\+Tab\+Status}} (bool modified)
 \item 
@@ -38,10 +46,23 @@ void \mbox{\hyperlink{class_main_window_a5ec4268d39185f3ab53c86b35e54a21a}{draw\
 \doxysubsection*{Membros Públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (QWidget $\ast$parent=nullptr)
+void \mbox{\hyperlink{class_main_window_a2a947444fcfc921b5d237c706024891d}{load\+Config}} ()
+\item 
+void \mbox{\hyperlink{class_main_window_a6ed531ca72d7eb2e37eba86f668801cb}{save\+Config}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Membros Públicos Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_main_window}{Main\+Window}} $\ast$ \mbox{\hyperlink{class_main_window_a2db011282ea1afb95c8c9bd6eca6448a}{get\+Main\+Window}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Membros Privados}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (QWidget $\ast$parent=nullptr)
+\item 
+\mbox{\hyperlink{class_main_window_a6a060b895950b0ada1fc165f64288e14}{Main\+Window}} (const \mbox{\hyperlink{class_main_window}{Main\+Window}} \&)
+\item 
+\mbox{\hyperlink{class_main_window}{Main\+Window}} \mbox{\hyperlink{class_main_window_ae54e266cd049ab220396d6daaab7564f}{operator=}} (\mbox{\hyperlink{class_main_window}{Main\+Window}} \&)
 \item 
 void \mbox{\hyperlink{class_main_window_a5009493bf0acbb9a04dff618aa662a3d}{initialize\+Menu}} ()
 \item 
@@ -76,8 +97,6 @@ QAction $\ast$ \mbox{\hyperlink{class_main_window_ad973ccc25756dc04fe0402dcfacfe
 \item 
 QAction $\ast$ \mbox{\hyperlink{class_main_window_a2655bcbf7246247886f4548a669b2ef4}{new\+File\+Act}}
 \item 
-QAction $\ast$ \mbox{\hyperlink{class_main_window_a8f514c3a6ae5ee1f5087bf246cc78dc6}{pref\+Act}}
-\item 
 QAction $\ast$ \mbox{\hyperlink{class_main_window_a2523c30aa87fa27450c7e7ea1a13dbfe}{tutorial\+Act}}
 \item 
 QTool\+Bar $\ast$ \mbox{\hyperlink{class_main_window_a8d655c3a80e21698adee32b4712349cc}{toolbar}}
@@ -85,6 +104,21 @@ QTool\+Bar $\ast$ \mbox{\hyperlink{class_main_window_a8d655c3a80e21698adee32b471
 QStatus\+Bar $\ast$ \mbox{\hyperlink{class_main_window_a4a04910f3193303a44506b44521b61b0}{status\+Bar}}
 \item 
 QWidget $\ast$ \mbox{\hyperlink{class_main_window_aff714e419ab849117f00e224caeb4955}{initial\+Tab}}
+\item 
+QAction $\ast$ \mbox{\hyperlink{class_main_window_af2a89a776683c43368bdc69f164179e5}{set\+BGColor\+Act}}
+\item 
+QAction $\ast$ \mbox{\hyperlink{class_main_window_a4da06bf02e9473f40a026b7421324a5a}{set\+Grid\+Color\+Act}}
+\item 
+QAction $\ast$ \mbox{\hyperlink{class_main_window_ac07393debb2c185c0b58a3b8355bd7e0}{set\+Component\+Color\+Act}}
+\item 
+QAction $\ast$ \mbox{\hyperlink{class_main_window_a705238ee563147e8fa5c6d041d88e9c1}{set\+Selected\+Color\+Act}}
+\item 
+QAction $\ast$ \mbox{\hyperlink{class_main_window_a677893e85fdc78c1a241de13e6a23729}{reset\+Config\+Act}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Privados Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_main_window}{Main\+Window}} $\ast$ \mbox{\hyperlink{class_main_window_a806ddf9cb9332e58f7da583f3df03fd8}{instance}} = nullptr
 \end{DoxyCompactItemize}
 
 
@@ -92,8 +126,14 @@ QWidget $\ast$ \mbox{\hyperlink{class_main_window_aff714e419ab849117f00e224caeb4
 \mbox{\Hypertarget{class_main_window_a996c5a2b6f77944776856f08ec30858d}\label{class_main_window_a996c5a2b6f77944776856f08ec30858d}} 
 \index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
 \index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
-\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
-{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_a6a060b895950b0ada1fc165f64288e14}\label{class_main_window_a6a060b895950b0ada1fc165f64288e14}} 
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_main_window}{Main\+Window}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -128,6 +168,12 @@ QWidget $\ast$ \mbox{\hyperlink{class_main_window_aff714e419ab849117f00e224caeb4
 \doxysubsubsection{\texorpdfstring{drawVcc90}{drawVcc90}}
 {\footnotesize\ttfamily void Main\+Window\+::draw\+Vcc90 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
+\mbox{\Hypertarget{class_main_window_a2db011282ea1afb95c8c9bd6eca6448a}\label{class_main_window_a2db011282ea1afb95c8c9bd6eca6448a}} 
+\index{MainWindow@{MainWindow}!getMainWindow@{getMainWindow}}
+\index{getMainWindow@{getMainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{getMainWindow()}{getMainWindow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_main_window}{Main\+Window}} $\ast$ Main\+Window\+::get\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
 \mbox{\Hypertarget{class_main_window_a5009493bf0acbb9a04dff618aa662a3d}\label{class_main_window_a5009493bf0acbb9a04dff618aa662a3d}} 
 \index{MainWindow@{MainWindow}!initializeMenu@{initializeMenu}}
 \index{initializeMenu@{initializeMenu}!MainWindow@{MainWindow}}
@@ -152,6 +198,12 @@ QWidget $\ast$ \mbox{\hyperlink{class_main_window_aff714e419ab849117f00e224caeb4
 \doxysubsubsection{\texorpdfstring{initializeToolbar()}{initializeToolbar()}}
 {\footnotesize\ttfamily void Main\+Window\+::initialize\+Toolbar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+\mbox{\Hypertarget{class_main_window_a2a947444fcfc921b5d237c706024891d}\label{class_main_window_a2a947444fcfc921b5d237c706024891d}} 
+\index{MainWindow@{MainWindow}!loadConfig@{loadConfig}}
+\index{loadConfig@{loadConfig}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{loadConfig()}{loadConfig()}}
+{\footnotesize\ttfamily void Main\+Window\+::load\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_main_window_a69f73b93cc05c89a9ae1be0161105982}\label{class_main_window_a69f73b93cc05c89a9ae1be0161105982}} 
 \index{MainWindow@{MainWindow}!newFile@{newFile}}
 \index{newFile@{newFile}!MainWindow@{MainWindow}}
@@ -170,11 +222,23 @@ QWidget $\ast$ \mbox{\hyperlink{class_main_window_aff714e419ab849117f00e224caeb4
 \doxysubsubsection{\texorpdfstring{openFile()}{openFile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Main\+Window\+::open\+File (\begin{DoxyParamCaption}\item[{QString}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{class_main_window_ace4923667dd042d1d8befd28057b0cfa}\label{class_main_window_ace4923667dd042d1d8befd28057b0cfa}} 
-\index{MainWindow@{MainWindow}!preferences@{preferences}}
-\index{preferences@{preferences}!MainWindow@{MainWindow}}
-\doxysubsubsection{\texorpdfstring{preferences}{preferences}}
-{\footnotesize\ttfamily void Main\+Window\+::preferences (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+\mbox{\Hypertarget{class_main_window_ae54e266cd049ab220396d6daaab7564f}\label{class_main_window_ae54e266cd049ab220396d6daaab7564f}} 
+\index{MainWindow@{MainWindow}!operator=@{operator=}}
+\index{operator=@{operator=}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_main_window}{Main\+Window}} Main\+Window\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_main_window}{Main\+Window}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_adc9542fd14cf67914bfa256aaacc1a64}\label{class_main_window_adc9542fd14cf67914bfa256aaacc1a64}} 
+\index{MainWindow@{MainWindow}!resetConfig@{resetConfig}}
+\index{resetConfig@{resetConfig}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{resetConfig}{resetConfig}}
+{\footnotesize\ttfamily void Main\+Window\+::reset\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_main_window_a6ed531ca72d7eb2e37eba86f668801cb}\label{class_main_window_a6ed531ca72d7eb2e37eba86f668801cb}} 
+\index{MainWindow@{MainWindow}!saveConfig@{saveConfig}}
+\index{saveConfig@{saveConfig}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{saveConfig()}{saveConfig()}}
+{\footnotesize\ttfamily void Main\+Window\+::save\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_main_window_a464aaa4d378e7b2d814756a73d6e1ed6}\label{class_main_window_a464aaa4d378e7b2d814756a73d6e1ed6}} 
 \index{MainWindow@{MainWindow}!saveFile@{saveFile}}
@@ -187,6 +251,30 @@ QWidget $\ast$ \mbox{\hyperlink{class_main_window_aff714e419ab849117f00e224caeb4
 \index{saveFileAs@{saveFileAs}!MainWindow@{MainWindow}}
 \doxysubsubsection{\texorpdfstring{saveFileAs}{saveFileAs}}
 {\footnotesize\ttfamily void Main\+Window\+::save\+File\+As (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_main_window_af95ff42b93c453fd2a8edaa67bc50d20}\label{class_main_window_af95ff42b93c453fd2a8edaa67bc50d20}} 
+\index{MainWindow@{MainWindow}!setBGColor@{setBGColor}}
+\index{setBGColor@{setBGColor}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setBGColor}{setBGColor}}
+{\footnotesize\ttfamily void Main\+Window\+::set\+BGColor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_main_window_a8cfdf88d276597a500eab1bd83a8f08e}\label{class_main_window_a8cfdf88d276597a500eab1bd83a8f08e}} 
+\index{MainWindow@{MainWindow}!setComponentColor@{setComponentColor}}
+\index{setComponentColor@{setComponentColor}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setComponentColor}{setComponentColor}}
+{\footnotesize\ttfamily void Main\+Window\+::set\+Component\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_main_window_adf343ca7151f53422f3638551ceca1cc}\label{class_main_window_adf343ca7151f53422f3638551ceca1cc}} 
+\index{MainWindow@{MainWindow}!setGridColor@{setGridColor}}
+\index{setGridColor@{setGridColor}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setGridColor}{setGridColor}}
+{\footnotesize\ttfamily void Main\+Window\+::set\+Grid\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_main_window_a94c3ec3bd0591cdad20d927a8fc798fd}\label{class_main_window_a94c3ec3bd0591cdad20d927a8fc798fd}} 
+\index{MainWindow@{MainWindow}!setSelectedColor@{setSelectedColor}}
+\index{setSelectedColor@{setSelectedColor}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setSelectedColor}{setSelectedColor}}
+{\footnotesize\ttfamily void Main\+Window\+::set\+Selected\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 \mbox{\Hypertarget{class_main_window_a69b9bf0caa9ad5f16dcaeb3d92cc7e85}\label{class_main_window_a69b9bf0caa9ad5f16dcaeb3d92cc7e85}} 
 \index{MainWindow@{MainWindow}!setTabStatus@{setTabStatus}}
@@ -221,6 +309,12 @@ QWidget $\ast$ \mbox{\hyperlink{class_main_window_aff714e419ab849117f00e224caeb4
 \doxysubsubsection{\texorpdfstring{initialTab}{initialTab}}
 {\footnotesize\ttfamily QWidget$\ast$ Main\+Window\+::initial\+Tab\hspace{0.3cm}{\ttfamily [private]}}
 
+\mbox{\Hypertarget{class_main_window_a806ddf9cb9332e58f7da583f3df03fd8}\label{class_main_window_a806ddf9cb9332e58f7da583f3df03fd8}} 
+\index{MainWindow@{MainWindow}!instance@{instance}}
+\index{instance@{instance}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{instance}{instance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_main_window}{Main\+Window}} $\ast$ Main\+Window\+::instance = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
 \mbox{\Hypertarget{class_main_window_a8071a9ddcb6fd10dbe2b3d3ea6d2109c}\label{class_main_window_a8071a9ddcb6fd10dbe2b3d3ea6d2109c}} 
 \index{MainWindow@{MainWindow}!mainBar@{mainBar}}
 \index{mainBar@{mainBar}!MainWindow@{MainWindow}}
@@ -239,17 +333,17 @@ QWidget $\ast$ \mbox{\hyperlink{class_main_window_aff714e419ab849117f00e224caeb4
 \doxysubsubsection{\texorpdfstring{openFileAct}{openFileAct}}
 {\footnotesize\ttfamily QAction$\ast$ Main\+Window\+::open\+File\+Act\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{class_main_window_a8f514c3a6ae5ee1f5087bf246cc78dc6}\label{class_main_window_a8f514c3a6ae5ee1f5087bf246cc78dc6}} 
-\index{MainWindow@{MainWindow}!prefAct@{prefAct}}
-\index{prefAct@{prefAct}!MainWindow@{MainWindow}}
-\doxysubsubsection{\texorpdfstring{prefAct}{prefAct}}
-{\footnotesize\ttfamily QAction$\ast$ Main\+Window\+::pref\+Act\hspace{0.3cm}{\ttfamily [private]}}
-
 \mbox{\Hypertarget{class_main_window_ac8683064eda923689b4f83424dd57442}\label{class_main_window_ac8683064eda923689b4f83424dd57442}} 
 \index{MainWindow@{MainWindow}!prefMenu@{prefMenu}}
 \index{prefMenu@{prefMenu}!MainWindow@{MainWindow}}
 \doxysubsubsection{\texorpdfstring{prefMenu}{prefMenu}}
 {\footnotesize\ttfamily QMenu$\ast$ Main\+Window\+::pref\+Menu\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_a677893e85fdc78c1a241de13e6a23729}\label{class_main_window_a677893e85fdc78c1a241de13e6a23729}} 
+\index{MainWindow@{MainWindow}!resetConfigAct@{resetConfigAct}}
+\index{resetConfigAct@{resetConfigAct}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{resetConfigAct}{resetConfigAct}}
+{\footnotesize\ttfamily QAction$\ast$ Main\+Window\+::reset\+Config\+Act\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_main_window_a249dac5448639794a5cb8ca5d3c154a5}\label{class_main_window_a249dac5448639794a5cb8ca5d3c154a5}} 
 \index{MainWindow@{MainWindow}!saveFileAct@{saveFileAct}}
@@ -262,6 +356,30 @@ QWidget $\ast$ \mbox{\hyperlink{class_main_window_aff714e419ab849117f00e224caeb4
 \index{saveFileAsAct@{saveFileAsAct}!MainWindow@{MainWindow}}
 \doxysubsubsection{\texorpdfstring{saveFileAsAct}{saveFileAsAct}}
 {\footnotesize\ttfamily QAction$\ast$ Main\+Window\+::save\+File\+As\+Act\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_af2a89a776683c43368bdc69f164179e5}\label{class_main_window_af2a89a776683c43368bdc69f164179e5}} 
+\index{MainWindow@{MainWindow}!setBGColorAct@{setBGColorAct}}
+\index{setBGColorAct@{setBGColorAct}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setBGColorAct}{setBGColorAct}}
+{\footnotesize\ttfamily QAction$\ast$ Main\+Window\+::set\+BGColor\+Act\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_ac07393debb2c185c0b58a3b8355bd7e0}\label{class_main_window_ac07393debb2c185c0b58a3b8355bd7e0}} 
+\index{MainWindow@{MainWindow}!setComponentColorAct@{setComponentColorAct}}
+\index{setComponentColorAct@{setComponentColorAct}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setComponentColorAct}{setComponentColorAct}}
+{\footnotesize\ttfamily QAction$\ast$ Main\+Window\+::set\+Component\+Color\+Act\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_a4da06bf02e9473f40a026b7421324a5a}\label{class_main_window_a4da06bf02e9473f40a026b7421324a5a}} 
+\index{MainWindow@{MainWindow}!setGridColorAct@{setGridColorAct}}
+\index{setGridColorAct@{setGridColorAct}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setGridColorAct}{setGridColorAct}}
+{\footnotesize\ttfamily QAction$\ast$ Main\+Window\+::set\+Grid\+Color\+Act\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_main_window_a705238ee563147e8fa5c6d041d88e9c1}\label{class_main_window_a705238ee563147e8fa5c6d041d88e9c1}} 
+\index{MainWindow@{MainWindow}!setSelectedColorAct@{setSelectedColorAct}}
+\index{setSelectedColorAct@{setSelectedColorAct}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{setSelectedColorAct}{setSelectedColorAct}}
+{\footnotesize\ttfamily QAction$\ast$ Main\+Window\+::set\+Selected\+Color\+Act\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_main_window_a4a04910f3193303a44506b44521b61b0}\label{class_main_window_a4a04910f3193303a44506b44521b61b0}} 
 \index{MainWindow@{MainWindow}!statusBar@{statusBar}}
@@ -291,5 +409,5 @@ QWidget $\ast$ \mbox{\hyperlink{class_main_window_aff714e419ab849117f00e224caeb4
 
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_main_window_8h}{Main\+Window.\+h}}\item 
-\mbox{\hyperlink{_main_window_8cpp}{Main\+Window.\+cpp}}\end{DoxyCompactItemize}
+Circuit\+Sim/\mbox{\hyperlink{_main_window_8h}{Main\+Window.\+h}}\item 
+Circuit\+Sim/\mbox{\hyperlink{_main_window_8cpp}{Main\+Window.\+cpp}}\end{DoxyCompactItemize}

@@ -1,12 +1,9 @@
 var class_graphic_component =
 [
-    [ "GraphicComponent", "class_graphic_component.html#ac0315d9deb2eac5222d401918d771263", null ],
-    [ "GraphicComponent", "class_graphic_component.html#a64c4f958ce0648aec4d9d1a6f396af06", null ],
-    [ "GraphicComponent", "class_graphic_component.html#a1b41e0eb7f7837e5bc0b51bf2bc48447", null ],
-    [ "clicked", "class_graphic_component.html#a003ffab144ddb924b116e2fc11903ff4", null ],
+    [ "GraphicComponent", "class_graphic_component.html#ac99cd2386ebf02675f239b91d73c2571", null ],
     [ "clickedArea", "class_graphic_component.html#ab97364d0b6dea415fcc453d5f195f513", null ],
     [ "clickedVertex", "class_graphic_component.html#aa674c5f5ea14e9413ba74ce565f6f7d5", null ],
-    [ "draw", "class_graphic_component.html#a259f82318e3429a817ce3e7a90bc83f1", null ],
+    [ "draw", "class_graphic_component.html#abfe8e182ea294441563ceb6d5b61751d", null ],
     [ "getBottom", "class_graphic_component.html#aa8fe6bb5aaae3edf97643c54a7b58189", null ],
     [ "getBoundRect", "class_graphic_component.html#a29dc7109e93db711e0edb18162dac116", null ],
     [ "getHeight", "class_graphic_component.html#a5700c7c163548821d0901d04322347a8", null ],
@@ -26,6 +23,7 @@ var class_graphic_component =
     [ "setValue", "class_graphic_component.html#af7f9ea93fd46925b8d788e63d3edee6c", null ],
     [ "setVertex1", "class_graphic_component.html#a18351b68523cfd4fc9cb230a7245a984", null ],
     [ "setVertex2", "class_graphic_component.html#abacb5b50f54f4cbb496f1ca87e2a0b3f", null ],
+    [ "updateName", "class_graphic_component.html#a2f60f3767cd9cf7090df92f1b20b9051", null ],
     [ "boundRect", "class_graphic_component.html#aad60f0695dfb700e4db0272f06261e5e", null ],
     [ "componentType", "class_graphic_component.html#af29058295c6a1634f30112bdd7ff3c84", null ],
     [ "label", "class_graphic_component.html#a92f7242e80e6bca961e4d4f76ff93721", null ],

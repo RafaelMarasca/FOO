@@ -4,8 +4,8 @@ var class_c_m_p_1_1_resistor =
     [ "~Resistor", "class_c_m_p_1_1_resistor.html#adaab6f7320edf89993ffa12d88652918", null ],
     [ "getResistance", "class_c_m_p_1_1_resistor.html#a81e3196ca8f397d51a6b886c09eb2980", null ],
     [ "getType", "class_c_m_p_1_1_resistor.html#af434987c7ee81c36bd1c527eeeb191dd", null ],
-    [ "setCurrent", "class_c_m_p_1_1_resistor.html#aad64e49d3a4425d50c6684894f33e180", null ],
+    [ "setCurrent", "class_c_m_p_1_1_resistor.html#abb9933d3e627eaecefd2deff5e3c6829", null ],
     [ "setResistance", "class_c_m_p_1_1_resistor.html#a7698951bb3bdaaec46544dc34bc8fc73", null ],
-    [ "setVoltage", "class_c_m_p_1_1_resistor.html#a1da7ca15cbf41c90fa49fefdf36b2083", null ],
+    [ "setVoltage", "class_c_m_p_1_1_resistor.html#ad7fb3d5c427f092754626b23aaedf378", null ],
     [ "resistance", "class_c_m_p_1_1_resistor.html#a15e276035abd2880493c62d3edf375b8", null ]
 ];

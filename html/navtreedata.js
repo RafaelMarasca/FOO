@@ -26,6 +26,7 @@ var NAVTREE =
 [
   [ "CircuitSim", "index.html", [
     [ "Descrição", "index.html", null ],
+    [ "Módulos", "modules.html", "modules" ],
     [ "<em>Namespaces</em>", "namespaces.html", [
       [ "Lista de Namespaces", "namespaces.html", "namespaces_dup" ],
       [ "Membros do <em>Namespace</em>", "namespacemembers.html", [
@@ -60,7 +61,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_circuit_8cpp.html",
-"class_n_m_1_1_equation_system.html#ae835d03d02a72a5b1152d4d03a4cc782"
+"class_main_window.html#ac07393debb2c185c0b58a3b8355bd7e0"
 ];
 
 var SYNCONMSG = 'clique para desativar a sincronização do painel';

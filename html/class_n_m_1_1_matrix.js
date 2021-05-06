@@ -15,8 +15,6 @@ var class_n_m_1_1_matrix =
     [ "operator-=", "class_n_m_1_1_matrix.html#ad5fe527382a821b3a800749c23c00089", null ],
     [ "operator=", "class_n_m_1_1_matrix.html#abd271c98748d762bfe015ce840d9fabe", null ],
     [ "operator[]", "class_n_m_1_1_matrix.html#a66ab2dc772f024cfbd1539ef08106865", null ],
-    [ "print", "class_n_m_1_1_matrix.html#a3712fdaf8fef1473bd0e0e660fd91237", null ],
-    [ "print", "class_n_m_1_1_matrix.html#af687f947c5e06f22473d4e560acd073e", null ],
     [ "swapLines", "class_n_m_1_1_matrix.html#a2e965cc2f4d43c74bc606d31c24578f9", null ],
     [ "transpose", "class_n_m_1_1_matrix.html#ae33266bf7cab0ec6b9c8541272df60b2", null ],
     [ "colNumber", "class_n_m_1_1_matrix.html#a11bd9dc8a20f474ce13ac532912438af", null ],

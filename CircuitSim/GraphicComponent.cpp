@@ -136,10 +136,6 @@ std::string GraphicComponent::getLabel(){
     return label.toStdString();
 }
 
-QPixmap GraphicComponent::getMap(){
-    return map;
-}
-
 void GraphicComponent::setVertex1(unsigned int vtx){
     vertex1 = vtx;
 }

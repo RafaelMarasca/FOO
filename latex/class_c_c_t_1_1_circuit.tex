@@ -2,7 +2,7 @@
 \label{class_c_c_t_1_1_circuit}\index{CCT::Circuit@{CCT::Circuit}}
 
 
-Implementação da classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}.  
+Declaração da classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}.  
 
 
 
@@ -19,32 +19,36 @@ Diagrama de hierarquia para CCT\+::Circuit\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_c_c_t_1_1_circuit_a12797ff2ff007d290cf010cd489723c9}{Circuit}} ()
-\begin{DoxyCompactList}\small\item\em Construtor para a classe Circuito. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Construtor para a classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_c_c_t_1_1_circuit_a2ea1a1de7f5d190ab9de7ffc31f84a01}{$\sim$\+Circuit}} ()
-\begin{DoxyCompactList}\small\item\em Desconstrutor para a classe Circuito. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Desconstrutor para a classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_c_t_1_1_circuit_abdf00c1b153dd979998620aef6b609b8}{initialize}} ()
-\begin{DoxyCompactList}\small\item\em Obtém os circuitos fundamentais do grafo de circuito e armazena em circuit\+MAtrix, bem como, atualiza o vector chords contendo as arestas que não estão contidas na árvore geradora do grafo e após isso, resolve o circuito e atualiza os valores de cada componente. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Inicializa um objeto da classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_c_t_1_1_circuit_ad9ac1e653ffadd4fbdb19d6a5ddac83e}{reset}} ()
-\begin{DoxyCompactList}\small\item\em Reseta a matriz de circuitos fundamentais contidas no vector cicuit\+Matrix e o vector chords de arestas que não estão contidas na árvore geradora. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Reseta a matriz de circuitos fundamentais. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_c_t_1_1_circuit_a090e22537636270d6df65073b2c33111}{add\+Component}} (\mbox{\hyperlink{namespace_c_m_p_a5f2d1fd0d049252c22e8b5498a70665f}{CMP\+::type}} t, std\+::string l, double value, unsigned int vtx1, unsigned int vtx2)
 \begin{DoxyCompactList}\small\item\em Adiciona um objeto da classe Component no circuito. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_c_t_1_1_circuit_a5711aebcfd8e6f73b93eba0399f09029}{edit\+Component}} (std\+::string label, double value)
 \begin{DoxyCompactList}\small\item\em Edita o valor de um objeto da classe Component pertencente ao circuito. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_c_t_1_1_circuit_aaae193a74a69ab422d019440c0205e5e}{edit\+Component}} (std\+::string label, std\+::string new\+Label)
-\begin{DoxyCompactList}\small\item\em Edita a etiqueta de um objeto da classe Component pertencente ao circuito. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Edita a nome de identificação de um objeto da classe Component pertencente ao circuito. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_c_t_1_1_circuit_a6576496694cfb05db79deabdbe71ae1c}{remove\+Component}} (std\+::string l)
 \begin{DoxyCompactList}\small\item\em Remove um objeto da classe Component pertencente ao circuito. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_c_t_1_1_circuit_aa1283326502ed790bea9df66a45cbceb}{remove\+Component}} (unsigned int edge)
+\begin{DoxyCompactList}\small\item\em Remove um objeto da classe Component pertencente ao circuito. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_c_c_t_1_1_circuit_aab0b57198bd8ebc9e5047f18549fc817}{get\+Component\+Label}} (unsigned int edge)
+\begin{DoxyCompactList}\small\item\em Getter para o nome de identificação de um componente pertencente ao circuito. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_c_c_t_1_1_circuit_aed457cf75649fc5940f694796c423092}{get\+Voltage}} (std\+::string l)
-\begin{DoxyCompactList}\small\item\em Retorna a tensão através de um componente. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Getter para a tensão através de um componente. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_c_c_t_1_1_circuit_ad32d0df30888541fca0a371abd063c30}{get\+Current}} (std\+::string l)
-\begin{DoxyCompactList}\small\item\em Retorna a corrente através de um componente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Getter para a corrente através de um componente. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Membros Privados}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_c_c_t_1_1_circuit_a898e07dd0dc1924dc5bd91d191626d7b}{update\+Components}} (std\+::vector$<$ double $>$ currents)
-\begin{DoxyCompactList}\small\item\em Atualiza os valores dos componentes. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Atualiza os valores dos componentes contidos em um objeto da classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_c_t_1_1_circuit_a3b4483562533df5bf02234a2a674f2cf}{Solve}} ()
-\begin{DoxyCompactList}\small\item\em Obtém os valores das correntes em cada componente e atualiza cada componente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Resolve o circuito. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Atributos Privados}
 \begin{DoxyCompactItemize}
 \item 
@@ -58,9 +62,9 @@ std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_c_c_t_1_1_circuit_af1cc
 
 
 \doxysubsection{Descrição detalhada}
-Implementação da classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. 
+Declaração da classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. 
 
-Representa um circuito de componentes eletrônicos através de uma matriz de incidência. 
+Representa um circuito de componentes eletrônicos através de uma matriz de incidência. Esta classe herda da classe incidence\+Matrix. 
 
 \doxysubsection{Construtores e Destrutores}
 \mbox{\Hypertarget{class_c_c_t_1_1_circuit_a12797ff2ff007d290cf010cd489723c9}\label{class_c_c_t_1_1_circuit_a12797ff2ff007d290cf010cd489723c9}} 
@@ -71,13 +75,9 @@ Representa um circuito de componentes eletrônicos através de uma matriz de inc
 
 
 
-Construtor para a classe Circuito. 
+Construtor para a classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. 
 
-Implementação dod métodos da classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}.
-
-Constroi um elemento da Classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}.
-
-Representa um circuito de componentes eletrônicos através de uma matriz de incidência. \mbox{\Hypertarget{class_c_c_t_1_1_circuit_a2ea1a1de7f5d190ab9de7ffc31f84a01}\label{class_c_c_t_1_1_circuit_a2ea1a1de7f5d190ab9de7ffc31f84a01}} 
+Constroi um objeto da Classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. \mbox{\Hypertarget{class_c_c_t_1_1_circuit_a2ea1a1de7f5d190ab9de7ffc31f84a01}\label{class_c_c_t_1_1_circuit_a2ea1a1de7f5d190ab9de7ffc31f84a01}} 
 \index{CCT::Circuit@{CCT::Circuit}!````~Circuit@{$\sim$Circuit}}
 \index{````~Circuit@{$\sim$Circuit}!CCT::Circuit@{CCT::Circuit}}
 \doxysubsubsection{\texorpdfstring{$\sim$Circuit()}{~Circuit()}}
@@ -85,9 +85,9 @@ Representa um circuito de componentes eletrônicos através de uma matriz de inc
 
 
 
-Desconstrutor para a classe Circuito. 
+Desconstrutor para a classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. 
 
-Destrói um elemento da Classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. 
+Destrói um objeto da Classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. 
 
 \doxysubsection{Funções membros}
 \mbox{\Hypertarget{class_c_c_t_1_1_circuit_a090e22537636270d6df65073b2c33111}\label{class_c_c_t_1_1_circuit_a090e22537636270d6df65073b2c33111}} 
@@ -104,19 +104,19 @@ Os vértices do componente representam nós com que outros componetes podem ser 
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em t} & tipo do componente a ser adicionado no circuito. \\
+{\em t} & Tipo do componente a ser adicionado no circuito. \\
 \hline
-{\em l} & etiqueta do componente a ser adicionado. \\
+{\em l} & Nome de identificação do componente a ser adicionado. \\
 \hline
-{\em value} & valor associado ao componente a ser adicionado (resistência/tensão). \\
+{\em value} & Valor associado ao componente a ser adicionado (resistência/tensão). \\
 \hline
-{\em vtx1} & número do primeiro vértice do componente. \\
+{\em vtx1} & Número do primeiro vértice do componente. \\
 \hline
-{\em vtx2} & número do segundo vértice do componente.\\
+{\em vtx2} & Número do segundo vértice do componente.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-void 
+Void. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_c_c_t_1_1_circuit_a5711aebcfd8e6f73b93eba0399f09029}\label{class_c_c_t_1_1_circuit_a5711aebcfd8e6f73b93eba0399f09029}} 
 \index{CCT::Circuit@{CCT::Circuit}!editComponent@{editComponent}}
@@ -128,17 +128,17 @@ void
 
 Edita o valor de um objeto da classe Component pertencente ao circuito. 
 
-Caso o componente esteja no circuito, altera o valor relacionado ao componente (resistência/tensão) cuja etiqueta é label.
+Caso o componente esteja no circuito, altera o valor relacionado ao componente (resistência/tensão) cujo nome de identificação é l.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em value} & novo valor do componente a ser editado. \\
+{\em value} & Novo valor do componente a ser editado. \\
 \hline
-{\em label} & etiqueta do componente a ser editado.\\
+{\em label} & Nome de identificação do componente a ser editado.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-void 
+Void. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_c_c_t_1_1_circuit_aaae193a74a69ab422d019440c0205e5e}\label{class_c_c_t_1_1_circuit_aaae193a74a69ab422d019440c0205e5e}} 
 \index{CCT::Circuit@{CCT::Circuit}!editComponent@{editComponent}}
@@ -148,21 +148,41 @@ void
 
 
 
-Edita a etiqueta de um objeto da classe Component pertencente ao circuito. 
+Edita a nome de identificação de um objeto da classe Component pertencente ao circuito. 
 
-Caso o componente esteja no circuito, altera a etiqueta do componente a ser editado.
+Caso o componente esteja no circuito, altera o nome de identificação do componente a ser editado.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em label} & etiqueta do componente a ser editado. \\
+{\em label} & Nome de identificação do componente a ser editado. \\
 \hline
-{\em new\+Label} & nova etiqueta do componente a ser editado.\\
+{\em new\+Label} & Novo nome de identificação do componente a ser editado.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-void
+Void.
 \end{DoxyReturn}
-Esse é um método provido por conveniência. Ele difere do método acima apenas na lista de argumentos que devem ser utilizados. \mbox{\Hypertarget{class_c_c_t_1_1_circuit_ad32d0df30888541fca0a371abd063c30}\label{class_c_c_t_1_1_circuit_ad32d0df30888541fca0a371abd063c30}} 
+Esse é um método provido por conveniência. Ele difere do método acima apenas na lista de argumentos que devem ser utilizados. \mbox{\Hypertarget{class_c_c_t_1_1_circuit_aab0b57198bd8ebc9e5047f18549fc817}\label{class_c_c_t_1_1_circuit_aab0b57198bd8ebc9e5047f18549fc817}} 
+\index{CCT::Circuit@{CCT::Circuit}!getComponentLabel@{getComponentLabel}}
+\index{getComponentLabel@{getComponentLabel}!CCT::Circuit@{CCT::Circuit}}
+\doxysubsubsection{\texorpdfstring{getComponentLabel()}{getComponentLabel()}}
+{\footnotesize\ttfamily std\+::string CCT\+::\+Circuit\+::get\+Component\+Label (\begin{DoxyParamCaption}\item[{unsigned int}]{edge }\end{DoxyParamCaption})}
+
+
+
+Getter para o nome de identificação de um componente pertencente ao circuito. 
+
+Caso o componente exista no circuito, retorna o nome de identificação do componente identificado pela aresta edge.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em edge} & Aresta do componente consultado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Nome de identificação do componente consultado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_c_c_t_1_1_circuit_ad32d0df30888541fca0a371abd063c30}\label{class_c_c_t_1_1_circuit_ad32d0df30888541fca0a371abd063c30}} 
 \index{CCT::Circuit@{CCT::Circuit}!getCurrent@{getCurrent}}
 \index{getCurrent@{getCurrent}!CCT::Circuit@{CCT::Circuit}}
 \doxysubsubsection{\texorpdfstring{getCurrent()}{getCurrent()}}
@@ -170,17 +190,17 @@ Esse é um método provido por conveniência. Ele difere do método acima apenas
 
 
 
-Retorna a corrente através de um componente. 
+Getter para a corrente através de um componente. 
 
-Caso o componente exista no circuito, retorna o valor da corrente através do componente com a etiqueta fornecida.
+Caso o componente exista no circuito, retorna o valor da corrente através do componente com a Nome de identificação fornecida.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em l} & etiqueta do componente consultado.\\
+{\em l} & Nome de identificação do componente consultado.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-valor da corrente através do componente consultado. 
+Valor da corrente através do componente consultado. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_c_c_t_1_1_circuit_aed457cf75649fc5940f694796c423092}\label{class_c_c_t_1_1_circuit_aed457cf75649fc5940f694796c423092}} 
 \index{CCT::Circuit@{CCT::Circuit}!getVoltage@{getVoltage}}
@@ -190,17 +210,17 @@ valor da corrente através do componente consultado.
 
 
 
-Retorna a tensão através de um componente. 
+Getter para a tensão através de um componente. 
 
-Caso o componente exista no circuito, retorna o valor da tensão do componente com a etiqueta fornecida.
+Caso o componente exista no circuito, retorna o valor da tensão do componente com a Nome de identificação fornecida.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em l} & etiqueta do componente consultado.\\
+{\em l} & Nome de identificação do componente consultado.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-valor da tensão através do componente consultado. 
+Valor da tensão através do componente consultado. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_c_c_t_1_1_circuit_abdf00c1b153dd979998620aef6b609b8}\label{class_c_c_t_1_1_circuit_abdf00c1b153dd979998620aef6b609b8}} 
 \index{CCT::Circuit@{CCT::Circuit}!initialize@{initialize}}
@@ -210,7 +230,9 @@ valor da tensão através do componente consultado.
 
 
 
-Obtém os circuitos fundamentais do grafo de circuito e armazena em circuit\+MAtrix, bem como, atualiza o vector chords contendo as arestas que não estão contidas na árvore geradora do grafo e após isso, resolve o circuito e atualiza os valores de cada componente. 
+Inicializa um objeto da classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. 
+
+Obtém os circuitos fundamentais do grafo de circuito e armazena em circuit\+MAtrix, bem como, atualiza o vector chords contendo as arestas que não estão contidas na árvore geradora do grafo e após isso, resolve o circuito e atualiza os valores de cada componente.
 
 \begin{DoxyReturn}{Retorna}
 void 
@@ -218,22 +240,42 @@ void
 \mbox{\Hypertarget{class_c_c_t_1_1_circuit_a6576496694cfb05db79deabdbe71ae1c}\label{class_c_c_t_1_1_circuit_a6576496694cfb05db79deabdbe71ae1c}} 
 \index{CCT::Circuit@{CCT::Circuit}!removeComponent@{removeComponent}}
 \index{removeComponent@{removeComponent}!CCT::Circuit@{CCT::Circuit}}
-\doxysubsubsection{\texorpdfstring{removeComponent()}{removeComponent()}}
+\doxysubsubsection{\texorpdfstring{removeComponent()}{removeComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void CCT\+::\+Circuit\+::remove\+Component (\begin{DoxyParamCaption}\item[{std\+::string}]{l }\end{DoxyParamCaption})}
 
 
 
 Remove um objeto da classe Component pertencente ao circuito. 
 
-Caso o componente exista no circuito, remove do circuito o componente com a etiqueta fornecida.
+Caso o componente com o nome de identificação fornecido exista, remove este do circuito.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em l} & etiqueta do componente a ser removido.\\
+{\em l} & Nome de identificação do componente a ser removido.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-void 
+Void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_c_c_t_1_1_circuit_aa1283326502ed790bea9df66a45cbceb}\label{class_c_c_t_1_1_circuit_aa1283326502ed790bea9df66a45cbceb}} 
+\index{CCT::Circuit@{CCT::Circuit}!removeComponent@{removeComponent}}
+\index{removeComponent@{removeComponent}!CCT::Circuit@{CCT::Circuit}}
+\doxysubsubsection{\texorpdfstring{removeComponent()}{removeComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void CCT\+::\+Circuit\+::remove\+Component (\begin{DoxyParamCaption}\item[{unsigned int}]{edge }\end{DoxyParamCaption})}
+
+
+
+Remove um objeto da classe Component pertencente ao circuito. 
+
+Caso o componente exista no circuito, remove este remove.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em edge} & Aresta do componente a ser removido.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Void. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_c_c_t_1_1_circuit_ad9ac1e653ffadd4fbdb19d6a5ddac83e}\label{class_c_c_t_1_1_circuit_ad9ac1e653ffadd4fbdb19d6a5ddac83e}} 
 \index{CCT::Circuit@{CCT::Circuit}!reset@{reset}}
@@ -243,10 +285,12 @@ void
 
 
 
-Reseta a matriz de circuitos fundamentais contidas no vector cicuit\+Matrix e o vector chords de arestas que não estão contidas na árvore geradora. 
+Reseta a matriz de circuitos fundamentais. 
+
+Remove todos os elementos contidss do vector cicuit\+Matrix e do vector chords.
 
 \begin{DoxyReturn}{Retorna}
-void 
+Void. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_c_c_t_1_1_circuit_a3b4483562533df5bf02234a2a674f2cf}\label{class_c_c_t_1_1_circuit_a3b4483562533df5bf02234a2a674f2cf}} 
 \index{CCT::Circuit@{CCT::Circuit}!Solve@{Solve}}
@@ -256,10 +300,12 @@ void
 
 
 
-Obtém os valores das correntes em cada componente e atualiza cada componente. 
+Resolve o circuito. 
+
+Obtém os valores das correntes em cada componente e atualiza cada componente.
 
 \begin{DoxyReturn}{Retorna}
-void 
+void. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_c_c_t_1_1_circuit_a898e07dd0dc1924dc5bd91d191626d7b}\label{class_c_c_t_1_1_circuit_a898e07dd0dc1924dc5bd91d191626d7b}} 
 \index{CCT::Circuit@{CCT::Circuit}!updateComponents@{updateComponents}}
@@ -269,15 +315,17 @@ void
 
 
 
-Atualiza os valores dos componentes. 
+Atualiza os valores dos componentes contidos em um objeto da classe \mbox{\hyperlink{class_c_c_t_1_1_circuit}{Circuit}}. 
+
+Atualiza as correntes e tensões dos componentes contidos no circuito com base nos dados passados por parâmetro.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em currents} & um vector contendo os novos valores para as correntes dos componentes \\
+{\em currents} & um vector contendo os novos valores para as correntes dos componentes. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-void 
+void. 
 \end{DoxyReturn}
 
 
@@ -316,5 +364,5 @@ Armazena os componentes inseridos.
 
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_circuit_8h}{Circuit.\+h}}\item 
-\mbox{\hyperlink{_circuit_8cpp}{Circuit.\+cpp}}\end{DoxyCompactItemize}
+Circuit\+Sim/\mbox{\hyperlink{_circuit_8h}{Circuit.\+h}}\item 
+Circuit\+Sim/\mbox{\hyperlink{_circuit_8cpp}{Circuit.\+cpp}}\end{DoxyCompactItemize}

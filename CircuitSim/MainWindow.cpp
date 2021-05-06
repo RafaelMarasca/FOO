@@ -209,7 +209,7 @@ void MainWindow::openFile(){
     diagrams.push_back(D);
     tabs->addTab(D,info.fileName());
     statusBar->showMessage("\""+fileName+"\" Openned With Success");
-    connect(D,SIGNAL(statusBarText(QString)),this,SLOT(statusBar->showMessage(QString)));
+    connect(D,SIGNAL(statusBarText(QString)),statusBar,SLOT(showMessage(QString)));
     connect(D,SIGNAL(modified(bool)),this,SLOT(setTabStatus(bool)));
 }
 

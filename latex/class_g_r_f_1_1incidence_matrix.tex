@@ -2,6 +2,11 @@
 \label{class_g_r_f_1_1incidence_matrix}\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 
 
+Declaração da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}.  
+
+
+
+
 {\ttfamily \#include $<$Graph.\+h$>$}
 
 Diagrama de hierarquia para GRF\+::incidence\+Matrix\+:\begin{figure}[H]
@@ -14,52 +19,53 @@ Diagrama de hierarquia para GRF\+::incidence\+Matrix\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a24a514f48f5ff9a508a1839e89f1b13c}{incidence\+Matrix}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor para a classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_acbb9e08a378b45d8d31e13f63838b711}{incidence\+Matrix}} (unsigned int v, unsigned int e)
-\item 
-std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a60ae4bc6102d8ccd475e4b760b61399c}{operator\mbox{[}$\,$\mbox{]}}} (unsigned int vtx)
-\item 
-void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a655f09f3a548c88cf04a581f82c788af}{make\+Con}} (unsigned int vtx1, unsigned int vtx2, unsigned int edge)
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor para a classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_ac0aa78cd341019ca5d7aad5a74d7c5f2}{add\+Edge}} (unsigned int vtx1, unsigned int vtx2)
-\item 
-void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a899d8049bb768f761df5d834c705a2fd}{remove\+Edge}} (unsigned int edg)
-\item 
+\begin{DoxyCompactList}\small\item\em Adiciona uma conexção entre dois vértices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a655f09f3a548c88cf04a581f82c788af}{make\+Con}} (unsigned int vtx1, unsigned int vtx2, unsigned int edge)
+\begin{DoxyCompactList}\small\item\em Cria uma conexão entre dois vértices em um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a6c08211c0f3b6e854f0535bf1991cabf}{remove\+Edge}} (unsigned int edge)
+\begin{DoxyCompactList}\small\item\em Remove uma conexão de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a3bdf2abba34e55ab8e53e6cc63a444b5}{remove\+Vertex}} (unsigned int vtx)
-\item 
+\begin{DoxyCompactList}\small\item\em Remove uma vértice de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a8581b26321e6c4c1fffa4d8986caea88}{get\+Vertex\+Number}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Getter para o número de vértices de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_ab315d46e61d92998030639cfacd2848a}{get\+Edge\+Number}} ()
-\item 
-std\+::vector$<$ int $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_ac743f0d0bb6484dfeadde325fec4cbb7}{get\+Loop}} (unsigned int key)
-\item 
+\begin{DoxyCompactList}\small\item\em Getter para o número de arestas de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a5be85d6edc2a92d2e3c2b0cf9624d8f6}{get\+Loop}} (unsigned int vtx)
+\begin{DoxyCompactList}\small\item\em Getter auxiliar prar obter um ciclo de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}} \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a62f1de53b082b358c9842ae977df749d}{get\+Spanning\+Tree}} (unsigned int key)
-\item 
-unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a97988096a86fbae38e94222dbec83f21}{get\+Vertex\+Con}} (unsigned int vtx, unsigned int i)
-\item 
+\begin{DoxyCompactList}\small\item\em Getter para a árvore geradora de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a3025e428b93ceda60570b13f708132eb}{get\+Vertex\+Con}} (unsigned int vtx, unsigned int edge)
+\begin{DoxyCompactList}\small\item\em Getter para um vértice de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
 std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a8a7c0376392e33ae1422ca600fffae33}{get\+Edges}} (unsigned int vtx)
-\item 
+\begin{DoxyCompactList}\small\item\em Getter para as arestas de um vértice de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
 std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a136b2c96657e14a7f88f26f9121665c6}{get\+Edges}} (unsigned int vtx1, unsigned int vtx2)
-\item 
-std\+::pair$<$ unsigned int, unsigned int $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_afb811803477580405e3a971dab567c71}{get\+Vertex}} (unsigned int edg)
-\item 
+\begin{DoxyCompactList}\small\item\em Getter para as arestas que conectam dois vértices de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
+std\+::pair$<$ unsigned int, unsigned int $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_acb243949fa89ae770f82b37d28352f5d}{get\+Vertex}} (unsigned int edge)
+\begin{DoxyCompactList}\small\item\em Getter para os vértices que são conectados por uma aresta de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_aa881c508b4ccd857ac4f1ab13fa48585}{get\+Con\+Num}} (unsigned int vtx)
-\item 
-void \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a402df9f6f73c294bd55db4d354d1a4c4}{print}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Getter para o número de conexões de um vértice de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Atributos Protegidos}
 \begin{DoxyCompactItemize}
 \item 
 std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_abdbdb83a846a6eaae76078e29c495eea}{in\+Matrix}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Vector bidimensional que armazena as conexões entre os vértices. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Atributos Privados}
 \begin{DoxyCompactItemize}
 \item 
 unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a249241d6e44d630459fdac7cc6b1f4ec}{vertex\+Number}}
-\item 
+\begin{DoxyCompactList}\small\item\em Armazena o número de vértices do grafo. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a96d8e774f71f22d8558d92bdf2933fe3}{edge\+Number}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Armazena o número de arestas do grafo. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Descrição detalhada}
+Declaração da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Representa um grafo direcionado através de uma matriz de incidência. Cada vértice do grafo é representado por um número, conforme a ordem de inserção, começando do 0. Cada aresta do grafo é representada por um número, conforme a ordem de inserção, começando do 0. 
 
 \doxysubsection{Construtores e Destrutores}
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a24a514f48f5ff9a508a1839e89f1b13c}\label{class_g_r_f_1_1incidence_matrix_a24a514f48f5ff9a508a1839e89f1b13c}} 
@@ -68,13 +74,30 @@ unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a96d8e774f71f22d85
 \doxysubsubsection{\texorpdfstring{incidenceMatrix()}{incidenceMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily GRF\+::incidence\+Matrix\+::incidence\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_acbb9e08a378b45d8d31e13f63838b711}\label{class_g_r_f_1_1incidence_matrix_acbb9e08a378b45d8d31e13f63838b711}} 
+
+
+Construtor para a classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Constroi um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}} cujo vetor de conexões está inicialmente vazio. \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_acbb9e08a378b45d8d31e13f63838b711}\label{class_g_r_f_1_1incidence_matrix_acbb9e08a378b45d8d31e13f63838b711}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!incidenceMatrix@{incidenceMatrix}}
 \index{incidenceMatrix@{incidenceMatrix}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{incidenceMatrix()}{incidenceMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily GRF\+::incidence\+Matrix\+::incidence\+Matrix (\begin{DoxyParamCaption}\item[{unsigned int}]{v,  }\item[{unsigned int}]{e }\end{DoxyParamCaption})}
 
 
+
+Construtor para a classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Constroi um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}} com número de vértices e arestas predefinido.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em v} & Número de vértices do grafo. \\
+\hline
+{\em e} & Número de arestas do grafo.\\
+\hline
+\end{DoxyParams}
+Esse é um método provido por conveniência. Ele difere do método acima apenas na lista de argumentos que devem ser utilizados. 
 
 \doxysubsection{Funções membros}
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_ac0aa78cd341019ca5d7aad5a74d7c5f2}\label{class_g_r_f_1_1incidence_matrix_ac0aa78cd341019ca5d7aad5a74d7c5f2}} 
@@ -83,90 +106,257 @@ unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a96d8e774f71f22d85
 \doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
 {\footnotesize\ttfamily void GRF\+::incidence\+Matrix\+::add\+Edge (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx1,  }\item[{unsigned int}]{vtx2 }\end{DoxyParamCaption})}
 
+
+
+Adiciona uma conexção entre dois vértices. 
+
+Cria uma conexão entre dois vértices do grafo. A conexão é direcionada de vtx1 para vtx2. Uma nova coluna é alocada dinâmicamente. Se ao menos um dos vértices não existe, estes são criados até que a matriz tenha tamanho suficiente para armazená-\/lo.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em vtx1} & Vértice de saída. \\
+\hline
+{\em vtx2} & Vértice de entrada.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Void. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_aa881c508b4ccd857ac4f1ab13fa48585}\label{class_g_r_f_1_1incidence_matrix_aa881c508b4ccd857ac4f1ab13fa48585}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getConNum@{getConNum}}
 \index{getConNum@{getConNum}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{getConNum()}{getConNum()}}
 {\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::get\+Con\+Num (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx }\end{DoxyParamCaption})}
 
+
+
+Getter para o número de conexões de um vértice de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Retorna o número de conexões que um vértice pertencente ao grafo possui.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em vtx} & Vértice pertencente ao grafo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Número de conexões de um vértice. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_ab315d46e61d92998030639cfacd2848a}\label{class_g_r_f_1_1incidence_matrix_ab315d46e61d92998030639cfacd2848a}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getEdgeNumber@{getEdgeNumber}}
 \index{getEdgeNumber@{getEdgeNumber}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{getEdgeNumber()}{getEdgeNumber()}}
 {\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::get\+Edge\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Getter para o número de arestas de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Retorna o número de arestas do grafo.
+
+\begin{DoxyReturn}{Retorna}
+Número de arestas do grafo. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a8a7c0376392e33ae1422ca600fffae33}\label{class_g_r_f_1_1incidence_matrix_a8a7c0376392e33ae1422ca600fffae33}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getEdges@{getEdges}}
 \index{getEdges@{getEdges}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{getEdges()}{getEdges()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily std\+::vector$<$ unsigned int $>$ GRF\+::incidence\+Matrix\+::get\+Edges (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx }\end{DoxyParamCaption})}
 
+
+
+Getter para as arestas de um vértice de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Retorna todas as arestas que conectam vtx a algum outro vértice.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em vtx} & Vértice pertencente ao grafo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+std\+::vector contendo as arestas conectadas ao vértice vtx. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a136b2c96657e14a7f88f26f9121665c6}\label{class_g_r_f_1_1incidence_matrix_a136b2c96657e14a7f88f26f9121665c6}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getEdges@{getEdges}}
 \index{getEdges@{getEdges}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{getEdges()}{getEdges()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily std\+::vector$<$ unsigned int $>$ GRF\+::incidence\+Matrix\+::get\+Edges (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx1,  }\item[{unsigned int}]{vtx2 }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_ac743f0d0bb6484dfeadde325fec4cbb7}\label{class_g_r_f_1_1incidence_matrix_ac743f0d0bb6484dfeadde325fec4cbb7}} 
+
+
+Getter para as arestas que conectam dois vértices de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Retorna todas as arestas que conectam vtx1 e vtx2.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em vtx1} & Vértice pertencente ao grafo. \\
+\hline
+{\em vtx2} & Vértice pertencente ao grafo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+std\+::vector contendo as arestas que conectam ambos os vértices.
+\end{DoxyReturn}
+Esse é um método provido por conveniência. Ele difere do método acima apenas na lista de argumentos que devem ser utilizados. \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a5be85d6edc2a92d2e3c2b0cf9624d8f6}\label{class_g_r_f_1_1incidence_matrix_a5be85d6edc2a92d2e3c2b0cf9624d8f6}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getLoop@{getLoop}}
 \index{getLoop@{getLoop}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{getLoop()}{getLoop()}}
-{\footnotesize\ttfamily std\+::vector$<$ int $>$ GRF\+::incidence\+Matrix\+::get\+Loop (\begin{DoxyParamCaption}\item[{unsigned int}]{key }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ GRF\+::incidence\+Matrix\+::get\+Loop (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx }\end{DoxyParamCaption})}
 
+
+
+Getter auxiliar prar obter um ciclo de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Este método auxiliar foi desenvolvido para identificar o ciclo de um grafo que possui apenas um loop.
+
+O vértice inicial deve fazer parte do ciclo.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em vtx} & Vértice de início da busca\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Vector de inteiros contendo as arestas do grafo. As arestas que fazem parte de um ciclo dgrafo são marcadas com 1 se a aresta foi percorrida na direção atribuída ou -\/1 quando esta foi percorrida na direção oposta da aresta. As arestas marcadas com 0 não fazem parte do ciclo. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a62f1de53b082b358c9842ae977df749d}\label{class_g_r_f_1_1incidence_matrix_a62f1de53b082b358c9842ae977df749d}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getSpanningTree@{getSpanningTree}}
 \index{getSpanningTree@{getSpanningTree}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{getSpanningTree()}{getSpanningTree()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}} GRF\+::incidence\+Matrix\+::get\+Spanning\+Tree (\begin{DoxyParamCaption}\item[{unsigned int}]{key }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_afb811803477580405e3a971dab567c71}\label{class_g_r_f_1_1incidence_matrix_afb811803477580405e3a971dab567c71}} 
+
+
+Getter para a árvore geradora de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Retorna a árvore geradora do grafo.
+
+\begin{DoxyReturn}{Retorna}
+Objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}} representando a árvore geradora do grafo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_acb243949fa89ae770f82b37d28352f5d}\label{class_g_r_f_1_1incidence_matrix_acb243949fa89ae770f82b37d28352f5d}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getVertex@{getVertex}}
 \index{getVertex@{getVertex}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{getVertex()}{getVertex()}}
-{\footnotesize\ttfamily std\+::pair$<$ unsigned int, unsigned int $>$ GRF\+::incidence\+Matrix\+::get\+Vertex (\begin{DoxyParamCaption}\item[{unsigned int}]{edg }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::pair$<$ unsigned int, unsigned int $>$ GRF\+::incidence\+Matrix\+::get\+Vertex (\begin{DoxyParamCaption}\item[{unsigned int}]{edge }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a97988096a86fbae38e94222dbec83f21}\label{class_g_r_f_1_1incidence_matrix_a97988096a86fbae38e94222dbec83f21}} 
+
+
+Getter para os vértices que são conectados por uma aresta de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+std\+::pair contendo os 2 vértices que estão conectados por edge. O primeiro elemento do pair é o vértice de saída enquanto que o segundo elemento do pair é o vértice de entrada da conexão.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em edge} & Aresta pertencente ao grafo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+std\+::pair contendo os 2 vértices que estão conectados por edge. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a3025e428b93ceda60570b13f708132eb}\label{class_g_r_f_1_1incidence_matrix_a3025e428b93ceda60570b13f708132eb}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getVertexCon@{getVertexCon}}
 \index{getVertexCon@{getVertexCon}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{getVertexCon()}{getVertexCon()}}
-{\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::get\+Vertex\+Con (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx,  }\item[{unsigned int}]{i }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::get\+Vertex\+Con (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx,  }\item[{unsigned int}]{edge }\end{DoxyParamCaption})}
 
+
+
+Getter para um vértice de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Retorna o vértice conectado a vtx pela aresta edge.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em vtx} & Vértice pertencente ao grafo. \\
+\hline
+{\em edge} & Aresta pertencente ao grafo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Vértice conectado a vtx pela aresta edge. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a8581b26321e6c4c1fffa4d8986caea88}\label{class_g_r_f_1_1incidence_matrix_a8581b26321e6c4c1fffa4d8986caea88}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!getVertexNumber@{getVertexNumber}}
 \index{getVertexNumber@{getVertexNumber}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{getVertexNumber()}{getVertexNumber()}}
 {\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::get\+Vertex\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Getter para o número de vértices de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Retorna o número de vértices do grafo.
+
+\begin{DoxyReturn}{Retorna}
+Número de vértices. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a655f09f3a548c88cf04a581f82c788af}\label{class_g_r_f_1_1incidence_matrix_a655f09f3a548c88cf04a581f82c788af}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!makeCon@{makeCon}}
 \index{makeCon@{makeCon}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{makeCon()}{makeCon()}}
 {\footnotesize\ttfamily void GRF\+::incidence\+Matrix\+::make\+Con (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx1,  }\item[{unsigned int}]{vtx2,  }\item[{unsigned int}]{edge }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a60ae4bc6102d8ccd475e4b760b61399c}\label{class_g_r_f_1_1incidence_matrix_a60ae4bc6102d8ccd475e4b760b61399c}} 
-\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!operator\mbox{[}\mbox{]}@{operator[]}}
-\index{operator\mbox{[}\mbox{]}@{operator[]}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
-\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
-{\footnotesize\ttfamily std\+::vector$<$ int $>$ \& GRF\+::incidence\+Matrix\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a402df9f6f73c294bd55db4d354d1a4c4}\label{class_g_r_f_1_1incidence_matrix_a402df9f6f73c294bd55db4d354d1a4c4}} 
-\index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!print@{print}}
-\index{print@{print}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
-\doxysubsubsection{\texorpdfstring{print()}{print()}}
-{\footnotesize\ttfamily void GRF\+::incidence\+Matrix\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a899d8049bb768f761df5d834c705a2fd}\label{class_g_r_f_1_1incidence_matrix_a899d8049bb768f761df5d834c705a2fd}} 
+Cria uma conexão entre dois vértices em um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Cria uma conexão entre dois vértices do grafo, direcionado de vtx1 para vtx2, posicionando estas conexões na aresta especificada, este método deve ser chamado apenas para arestas que existam, mas que não possuam conexões.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em vtx1} & Vértice de saída. \\
+\hline
+{\em vtx2} & Vértice de entrada. \\
+\hline
+{\em edge} & Aresta que conecta ambos os vértices.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a6c08211c0f3b6e854f0535bf1991cabf}\label{class_g_r_f_1_1incidence_matrix_a6c08211c0f3b6e854f0535bf1991cabf}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!removeEdge@{removeEdge}}
 \index{removeEdge@{removeEdge}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}}
-{\footnotesize\ttfamily void GRF\+::incidence\+Matrix\+::remove\+Edge (\begin{DoxyParamCaption}\item[{unsigned int}]{edg }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void GRF\+::incidence\+Matrix\+::remove\+Edge (\begin{DoxyParamCaption}\item[{unsigned int}]{edge }\end{DoxyParamCaption})}
 
+
+
+Remove uma conexão de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Remove a aresta especificada existente entre dois vértices de um objeto, reduzindo o tamanho da matriz através da remoção de uma coluna.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em edge} & Aresta a ser removida do grafo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Void. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a3bdf2abba34e55ab8e53e6cc63a444b5}\label{class_g_r_f_1_1incidence_matrix_a3bdf2abba34e55ab8e53e6cc63a444b5}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!removeVertex@{removeVertex}}
 \index{removeVertex@{removeVertex}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{removeVertex()}{removeVertex()}}
 {\footnotesize\ttfamily void GRF\+::incidence\+Matrix\+::remove\+Vertex (\begin{DoxyParamCaption}\item[{unsigned int}]{vtx }\end{DoxyParamCaption})}
 
+
+
+Remove uma vértice de um objeto da classe \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix}{incidence\+Matrix}}. 
+
+Remove o vértice especificado existente de um objeto, reduzindo o tamanho da matriz através da remoção de uma linha. Todas as conexões entre este e outros vértices também é excluído.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em vtx} & Vértice a ser removido do grafo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Void. 
+\end{DoxyReturn}
 
 
 \doxysubsection{Atributos}
@@ -176,11 +366,19 @@ unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a96d8e774f71f22d85
 \doxysubsubsection{\texorpdfstring{edgeNumber}{edgeNumber}}
 {\footnotesize\ttfamily unsigned int GRF\+::incidence\+Matrix\+::edge\+Number\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Armazena o número de arestas do grafo. 
+
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_abdbdb83a846a6eaae76078e29c495eea}\label{class_g_r_f_1_1incidence_matrix_abdbdb83a846a6eaae76078e29c495eea}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!inMatrix@{inMatrix}}
 \index{inMatrix@{inMatrix}!GRF::incidenceMatrix@{GRF::incidenceMatrix}}
 \doxysubsubsection{\texorpdfstring{inMatrix}{inMatrix}}
 {\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$int$>$ $>$ GRF\+::incidence\+Matrix\+::in\+Matrix\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Vector bidimensional que armazena as conexões entre os vértices. 
 
 \mbox{\Hypertarget{class_g_r_f_1_1incidence_matrix_a249241d6e44d630459fdac7cc6b1f4ec}\label{class_g_r_f_1_1incidence_matrix_a249241d6e44d630459fdac7cc6b1f4ec}} 
 \index{GRF::incidenceMatrix@{GRF::incidenceMatrix}!vertexNumber@{vertexNumber}}
@@ -190,7 +388,11 @@ unsigned int \mbox{\hyperlink{class_g_r_f_1_1incidence_matrix_a96d8e774f71f22d85
 
 
 
+Armazena o número de vértices do grafo. 
+
+
+
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\item 
-\mbox{\hyperlink{_graph_8cpp}{Graph.\+cpp}}\end{DoxyCompactItemize}
+Circuit\+Sim/\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\item 
+Circuit\+Sim/\mbox{\hyperlink{_graph_8cpp}{Graph.\+cpp}}\end{DoxyCompactItemize}

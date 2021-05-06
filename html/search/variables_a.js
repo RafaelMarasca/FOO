@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['newfileact_425',['newFileAct',['../class_main_window.html#a2655bcbf7246247886f4548a669b2ef4',1,'MainWindow']]]
+  ['mainbar_455',['mainBar',['../class_main_window.html#a8071a9ddcb6fd10dbe2b3d3ea6d2109c',1,'MainWindow']]],
+  ['map_456',['map',['../class_graphic_component.html#a109c3a6279ea88fe97efba3254a0adba',1,'GraphicComponent']]],
+  ['mode_457',['mode',['../class_diagram.html#aa95d8e4def8cee1495731879e5fd35d4',1,'Diagram']]]
 ];

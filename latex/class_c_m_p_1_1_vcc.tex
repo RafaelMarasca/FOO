@@ -2,6 +2,11 @@
 \label{class_c_m_p_1_1_vcc}\index{CMP::Vcc@{CMP::Vcc}}
 
 
+Declaração da classe \mbox{\hyperlink{class_c_m_p_1_1_vcc}{Vcc}}.  
+
+
+
+
 {\ttfamily \#include $<$Component.\+h$>$}
 
 Diagrama de hierarquia para CMP\+::Vcc\+:\begin{figure}[H]
@@ -14,17 +19,22 @@ Diagrama de hierarquia para CMP\+::Vcc\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_c_m_p_1_1_vcc_af5292f0c43baa638bff4a0c720172946}{Vcc}} (std\+::string l, double vol, unsigned int negative, unsigned int positive)
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor para a classe \mbox{\hyperlink{class_c_m_p_1_1_vcc}{Vcc}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_c_m_p_1_1_vcc_aaf5382d7e3824bbe592c7d1bd5573c6b}{$\sim$\+Vcc}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Desconstrutor para a classe \mbox{\hyperlink{class_c_m_p_1_1_vcc}{Vcc}}. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{namespace_c_m_p_a5f2d1fd0d049252c22e8b5498a70665f}{type}} \mbox{\hyperlink{class_c_m_p_1_1_vcc_a1508825e7869067a9148f7dc571505f6}{get\+Type}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Getter para o tipo do componente da classe \mbox{\hyperlink{class_c_m_p_1_1_vcc}{Vcc}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_m_p_1_1_vcc_a7586b33c94ade61eb4b3250aa4e15642}{set\+Current}} (double cur)
-\item 
+\begin{DoxyCompactList}\small\item\em Setter para a corrente da fonte. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_c_m_p_1_1_vcc_a658d011ef01f5c3003d86ad49b29aa86}{set\+Voltage}} (double vol)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Setter para a tensão do fonte. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Outros membros herdados}
 
+
+\doxysubsection{Descrição detalhada}
+Declaração da classe \mbox{\hyperlink{class_c_m_p_1_1_vcc}{Vcc}}. 
+
+Classe derivada de \mbox{\hyperlink{class_c_m_p_1_1_component}{Component}}. Esta classe fornece os métodos para a manipulação de um objeto que representa uma fonte de tensão de corrente contínua. 
 
 \doxysubsection{Construtores e Destrutores}
 \mbox{\Hypertarget{class_c_m_p_1_1_vcc_af5292f0c43baa638bff4a0c720172946}\label{class_c_m_p_1_1_vcc_af5292f0c43baa638bff4a0c720172946}} 
@@ -33,6 +43,23 @@ void \mbox{\hyperlink{class_c_m_p_1_1_vcc_a658d011ef01f5c3003d86ad49b29aa86}{set
 \doxysubsubsection{\texorpdfstring{Vcc()}{Vcc()}}
 {\footnotesize\ttfamily Vcc\+::\+Vcc (\begin{DoxyParamCaption}\item[{std\+::string}]{l,  }\item[{double}]{vol,  }\item[{unsigned int}]{negative,  }\item[{unsigned int}]{positive }\end{DoxyParamCaption})}
 
+
+
+Construtor para a classe \mbox{\hyperlink{class_c_m_p_1_1_vcc}{Vcc}}. 
+
+Constroi um objeto da Classe \mbox{\hyperlink{class_c_m_p_1_1_vcc}{Vcc}} com os parâmetros específicados.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em l} & Nome para a identificação da fonte. \\
+\hline
+{\em vol} & valor da tensão da fonte. \\
+\hline
+{\em vtx1} & Identificação do terminal negativo da fonte. \\
+\hline
+{\em vtx2} & Identificação do terminal positivo da fonte. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_c_m_p_1_1_vcc_aaf5382d7e3824bbe592c7d1bd5573c6b}\label{class_c_m_p_1_1_vcc_aaf5382d7e3824bbe592c7d1bd5573c6b}} 
 \index{CMP::Vcc@{CMP::Vcc}!````~Vcc@{$\sim$Vcc}}
 \index{````~Vcc@{$\sim$Vcc}!CMP::Vcc@{CMP::Vcc}}
@@ -41,6 +68,10 @@ void \mbox{\hyperlink{class_c_m_p_1_1_vcc_a658d011ef01f5c3003d86ad49b29aa86}{set
 
 
 
+Desconstrutor para a classe \mbox{\hyperlink{class_c_m_p_1_1_vcc}{Vcc}}. 
+
+Destrói um objeto da classe \mbox{\hyperlink{class_c_m_p_1_1_vcc}{Vcc}}. 
+
 \doxysubsection{Funções membros}
 \mbox{\Hypertarget{class_c_m_p_1_1_vcc_a1508825e7869067a9148f7dc571505f6}\label{class_c_m_p_1_1_vcc_a1508825e7869067a9148f7dc571505f6}} 
 \index{CMP::Vcc@{CMP::Vcc}!getType@{getType}}
@@ -48,6 +79,15 @@ void \mbox{\hyperlink{class_c_m_p_1_1_vcc_a658d011ef01f5c3003d86ad49b29aa86}{set
 \doxysubsubsection{\texorpdfstring{getType()}{getType()}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_c_m_p_a5f2d1fd0d049252c22e8b5498a70665f}{type}} Vcc\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+
+
+Getter para o tipo do componente da classe \mbox{\hyperlink{class_c_m_p_1_1_vcc}{Vcc}}. 
+
+Retorna enum type VCC.
+
+\begin{DoxyReturn}{Retorna}
+VCC. 
+\end{DoxyReturn}
 
 
 Implementa \mbox{\hyperlink{class_c_m_p_1_1_component_a172dae611896909fa721199cc27f0072}{CMP\+::\+Component}}.
@@ -60,7 +100,21 @@ Implementa \mbox{\hyperlink{class_c_m_p_1_1_component_a172dae611896909fa721199cc
 
 
 
-Implementa \mbox{\hyperlink{class_c_m_p_1_1_component_afd712f37ecb6bedda418bcfbbf0f99a6}{CMP\+::\+Component}}.
+Setter para a corrente da fonte. 
+
+Altera a corrente da fonte com base no parâmetro passado.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em value} & Valor da corrente através da fonte.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Void. 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{class_c_m_p_1_1_component_a31c62b93b4e674cc894e2477e3b23344}{CMP\+::\+Component}}.
 
 \mbox{\Hypertarget{class_c_m_p_1_1_vcc_a658d011ef01f5c3003d86ad49b29aa86}\label{class_c_m_p_1_1_vcc_a658d011ef01f5c3003d86ad49b29aa86}} 
 \index{CMP::Vcc@{CMP::Vcc}!setVoltage@{setVoltage}}
@@ -70,11 +124,25 @@ Implementa \mbox{\hyperlink{class_c_m_p_1_1_component_afd712f37ecb6bedda418bcfbb
 
 
 
-Implementa \mbox{\hyperlink{class_c_m_p_1_1_component_a19e6ffe04afe28b2e3f876ee38b2e854}{CMP\+::\+Component}}.
+Setter para a tensão do fonte. 
+
+Altera a tensão da fonte com base no parâmetro passado.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em value} & Valor da tensão da fonte.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Void. 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{class_c_m_p_1_1_component_a394ff0c3d5d71f420c628ef7b86aa3d9}{CMP\+::\+Component}}.
 
 
 
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_component_8h}{Component.\+h}}\item 
-\mbox{\hyperlink{_component_8cpp}{Component.\+cpp}}\end{DoxyCompactItemize}
+Circuit\+Sim/\mbox{\hyperlink{_component_8h}{Component.\+h}}\item 
+Circuit\+Sim/\mbox{\hyperlink{_component_8cpp}{Component.\+cpp}}\end{DoxyCompactItemize}

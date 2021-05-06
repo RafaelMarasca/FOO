@@ -1,13 +1,15 @@
 var searchData=
 [
-  ['value_445',['value',['../class_graphic_component.html#a88da3ffad0b9bfa6df9ca4df77c1a5e6',1,'GraphicComponent']]],
-  ['vcccounter_446',['vccCounter',['../class_vcc.html#aed826193600c8b658ea55ecf408f2021',1,'Vcc']]],
-  ['vertex1_447',['vertex1',['../class_graphic_component.html#ab02075b58390c06398990b1092d5367f',1,'GraphicComponent']]],
-  ['vertex2_448',['vertex2',['../class_graphic_component.html#aec9aefc31f7a3307b062b767ebf702f3',1,'GraphicComponent']]],
-  ['vertexarea1_449',['vertexArea1',['../class_graphic_component.html#a859d1c267c0cf42e00efd75a3c8793ff',1,'GraphicComponent']]],
-  ['vertexarea2_450',['vertexArea2',['../class_graphic_component.html#a1cee240802abb287df139e76259a755e',1,'GraphicComponent']]],
-  ['vertexnum_451',['vertexNum',['../class_graphic_component.html#ab98afbc1f2b984296cee0833be71c081',1,'GraphicComponent']]],
-  ['vertexnumber_452',['vertexNumber',['../class_g_r_f_1_1incidence_matrix.html#a249241d6e44d630459fdac7cc6b1f4ec',1,'GRF::incidenceMatrix::vertexNumber()'],['../class_g_r_f_1_1adjacency_matrix.html#a3aaddcbf64446c7d046f49e7e0c3ab8c',1,'GRF::adjacencyMatrix::vertexNumber()']]],
-  ['voltage_453',['voltage',['../class_c_m_p_1_1_component.html#a9b1dac14850b10fff14f622b8f6123fe',1,'CMP::Component']]],
-  ['vtxs_454',['vtxs',['../class_c_m_p_1_1_component.html#a7b58d4d905cd05512eb1972dca7d7bf7',1,'CMP::Component']]]
+  ['savefileact_469',['saveFileAct',['../class_main_window.html#a249dac5448639794a5cb8ca5d3c154a5',1,'MainWindow']]],
+  ['savefileasact_470',['saveFileAsAct',['../class_main_window.html#ad973ccc25756dc04fe0402dcfacfea89',1,'MainWindow']]],
+  ['selectedbutton_471',['selectedButton',['../class_diagram.html#ac9381b5a1cedeafb55d226a47528e6e5',1,'Diagram']]],
+  ['selectedcolor_472',['selectedColor',['../class_diagram.html#ab7da97ddc87ad46369f55c5e3b1b252c',1,'Diagram']]],
+  ['selectedcomponent_473',['selectedComponent',['../class_diagram.html#af19b01625c19689b0f0baab4da3f8364',1,'Diagram']]],
+  ['selectedprev_474',['selectedPrev',['../class_diagram.html#adb6bbb6244136dad0f8d8222c572535f',1,'Diagram']]],
+  ['setbgcoloract_475',['setBGColorAct',['../class_main_window.html#af2a89a776683c43368bdc69f164179e5',1,'MainWindow']]],
+  ['setcomponentcoloract_476',['setComponentColorAct',['../class_main_window.html#ac07393debb2c185c0b58a3b8355bd7e0',1,'MainWindow']]],
+  ['setgridcoloract_477',['setGridColorAct',['../class_main_window.html#a4da06bf02e9473f40a026b7421324a5a',1,'MainWindow']]],
+  ['setselectedcoloract_478',['setSelectedColorAct',['../class_main_window.html#a705238ee563147e8fa5c6d041d88e9c1',1,'MainWindow']]],
+  ['status_479',['status',['../class_diagram.html#a7eaf316aa5c6353a25f958fea1264965',1,'Diagram']]],
+  ['statusbar_480',['statusBar',['../class_main_window.html#a4a04910f3193303a44506b44521b61b0',1,'MainWindow']]]
 ];

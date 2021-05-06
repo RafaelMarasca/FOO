@@ -30,8 +30,8 @@
 #include <QPropertyAnimation>
 
 
-/** @defgroup Cores padrão
- *  Define as macros para os códigos hexadecimais de cores padrão do tema do programa.
+/** @defgroup Grupo1 Cores padrão
+ *  Definição as macros para os códigos hexadecimais de cores padrão do tema do programa.
  *  @{
  */
 #define DEFAULT_BGC "#272947" /**< Código hexadecimal para a cor padrão do plano de fundo.*/
@@ -41,15 +41,53 @@
 /** @} */
 
 
-/** @defgroup Definições de enumerações
- *  Define enumerações convenientes para uso global.
- *  @{
- */
-enum cmpStyle{VCC90,VCC180,RES90,RES180,NONE}; /**< Representa as possíveis representações gráficas
-                                                     os componentes que podem ser desenhados.*/
-enum stats{UNSAVED,MODIFIED,OK,ERROR}; /**< Representa os estados possíveis do arquivo do diagrama.*/
-enum mode{EDIT,QUERY}; /**< Representa o modo atual do diagrama.*/
-/** @} */
+/***************************************************************
+ *  Fornece uma identificação para os estilos de componentes
+ * que podem ser inseridos.
+ * 
+ * Esta enumeração é utilizada em vários métodos ao longo
+ * do código, com o intuito de identificar o estilo a ser
+ * desenhado na tela.
+ * 
+ **************************************************************/
+enum cmpStyle{
+    VCC90, /**< Fonte de tensão vertical.*/
+    VCC180, /**< Fonte de tensão horizontal.*/
+    RES90, /**< Resistor vertical.*/
+    RES180, /**< Resistor horizontal.*/
+    NONE /**< Nenhum estilo selecionado.*/
+    }; 
+
+/***************************************************************
+ * Fornece uma identificação para o estado atual do arquivo
+ * que contém um objeto da classe Diagram. 
+ * 
+ * Esta enumeração é utilizada em vários métodos ao longo
+ * do código, com o intuito de identificar o estado atual
+ * do arquivo.
+ * 
+ **************************************************************/    
+enum stats{
+    UNSAVED, /**< Arquivo não salvo.*/
+    MODIFIED, /**< Arquivo modificado.*/
+    OK, /**< Arquivo salvo.*/
+    ERROR /**< Erro de abertura de arquivo.*/
+    };
+
+
+/***************************************************************
+ * Fornece uma identificação para o modo de atual do Diagrama.
+ * 
+ * Esta enumeração é utilizada em vários métodos ao longo
+ * do código, com o intuito de identificar o modo de atuação
+ * do diagrama.
+ * 
+ **************************************************************/ 
+enum mode{
+    EDIT, /**< Modo de edição.*/
+    QUERY /**< Modo de consulta.*/
+}; 
+
 
 /******************************************************************************
  * Declaração da classe Diagram.
@@ -99,7 +137,6 @@ private:
                                         dos objetos da classe Diagram.*/
     static QColor selectedColor; /**< Membro estático que armazena a cor de seleção
                                       dos componentes dos objetos da classe Diagram.*/
-
 
    /******************************************************************************
     * Método que inicializa os elementos gráficos da classe Diagram.
@@ -224,6 +261,8 @@ public:
    /******************************************************************************
     * Construtor para a classe Diagram.
     *
+    * @param parent Pai do objeto.
+    * 
     * Constrói um objeto da classe Diagram.
     ******************************************************************************/
     explicit Diagram(QWidget *parent = nullptr);

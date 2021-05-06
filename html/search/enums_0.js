@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mode_458',['mode',['../_diagram_8h.html#a1a6b6fb557d8d37d59700faf4e4c9167',1,'Diagram.h']]]
+  ['cmpstyle_497',['cmpStyle',['../_diagram_8h.html#ab5eedc8cf5b062979472e68ef0eac957',1,'Diagram.h']]]
 ];
