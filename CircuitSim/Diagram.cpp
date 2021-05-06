@@ -338,7 +338,7 @@ void Diagram::initializeDiagram(){
     QWidget::setMouseTracking(true);
 }
 
-void Diagram::setSelectedButton(enum buttonType button){
+void Diagram::setSelectedButton(enum cmpStyle button){
     selectedButton = button;
     while(clickedStack.size())
             clickedStack.pop();
@@ -522,8 +522,6 @@ void Diagram::remove(){
         std::vector<std::string>aux;
         std::vector<unsigned int> vtx1 = circuit.getEdges(selectedComponent->getVertex1());
         std::vector<unsigned int> vtx2 = circuit.getEdges(selectedComponent->getVertex2());
-        circuit.print();
-        qDebug()<<"-------------";
         aux.push_back(selectedComponent->getLabel());
 
         for(unsigned int i =0; i<vtx1.size();i++){
@@ -537,8 +535,6 @@ void Diagram::remove(){
             aux.push_back(circuit.getComponentLabel(vtx2[i]));
         }
         circuit.removeComponent(selectedComponent->getLabel());
-        circuit.print();
-        qDebug()<<"-------------";
 
         //circuit.print();
 
@@ -546,10 +542,8 @@ void Diagram::remove(){
             qDebug()<<QString::fromStdString(aux[i]);
             try{
                 if(aux[i]!=aux[0])
-                {    circuit.removeComponent(aux[i]);
-                    circuit.print();
-                    qDebug()<<"-------------";
-                }
+                    circuit.removeComponent(aux[i]);
+
             }catch(std::string str){
 
             }
@@ -615,7 +609,7 @@ void Diagram::mouseMoveEvent(QMouseEvent* event){
     update();
 }
 
-std::pair<QRect,QPixmap> Diagram::getPixMap(enum buttonType type){
+std::pair<QRect,QPixmap> Diagram::getPixMap(enum cmpStyle type){
 
     QRect boundRect;
     QPixmap map;

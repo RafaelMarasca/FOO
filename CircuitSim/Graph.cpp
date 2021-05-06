@@ -252,15 +252,6 @@ namespace GRF{
 		}
 		return num;
 	}
-	//Printa o grafo na representacao de matriz de incidencia
-	void incidenceMatrix::print(){
-		
-		for(unsigned int i = 0; i<vertexNumber;i++){
-			for(unsigned int k = 0; k<edgeNumber;k++)
-				std::cout<<inMatrix[i][k]<<" ";
-			std::cout<<std::endl;
-		}
-	}
 
     adjacencyMatrix::adjacencyMatrix() {
             vertexNumber = 0;

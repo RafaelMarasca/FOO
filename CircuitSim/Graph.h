@@ -231,18 +231,7 @@ namespace GRF{
             *
             * @return Número de conexões de um vértice.
             *****************************************************************************************************/
-			unsigned int getConNum(unsigned int vtx);	
-
-
-           /**********************************************************************************************
-            * Imprime um objeto da classe incidenceMatrix.
-            *
-            * Método para auxiliar no debug do código. Imprime a representação matricial da matriz de
-            * incidência
-            *
-            * @return Void.
-            **********************************************************************************************/
-            void print();
+            unsigned int getConNum(unsigned int vtx);
 	};
 
 
