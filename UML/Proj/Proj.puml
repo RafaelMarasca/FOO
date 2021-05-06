@@ -11,8 +11,6 @@ namespace GRF {
 		+ incidenceMatrix()
 		+ incidenceMatrix(v : unsigned int, e : unsigned int)
 	
-		+ operator[](vtx : unsigned int) : vector<unsigned int>&
-	
 		+ makeCon(vtx1 : unsigned int, vtx2 : unsigned int, edge : unsigned int) : void			
 
 		+ addEdge(vtx1 : unsigned int, vtx2 : unsigned int) : void
@@ -27,7 +25,7 @@ namespace GRF {
 		+ getVertexCon(vtx : unsigned int, i : unsigned int) : unsigned int	
 		+ getEdges(vtx : unsigned int) : vector<unsigned int>
 		+ getEdges(vtx1 : unsigned int, vtx2 : unsigned int) : vector<unsigned int>
-		+ getVertex(edg : unsigned int) : pair<unsigned int, unsigned int>
+		+ getVertex(edge : unsigned int) : pair<unsigned int, unsigned int>
 		+ getConNum(vtx : unsigned int) : unsigned int
 	
 	}
@@ -38,8 +36,9 @@ namespace GRF {
 		+ adjacencyMatrix()
 		+ adjacencyMatrix(vertexNum : unsigned int)
 
-		+ insertEdge(i : unsigned int, j : unsigned int)
-		+ removeVertex(i : unsigned int)
+		+ insertEdge(vtx1 : unsigned int, vtx2 : unsigned int)
+		+ insertVertex(vtx: unsigned int)
+		+ removeVertex(vtx : unsigned int)
 		+ query(i : unsigned int, j : unsigned int) : int
 
 		+ getVertexNumber() : unsigned int
@@ -113,7 +112,7 @@ namespace CCT {
 		- circuitMatrix : vector<vector<int>>
 		- chords : vector<unsigned int>
 		
-		- updateComponents(currents : vector<double>, voltages : vector<double>, potentials : vector<double>)
+		- updateComponents(currents : vector<double>)
 
 		- Solve() : void
 
@@ -129,7 +128,9 @@ namespace CCT {
 
 		+ editComponent(label : string, newLabel : string) : void
 	
-		+ removeComponent(l : string) : void	
+		+ removeComponent(l : string) : void
+	
+		+ removeComponent(edge : unsigned int) : void	
 
 		+ getVoltage(l : string) : double
 		+ getCurrent(l : string) : double 
@@ -181,14 +182,14 @@ namespace NM {
 		- A : Matrix
 		- B : Matrix 	
 		- x : Matrix
-
-		+ EquationSystem(a : Matrix, b : Matrix)
 	
 		- gaussSeidel(tol : double, maxIter : int) : void
 		- sassenfeldCriteria() : void
 	
 		- findPivot(startI : unsigned int) : void
 		- gaussJordan() : void
+
+		+ EquationSystem(a : Matrix, b : Matrix)
 
 		+ getSolution(tol : double, maxIter : int) : Matrix
 		
@@ -226,14 +227,13 @@ abstract class GraphicComponent extends QObject {
 	
 	+ clickedArea(x : int, y : int) : int
 
-	+ draw(painter : QPainter*) : void
+	+ draw(painter : QPainter*, color : QColor = QColor()) : void
 	+ getHeight() : int
 	+ getWidth() : int
 	+ getBottom() : QPoint
 	+ getTop() : QPoint
 	+ getLeft() : QPoint
 	+ getRight() : QPoint
-	+ getMap() : QPixmap
 	+ getBoundRect() : QRect
 
 	+ getOrientation() : enum orien 
@@ -253,36 +253,29 @@ abstract class GraphicComponent extends QObject {
 	+ getVertex2Point() : QPoint
 
 	+ void updateName() : void
-
-	+ clickedVertex(Area : int, GraphicComponent*) : void
-	+ clicked(checked : bool = false) : void	
 }
 
 orien "1" --* "1" GraphicComponent
 
 class Resistor implements GraphicComponent {
-	- {static} resCounter : unsigned int 
-
 	+ explicit Resistor(x : int, y : int, vtx1 : unsigned int, vtx2 : unsigned int, s : enum orien = VERTICAL, parent : QObject* = nullptr)
 	+ getType() : type
 }
 
 class Vcc implements GraphicComponent {
-	- {static} vccCounter : unsigned int 
-
 	+ explicit Vcc(x : int, y : int, vtx1 : unsigned int, vtx2 : unsigned int, s : enum orien = VERTICAL, parent : QObject* = nullptr)
 	+ getType() : type
 }
 
 
-enum typeOrientation {
+enum cmpStyle {
 	VCC90
 	VCC180
 	RES90
 	RES180
 	NONE
 }
-enum sts {
+enum stats {
 	UNSAVED
 	MODIFIED
 	OK
@@ -294,84 +287,78 @@ enum mode {
 }
 
 class Diagram extends QWidget {
-	- playButton : QPushButton*
-	- editButton : QPushButton*
+	- circuit : Circuit
 
 	- fileName : string 
 
-	- status : enum sts 
-
-	- circuit : Circuit
-
+	- status : enum stats 
 	- mode : enum mode
+	- selectedButton : enum cmpStyle
 
-	- drawList : vector<GraphicComponent*>  
+	- playButton : QPushButton*
+	- editButton : QPushButton*
+
+	- drawList : vector<GraphicComponent*>
 
 	- selectedComponent : GraphicComponent*
- 
-	- selectedButton : enum typeOrientation 
 
-	- clickedStack : stack<pair<int,GraphicComponent*>> 
+	- connections : adjacencyMatrix
 
-	- connections : adjacencyMatrix 
-
-	- wireCounter : unsigned int 
+	- wireCounter : unsigned int
+	- vtxCounter : unsigned int
 
 	- editMenu : QMenu*
+	- queryMenu : QMenu*
 
-	- cursorLocation : QPoint 
+	- cursorLocation : QPoint
+	- selectedPrev : QPoint
+	
+	- clickedStack : stack<pair<int, GraphicComponent*>>
 
-	- selectedPrev : QPoint 
+	- {static} backgroundColor : QColor
+	- {static} gridColor : QColor
+	- {static} componentColor : QColor
+	- {static} selectedColor : QColor 
 
-	- vtxCounter : unsigned int 
-
-	- initializeDiagram() : void 
-
-	- setStatus(newStatus : enum sts) : void
-
-	- paintEvent(QPaintEvent* event) : void 
- 
-	- freeAllocatedMemory() : void
-
-	- clickedControl(int,int,int) : void;
-
-	- rightButtonActions(x : int, y : int) : void
-
-	- leftButtonActions(x : int, y : int) : void
-
-	- getPixMap(type : enum typeOrientation) : pair<QRect,QPixmap>
-
+	# paintEvent(event : QPaintEvent*) : void
 	# mousePressEvent(event : QMouseEvent*) : void
 	# mouseMoveEvent(event : QMouseEvent*) : void
-	# mouseReleasedEvent(event : QMouseEvent*) : void
 
-	+ explicit Diagram(parent : QWidget* = nullptr);
+	+ explicit Diagram(parent : QWidget* = nullptr)
 
-	+ setFileName(QString file) : void
 	+ getFileName() : QString 
+	+ setFileName(QString file) : void
 
-	+ load() : void
 	+ save() : void
+	+ load() : void
 
-	+ getStatus() : enum sts 
+	+ getStatus() : enum stats 
 
-	+ setSelectedButton(button : enum typeOrientation) : void 
+	+ setSelectedButton(button : enum cmpStyle) : void 
 
 	+ insert(x : int, y : int) : void
 
-	+ getComponentCounter(t : CMP::type) : unsigned int 
-	+ getComponentCounter() : unsigned int 
+	+ {static} setBGColor() : void
+	+ {static} getBGColor() : void
+	
+	+ {static} setGridColor() : void
+	+ {static} getGridColor() : void
+	
+	+ {static} setComponentColor() : void
+	+ {static} getComponentColor() : void
+
+	+ {static} setSelectedColor() : void
+	+ {static} getSelectedColor() : void
 
 	+ modified(checked : bool = false) : void
 
 	+ loadError(checked : bool = false) : void
 
+	+ statusBarText(str : QString) : void
+
 	+ queryMode() : void
 	+ editMode() : void
 
-	+ rightButtonClicked(x : int, y : int, cArea : int) : void
-	+ leftButtonClicked(x : int, y : int, cArea : int) : void
-	
 	+ showEditDialog() : void
 
 	+ edit(newValue : double) : void
@@ -380,8 +367,8 @@ class Diagram extends QWidget {
 }
 
 mode "1" --* "1" Diagram
-typeOrientation "1" --* "1" Diagram
-sts "1" --* "1" Diagram
+cmpStyle "1" --* "1" Diagram
+stats "1" --* "1" Diagram
 
 GRF.adjacencyMatrix "1" --* "1" Diagram
 CCT.Circuit "1" --* "1" Diagram
@@ -389,35 +376,51 @@ CCT.Circuit "1" --* "1" Diagram
 GraphicComponent "0..*" --o "1" Diagram
 
 class MainWindow extends QMainWindow {
-	- explicit MainWindow(parent QWidget* = nullptr);
+	- explicit MainWindow(parent QWidget* = nullptr)
 
-	- MainWindow(const MainWindow&);
+	- MainWindow(const MainWindow&)
 
-	- MainWindow operator=(MainWindow&);
+	- operator=(MainWindow&) : MainWindow
 
 	- {static} instance : MainWindow* 
 
 	- diagrams : list<Diagram*> 
-	- tabs : QTabWidget* 
+
 	- mainBar : QMenuBar*
+
 	- fileMenu : QMenu*
-	- prefMenu : QMenu*
-	- helpMenu : QMenu*
 	- openFileAct : QAction*
 	- saveFileAct : QAction*
 	- saveFileAsAct : QAction*
 	- newFileAct : QAction*
-	- prefAct : QAction*
-	- tutorialAct : QAction* 
-	- toolbar : QToolBar*
+	
 	- statusBar : QStatusBar* 
 	- initialTab : QWidget* 
+
+	
+	- prefMenu : QMenu*
+	- setBGColorAct : QAction*
+	- setGridColorAct : QAction*
+	- setComponentColorAct : QAction*
+	- setSelectedColorAct : QAction*
+	- resetConfigAct : QAction*
+
+	- helpMenu : QMenu*
+	- tutorialAct : QAction*
+
+	- toolbar : QToolBar*
+
+	- statusBar : QStatusBar*	
+
+	- tabs : QTabWidget* 
 
 	- initializeMenu() : void
 	- initializeToolbar() : void
 	- initializeTabs() : void
-	- openFile(fileName : QString) : void
 	- initializeStatusBar() : void
+
+	- loadConfig() : void
+	- saveConfig() : void
 
 	+ {static} getMainWindow() : MainWindow* 
 
@@ -425,13 +428,22 @@ class MainWindow extends QMainWindow {
 	+ openFile() : void
 	+ saveFile() : void
 	+ saveFileAs() : void
-	+ preferences() : void
-	+ setTabStatus(bool modified) : void
-	+ closeFile(int index) : void
+	+ openFile() : void
+	+ closeFile(index : int) : void
+
+	+ setTabStatus(modified : bool) : void	
+	
 	+ drawRes90() : void
 	+ drawRes180() : void
 	+ drawVcc90() : void
 	+ drawVcc180() : void
+
+	+ setBGColor() : void
+	+ setGridColor() : void
+	+ setComponentColor() : void
+	+ setSelectedColor() : void
+
+	+ resetConfig()
 }
 
 Diagram "0..*" --o "1" MainWindow
