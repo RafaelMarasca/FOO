@@ -293,6 +293,24 @@ namespace GRF{
             adjMatrix[i][j] = 1;
         }
 
+
+        void adjacencyMatrix::insertVertex(unsigned int vtx){
+
+            while(vtx >= vertexNumber){
+                adjMatrix.push_back(std::vector<int>(vertexNumber,0));
+                vertexNumber++;
+            }
+
+            for(unsigned int i = 0; i< vertexNumber; i++)
+            {
+                while(adjMatrix[i].size()<vertexNumber){
+                    adjMatrix[i].push_back(0);
+                }
+            }
+        }
+
+
+
         //Deleta o ponteiro em (i,j) e faz (i,j) apontar para null (redundante?)
 
         void adjacencyMatrix::removeVertex(unsigned int vertex) {
@@ -321,12 +339,12 @@ namespace GRF{
         }
 
     //Getter da posição (i,j)
-    int adjacencyMatrix::query(unsigned int i, unsigned int j) {
+    int adjacencyMatrix::query(unsigned int vtx1, unsigned int vtx2){
 
-        if(i>=vertexNumber||j>=vertexNumber)
-            return 0;
+        if(vtx1>=vertexNumber||vtx2>=vertexNumber)
+            throw std::string("Acesso Inválido");
 
-        return adjMatrix[i][j];
+        return adjMatrix[vtx1][vtx2];
     }
 
     unsigned int adjacencyMatrix::getVertexNumber(){return vertexNumber;}

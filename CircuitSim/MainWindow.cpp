@@ -32,7 +32,6 @@
 #include <QStatusBar>
 #include <QVBoxLayout>
 #include <QLabel>
-#include <QWindow>
 #include <QColorDialog>
 
 MainWindow* MainWindow::instance = nullptr;
@@ -91,10 +90,10 @@ void MainWindow::initializeMenu(){
 
     connect(setBGColorAct, SIGNAL(triggered(bool)),this,SLOT(setBGColor()));
 
-    setLinesColorAct = new QAction("Mudar Cor da Grade");
-    prefMenu->addAction(setLinesColorAct);
+    setGridColorAct = new QAction("Mudar Cor da Grade");
+    prefMenu->addAction(setGridColorAct);
 
-    connect(setLinesColorAct, SIGNAL(triggered(bool)),this,SLOT(setLinesColor()));
+    connect(setGridColorAct, SIGNAL(triggered(bool)),this,SLOT(setGridColor()));
 
     setComponentColorAct = new QAction("Mudar Cor dos Componentes");
     prefMenu->addAction(setComponentColorAct);
@@ -343,7 +342,7 @@ void MainWindow::loadConfig(){
     Diagram::setBGColor(QColor(hexCode.c_str()));
 
     getline(config,hexCode);
-    Diagram::setLinesColor(QColor(hexCode.c_str()));
+    Diagram::setGridColor(QColor(hexCode.c_str()));
 
     getline(config,hexCode);
     Diagram::setComponentColor(QColor(hexCode.c_str()));
@@ -364,19 +363,19 @@ void MainWindow::saveConfig(){
 
     QString hexCode;
 
-    hexCode = Diagram::backgroundColor.name();
+    hexCode = Diagram::getBGColor().name();
     config<<hexCode.toStdString();
     config<<std::endl;
 
-    hexCode = Diagram::lineColor.name();
+    hexCode = Diagram::getGridColor().name();
     config<<hexCode.toStdString();
     config<<std::endl;
 
-    hexCode = Diagram::componentColor.name();
+    hexCode = Diagram::getComponentColor().name();
     config<<hexCode.toStdString();
     config<<std::endl;
 
-    hexCode = Diagram::selectedColor.name();
+    hexCode = Diagram::getSelectedColor().name();
     config<<hexCode.toStdString();
     config<<std::endl;
 
@@ -394,10 +393,10 @@ void MainWindow::setBGColor(){
     }
 }
 
-void MainWindow::setLinesColor(){
+void MainWindow::setGridColor(){
     QColor color =QColorDialog::getColor(QColor(DEFAULT_LC),this,"Selecione a cor para a grade");
     try{
-        Diagram::setLinesColor(color);
+        Diagram::setGridColor(color);
         saveConfig();
     }catch(std::string){
 
@@ -432,7 +431,7 @@ void MainWindow::resetConfig(){
     try{
         Diagram::setSelectedColor(DEFAULT_SC);
         Diagram::setComponentColor(DEFAULT_CC);
-        Diagram::setLinesColor(DEFAULT_LC);
+        Diagram::setGridColor(DEFAULT_LC);
         Diagram::setBGColor(DEFAULT_BGC);
         saveConfig();
     }catch(std::string){

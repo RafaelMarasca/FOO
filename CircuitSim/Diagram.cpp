@@ -26,7 +26,7 @@
 #include <QInputDialog>
 
 QColor Diagram::backgroundColor = QColor(DEFAULT_BGC);
-QColor Diagram::lineColor = QColor(DEFAULT_LC);
+QColor Diagram::gridColor = QColor(DEFAULT_LC);
 QColor Diagram::componentColor = QColor(DEFAULT_CC);
 QColor Diagram::selectedColor = QColor(DEFAULT_SC);
 
@@ -34,14 +34,30 @@ void Diagram::setBGColor(QColor color){
     backgroundColor = color;
 }
 
-void Diagram::setLinesColor(QColor color){
-    lineColor = color;
+void Diagram::setGridColor(QColor color){
+    gridColor = color;
 }
 void Diagram::setComponentColor(QColor color){
     componentColor = color;
 }
 void Diagram::setSelectedColor(QColor color){
     selectedColor = color;
+}
+
+QColor Diagram::getBGColor(){
+    return backgroundColor;
+}
+
+QColor Diagram::getGridColor(){
+    return gridColor;
+}
+
+QColor Diagram::getComponentColor(){
+    return componentColor;
+}
+
+QColor Diagram::getSelectedColor(){
+    return selectedColor;
 }
 
 Diagram::Diagram(QWidget *parent) : QWidget(parent)
@@ -71,9 +87,10 @@ void Diagram::save(){
 
     file.open(fileName, std::ios::out|std::ios::binary);
 
-    if(!file.is_open())
-        throw std::string("Failed to open file");
-    else
+    if(!file.is_open()){
+        throw std::string("Falha ao Salvar");
+        setStatus(ERROR);
+    }else
         setStatus(OK);
 
     unsigned int size = drawList.size();
@@ -173,7 +190,7 @@ void Diagram::load(){
     update();
 }
 
-void Diagram::setStatus(enum sts newStatus){
+void Diagram::setStatus(enum stats newStatus){
     if(status == newStatus or (status ==UNSAVED and newStatus != OK))
         return;
 
@@ -198,7 +215,7 @@ void Diagram::setStatus(enum sts newStatus){
     }
 }
 
-enum sts Diagram::getStatus(){
+enum stats Diagram::getStatus(){
     return status;
 }
 
@@ -208,11 +225,11 @@ void Diagram::paintEvent(QPaintEvent* event){
 
     QPainter painter(this);
 
-    painter.setPen(Diagram::lineColor);
+    painter.setPen(Diagram::gridColor);
     painter.setBrush(Diagram::backgroundColor);
     painter.drawRect(rect());
 
-    painter.setPen(lineColor);
+    painter.setPen(gridColor);
     for(int x = 0; x<width; x+=50){
         painter.drawLine(x,0,x,height);
     }
@@ -304,18 +321,24 @@ void Diagram::initializeDiagram(){
     editButton->setEnabled(false);
 
     editMenu = new QMenu(this);
-    QAction* editValueAction = new QAction("Editar Valor",this);
-    QAction* removeAction = new QAction("Remover Componente",this);
-    editMenu->addAction(editValueAction);
-    editMenu->addAction(removeAction);
+    QAction* editValueAct = new QAction("Editar Valor",this);
+    QAction* removeAct = new QAction("Remover Componente",this);
+    editMenu->addAction(editValueAct);
+    editMenu->addAction(removeAct);
 
-    connect(editValueAction,SIGNAL(triggered(bool)),this,SLOT(showEditDialog()));
-    connect(removeAction,SIGNAL(triggered(bool)),this,SLOT(remove()));
+    connect(editValueAct,SIGNAL(triggered(bool)),this,SLOT(showEditDialog()));
+    connect(removeAct,SIGNAL(triggered(bool)),this,SLOT(remove()));
+
+    queryMenu = new QMenu(this);
+    QAction* queryAct = new QAction("Consultar Dados",this);
+    queryMenu->addAction(queryAct);
+
+    connect(queryAct,SIGNAL(triggered(bool)),this,SLOT(query()));
 
     QWidget::setMouseTracking(true);
 }
 
-void Diagram::setSelectedButton(enum typeOrientation button){
+void Diagram::setSelectedButton(enum buttonType button){
     selectedButton = button;
     while(clickedStack.size())
             clickedStack.pop();
@@ -369,14 +392,14 @@ void Diagram::rightButtonClicked(int x,int y, int cArea){
 
     if(mode == EDIT){
         editMenu->popup(QPoint(x,y));
+    }else{
+        queryMenu->popup(QPoint(x,y));
     }
 }
 void Diagram::leftButtonClicked(int x,int y, int cArea){
 
     if(mode == EDIT){
         clickedControl(x,y,cArea);
-    }else{
-        query();
     }
 }
 
@@ -393,36 +416,34 @@ void Diagram::insert(int x, int y){
             }catch(char const* str){
                 qDebug()<<str;
             }
-
-            vtxCounter+=2;
         }break;
 
         case VCC180:{
             C = new Vcc(x,y,vtxCounter,vtxCounter+1,HORIZONTAL,this);
             circuit.addComponent(CMP::VCC,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
-            vtxCounter+=2;
         }break;
 
         case RES90:{
             C = new Resistor(x,y,vtxCounter,vtxCounter+1,VERTICAL,this);
             circuit.addComponent(CMP::RESISTOR,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
-            vtxCounter+=2;
+
             break;
         }
         case RES180:{
             C = new Resistor(x,y,vtxCounter,vtxCounter+1,HORIZONTAL,this);
             circuit.addComponent(CMP::RESISTOR,C->getLabel(),C->getValue(),C->getVertex1(),C->getVertex2());
-            vtxCounter+=2;
         }break;
 
         default:
             return;
             break;
     }
+    connections.insertVertex(vtxCounter);
+    connections.insertVertex(vtxCounter+1);
+    vtxCounter+=2;
     drawList.push_back(C);
     setSelectedButton(NONE);
     setStatus(MODIFIED);
-    qDebug()<<vtxCounter;
     update();
 }
 
@@ -432,7 +453,6 @@ void Diagram::queryMode(){
     playButton->setEnabled(false);
     editButton->setEnabled(true);
     emit statusBarText("Modo de Consulta");
-
     mode = QUERY;
 }
 
@@ -595,7 +615,7 @@ void Diagram::mouseMoveEvent(QMouseEvent* event){
     update();
 }
 
-std::pair<QRect,QPixmap> Diagram::getPixMap(enum typeOrientation type){
+std::pair<QRect,QPixmap> Diagram::getPixMap(enum buttonType type){
 
     QRect boundRect;
     QPixmap map;

@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Diagram_t {
-    const uint offsetsAndSize[38];
-    char stringdata0[162];
+    const uint offsetsAndSize[28];
+    char stringdata0[115];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_Diagram_t, stringdata0) + ofs), len 
@@ -38,23 +38,17 @@ QT_MOC_LITERAL(36, 13), // "statusBarText"
 QT_MOC_LITERAL(50, 3), // "str"
 QT_MOC_LITERAL(54, 9), // "queryMode"
 QT_MOC_LITERAL(64, 8), // "editMode"
-QT_MOC_LITERAL(73, 18), // "rightButtonClicked"
-QT_MOC_LITERAL(92, 1), // "x"
-QT_MOC_LITERAL(94, 1), // "y"
-QT_MOC_LITERAL(96, 5), // "cArea"
-QT_MOC_LITERAL(102, 17), // "leftButtonClicked"
-QT_MOC_LITERAL(120, 14), // "showEditDialog"
-QT_MOC_LITERAL(135, 4), // "edit"
-QT_MOC_LITERAL(140, 8), // "newValue"
-QT_MOC_LITERAL(149, 6), // "remove"
-QT_MOC_LITERAL(156, 5) // "query"
+QT_MOC_LITERAL(73, 14), // "showEditDialog"
+QT_MOC_LITERAL(88, 4), // "edit"
+QT_MOC_LITERAL(93, 8), // "newValue"
+QT_MOC_LITERAL(102, 6), // "remove"
+QT_MOC_LITERAL(109, 5) // "query"
 
     },
     "Diagram\0modified\0\0checked\0loadError\0"
     "statusBarText\0str\0queryMode\0editMode\0"
-    "rightButtonClicked\0x\0y\0cArea\0"
-    "leftButtonClicked\0showEditDialog\0edit\0"
-    "newValue\0remove\0query"
+    "showEditDialog\0edit\0newValue\0remove\0"
+    "query"
 };
 #undef QT_MOC_LITERAL
 
@@ -64,7 +58,7 @@ static const uint qt_meta_data_Diagram[] = {
        9,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -72,21 +66,19 @@ static const uint qt_meta_data_Diagram[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   92,    2, 0x06,    0 /* Public */,
-       1,    0,   95,    2, 0x26,    2 /* Public | MethodCloned */,
-       4,    1,   96,    2, 0x06,    3 /* Public */,
-       4,    0,   99,    2, 0x26,    5 /* Public | MethodCloned */,
-       5,    1,  100,    2, 0x06,    6 /* Public */,
+       1,    1,   80,    2, 0x06,    0 /* Public */,
+       1,    0,   83,    2, 0x26,    2 /* Public | MethodCloned */,
+       4,    1,   84,    2, 0x06,    3 /* Public */,
+       4,    0,   87,    2, 0x26,    5 /* Public | MethodCloned */,
+       5,    1,   88,    2, 0x06,    6 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       7,    0,  103,    2, 0x0a,    8 /* Public */,
-       8,    0,  104,    2, 0x0a,    9 /* Public */,
-       9,    3,  105,    2, 0x0a,   10 /* Public */,
-      13,    3,  112,    2, 0x0a,   14 /* Public */,
-      14,    0,  119,    2, 0x0a,   18 /* Public */,
-      15,    1,  120,    2, 0x0a,   19 /* Public */,
-      17,    0,  123,    2, 0x0a,   21 /* Public */,
-      18,    0,  124,    2, 0x0a,   22 /* Public */,
+       7,    0,   91,    2, 0x0a,    8 /* Public */,
+       8,    0,   92,    2, 0x0a,    9 /* Public */,
+       9,    0,   93,    2, 0x0a,   10 /* Public */,
+      10,    1,   94,    2, 0x0a,   11 /* Public */,
+      12,    0,   97,    2, 0x0a,   13 /* Public */,
+      13,    0,   98,    2, 0x0a,   14 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Bool,    3,
@@ -98,10 +90,8 @@ static const uint qt_meta_data_Diagram[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int,   10,   11,   12,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int,   10,   11,   12,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Double,   16,
+    QMetaType::Void, QMetaType::Double,   11,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -121,12 +111,10 @@ void Diagram::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 4: _t->statusBarText((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 5: _t->queryMode(); break;
         case 6: _t->editMode(); break;
-        case 7: _t->rightButtonClicked((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
-        case 8: _t->leftButtonClicked((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
-        case 9: _t->showEditDialog(); break;
-        case 10: _t->edit((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 11: _t->remove(); break;
-        case 12: _t->query(); break;
+        case 7: _t->showEditDialog(); break;
+        case 8: _t->edit((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 9: _t->remove(); break;
+        case 10: _t->query(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -163,7 +151,7 @@ const QMetaObject Diagram::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Diagram_t
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -190,13 +178,13 @@ int Diagram::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 11)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 13;
+        _id -= 11;
     }
     return _id;
 }

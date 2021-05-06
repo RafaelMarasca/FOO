@@ -52,7 +52,7 @@ private:
 
     QAction* setBGColorAct;
 
-    QAction* setLinesColorAct;
+    QAction* setGridColorAct;
     QAction* setComponentColorAct;
 
     QAction* setSelectedColorAct;
@@ -75,7 +75,7 @@ public slots:
     void saveFile();
     void saveFileAs();
     void setBGColor();
-    void setLinesColor();
+    void setGridColor();
     void setComponentColor();
     void setSelectedColor();
     void resetConfig();

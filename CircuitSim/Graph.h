@@ -293,41 +293,57 @@ namespace GRF{
             void insertEdge(unsigned int vtx1, unsigned int vtx2);
 
 
-           /*******************************************************************************************************
+
+            /*******************************************************************************************************
+             * Insere um vértice em um objeto da classe adjacencyMatrix.
+             *
+             * Insere dinâmicamente um vértice no grafo. São criados novos vértices até que o grafo tenha o
+             * tamanho necessário para que se possa utilizar o novo vértice. Caso o vértice já esteja no grafo,
+             * não executa nada.
+             *
+             * @param vtx Vértice a ser inserido.
+             *
+             * @return Void.
+             *******************************************************************************************************/
+            void insertVertex(unsigned int vtx);
+
+
+
+           /*********************************************************************************************************
             * Remove um vértice de um objeto da classe adjacencyMatrix.
             *
             * Remove um vértice do grafo. A linha e a coluna correspondentes ao vértice são removidas e o tamanho
-            * do grafo é reduzido. Todos os vértices cujo número que o identifica
+            * do grafo é reduzido. Todos os vértices com com número maior são deslocados e têm seu número reduzido.
             *
             * @param vtx Vértice que se deseja remover.
             *
             * @return Void.
-            *******************************************************************************************************/
+            *********************************************************************************************************/
             void removeVertex(unsigned int vtx);
 
 
-            /*******************************************************************************************************
-             * Remove um vértice de um objeto da classe adjacencyMatrix.
-             *
-             * Remove um vértice do grafo. A linha e a coluna correspondentes ao vértice são removidas e o tamanho
-             * do grafo é reduzido. Todos os vértices cujo número que o identifica
-             *
-             * @param vtx Vértice que se deseja remover.
-             *
-             * @return Void.
-             *******************************************************************************************************/
-            int query(unsigned int i, unsigned int j);
+           /*******************************************************************************************************
+            * Verifica se há conexão entre 2 vértices de um objeto da classe adjacencyMatrix.
+            *
+            * Verifica se há uma conexão direcionada de vtxq para vtx2 no grafo.
+            *
+            * @param vtx1 Vértice de saída.
+            * @param vtx2 Vértice de entrada
+            *
+            * @return 1 se há conexão e 0 se não há.
+            *******************************************************************************************************/
+            int query(unsigned int vtx1, unsigned int vtx2);
 
+
+           /*******************************************************************************************************
+            * Getter para o número de vértices de um objeto da classe adjacencyMatrix.
+            *
+            * Retorna o número de vértices presentes atualmente no grafo.
+            *
+            * @return Número de vértices do grafo.
+            *******************************************************************************************************/
             unsigned int getVertexNumber();
 
-            void print(){
-                for(unsigned int i = 0; i< vertexNumber; i++){
-                    for(unsigned int j = 0; j<vertexNumber;j++)
-                        std::cout<<adjMatrix[i][j]<<" ";
-
-                    std::cout<<std::endl;
-                }
-            }
     };
 
 

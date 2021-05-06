@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     const uint offsetsAndSize[38];
-    char stringdata0[201];
+    char stringdata0[200];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -36,22 +36,22 @@ QT_MOC_LITERAL(20, 8), // "openFile"
 QT_MOC_LITERAL(29, 8), // "saveFile"
 QT_MOC_LITERAL(38, 10), // "saveFileAs"
 QT_MOC_LITERAL(49, 10), // "setBGColor"
-QT_MOC_LITERAL(60, 13), // "setLinesColor"
-QT_MOC_LITERAL(74, 17), // "setComponentColor"
-QT_MOC_LITERAL(92, 16), // "setSelectedColor"
-QT_MOC_LITERAL(109, 11), // "resetConfig"
-QT_MOC_LITERAL(121, 12), // "setTabStatus"
-QT_MOC_LITERAL(134, 8), // "modified"
-QT_MOC_LITERAL(143, 9), // "closeFile"
-QT_MOC_LITERAL(153, 5), // "index"
-QT_MOC_LITERAL(159, 9), // "drawRes90"
-QT_MOC_LITERAL(169, 10), // "drawRes180"
-QT_MOC_LITERAL(180, 9), // "drawVcc90"
-QT_MOC_LITERAL(190, 10) // "drawVcc180"
+QT_MOC_LITERAL(60, 12), // "setGridColor"
+QT_MOC_LITERAL(73, 17), // "setComponentColor"
+QT_MOC_LITERAL(91, 16), // "setSelectedColor"
+QT_MOC_LITERAL(108, 11), // "resetConfig"
+QT_MOC_LITERAL(120, 12), // "setTabStatus"
+QT_MOC_LITERAL(133, 8), // "modified"
+QT_MOC_LITERAL(142, 9), // "closeFile"
+QT_MOC_LITERAL(152, 5), // "index"
+QT_MOC_LITERAL(158, 9), // "drawRes90"
+QT_MOC_LITERAL(168, 10), // "drawRes180"
+QT_MOC_LITERAL(179, 9), // "drawVcc90"
+QT_MOC_LITERAL(189, 10) // "drawVcc180"
 
     },
     "MainWindow\0newFile\0\0openFile\0saveFile\0"
-    "saveFileAs\0setBGColor\0setLinesColor\0"
+    "saveFileAs\0setBGColor\0setGridColor\0"
     "setComponentColor\0setSelectedColor\0"
     "resetConfig\0setTabStatus\0modified\0"
     "closeFile\0index\0drawRes90\0drawRes180\0"
@@ -120,7 +120,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->saveFile(); break;
         case 3: _t->saveFileAs(); break;
         case 4: _t->setBGColor(); break;
-        case 5: _t->setLinesColor(); break;
+        case 5: _t->setGridColor(); break;
         case 6: _t->setComponentColor(); break;
         case 7: _t->setSelectedColor(); break;
         case 8: _t->resetConfig(); break;
