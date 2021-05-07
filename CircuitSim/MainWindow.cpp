@@ -36,6 +36,8 @@
 
 MainWindow* MainWindow::instance = nullptr;
 
+
+//Retorna a instância da MainWindow
 MainWindow* MainWindow::getMainWindow(){
     if(instance == nullptr){
         instance = new MainWindow;
@@ -43,9 +45,10 @@ MainWindow* MainWindow::getMainWindow(){
     return instance;
 }
 
+//Construtor da janela principal
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    setWindowTitle("Simulador de Circuitos Resistivos");
+    setWindowTitle("CircuitSim");
     setGeometry(0,0,800,600);
     loadConfig();
 
@@ -55,13 +58,17 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     initializeStatusBar();
 }
 
+//Inicializa o menu inicial
 void MainWindow::initializeMenu(){
-    mainBar = new QMenuBar(this);
-    mainBar->setGeometry(0,0,300,30);
 
+    //Menu principal - Ações e menus.
+    mainBar = new QMenuBar(this);
+
+    //Menu de arquivos.
     fileMenu = new QMenu("File",this);
     mainBar->addMenu(fileMenu);
 
+    //Ações do menu principal.
     newFileAct = new QAction("New File",this);
     fileMenu->addAction(newFileAct);
 
@@ -80,11 +87,13 @@ void MainWindow::initializeMenu(){
     saveFileAsAct = new QAction("Save as",this);
     fileMenu->addAction(saveFileAsAct);
 
-     connect(saveFileAsAct,SIGNAL(triggered(bool)),this, SLOT(saveFileAs()));
+    connect(saveFileAsAct,SIGNAL(triggered(bool)),this, SLOT(saveFileAs()));
 
+    //Menu de preferências.
     prefMenu = new QMenu("Preferences",this);
     mainBar->addMenu(prefMenu);
 
+    //Ações do menu de preferências.
     setBGColorAct = new QAction("Mudar Plano de Fundo");
     prefMenu->addAction(setBGColorAct);
 
@@ -110,19 +119,26 @@ void MainWindow::initializeMenu(){
 
     connect(resetConfigAct, SIGNAL(triggered(bool)),this,SLOT(resetConfig()));
 
+    //Menu de ajuda.
     helpMenu = new QMenu("Help",this);
     mainBar->addMenu(helpMenu);
 
+    //Ações do menu de ajuda.
     tutorialAct = new QAction("Tutorial",this);
     helpMenu->addAction(tutorialAct);
 
+    connect(tutorialAct, SIGNAL(triggered(bool)),this,SLOT(tutorial()));
+
+    //Seta o menu principal da janela principal
     setMenuBar(mainBar);
 }
 
+//Inicialiaza a barra de ferramentas.
 void MainWindow::initializeToolbar() {
 
     toolbar = new QToolBar(this);
 
+    //Botão do fonte vertical.
     QPushButton* vcc90Button = new QPushButton(toolbar);
     connect(vcc90Button,SIGNAL(clicked(bool)), this, SLOT(drawVcc90()));
     QPixmap vcc90Pixmap(":/icons/resourceFile/iconFile/vcc90.png");
@@ -132,6 +148,7 @@ void MainWindow::initializeToolbar() {
     toolbar->addWidget(vcc90Button);
 
 
+    //Botão do fonte horizontal.
     QPushButton* vcc180Button = new QPushButton(toolbar);
     connect(vcc180Button,SIGNAL(clicked(bool)), this, SLOT(drawVcc180()));
     QPixmap vcc180Pixmap(":/icons/resourceFile/iconFile/vcc180.png");
@@ -141,6 +158,7 @@ void MainWindow::initializeToolbar() {
     toolbar->addWidget(vcc180Button);
 
 
+    //Botão da resistor vertical.
     QPushButton* res90Button = new QPushButton(toolbar);
     connect(res90Button,SIGNAL(clicked(bool)),this, SLOT(drawRes90()));
     QPixmap res90Pixmap(":/icons/resourceFile/iconFile/resistor90.png");
@@ -149,6 +167,8 @@ void MainWindow::initializeToolbar() {
     res90Button->setIconSize(QSize(65, 65));
     toolbar->addWidget(res90Button);
 
+
+    //Botão do resistor horizontal.
     QPushButton* res180Button = new QPushButton(toolbar);
     connect(res180Button,SIGNAL(clicked(bool)), this, SLOT(drawRes180()));
     QPixmap res180Pixmap(":/icons/resourceFile/iconFile/resistor180.png");
@@ -162,11 +182,13 @@ void MainWindow::initializeToolbar() {
     addToolBar(Qt::RightToolBarArea, toolbar);
 }
 
+//Inicializa a barra de status.
 void MainWindow::initializeStatusBar(){
     statusBar = new QStatusBar(this);
     setStatusBar(statusBar);
 }
 
+//Inicializa o sistema de abas.
 void MainWindow::initializeTabs(){
     tabs = new QTabWidget(this);
     tabs->setTabsClosable(true);
@@ -174,20 +196,26 @@ void MainWindow::initializeTabs(){
     setCentralWidget(tabs);
 }
 
+//Cria um novo arquivo.
 void MainWindow::newFile(){
 
     Diagram* D = new Diagram(this);
     diagrams.push_back(D);
 
+    //Inicializa a aba com um nome padrão.
     QString untitled = "*untitled ";
     untitled.append(QString::number(tabs->count()));
 
     tabs->addTab(D,untitled);
 
+    //Conecta o sinal de mudança de estado do diagrama às abas.
     connect(D,SIGNAL(modified(bool)),this,SLOT(setTabStatus(bool)));
+
+    //Conecta o sinal de mensagem do diagrama à barra de status.
     connect(D,SIGNAL(statusBarText(QString)),statusBar,SLOT(showMessage(QString)));
 }
 
+//Abre um arquivo.
 void MainWindow::openFile(){
     QString fileName = QFileDialog::getOpenFileName(this,"Open file",tr("*.cct"));
 
@@ -203,15 +231,23 @@ void MainWindow::openFile(){
         QMessageBox::warning(this, "Warning!", "Cannot load file.");
         return;
     }
+
     QFileInfo info(fileName);
 
+    //Adiciona o diagrama ao vector de diagramas ativos.
     diagrams.push_back(D);
+    //Adiciona o diagram às abas.
     tabs->addTab(D,info.fileName());
+
     statusBar->showMessage("\""+fileName+"\" Openned With Success");
+
+    //Conecta o sinal de mudança de estado do diagrama às abas.
     connect(D,SIGNAL(statusBarText(QString)),statusBar,SLOT(showMessage(QString)));
+    //Conecta o sinal de mensagem do diagrama à barra de status.
     connect(D,SIGNAL(modified(bool)),this,SLOT(setTabStatus(bool)));
 }
 
+//Salva o arquivo.
 void MainWindow::saveFile(){
 
     if(tabs->count() == 0)
@@ -221,6 +257,7 @@ void MainWindow::saveFile(){
     std::list<Diagram*>::iterator it = diagrams.begin();
     advance(it,index);
 
+    //Se o arquivo não foi salvo anteriormente, salva ele.
     if((*it)->getStatus()==UNSAVED){
         saveFileAs();
         return;
@@ -230,6 +267,8 @@ void MainWindow::saveFile(){
     statusBar->showMessage("\""+(*it)->getFileName()+"\" Saved With Success");
 }
 
+
+//Abre a janela de seleção de diretório e salva o arquivo
 void MainWindow::saveFileAs(){
 
     if(tabs->count()==0)
@@ -252,18 +291,24 @@ void MainWindow::saveFileAs(){
     statusBar->showMessage("\""+(*it)->getFileName()+"\" Saved With Success");
 }
 
+//Altera o status da aba
 void MainWindow::setTabStatus(bool modified){
     int index = tabs->currentIndex();
     QString fileName = tabs->tabText(index);
 
+    //Altera o onme do arquivo para inserir um asterisco caso o
+    //arquivo tenha sido modificado.
     if(modified){
         fileName.prepend('*');
     }else if(fileName.at(0)=='*'){
         fileName.remove(0,1);
     }
+
     tabs->setTabText(index, fileName);
 }
 
+
+//Controla o botão de fechar das abas.
 void MainWindow::closeFile(int index){
 
     std::list<Diagram*>::iterator it = diagrams.begin();
@@ -280,6 +325,50 @@ void MainWindow::closeFile(int index){
     tabs->removeTab(index);
 }
 
+//Menu de ajuda.
+void MainWindow::tutorial(){
+    QMessageBox::information(this,"Ajuda","Bem vindo ao CirucitSim - Simulador de Circuitos!");
+    QMessageBox::information(this,"Ajuda","Vamos lhe ensinar como utilizar o simulador.");
+    QMessageBox::information(this,"Ajuda","Na parte de cima encontram-se os menus.");
+    QMessageBox::information(this,"Ajuda","Os menu de arquivos lhe permite criar um novo projeto, "
+                                          "salvá-lo ou abrí-lo.");
+    QMessageBox::information(this,"Ajuda","Ao lado, há o menu de preferências.");
+    QMessageBox::information(this,"Ajuda","O menu de preferências lhe permite alterar o aspecto visual"
+                                          " do programa.");
+    QMessageBox::information(this,"Ajuda","Na parte inferior da tela, há uma barra de status.");
+    statusBar->showMessage("Eu sou a barra de status!",3000);
+    QMessageBox::information(this,"Ajuda","A barra de status fornece informações importantes acerca do programa, "
+                                          "então, é recomendável ficar atento e observá-la.");
+    QMessageBox::information(this,"Ajuda","Agora que você já sabe um pouco sobre o sistema de menus,"
+                                          "vamos aprender sobre o sistema de construção de circuitos");
+    QMessageBox::information(this,"Ajuda","Ao criar um novo arquivo, uma aba abrirá automáticamente.");
+    QMessageBox::information(this,"Ajuda","Esta aba contém um plano de fundo quadriculado, onde os componentes "
+                                          "podem ser inseridos.");
+    QMessageBox::information(this,"Ajuda","Para se inserir um componente, se atente para a barra de ferramentas "
+                                          "que se encontra no lado direito da tela.");
+    QMessageBox::information(this,"Ajuda","Esta barra possui 4 botões, referentes aos componentes que podem"
+                                          "ser inseridos.");
+    QMessageBox::information(this,"Ajuda","Ao clicar em um destes botões, o componente é selecionado e basta clicar "
+                                          "em um ponto da tela quadriculada para inserí-lo.");
+    QMessageBox::information(this,"Ajuda","Para realizar uma conexão entre dois componentes, clique em uma das "
+                                          "extremidades de um dos componentes e, em seguida, em uma das extremidades"
+                                          " do outro componente.");
+    QMessageBox::information(this,"Ajuda","Na parte inferior da tela, há dois botões, o botão play e o botão lápis.");
+    QMessageBox::information(this,"Ajuda","Quando se desejar inserir, remover ou editar um componente, certifique-se"
+                                          "de estar com o botão lápis selecionado.");
+    QMessageBox::information(this,"Ajuda","Para editar ou remover um componente, clieque neste com o botão direito do "
+                                          "mouse e selecione a opção desejada.");
+    QMessageBox::information(this,"Ajuda","Para consultar os valores do circuito, aperte o botão play, clique no"
+                                          "componente desejado com o botão direito do mouse e selecione consultar."
+                                          "Certifique-se de estar com o botão play selecionado.");
+    QMessageBox::information(this,"Ajuda","O programa suporta múltiplas abas, permitindo editar vários circuitos de "
+                                          "uma só vez.");
+    QMessageBox::information(this,"Ajuda","Chegamos ao fim do tutorial e você, agora, está mais do que pronto para "
+                                          "utilizar o CircuitSim! Esperamos que a experiência seja a melhor possível!"
+                                          "Caso precise rever este tutorial, basta clicar no menu de ajuda.");
+}
+
+//Controla o botão de desenho de fonte vertical.
 void MainWindow::drawVcc90(){
     if(tabs->count() == 0)
         return;
@@ -291,6 +380,7 @@ void MainWindow::drawVcc90(){
     (*it)->setSelectedButton(VCC90);
 }
 
+//Controla o botão de desenho da fonte horizontal.
 void MainWindow::drawVcc180(){
     if(tabs->count() == 0)
         return;
@@ -302,6 +392,7 @@ void MainWindow::drawVcc180(){
     (*it)->setSelectedButton(VCC180);
 }
 
+//Controla o botão de desenho do resistor vertical.
 void MainWindow::drawRes90(){
     if(tabs->count() == 0)
         return;
@@ -313,7 +404,7 @@ void MainWindow::drawRes90(){
     (*it)->setSelectedButton(RES90);
 }
 
-
+//Controla o botão de desenho do resistor horizontal.
 void MainWindow::drawRes180(){
     if(tabs->count() == 0)
         return;
@@ -325,16 +416,19 @@ void MainWindow::drawRes180(){
     (*it)->setSelectedButton(RES180);
 }
 
-
+//Carrega as configurações do programa
 void MainWindow::loadConfig(){
+
     std::ifstream config;
     config.open("config.txt",std::ios::in);
 
+    //Cria o arquivo de configurações caso ele não exista.
     if(not config.is_open()){
         saveConfig();
         return;
     }
 
+    //Carrega as configurações.
     std::string hexCode;
 
     getline(config,hexCode);
@@ -352,7 +446,9 @@ void MainWindow::loadConfig(){
     config.close();
 }
 
+//Salva as configurações do programa.
 void MainWindow::saveConfig(){
+
     std::ofstream config;
     config.open("config.txt",std::ios::out);
 
@@ -360,6 +456,7 @@ void MainWindow::saveConfig(){
         return;
     }
 
+    //Salva as configurações.
     QString hexCode;
 
     hexCode = Diagram::getBGColor().name();
@@ -381,50 +478,58 @@ void MainWindow::saveConfig(){
     config.close();
 }
 
-
+//Ação de mudança da cor do plano de fundo.
 void MainWindow::setBGColor(){
     QColor color =QColorDialog::getColor(QColor(DEFAULT_BGC),this,"Selecione a cor para o plano de fundo");
     try{
         Diagram::setBGColor(color);
         saveConfig();
-    }catch(std::string){
-
+        statusBar->showMessage("Alterações salvas");
+    }catch(std::string str){
+        statusBar->showMessage(QString::fromStdString(str)+". As alterações não forma salvas");
     }
 }
 
+//Ação de mudança da cor da grade do plano de fundo.
 void MainWindow::setGridColor(){
     QColor color =QColorDialog::getColor(QColor(DEFAULT_LC),this,"Selecione a cor para a grade");
     try{
         Diagram::setGridColor(color);
         saveConfig();
-    }catch(std::string){
-
+        statusBar->showMessage("Alterações salvas");
+    }catch(std::string str){
+        statusBar->showMessage(QString::fromStdString(str)+". As alterações não forma salvas");
     }
 
 }
+
+//Ação de mudança da cor dos componentes.
 void MainWindow::setComponentColor(){
 
     QColor color =QColorDialog::getColor(QColor(DEFAULT_CC),this,"Selecione a cor para os componentes");
     try{
         Diagram::setComponentColor(color);
         saveConfig();
-    }catch(std::string){
-
+        statusBar->showMessage("Alterações salvas");
+    }catch(std::string str){
+        statusBar->showMessage(QString::fromStdString(str)+". As alterações não forma salvas");
     }
-
 }
 
+//Ação de mudança da cor de seleção dos componentes.
 void MainWindow::setSelectedColor(){
 
     QColor color =QColorDialog::getColor(QColor(DEFAULT_SC),this,"Selecione a cor para a seleção");
     try{
         Diagram::setSelectedColor(color);
         saveConfig();
-    }catch(std::string){
-
+        statusBar->showMessage("Alterações salvas");
+    }catch(std::string str){
+        statusBar->showMessage(QString::fromStdString(str)+". As alterações não forma salvas");
     }
 }
 
+//Restaura as configurações padrão.
 void MainWindow::resetConfig(){
 
     try{
@@ -433,8 +538,8 @@ void MainWindow::resetConfig(){
         Diagram::setGridColor(DEFAULT_LC);
         Diagram::setBGColor(DEFAULT_BGC);
         saveConfig();
-    }catch(std::string){
-
+        statusBar->showMessage("Configurações restauradas. Reinicie o programa para aplicá-las.");
+    }catch(std::string str){
+       statusBar->showMessage(QString::fromStdString(str)+". Não foi possível restaurar as configurações");
     }
 }
-

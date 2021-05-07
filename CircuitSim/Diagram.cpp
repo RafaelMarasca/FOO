@@ -25,10 +25,12 @@
 #include <QMessageBox>
 #include <QInputDialog>
 
+//Inicialização das variáveis estáticas que representam as cores do tema do diagrama.
 QColor Diagram::backgroundColor = QColor(DEFAULT_BGC);
 QColor Diagram::gridColor = QColor(DEFAULT_LC);
 QColor Diagram::componentColor = QColor(DEFAULT_CC);
 QColor Diagram::selectedColor = QColor(DEFAULT_SC);
+
 
 void Diagram::setBGColor(QColor color){
     if(not color.isValid())
@@ -74,6 +76,7 @@ QColor Diagram::getSelectedColor(){
     return selectedColor;
 }
 
+//Constrói o diagrama.
 Diagram::Diagram(QWidget *parent) : QWidget(parent)
 {
     initializeDiagram();
@@ -87,6 +90,69 @@ Diagram::Diagram(QWidget *parent) : QWidget(parent)
     vtxCounter = 0;
 }
 
+
+//Inicializa os botões e layout do Widget.
+void Diagram::initializeDiagram(){
+
+    //Botões de edição e play.
+    editButton = new QPushButton(this);
+    editButton->setFixedSize(51,51);
+
+    QPixmap editPixmap(":/icons/resourceFile/iconFile/pencilIcon.png");
+    QIcon editIcon(editPixmap.scaled(51, 51));
+
+    editButton->setIcon(editIcon);
+    editButton->setIconSize(QSize(51, 51));
+
+    playButton = new QPushButton(this);
+    playButton->setFixedSize(51,51);
+
+    QPixmap playPixmap(":/icons/resourceFile/iconFile/playIcon.png");
+    QIcon playIcon(playPixmap.scaled(51, 51));
+
+    playButton->setIcon(playIcon);
+    playButton->setIconSize(QSize(51, 51));
+
+    //Layout do Diagrama
+    QVBoxLayout *vbox = new QVBoxLayout(this);
+    vbox->setAlignment(Qt::AlignBottom|Qt::AlignRight);
+    vbox->addWidget(editButton);
+    vbox->addWidget(playButton);
+    vbox->setContentsMargins(0,0,51,51);
+
+    setLayout(vbox);
+
+    //Conecta os sinais do botão aos métodos do diagrama.
+    connect(editButton,SIGNAL(clicked(bool)), this, SLOT(editMode()));
+    connect(playButton,SIGNAL(clicked(bool)), this, SLOT(queryMode()));
+
+    //Desativa o botão de edição, pois o diagrama se inicia no modo de edição
+    editButton->setEnabled(false);
+
+    //Menus popup de edição.
+    editMenu = new QMenu(this);
+    QAction* editValueAct = new QAction("Editar Valor",this);
+    QAction* removeAct = new QAction("Remover Componente",this);
+    editMenu->addAction(editValueAct);
+    editMenu->addAction(removeAct);
+
+    //Conecta os sinais do menu popup de edição aos métodos do diagrama.
+    connect(editValueAct,SIGNAL(triggered(bool)),this,SLOT(showEditDialog()));
+    connect(removeAct,SIGNAL(triggered(bool)),this,SLOT(remove()));
+
+    //Menus popup de consulta.
+    queryMenu = new QMenu(this);
+    QAction* queryAct = new QAction("Consultar Dados",this);
+    queryMenu->addAction(queryAct);
+
+    //Conecta os sinais do menu popup de consulta aos métodos do diagrama.
+    connect(queryAct,SIGNAL(triggered(bool)),this,SLOT(query()));
+
+    //Ativa o rastreamento do cursor do mouse.
+    QWidget::setMouseTracking(true);
+}
+
+//Altera o nome do arquivo que contém o diagrama.
 void Diagram::setFileName(QString file){
     fileName = file.toStdString();
 }
@@ -103,10 +169,13 @@ void Diagram::save(){
 
     if(!file.is_open()){
         throw std::string("Falha ao Salvar");
-        setStatus(ERROR);
-    }else
-        setStatus(OK);
+        setStatus(ERROR); //Altera o status do arquivo para erro de carregamento.
+    }else{
+        setStatus(OK);//Altera o status do arquivo para Ok.
+    }
 
+    //Escreve no arquivo os dados necessários para se construir o mesmo circuito
+    //ao abrir este arquivo com o método load.
     unsigned int size = drawList.size();
     file.write(reinterpret_cast<char*>(&size),sizeof(unsigned int));
 
@@ -146,17 +215,20 @@ void Diagram::save(){
 }
 
 void Diagram::load(){
+
     std::ifstream file;
 
     file.open(fileName, std::ios::in|std::ios::binary);
 
     if(!file.is_open()){
         throw std::string("Falha ao abrir arquivo");
-        setStatus(ERROR);
+        setStatus(ERROR);//Altera o status do arquivo para erro de carregamento.
     }
-    else
-        setStatus(OK);
+    else{
+        setStatus(OK);//Altera o status do arquivo para OK.
+    }
 
+    //Lê do arquivo os dados necessários para se recriar o circuito salvo anteriormente.
     unsigned int size;
     file.read(reinterpret_cast<char*>(&size),sizeof(unsigned int));
     qDebug()<<size;
@@ -188,9 +260,11 @@ void Diagram::load(){
 
     unsigned int aux =0;
 
+    //Adiciona os componente e suas conexões.
     for(unsigned int i = 0; i< size; i++){
         for(unsigned int j = 0; j < size; j++){
             file.read(reinterpret_cast<char*>(&aux),sizeof(unsigned int));
+
             if(aux == 1){
                 connections.insertEdge(i,j);
                 QString str = "Aux" + QString::number(wireCounter);
@@ -201,6 +275,8 @@ void Diagram::load(){
         }
     }
     file.close();
+
+    //Chama o paintEvent para Atualizar os gráficos do progrma.
     update();
 }
 
@@ -208,24 +284,25 @@ void Diagram::setStatus(enum stats newStatus){
     if(status == newStatus or (status ==UNSAVED and newStatus != OK))
         return;
 
+    //Emite os sinais necessários para se comunicar com a MainWindow.
     switch(newStatus){
-    case MODIFIED:
-        status = MODIFIED;
-        emit modified(true);
-        break;
+        case MODIFIED:
+            status = MODIFIED;
+            emit modified(true);
+            break;
 
-    case UNSAVED:
-        status = UNSAVED;
-        break;
+        case UNSAVED:
+            status = UNSAVED;
+            break;
 
-    case OK:
-        status = OK;
-        emit modified(false);
-        break;
+        case OK:
+            status = OK;
+            emit modified(false);
+            break;
 
-    case ERROR:
-        emit loadError(true);
-    break;
+        case ERROR:
+            emit loadError(true);
+        break;
     }
 }
 
@@ -234,16 +311,21 @@ enum stats Diagram::getStatus(){
 }
 
 void Diagram::paintEvent(QPaintEvent* event){
+
+    //Tamanho do diagrama (Grande o suficiente para se completar
+    //a tela toda com a grade do plano de fundo
     int width = 60000;
     int height = 60000;
 
     QPainter painter(this);
 
-    painter.setPen(Diagram::gridColor);
+    //Desenha o plano de fundo
     painter.setBrush(Diagram::backgroundColor);
     painter.drawRect(rect());
 
+    //Desenha a grade do plano de fundo.
     painter.setPen(gridColor);
+
     for(int x = 0; x<width; x+=50){
         painter.drawLine(x,0,x,height);
     }
@@ -252,6 +334,8 @@ void Diagram::paintEvent(QPaintEvent* event){
         painter.drawLine(0,y,width,y);
     }
 
+    //Chama o método de desenho de cada componente,
+    //se o componente estiver selecionado, o destaca com a cor de seleção.
     std::vector<GraphicComponent*>::iterator it;
     for(it = drawList.begin(); it!=drawList.end(); it++){
         if(*it == selectedComponent){
@@ -260,11 +344,13 @@ void Diagram::paintEvent(QPaintEvent* event){
             (*it)->draw(&painter,componentColor);
     }
 
+    //Altera a caneta para que se desenhem as conexões entre os componentes.
     QPen p;
     p.setWidth(3);
     p.setColor(componentColor);
     painter.setPen(p);
 
+    //Procura as conexões no grafo de conexões e em cada componente.
     for(unsigned int i = 0; i < connections.getVertexNumber(); i++){
         for(unsigned int j = 0; j < connections.getVertexNumber(); j++){
            if(connections.query(i,j)){
@@ -285,9 +371,7 @@ void Diagram::paintEvent(QPaintEvent* event){
         }
     }
 
-    p.setColor(selectedColor);
-    painter.setPen(p);
-
+    //Faz o componente selecionado através do botão acompanhar o cursor do mouse.
     if(selectedButton!=NONE){
         std::pair<QRect,QPixmap> map =  getPixMap(selectedButton);
         QRect aux(cursorLocation.x(),cursorLocation.y(),map.first.width(),
@@ -295,62 +379,17 @@ void Diagram::paintEvent(QPaintEvent* event){
         painter.drawPixmap(aux,map.second);
     }
 
+    //Altera a cor da caneta para que a conexão que esta a se desenhar
+    //fique com a cor destacada.
+    p.setColor(selectedColor);
+    painter.setPen(p);
+
+    //Faz uma conexão acompanhar o cursor do mouse enquanto está sendo desenhada.
     if(clickedStack.size()){
         painter.drawLine(selectedPrev,cursorLocation);
     }
 }
 
-void Diagram::initializeDiagram(){
-
-    editButton = new QPushButton(this);
-    editButton->setFixedSize(51,51);
-
-    QPixmap editPixmap(":/icons/resourceFile/iconFile/pencilIcon.png");
-    QIcon editIcon(editPixmap.scaled(51, 51));
-
-    editButton->setIcon(editIcon);
-    editButton->setIconSize(QSize(51, 51));
-
-    playButton = new QPushButton(this);
-    playButton->setFixedSize(51,51);
-
-    QPixmap playPixmap(":/icons/resourceFile/iconFile/playIcon.png");
-    QIcon playIcon(playPixmap.scaled(51, 51));
-
-    playButton->setIcon(playIcon);
-    playButton->setIconSize(QSize(51, 51));
-
-
-    QVBoxLayout *vbox = new QVBoxLayout(this);
-    vbox->setAlignment(Qt::AlignBottom|Qt::AlignRight);
-    vbox->addWidget(editButton);
-    vbox->addWidget(playButton);
-    vbox->setContentsMargins(0,0,51,51);
-
-    setLayout(vbox);
-
-    connect(editButton,SIGNAL(clicked(bool)), this, SLOT(editMode()));
-    connect(playButton,SIGNAL(clicked(bool)), this, SLOT(queryMode()));
-
-    editButton->setEnabled(false);
-
-    editMenu = new QMenu(this);
-    QAction* editValueAct = new QAction("Editar Valor",this);
-    QAction* removeAct = new QAction("Remover Componente",this);
-    editMenu->addAction(editValueAct);
-    editMenu->addAction(removeAct);
-
-    connect(editValueAct,SIGNAL(triggered(bool)),this,SLOT(showEditDialog()));
-    connect(removeAct,SIGNAL(triggered(bool)),this,SLOT(remove()));
-
-    queryMenu = new QMenu(this);
-    QAction* queryAct = new QAction("Consultar Dados",this);
-    queryMenu->addAction(queryAct);
-
-    connect(queryAct,SIGNAL(triggered(bool)),this,SLOT(query()));
-
-    QWidget::setMouseTracking(true);
-}
 
 void Diagram::setSelectedButton(enum cmpStyle button){
     selectedButton = button;
@@ -361,9 +400,11 @@ void Diagram::setSelectedButton(enum cmpStyle button){
 
 void Diagram::mousePressEvent(QMouseEvent* event){
 
+    //Coordenadas do ponto clicado pelo mouse.
     int x = event->x();
     int y = event->y();
 
+    //Ações do mouse quando nenhum botão de inserção foi pressionado.
     if(selectedButton == NONE){
         std::vector<GraphicComponent*>::iterator it;
         for(it = drawList.begin();it != drawList.end();it++){
@@ -382,16 +423,22 @@ void Diagram::mousePressEvent(QMouseEvent* event){
 
     selectedComponent = nullptr;
 
+    //remove os componentes da pilha de objetos clicados anteriormente
     while(clickedStack.size())
         clickedStack.pop();
 
+    //Ações a se tomar quando um botão de inserção for pressionado antes do evento
+    //de clique do mouse.
     if(selectedButton != NONE){
         QRect rect;
+
         if(selectedButton == VCC180 or selectedButton == RES180){
             rect = QRect(x,y,HEIGHT,WIDTH);
         }else{
             rect = QRect(x,y,WIDTH,HEIGHT);
         }
+
+        //Verifica colisão entre os componentes já inseridos e o componente que está se inserindo.
         std::vector<GraphicComponent*>::iterator it;
         for(it = drawList.begin();it != drawList.end();it++){
             if(rect.intersects((*it)->getBoundRect())){
@@ -401,10 +448,12 @@ void Diagram::mousePressEvent(QMouseEvent* event){
                 return;
             }
         }
+        //Se não houver colisão, insere na tela e no circuito.
         insert(x,y);
     }
 }
 
+//Método auxiliar para as ações do botão direito do mouse.
 void Diagram::rightButtonClicked(int x,int y, int cArea){
 
     if(mode == EDIT){
@@ -413,6 +462,8 @@ void Diagram::rightButtonClicked(int x,int y, int cArea){
         queryMenu->popup(QPoint(x,y));
     }
 }
+
+//Método auxiliar para as ações do botão esquerdo do mouse do mouse.
 void Diagram::leftButtonClicked(int x,int y, int cArea){
 
     if(mode == EDIT){
@@ -424,6 +475,7 @@ void Diagram::insert(int x, int y){
 
     GraphicComponent* C;
 
+    //Verifica qual botão foi pressionado antes de se inserir.
     switch(selectedButton){
 
         case VCC90:{
@@ -449,13 +501,15 @@ void Diagram::insert(int x, int y){
 
         default:
             return;
-            break;
+         break;
     }
 
+    //Insere os vértices do componente no grafo de conexões.
     connections.insertVertex(vtxCounter);
     connections.insertVertex(vtxCounter+1);
     vtxCounter+=2;
 
+    //Adiciona o componente ao vector de desenhos.
     drawList.push_back(C);
 
     setSelectedButton(NONE);
@@ -464,36 +518,55 @@ void Diagram::insert(int x, int y){
     update();
 }
 
-
+//Modo de Consulta.
 void Diagram::queryMode(){
+
+    //Inicializa o circuito.
     circuit.initialize();
+
+    //Destativa o botão play.
     playButton->setEnabled(false);
+
+    //Ativa o botão de edição.
     editButton->setEnabled(true);
+
     emit statusBarText("Modo de Consulta");
     mode = QUERY;
 }
 
 void Diagram::editMode(){
+    //Reseta o circuito.
     circuit.reset();
+
+    //Ativa o botão de play.
     playButton->setEnabled(true);
+
+    //Desativa o botão de edição.
     editButton->setEnabled(false);
+
     emit statusBarText("Modo de Edição");
     mode = EDIT;
 }
 
 void Diagram::clickedControl(int x, int y, int index){
 
+    //Se houver um componente na pilha de componentes clicados anteriormente
     if(clickedStack.size()==1){
         std::pair<int,GraphicComponent*> aux = clickedStack.top();
 
+        //Verifica se a a tentativa de conexão é entre os vértices de um mesmo
+        //componente, ou se a conexão já existe e impede a conexão.
         if(connections.query(aux.first,index)||connections.query(index,aux.first)||
             aux.second == selectedComponent){
+
             while(clickedStack.size())
                 clickedStack.pop();
+
             selectedComponent = nullptr;
             return;
         }
 
+        //Insere uma conexão entre os componentes.
         connections.insertEdge(aux.first,index);
         QString str = "Aux" + QString::number(wireCounter);
         circuit.addComponent(CMP::RESISTOR,str.toStdString(),0,aux.first,index);
@@ -506,7 +579,9 @@ void Diagram::clickedControl(int x, int y, int index){
         selectedComponent = nullptr;
 
     }else{
+        //Se nenhum componente foi clicado anteriormente, adiciona na pilha de clicados.
         clickedStack.push(std::pair<int,GraphicComponent*>(index,selectedComponent));
+        //Seta o ponto clicado do componente como ponto clicado anteriormente.
         selectedPrev = QPoint(x,y);
     }
 }
@@ -518,23 +593,31 @@ void Diagram::edit(double newValue){
     setStatus(MODIFIED);
 }
 
+
+//Mostra a janela de edição de componente.
 void Diagram::showEditDialog(){
     QInputDialog editDialog(this);
+
     editDialog.setDoubleDecimals(7);
     editDialog.setDoubleMaximum(100000);
     editDialog.setDoubleMinimum(0);
     editDialog.setInputMode(QInputDialog::DoubleInput);
+
     connect(&editDialog,SIGNAL(doubleValueSelected(double)),this,SLOT(edit(double)));
+
     editDialog.exec();
     selectedComponent = nullptr;
 }
 
 
 void Diagram::remove(){
+        //Remove as conexões do grafo de conexões
         connections.removeVertex(selectedComponent->getVertex1());
         connections.removeVertex(selectedComponent->getVertex2()-1);
 
 
+        //Obtém os nomes dos componentes que devem ser removidos junto
+        //com o componente que se deseja excluir.
         std::vector<std::string>aux;
         std::vector<unsigned int> vtx1 = circuit.getEdges(selectedComponent->getVertex1());
         std::vector<unsigned int> vtx2 = circuit.getEdges(selectedComponent->getVertex2());
@@ -548,18 +631,13 @@ void Diagram::remove(){
             aux.push_back(circuit.getComponentLabel(vtx2[i]));
         }
 
+        //Remove o componente do circuito.
         circuit.removeComponent(selectedComponent->getLabel());
 
-
+        //Remove os componentes que devem ser excluídos em conjunto.
         for(unsigned i = 1; i< aux.size(); i++){
-            qDebug()<<QString::fromStdString(aux[i]);
-            try{
-                if(aux[i]!=aux[0])
-                    circuit.removeComponent(aux[i]);
-
-            }catch(std::string str){
-
-            }
+            if(aux[i]!=aux[0])
+                circuit.removeComponent(aux[i]);
         }
 
     vtxCounter-=2;
@@ -570,6 +648,7 @@ void Diagram::remove(){
 
     bool flag = 0;
 
+    //Atualiza o vector de desenho.
     std::vector<GraphicComponent*>::iterator auxIt = drawList.end();
     std::vector<GraphicComponent*>::iterator it;
     for(it = drawList.begin(); it != drawList.end(); it++){
@@ -599,6 +678,7 @@ void Diagram::remove(){
     update();
 }
 
+//Exibe a dialog de consulta.
 void Diagram::query(){
 
     QString currentStr = "Corrente: ";
@@ -612,6 +692,7 @@ void Diagram::query(){
 }
 
 void Diagram::mouseMoveEvent(QMouseEvent* event){
+   //Retorna a localização do cursor do mouse.
     cursorLocation=event->pos();
     update();
 }

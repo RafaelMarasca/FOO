@@ -23,7 +23,7 @@
 
 namespace GRF{
 
-   /*************************************************************************
+   /****************************************************************************
     * Declaração da classe incidenceMatrix.
     *
     * Representa um grafo direcionado através de uma matriz de incidência.
@@ -31,7 +31,10 @@ namespace GRF{
     * de inserção, começando do 0.
     * Cada aresta do grafo é representada por um número, conforme a ordem
     * de inserção, começando do 0.
-    *************************************************************************/
+    *
+    * Esta classe é feita especificamente para grafos que não possuem
+    * uma aresta com mesmo vértice nos pontos final e inicial (self-loop).
+    ***************************************************************************/
 	class incidenceMatrix{
 
 		private:
@@ -213,7 +216,8 @@ namespace GRF{
             * Getter para os vértices que são conectados por uma aresta de um objeto da classe incidenceMatrix.
             *
             * std::pair contendo os 2 vértices que estão conectados por edge. O primeiro elemento do pair é o
-            * vértice de saída enquanto que o segundo elemento do pair é o vértice de entrada da conexão.
+            * vértice de saída enquanto que o segundo elemento do pair é o vértice de entrada da conexão. Caso
+            * não haja conexão, retorna o par (0,0).
             *
             * @param edge Aresta pertencente ao grafo.
             *

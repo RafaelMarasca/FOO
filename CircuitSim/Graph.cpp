@@ -21,7 +21,7 @@
 
 namespace GRF{
 
-	//Construtor da matriz se chamado sem parâmetro, cria a matriz apenas com um vértice
+    //Construtor da matriz se chamado sem parâmetro cria a matriz vazia
 	incidenceMatrix::incidenceMatrix() {
 		vertexNumber = 0;
 		edgeNumber = 0;
@@ -38,7 +38,7 @@ namespace GRF{
 	//Cria uma conexao entre vertices em um grafo que ja possui tamanho definido
 	void incidenceMatrix::makeCon(unsigned int vtx1,  unsigned int vtx2,  unsigned int edg) {
 		if(vtx1 >= vertexNumber or vtx2 >= vertexNumber or edg >= edgeNumber)
-			throw ("Acesso invalido");
+            throw std::string("Acesso invalido");
 
 		inMatrix[vtx1][edg] = 1;
 		inMatrix[vtx2][edg] = -1;
@@ -58,9 +58,11 @@ namespace GRF{
 		edgeNumber++;
 	}
 
+    //Remove uma aresta da matriz, se os vértices cuja a aresta conectava
+    //não possuem mais nenhuma outra conexão, os remove.
 	void incidenceMatrix::removeEdge(unsigned int edg){
 		if(edg >= getEdgeNumber())
-			throw "Acesso invalido";
+            throw std::string("Acesso invalido");
 
 		for(unsigned int i = 0; i < getEdgeNumber();i++){
 			if(i > edg){
@@ -75,9 +77,10 @@ namespace GRF{
 		edgeNumber--;
 	}
 
+    //Remove um vértice da matriz
 	void incidenceMatrix::removeVertex(unsigned int vtx){
 		if(vtx >= getVertexNumber())
-			throw "Acesso invalido";
+            throw std::string("Acesso invalido");
 
 		for(unsigned int i = 0; i < getVertexNumber(); i++){
 			if(i>vtx){
@@ -98,10 +101,13 @@ namespace GRF{
 		return this->edgeNumber;
 	}
 
+
+    //Acha um loop fundamental do circuito (deve haver apenas um loop).
+    //Utilizado em conjunto com getSpanningTree
 	std::vector<int> incidenceMatrix::getLoop(unsigned int key){
 		
 		if(key>=vertexNumber)
-			throw "Acesso invalido";
+            throw std::string("Acesso invalido");
 
 		std::vector<int> vEdg(edgeNumber,0);
 		std::stack<unsigned int> aux;
@@ -144,6 +150,8 @@ namespace GRF{
 		return vEdg;;
 	}
 
+
+    //Retorna uma matriz de incidência que representa a árvore geradora do grafo.
 	incidenceMatrix incidenceMatrix::getSpanningTree(unsigned int key){
 		
 		if(key>=vertexNumber)
@@ -180,11 +188,12 @@ namespace GRF{
 		}	
 		return tree;
 	}
+
 	//Retorna o vertice que esta ligado a vtx pela aresta edg
 	unsigned int incidenceMatrix::getVertexCon(unsigned int vtx,  unsigned int edg) {
 
 		if(vtx>=vertexNumber or edg>=edgeNumber)
-			throw("Acesso invalido");
+            throw std::string("Acesso invalido");
 
 		if(inMatrix[vtx][edg]){
 			for(unsigned int i = 0;i<vertexNumber;i++){
@@ -195,9 +204,10 @@ namespace GRF{
 		return vtx; 
 	}
 
+
 	std::vector<unsigned int> incidenceMatrix::getEdges(unsigned int vtx){
 		if (vtx>=getVertexNumber()){
-			throw "Acesso invalido";
+            throw std::string("Acesso invalido");
 		}
 		
 		std::vector<unsigned int>temp;
@@ -212,7 +222,7 @@ namespace GRF{
 	std::vector<unsigned int> incidenceMatrix::getEdges(unsigned int vtx1,  unsigned int vtx2){
 		
 		if(vtx1>=getVertexNumber() or vtx2>=getVertexNumber())
-			throw "Acesso invalido";
+            throw std::string("Acesso invalido");
 
 		std::vector<unsigned int> temp;
 		
@@ -226,7 +236,7 @@ namespace GRF{
 	std::pair<unsigned int,unsigned int> incidenceMatrix::getVertex(unsigned int edg){
 		
 		if(edg>=edgeNumber)
-			throw "Acesso invalido";
+            throw std::string("Acesso invalido");
 		
 		std::pair<unsigned int,unsigned int> vtx(0,0);
 
@@ -255,81 +265,70 @@ namespace GRF{
 
     adjacencyMatrix::adjacencyMatrix() {
             vertexNumber = 0;
-            //  Inicializa o número de vértices como V, aloca um vector de vectos preenchido com null
-            //e passa esse vector de vectors para a matriz de adjacência.
-        }
+    }
+
     adjacencyMatrix::adjacencyMatrix(unsigned int vertexNum) {
-            vertexNumber = vertexNum;
-            adjMatrix = std::vector<std::vector<int>>(vertexNum,std::vector<int>(vertexNum,0));
-            //  Inicializa o número de vértices como V, aloca um vector de vectos preenchido com null
-            //e passa esse vector de vectors para a matriz de adjacência.
+        vertexNumber = vertexNum;
+        adjMatrix = std::vector<std::vector<int>>(vertexNum,std::vector<int>(vertexNum,0));
+     }
+
+    void adjacencyMatrix::insertEdge(unsigned int i, unsigned int j){
+
+        while(i >= vertexNumber || j >= vertexNumber){
+            adjMatrix.push_back(std::vector<int>(vertexNumber,0));
+            vertexNumber++;
         }
 
-        //Insere um dado ponteiro para T na posição (i,j) da matriz
-        void adjacencyMatrix::insertEdge(unsigned int i, unsigned int j){
+        for(unsigned int i = 0; i< vertexNumber; i++){
+            while(adjMatrix[i].size()<vertexNumber){
+                adjMatrix[i].push_back(0);
+            }
+        }
 
-            while(i >= vertexNumber || j >= vertexNumber){
+        adjMatrix[i][j] = 1;
+    }
 
-                adjMatrix.push_back(std::vector<int>(vertexNumber,0));
-                vertexNumber++;
+
+    void adjacencyMatrix::insertVertex(unsigned int vtx){
+
+        while(vtx >= vertexNumber){
+            adjMatrix.push_back(std::vector<int>(vertexNumber,0));
+            vertexNumber++;
+        }
+
+        for(unsigned int i = 0; i< vertexNumber; i++){
+            while(adjMatrix[i].size()<vertexNumber){
+                adjMatrix[i].push_back(0);
+            }
+        }
+    }
+
+    void adjacencyMatrix::removeVertex(unsigned int vertex) {
+
+        if(vertex >= vertexNumber)
+            throw std::string("Acesson Invalido");
+
+        for(unsigned int i = 0; i < vertexNumber; i++){
+            if(i>vertex)
+                std::swap(adjMatrix[i-1],adjMatrix[i]);
             }
 
-            for(unsigned int i = 0; i< vertexNumber; i++)
-            {
-                while(adjMatrix[i].size()<vertexNumber){
-                    adjMatrix[i].push_back(0);
+        for(unsigned int i = 0; i < vertexNumber;i++){
+            if(i > vertex){
+                for(unsigned int j = 0; j < vertexNumber; j++){
+                    adjMatrix[j][i-1] = adjMatrix[j][i];
                 }
             }
-
-            adjMatrix[i][j] = 1;
+        }
+        for(unsigned int i = 0; i < vertexNumber-1; i++){
+            adjMatrix[i].pop_back();
         }
 
-
-        void adjacencyMatrix::insertVertex(unsigned int vtx){
-
-            while(vtx >= vertexNumber){
-                adjMatrix.push_back(std::vector<int>(vertexNumber,0));
-                vertexNumber++;
-            }
-
-            for(unsigned int i = 0; i< vertexNumber; i++)
-            {
-                while(adjMatrix[i].size()<vertexNumber){
-                    adjMatrix[i].push_back(0);
-                }
-            }
-        }
+        adjMatrix.pop_back();
+        vertexNumber--;
+    }
 
 
-
-        //Deleta o ponteiro em (i,j) e faz (i,j) apontar para null (redundante?)
-
-        void adjacencyMatrix::removeVertex(unsigned int vertex) {
-
-            if(vertex >= vertexNumber)
-                throw std::string("Acesson Invalido");
-
-            for(unsigned int i = 0; i < vertexNumber; i++){
-                if(i>vertex)
-                    std::swap(adjMatrix[i-1],adjMatrix[i]);
-            }
-
-            for(unsigned int i = 0; i < vertexNumber;i++){
-                if(i > vertex){
-                    for(unsigned int j = 0; j < vertexNumber; j++){
-                        adjMatrix[j][i-1] = adjMatrix[j][i];
-                    }
-                }
-            }
-            for(unsigned int i = 0; i < vertexNumber-1; i++){
-                adjMatrix[i].pop_back();
-            }
-
-            adjMatrix.pop_back();
-            vertexNumber--;
-        }
-
-    //Getter da posição (i,j)
     int adjacencyMatrix::query(unsigned int vtx1, unsigned int vtx2){
 
         if(vtx1>=vertexNumber||vtx2>=vertexNumber)

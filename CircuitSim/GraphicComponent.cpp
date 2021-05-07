@@ -24,6 +24,7 @@ GraphicComponent::GraphicComponent(int x_ins, int y_ins,unsigned int vtx1,
     x = x_ins;
     y = y_ins;
 
+    //Construção das áreas de clique possíveis no componente
     if(s == VERTICAL){
         vertexArea2 = QRect(x, y, WIDTH, HEIGHT/2);
         vertexArea1 = QRect(x, y + HEIGHT/2, WIDTH, HEIGHT/2);
@@ -40,6 +41,7 @@ GraphicComponent::GraphicComponent(int x_ins, int y_ins,unsigned int vtx1,
 
 int GraphicComponent::clickedArea(int x_check, int y_check){
 
+    //Verifica qual área do componente foi clicada
     if(vertexArea1.contains(x_check,y_check)){
         return vertex1;
     }else if(vertexArea2.contains(x_check,y_check)){
@@ -50,18 +52,22 @@ int GraphicComponent::clickedArea(int x_check, int y_check){
 
 void GraphicComponent::draw(QPainter* painter,QColor color){
 
+    //Verifica se alguma cor foi específicada
     if(color.isValid()){
+        //Caso tenha sido, desenha o componente na cor específicada.
         QPixmap mapColored(map);
         mapColored.fill(color);
         mapColored.setMask(map.createMaskFromColor(Qt::transparent));
         painter->drawPixmap(boundRect,mapColored);
     }else{
+        //Caso contrário, desenha o componente na cor padrão.
         painter->drawPixmap(boundRect,map);
     }
 }
 
 int GraphicComponent::getHeight(){return boundRect.height();}
 int GraphicComponent::getWidth(){return boundRect.width();}
+
 QPoint GraphicComponent::getTop(){
     QPoint p = boundRect.topLeft();
     int x = p.x();
@@ -69,6 +75,7 @@ QPoint GraphicComponent::getTop(){
 
     return p;
 }
+
 QPoint GraphicComponent::getBottom(){
 
     QPoint p = boundRect.bottomLeft();
@@ -81,6 +88,7 @@ QPoint GraphicComponent::getBottom(){
 QPoint GraphicComponent::getRight(){
 
     QPoint p = boundRect.topRight();
+
     int y = p.y();
     p.setY(y+(boundRect.height()/2));
 
@@ -91,6 +99,7 @@ QPoint GraphicComponent::getLeft(){
 
     QPoint p = boundRect.topLeft();
     int y = p.y();
+
     p.setY(y+(boundRect.height()/2));
 
     return p;
@@ -100,6 +109,7 @@ enum orien GraphicComponent::getOrientation(){return orientation;}
 
 Resistor::Resistor(int x, int y,unsigned int vtx1, unsigned int vtx2, enum orien s,QObject *parent):GraphicComponent(x,y,vtx1,vtx2,s,parent){
 
+    //Possíveis modos de se desenhar o resitor.
     if(s == VERTICAL){
         map = QPixmap(":/components/resourceFile/componentFile/resistor90.png");
     }else {
@@ -113,6 +123,7 @@ Resistor::Resistor(int x, int y,unsigned int vtx1, unsigned int vtx2, enum orien
 
 Vcc::Vcc(int x, int y,  unsigned int vtx1, unsigned int vtx2, enum orien s,QObject *parent):GraphicComponent(x,y,vtx1,vtx2,s,parent){
 
+    //Possíveis modos de se desenhar a fonte.
     if(s == VERTICAL){
         map = QPixmap(":/components/resourceFile/componentFile/vcc90.png");
     }else {

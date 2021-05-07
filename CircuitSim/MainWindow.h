@@ -66,7 +66,6 @@ private:
     ******************************************************************************/
     MainWindow operator=(MainWindow&);
 
-
     static MainWindow* instance; /**< Ponteiro estático para instância.*/
 
     std::list<Diagram*> diagrams; /**< Código hexadecimal para a cor padrão de seleção de componentes.*/
@@ -245,6 +244,16 @@ public slots:
     * @return Void.
     ******************************************************************************/
     void closeFile(int index);
+
+   /******************************************************************************
+    * Abre o tutorial.
+    *
+    * Este SLOT esta conectado com o sinal de abertura de tutorial emitido pelo
+    * menu de ajuda. Abre uma janela explicando como utilizar o programa.
+    *
+    * @return Void.
+    ******************************************************************************/
+    void tutorial();
 
 
    /******************************************************************************
