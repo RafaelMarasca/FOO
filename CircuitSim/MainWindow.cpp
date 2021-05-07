@@ -65,32 +65,31 @@ void MainWindow::initializeMenu(){
     mainBar = new QMenuBar(this);
 
     //Menu de arquivos.
-    fileMenu = new QMenu("File",this);
+    fileMenu = new QMenu("Arquivo",this);
     mainBar->addMenu(fileMenu);
 
-    //Ações do menu principal.
-    newFileAct = new QAction("New File",this);
+    newFileAct = new QAction("Novo Arquivo",this);
     fileMenu->addAction(newFileAct);
 
     connect(newFileAct,SIGNAL(triggered(bool)),this,SLOT(newFile()));
 
-    openFileAct = new QAction("Open",this);
+    openFileAct = new QAction("Abrir",this);
     fileMenu->addAction(openFileAct);
 
     connect(openFileAct,SIGNAL(triggered(bool)),this, SLOT(openFile()));
 
-    saveFileAct = new QAction("Save",this);
+    saveFileAct = new QAction("Salvar",this);
     fileMenu->addAction(saveFileAct);
 
     connect(saveFileAct,SIGNAL(triggered(bool)),this, SLOT(saveFile()));
 
-    saveFileAsAct = new QAction("Save as",this);
+    saveFileAsAct = new QAction("Salvar como",this);
     fileMenu->addAction(saveFileAsAct);
 
     connect(saveFileAsAct,SIGNAL(triggered(bool)),this, SLOT(saveFileAs()));
 
     //Menu de preferências.
-    prefMenu = new QMenu("Preferences",this);
+    prefMenu = new QMenu("Preferências",this);
     mainBar->addMenu(prefMenu);
 
     //Ações do menu de preferências.
@@ -120,7 +119,7 @@ void MainWindow::initializeMenu(){
     connect(resetConfigAct, SIGNAL(triggered(bool)),this,SLOT(resetConfig()));
 
     //Menu de ajuda.
-    helpMenu = new QMenu("Help",this);
+    helpMenu = new QMenu("Ajuda",this);
     mainBar->addMenu(helpMenu);
 
     //Ações do menu de ajuda.
@@ -217,7 +216,7 @@ void MainWindow::newFile(){
 
 //Abre um arquivo.
 void MainWindow::openFile(){
-    QString fileName = QFileDialog::getOpenFileName(this,"Open file",tr("*.cct"));
+    QString fileName = QFileDialog::getOpenFileName(this,"Abrir arquivo", "*.cct");
 
     if(fileName.isNull())
          return;
@@ -228,7 +227,7 @@ void MainWindow::openFile(){
     try {
         D->load();
     }  catch (std::string s) {
-        QMessageBox::warning(this, "Warning!", "Cannot load file.");
+        QMessageBox::warning(this, "CUIDADO", "Não foi possível abrir o arquivo.");
         return;
     }
 
@@ -239,9 +238,8 @@ void MainWindow::openFile(){
     //Adiciona o diagram às abas.
     tabs->addTab(D,info.fileName());
 
-    statusBar->showMessage("\""+fileName+"\" Openned With Success");
+    statusBar->showMessage("\""+fileName+"\" Aberto com sucesso!");
 
-    //Conecta o sinal de mudança de estado do diagrama às abas.
     connect(D,SIGNAL(statusBarText(QString)),statusBar,SLOT(showMessage(QString)));
     //Conecta o sinal de mensagem do diagrama à barra de status.
     connect(D,SIGNAL(modified(bool)),this,SLOT(setTabStatus(bool)));
@@ -264,7 +262,7 @@ void MainWindow::saveFile(){
     }
 
     (*it)->save();
-    statusBar->showMessage("\""+(*it)->getFileName()+"\" Saved With Success");
+    statusBar->showMessage("\""+(*it)->getFileName()+"\" Salvo com sucesso!");
 }
 
 
@@ -274,7 +272,7 @@ void MainWindow::saveFileAs(){
     if(tabs->count()==0)
         return;
 
-    QString fileName = QFileDialog::getSaveFileName(this,tr("*.cct"));
+    QString fileName = QFileDialog::getSaveFileName(this, "*.cct");
 
     if(fileName.isNull())
         return;
@@ -288,7 +286,7 @@ void MainWindow::saveFileAs(){
     tabs->setTabText(index,info.fileName());
     (*it)->setFileName(fileName);
     (*it)->save();
-    statusBar->showMessage("\""+(*it)->getFileName()+"\" Saved With Success");
+    statusBar->showMessage("\""+(*it)->getFileName()+"\" Salvo com sucesso!");
 }
 
 //Altera o status da aba
@@ -315,7 +313,7 @@ void MainWindow::closeFile(int index){
     std::advance(it,index);
 
     if((*it)->getStatus() == UNSAVED or (*it)->getStatus() == MODIFIED){
-        QMessageBox::StandardButton b = QMessageBox::question(this, "Save Changes", "Quit without saving?");
+        QMessageBox::StandardButton b = QMessageBox::question(this, "CUIDADO", "Sair sem salvar?");
         if(b != QMessageBox::StandardButton::Yes)
             return;
     }
