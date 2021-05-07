@@ -46,7 +46,7 @@ namespace GRF {
 }
 
 namespace CMP {
-	enum type {
+	enum type <<Enum>> {
 		RESISTOR
 		VCC
 	}
@@ -199,7 +199,7 @@ namespace NM {
 
 NM.EquationSystem "1" --* "1" CCT.Circuit
 
-enum orien {
+enum orien <<Enum>> {
 	VERTICAL
 	HORIZONTAL
 }
@@ -268,20 +268,20 @@ class Vcc implements GraphicComponent {
 }
 
 
-enum cmpStyle {
+enum cmpStyle <<Enum>> {
 	VCC90
 	VCC180
 	RES90
 	RES180
 	NONE
 }
-enum stats {
+enum stats <<Enum>> {
 	UNSAVED
 	MODIFIED
 	OK
 	ERROR
 }
-enum mode {
+enum mode <<Enum>> {
 	EDIT
 	QUERY
 }
@@ -375,7 +375,7 @@ CCT.Circuit "1" --* "1" Diagram
 
 GraphicComponent "0..*" --o "1" Diagram
 
-class MainWindow extends QMainWindow {
+class MainWindow <<(S,#909090) Singleton>> extends QMainWindow  {
 	- explicit MainWindow(parent QWidget* = nullptr)
 
 	- MainWindow(const MainWindow&)
