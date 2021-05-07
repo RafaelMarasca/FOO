@@ -337,14 +337,14 @@ void MainWindow::tutorial(){
     statusBar->showMessage("Eu sou a barra de status!",3000);
     QMessageBox::information(this,"Ajuda","A barra de status fornece informações importantes acerca do programa, "
                                           "então, é recomendável ficar atento e observá-la.");
-    QMessageBox::information(this,"Ajuda","Agora que você já sabe um pouco sobre o sistema de menus,"
+    QMessageBox::information(this,"Ajuda","Agora que você já sabe um pouco sobre o sistema de menus, "
                                           "vamos aprender sobre o sistema de construção de circuitos");
     QMessageBox::information(this,"Ajuda","Ao criar um novo arquivo, uma aba abrirá automáticamente.");
     QMessageBox::information(this,"Ajuda","Esta aba contém um plano de fundo quadriculado, onde os componentes "
                                           "podem ser inseridos.");
     QMessageBox::information(this,"Ajuda","Para se inserir um componente, se atente para a barra de ferramentas "
                                           "que se encontra no lado direito da tela.");
-    QMessageBox::information(this,"Ajuda","Esta barra possui 4 botões, referentes aos componentes que podem"
+    QMessageBox::information(this,"Ajuda","Esta barra possui 4 botões, referentes aos componentes que podem "
                                           "ser inseridos.");
     QMessageBox::information(this,"Ajuda","Ao clicar em um destes botões, o componente é selecionado e basta clicar "
                                           "em um ponto da tela quadriculada para inserí-lo.");
@@ -356,9 +356,9 @@ void MainWindow::tutorial(){
                                           "de estar com o botão lápis selecionado.");
     QMessageBox::information(this,"Ajuda","Para editar ou remover um componente, clieque neste com o botão direito do "
                                           "mouse e selecione a opção desejada.");
-    QMessageBox::information(this,"Ajuda","Para consultar os valores do circuito, aperte o botão play, clique no"
+    QMessageBox::information(this,"Ajuda","Para consultar os valores do circuito, aperte o botão play, clique no "
                                           "componente desejado com o botão direito do mouse e selecione consultar."
-                                          "Certifique-se de estar com o botão play selecionado.");
+                                          " Certifique-se de estar com o botão play selecionado.");
     QMessageBox::information(this,"Ajuda","O programa suporta múltiplas abas, permitindo editar vários circuitos de "
                                           "uma só vez.");
     QMessageBox::information(this,"Ajuda","Chegamos ao fim do tutorial e você, agora, está mais do que pronto para "

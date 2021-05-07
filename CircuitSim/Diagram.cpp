@@ -2,7 +2,7 @@
  * @file Diagram.cpp
  * @authors: Lucas Carvalho; Rafael Marasca Martins
  * @date: 30 04 2021
- * @brief Declaração da classe Numeric.
+ * @brief Implementação da classe Diagram.
  * 
  * Este arquivo contém as implementações dos métodos e membros da classe Diagram.
  * 

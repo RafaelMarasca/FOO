@@ -39,7 +39,7 @@ namespace CMP {
     * de qualquer componente presente no circuito. Esta classe é desenvolvida
     * para a utilização conjunta com a classe Circuit.
     ***************************************************************************/
-    class Component {
+    class Component{
 
         protected:
             std::string label; /**< Armazena o nome de identificação do componente.*/

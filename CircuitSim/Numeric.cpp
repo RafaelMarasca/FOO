@@ -2,7 +2,7 @@
  * @file Numeric.cpp
  * @authors: Lucas Carvalho; Rafael Marasca Martins
  * @date: 19 04 2021
- * @brief Declaração da classe Numeric.
+ * @brief Implementação das classe Matrix e EquationSystem.
  * 
  * Este arquivo contém as delcarações dos métodos e membros da classe Numeric.
  * 
