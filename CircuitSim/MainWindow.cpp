@@ -328,8 +328,8 @@ void MainWindow::tutorial(){
     QMessageBox::information(this,"Ajuda","Bem vindo ao CirucitSim - Simulador de Circuitos!");
     QMessageBox::information(this,"Ajuda","Vamos lhe ensinar como utilizar o simulador.");
     QMessageBox::information(this,"Ajuda","Na parte de cima encontram-se os menus.");
-    QMessageBox::information(this,"Ajuda","Os menu de arquivos lhe permite criar um novo projeto, "
-                                          "salvá-lo ou abrí-lo.");
+    QMessageBox::information(this,"Ajuda","O menu de arquivos lhe permite criar um novo projeto, "
+                                          "salvá-lo ou abri-lo.");
     QMessageBox::information(this,"Ajuda","Ao lado, há o menu de preferências.");
     QMessageBox::information(this,"Ajuda","O menu de preferências lhe permite alterar o aspecto visual"
                                           " do programa.");
@@ -347,14 +347,14 @@ void MainWindow::tutorial(){
     QMessageBox::information(this,"Ajuda","Esta barra possui 4 botões, referentes aos componentes que podem "
                                           "ser inseridos.");
     QMessageBox::information(this,"Ajuda","Ao clicar em um destes botões, o componente é selecionado e basta clicar "
-                                          "em um ponto da tela quadriculada para inserí-lo.");
+                                          "em um ponto da tela quadriculada para inseri-lo.");
     QMessageBox::information(this,"Ajuda","Para realizar uma conexão entre dois componentes, clique em uma das "
                                           "extremidades de um dos componentes e, em seguida, em uma das extremidades"
                                           " do outro componente.");
     QMessageBox::information(this,"Ajuda","Na parte inferior da tela, há dois botões, o botão play e o botão lápis.");
-    QMessageBox::information(this,"Ajuda","Quando se desejar inserir, remover ou editar um componente, certifique-se"
+    QMessageBox::information(this,"Ajuda","Quando se desejar inserir, remover ou editar um componente, certifique-se "
                                           "de estar com o botão lápis selecionado.");
-    QMessageBox::information(this,"Ajuda","Para editar ou remover um componente, clieque neste com o botão direito do "
+    QMessageBox::information(this,"Ajuda","Para editar ou remover um componente, clique neste com o botão direito do "
                                           "mouse e selecione a opção desejada.");
     QMessageBox::information(this,"Ajuda","Para consultar os valores do circuito, aperte o botão play, clique no "
                                           "componente desejado com o botão direito do mouse e selecione consultar."
@@ -362,7 +362,7 @@ void MainWindow::tutorial(){
     QMessageBox::information(this,"Ajuda","O programa suporta múltiplas abas, permitindo editar vários circuitos de "
                                           "uma só vez.");
     QMessageBox::information(this,"Ajuda","Chegamos ao fim do tutorial e você, agora, está mais do que pronto para "
-                                          "utilizar o CircuitSim! Esperamos que a experiência seja a melhor possível!"
+                                          "utilizar o CircuitSim! Esperamos que a experiência seja a melhor possível! "
                                           "Caso precise rever este tutorial, basta clicar no menu de ajuda.");
 }
 

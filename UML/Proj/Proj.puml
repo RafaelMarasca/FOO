@@ -430,6 +430,8 @@ class MainWindow extends QMainWindow {
 	+ saveFileAs() : void
 	+ openFile() : void
 	+ closeFile(index : int) : void
+	
+	+ tutorial() : void
 
 	+ setTabStatus(modified : bool) : void	
 	
